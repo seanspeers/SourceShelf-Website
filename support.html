@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Support for SourceShelf, the local-first Mac app for Markdown source capture and conversion.">
+  <meta name="theme-color" content="#08244d">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Support | SourceShelf">
+  <meta property="og:description" content="Get help with SourceShelf for Mac.">
+  <meta property="og:url" content="https://SourceShelf.app/support.html">
+  <meta property="og:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support | SourceShelf">
+  <meta name="twitter:description" content="Get help with SourceShelf for Mac.">
+  <meta name="twitter:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Support | SourceShelf</title>
+  <link rel="icon" href="assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html">
+        <img class="brand-icon" src="assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="privacy.html">Privacy</a>
+        <a class="nav-link" href="support.html" aria-current="page">Support</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section class="section page-hero" aria-labelledby="page-title">
+      <p class="eyebrow">SourceShelf</p>
+      <h1 id="page-title">Support</h1>
+      <p>Need help with SourceShelf? Email <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>.</p>
+    </section>
+
+    <section class="section content-grid" aria-label="Support details">
+      <section class="content-section" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact</h2>
+        <p><a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a></p>
+      </section>
+
+      <section class="content-section" aria-labelledby="getting-started-title">
+        <h2 id="getting-started-title">Getting started</h2>
+        <ol class="steps">
+          <li>Install SourceShelf.</li>
+          <li>Open the app once.</li>
+          <li>Choose or confirm an output folder.</li>
+          <li>Enable the Safari extension in Safari Settings.</li>
+          <li>Capture web pages or drag files/folders into the app.</li>
+        </ol>
+      </section>
+
+      <section class="content-section" aria-labelledby="safari-help-title">
+        <h2 id="safari-help-title">Safari extension help</h2>
+        <p>The extension can save entire pages, main content, selected text, or selected visible areas. Captures are routed through the SourceShelf app for local saving.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="formats-title">
+        <h2 id="formats-title">Supported formats</h2>
+        <ul class="pill-list">
+          <li>Safari captures</li>
+          <li>PDFs with selectable text</li>
+          <li>Scanned PDFs via local OCR</li>
+          <li>TXT</li>
+          <li>Markdown</li>
+          <li>HTML</li>
+          <li>RTF</li>
+          <li>PNG</li>
+          <li>JPEG</li>
+          <li>TIFF</li>
+          <li>HEIC/HEIF where supported</li>
+          <li>DOCX</li>
+          <li>PPTX</li>
+          <li>XLSX</li>
+          <li>Folders containing supported files</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="issues-title">
+        <h2 id="issues-title">Common issues</h2>
+        <div class="issue-list">
+          <article class="issue">
+            <h3>Safari extension does not appear</h3>
+            <p>Enable it in Safari Settings and reopen Safari.</p>
+          </article>
+          <article class="issue">
+            <h3>Captures are queued</h3>
+            <p>Open SourceShelf and authorize the output folder.</p>
+          </article>
+          <article class="issue">
+            <h3>OCR quality varies</h3>
+            <p>OCR is local and best effort. Use clear/high-resolution scans.</p>
+          </article>
+          <article class="issue">
+            <h3>Legacy Office files</h3>
+            <p>Save as <code>.docx</code>, <code>.pptx</code>, or <code>.xlsx</code> first.</p>
+          </article>
+          <article class="issue">
+            <h3>Missing files in Recent</h3>
+            <p>The generated Markdown file may have been moved or deleted.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content-section" aria-labelledby="known-limitations-title">
+        <h2 id="known-limitations-title">Known limitations</h2>
+        <ul class="plain-list">
+          <li>Legacy Office files <code>.doc</code>, <code>.ppt</code>, <code>.xls</code> are not currently supported.</li>
+          <li>OCR is best effort.</li>
+          <li>Complex document layout may not be preserved perfectly.</li>
+          <li>Folder structure mirroring and folder watching are not currently included.</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="release-notes-title">
+        <h2 id="release-notes-title">Release notes</h2>
+        <!-- TODO: Replace # with /releases.html when release notes are published. -->
+        <p><a href="#">Release notes coming soon</a></p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
