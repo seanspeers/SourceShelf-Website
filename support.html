@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support for SourceShelf, the local-first Mac app for Markdown source capture and conversion.">
+  <meta name="description" content="Support for SourceShelf, the local-first Mac app for Markdown capture, documentation imports, and AI Reference Pack export.">
   <meta name="theme-color" content="#08244d">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Support | SourceShelf">
-  <meta property="og:description" content="Get help with SourceShelf for Mac.">
+  <meta property="og:description" content="Get help with SourceShelf capture, conversion, documentation imports, and AI Reference Pack export.">
   <meta property="og:url" content="https://SourceShelf.app/support.html">
   <meta property="og:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Support | SourceShelf">
-  <meta name="twitter:description" content="Get help with SourceShelf for Mac.">
+  <meta name="twitter:description" content="Get help with SourceShelf capture, conversion, documentation imports, and AI Reference Pack export.">
   <meta name="twitter:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <title>Support | SourceShelf</title>
   <link rel="icon" href="assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
@@ -69,12 +69,37 @@
           <li>Choose or confirm an output folder.</li>
           <li>Enable the Safari extension in Safari Settings.</li>
           <li>Capture web pages or drag files/folders into the app.</li>
+          <li>Select sources, review Pack Health, then export an AI Reference Pack when ready.</li>
         </ol>
       </section>
 
       <section class="content-section" aria-labelledby="safari-help-title">
         <h2 id="safari-help-title">Safari extension help</h2>
-        <p>The extension can save entire pages, main content, selected text, or selected visible areas. Captures are routed through the SourceShelf app for local saving.</p>
+        <p>The extension can save entire pages, main content, selected text, or selected visible areas. Captures are routed through the SourceShelf app for local saving. When Safari can access browser-local images in authenticated web apps, SourceShelf can preserve those images with the captured Markdown.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="pack-export-title">
+        <h2 id="pack-export-title">AI Reference Pack export</h2>
+        <p>Selected captures and documents can be exported as a structured ZIP for AI tools, long-term archives, and reuse.</p>
+        <ul class="plain-list">
+          <li>Each selected source becomes its own Markdown page.</li>
+          <li>The export includes a clear index, manifest, and combined Markdown file.</li>
+          <li>Images that were captured or archived locally can travel with the Markdown.</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="pack-health-help-title">
+        <h2 id="pack-health-help-title">Pack Health</h2>
+        <p>Pack Health shows whether selected content is ready, has warnings, or needs attention before export.</p>
+        <ul class="plain-list">
+          <li>Flags missing Markdown, broken local image links, missing archived images, and duplicate page names.</li>
+          <li>Calls out remote images, skipped media, and linked documents that remain links instead of bundled files.</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="documentation-imports-title">
+        <h2 id="documentation-imports-title">Documentation imports</h2>
+        <p>Drop in an exported HTML documentation folder and SourceShelf focuses on the actual pages instead of every icon, screenshot, or support file. Confluence-style exports can become clean Markdown pages with relevant images attached to the right page.</p>
       </section>
 
       <section class="content-section" aria-labelledby="formats-title">
@@ -86,6 +111,8 @@
           <li>TXT</li>
           <li>Markdown</li>
           <li>HTML</li>
+          <li>Exported HTML documentation folders</li>
+          <li>Confluence-style HTML exports</li>
           <li>RTF</li>
           <li>PNG</li>
           <li>JPEG</li>
@@ -121,6 +148,22 @@
             <h3>Missing files in Recent</h3>
             <p>The generated Markdown file may have been moved or deleted.</p>
           </article>
+          <article class="issue">
+            <h3>Pack Health shows warnings</h3>
+            <p>Review missing Markdown, broken image links, missing archived images, duplicate page names, skipped media, and linked documents before export.</p>
+          </article>
+          <article class="issue">
+            <h3>Remote images are not bundled</h3>
+            <p>Remote images may remain links unless they were captured or archived locally first.</p>
+          </article>
+          <article class="issue">
+            <h3>Documentation export includes extra files</h3>
+            <p>Use the documentation import flow so SourceShelf can focus on actual pages and attach relevant images to the right Markdown file.</p>
+          </article>
+          <article class="issue">
+            <h3>Local storage is growing</h3>
+            <p>Use the Local Privacy page to review archived web assets, storage usage, and careful cleanup for truly orphaned files only.</p>
+          </article>
         </div>
       </section>
 
@@ -130,6 +173,7 @@
           <li>Legacy Office files <code>.doc</code>, <code>.ppt</code>, <code>.xls</code> are not currently supported.</li>
           <li>OCR is best effort.</li>
           <li>Complex document layout may not be preserved perfectly.</li>
+          <li>Remote images and linked documents may remain links if they were not captured or archived locally.</li>
           <li>Folder structure mirroring and folder watching are not currently included.</li>
         </ul>
       </section>

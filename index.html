@@ -3,16 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="SourceShelf turns webpages, files, and folders into local Markdown source packs on your Mac.">
+  <meta name="description" content="SourceShelf turns webpages, files, folders, and documentation exports into local Markdown and AI-ready knowledge packs on your Mac.">
   <meta name="theme-color" content="#08244d">
   <meta property="og:type" content="website">
   <meta property="og:title" content="SourceShelf">
-  <meta property="og:description" content="Turn webpages, files, and folders into local Markdown source packs.">
+  <meta property="og:description" content="Capture local Markdown with assets and export structured AI-ready knowledge packs.">
   <meta property="og:url" content="https://SourceShelf.app/">
   <meta property="og:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SourceShelf">
-  <meta name="twitter:description" content="Turn webpages, files, and folders into local Markdown source packs.">
+  <meta name="twitter:description" content="Capture local Markdown with assets and export structured AI-ready knowledge packs.">
   <meta name="twitter:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <title>SourceShelf</title>
   <link rel="icon" href="assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
@@ -53,8 +53,8 @@
       <div class="hero-copy">
         <img class="hero-icon" src="assets/icons/SourceShelf-Icon-lightmode.png" alt="SourceShelf app icon" width="116" height="116">
         <h1 id="hero-title">SourceShelf</h1>
-        <p class="tagline">Turn webpages, files, and folders into local Markdown source packs.</p>
-        <p class="subheading">Capture web pages from Safari, convert documents and folders to Markdown, and build AI-ready Context Packs — all locally on your Mac.</p>
+        <p class="tagline">Turn webpages, files, and folders into local Markdown and AI-ready knowledge packs.</p>
+        <p class="subheading">Capture web pages from Safari, convert documents and documentation folders to Markdown, preserve useful images, and export structured AI Reference Packs — all locally on your Mac.</p>
         <div class="actions">
           <!-- TODO: Replace # with the Mac App Store URL when SourceShelf is available. -->
           <a class="button button-primary" href="#" aria-label="Coming soon to the Mac App Store">Coming soon to the Mac App Store</a>
@@ -69,8 +69,8 @@
     <section class="section" aria-labelledby="features-title">
       <div class="section-heading">
         <p class="eyebrow">What it does</p>
-        <h2 id="features-title">One shelf for source material that needs to become Markdown.</h2>
-        <p>Capture, convert, search, and package local source files without sending your work to a cloud conversion service.</p>
+        <h2 id="features-title">One shelf for source material, images, and AI-ready packs.</h2>
+        <p>Capture, convert, search, validate, and package local source files without sending your work to a cloud conversion service.</p>
       </div>
 
       <div class="features">
@@ -89,7 +89,7 @@
           <div class="feature-copy">
             <span class="feature-number">02</span>
             <h3>Clip web content from Safari</h3>
-            <p>Save full pages, main content, selected text, or visible page areas directly from Safari.</p>
+            <p>Save full pages, main content, selected text, or visible page areas directly from Safari, including browser-local images Safari can access during capture.</p>
           </div>
           <div class="screenshot-frame">
             <img src="assets/screenshots/2-clip-web-content.png" alt="SourceShelf Safari clipping screen with options for full page, main content, selected text, and visible area." width="2880" height="1800" loading="lazy">
@@ -99,8 +99,8 @@
         <article class="feature-card">
           <div class="feature-copy">
             <span class="feature-number">03</span>
-            <h3>Folder batch conversion</h3>
-            <p>Convert whole folders of PDFs, Office files, images, HTML, text, and Markdown.</p>
+            <h3>Folder and documentation imports</h3>
+            <p>Convert whole folders of PDFs, Office files, images, HTML, text, Markdown, and exported documentation sites.</p>
           </div>
           <div class="screenshot-frame">
             <img src="assets/screenshots/3-batch-conversion.png" alt="SourceShelf batch conversion screen for converting a folder of supported files." width="2880" height="1800" loading="lazy">
@@ -121,8 +121,8 @@
         <article class="feature-card">
           <div class="feature-copy">
             <span class="feature-number">05</span>
-            <h3>Build AI-ready Context Packs</h3>
-            <p>Select sources, estimate size, and export or copy one clean Markdown pack for AI tools or long-term archives.</p>
+            <h3>Export AI-ready knowledge packs</h3>
+            <p>Turn selected captures and documents into a structured ZIP with one Markdown page per source, plus an index, manifest, and combined file.</p>
           </div>
           <div class="screenshot-frame">
             <img src="assets/screenshots/5-ai-ready-packs.png" alt="SourceShelf Context Pack builder showing selected sources and estimated size." width="2880" height="1800" loading="lazy">
@@ -143,8 +143,8 @@
         <article class="feature-card">
           <div class="feature-copy">
             <span class="feature-number">07</span>
-            <h3>Generated Markdown output</h3>
-            <p>Readable Markdown with source metadata preserved.</p>
+            <h3>Generated Markdown with assets</h3>
+            <p>Readable Markdown with source metadata preserved, plus images saved in clear sidecar folders like <code>Page Name.assets</code>.</p>
           </div>
           <div class="screenshot-frame">
             <img src="assets/screenshots/7-generate-markdown.png" alt="SourceShelf generated Markdown preview with source metadata." width="2880" height="1800" loading="lazy">
@@ -155,7 +155,7 @@
           <div class="feature-copy">
             <span class="feature-number">08</span>
             <h3>Private by design</h3>
-            <p>No cloud conversion, no telemetry, no analytics, and no account required.</p>
+            <p>Captures, assets, pack checks, cleanup, and exports all happen locally on your Mac with no cloud processing or telemetry.</p>
           </div>
           <div class="screenshot-frame">
             <img src="assets/screenshots/8-private-by-design.png" alt="SourceShelf privacy screen describing local-first processing." width="2880" height="1800" loading="lazy">
@@ -175,6 +175,41 @@
       </div>
     </section>
 
+    <section class="section" aria-labelledby="pack-health-title">
+      <div class="section-heading">
+        <p class="eyebrow">AI Reference Packs</p>
+        <h2 id="pack-health-title">Know what is ready before you export.</h2>
+        <p>Pack Health helps you understand what will be bundled, what needs attention, and what remains linked before creating a reusable knowledge pack.</p>
+      </div>
+      <div class="info-grid">
+        <section class="info-card" aria-labelledby="pack-ready-title">
+          <h2 id="pack-ready-title">Pack readiness</h2>
+          <ul class="plain-list">
+            <li>See whether selected content is ready, has warnings, or needs attention.</li>
+            <li>Spot missing Markdown, broken local image links, missing archived images, and duplicate page names early.</li>
+          </ul>
+        </section>
+
+        <section class="info-card" aria-labelledby="pack-included-title">
+          <h2 id="pack-included-title">Clear bundle contents</h2>
+          <ul class="plain-list">
+            <li>Each selected source becomes its own Markdown page for easy browsing and reuse.</li>
+            <li>Remote images, skipped media, and linked documents are called out when they remain links instead of bundled files.</li>
+          </ul>
+        </section>
+
+        <section class="info-card" aria-labelledby="asset-preservation-title">
+          <h2 id="asset-preservation-title">Images travel with content</h2>
+          <p>Web screenshots, diagrams, embedded images, and browser-local images from authenticated apps like Confluence can travel with captured Markdown when Safari can access them.</p>
+        </section>
+
+        <section class="info-card" aria-labelledby="archive-safety-title">
+          <h2 id="archive-safety-title">Safer long-term archives</h2>
+          <p>Images are owned by the SourceShelf item record, so moving or deleting an exported Markdown file does not automatically destroy the archived assets.</p>
+        </section>
+      </div>
+    </section>
+
     <section class="section" aria-labelledby="details-title">
       <div class="section-heading">
         <p class="eyebrow">Details</p>
@@ -190,6 +225,8 @@
             <li>TXT</li>
             <li>Markdown</li>
             <li>HTML</li>
+            <li>Exported HTML documentation folders</li>
+            <li>Confluence-style HTML exports</li>
             <li>RTF</li>
             <li>PNG</li>
             <li>JPEG</li>
