@@ -6,6 +6,8 @@ Open **SourceShelf > Settings**. The window is resizable and is organized into f
 
 Choose the output folder used for new converted and captured Markdown. SourceShelf stores an authorized bookmark locally so it can return to that folder. Changing it affects future output; it does not move existing files.
 
+**Review Storage…** inventories generated Markdown, projected output assets, managed Library copies, semantic caches, local MCP snapshots, and capture drafts/staging. Safe Cleanup removes only orphaned or regenerable internal data. Generated-source cleanup is a separate selection-and-confirmation workflow that moves output files to Trash; starred and saved-pack sources are protected by default, and original imported documents are never deletion targets. See [Manage SourceShelf Storage](../guides/storage-management.md) for the complete workflow.
+
 ## Capture
 
 Capture settings include:
@@ -17,7 +19,7 @@ Capture settings include:
 - capture recipe creation, duplication, deletion, ordering, templates, YAML, behavior, and domain rules;
 - the Safari quick-capture keyboard action and its preferred recipe.
 
-Recipe changes are saved to the app-group container and published for the matching Safari extension build.
+Recipe changes are saved locally and published to the SourceShelf Safari extension.
 
 ## Export
 

@@ -33,7 +33,7 @@ command = "/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer"
 args = ["--share", "<share-id>"]
 ```
 
-You may instead put the entry in a trusted project’s `.codex/config.toml` when the connection should be project-specific. Use the exact command from the SourceShelf build that owns the share.
+You may instead put the entry in a trusted project’s `.codex/config.toml` when the connection should be project-specific. Use the exact command copied from the SourceShelf share.
 
 ## Option 3: Codex app settings
 
@@ -57,6 +57,6 @@ or use `codex --oss` when your Codex local-provider configuration already target
 
 Use `codex mcp remove sourceshelf-municipal-research` to remove the client entry. This does not revoke the SourceShelf share. To revoke access immediately, choose **Stop Sharing** in SourceShelf as well.
 
-If you move or rebuild SourceShelf, delete or update the old Codex entry and copy a fresh helper path.
+If you move, reinstall, or update SourceShelf, delete or update the old Codex entry and copy a fresh helper path.
 
 Official reference: [Codex MCP configuration](https://developers.openai.com/codex/mcp/).

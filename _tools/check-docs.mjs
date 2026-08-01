@@ -182,8 +182,9 @@ for (const htmlFile of htmlFiles) {
   }
 }
 
-if (htmlFiles.filter((file) => file.includes(`${path.sep}docs${path.sep}`)).length !== 20) {
-  errors.push("The generated documentation route count is not 20");
+const generatedDocCount = htmlFiles.filter((file) => file.includes(`${path.sep}docs${path.sep}`)).length;
+if (generatedDocCount !== navigation.pages.length) {
+  errors.push(`Expected ${navigation.pages.length} generated documentation routes, found ${generatedDocCount}`);
 }
 
 const generatedImages = allFiles.filter((file) => (

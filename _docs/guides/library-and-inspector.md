@@ -1,6 +1,6 @@
 # Library and Inspector
 
-Library is the source browser. It is deliberately separate from Packs: filtering Library never opens, reorders, or changes a saved pack.
+Library is the source browser. It is deliberately separate from Packs: filtering Library never opens, reorders, or changes a saved pack. SourceShelf retains Library entries until you explicitly remove them; it does not automatically discard older sources.
 
 ![Synthetic files shown in the Library](../assets/images/library.png)
 
@@ -60,4 +60,6 @@ The preview reads at most 256 KiB from the local Markdown file. It strips only l
 
 ## Maintenance
 
-The Library maintenance menu can remove missing entries or clear unstarred history. These actions operate on Library records, not generated Markdown files. Star important items before a cleanup.
+The Library maintenance menu can remove missing entries or clear unstarred history. These actions operate on Library records, not generated Markdown files.
+
+For storage cleanup, open **Settings > General > Review Storage…**. Safe Cleanup is limited to orphaned managed data, obsolete caches, expired capture staging, and revoked MCP snapshots. Generated Markdown cleanup requires selecting the affected sources and confirmation; output is moved to Trash, while original imported documents are never touched. Starred and saved-pack sources are locked unless you deliberately enable protected-source selection. See [Manage SourceShelf Storage](storage-management.md) for a guided walkthrough.

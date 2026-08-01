@@ -29,6 +29,8 @@ Depending on the features you use, local storage includes:
 
 Draft snapshots and baselines store identifiers, order, dates, and hashes—not copies of arbitrary Markdown content. MCP snapshots intentionally copy only a shared pack’s readable Markdown and referenced assets so the sandboxed helper does not need broad file access.
 
+Library records are retained until you remove them. **Settings > General > Review Storage…** separates safe, regenerable cleanup from deletion of generated source data. User-visible generated output is moved to Trash, starred and saved-pack sources are protected by default, and original imported documents are never selected or deleted. See [Manage SourceShelf Storage](../guides/storage-management.md) for the cleanup workflow.
+
 ## Local path privacy
 
 The app shows local paths in its own inspector so you can open or reveal files. File-source paths are excluded from exported provenance, OKF concepts, manifests, `llms.txt` output, and MCP snapshots. Screenshot documentation should likewise crop or mask these local-only details.
@@ -52,6 +54,6 @@ The two tools search the snapshot and read an allowlisted resource. There is no 
 
 ## Share IDs and configurations
 
-A share ID authorizes one local snapshot. Keep it out of public repositories and documentation screenshots. If SourceShelf is moved or rebuilt, recopy the helper path. Revoke access from SourceShelf rather than relying only on removing a client configuration.
+A share ID authorizes one local snapshot. Keep it out of public repositories and documentation screenshots. If SourceShelf is moved, reinstalled, or updated, recopy the helper path. Revoke access from SourceShelf rather than relying only on removing a client configuration.
 
 For the product privacy statement and implementation detail, see the [SourceShelf Privacy Policy](/privacy.html).

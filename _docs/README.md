@@ -9,6 +9,7 @@ SourceShelf turns files and web research into local Markdown, ordered context pa
 - [Browse the Library](guides/library-and-inspector.md) — search, filters, source status, actions, and previews.
 - [Build and manage packs](guides/build-and-manage-packs.md) — saved packs, ordering, drafts, Trust & Safety, and Refresh & Compare.
 - [Choose an export format](guides/export-formats.md) — AI Reference Pack, OKF, Markdown, `llms.txt`, and clipboard workflows.
+- [Manage storage](guides/storage-management.md) — review local usage, safely clear obsolete data, and deliberately remove generated sources.
 
 ## Local AI access (MCP)
 

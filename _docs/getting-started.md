@@ -70,3 +70,4 @@ ZIP and `llms.txt` folder exports run a fresh Trust & Safety check. Markdown and
 - Capture web research with [the Safari extension](guides/safari-capture.md).
 - Connect a saved pack to a local AI app with [Local AI Access](mcp/local-ai-access.md).
 - Learn what each bundle contains in [Choose an export format](guides/export-formats.md).
+- Learn how retention and cleanup work in [Manage SourceShelf Storage](guides/storage-management.md).

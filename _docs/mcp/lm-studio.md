@@ -32,7 +32,7 @@ The result has this shape:
 }
 ```
 
-Use the exact command and share ID copied by SourceShelf. A debug build usually points into Xcode’s build products rather than `/Applications`.
+Use the exact command and share ID copied by SourceShelf. Do not manually substitute an application or helper path.
 
 ## Test the tools
 
@@ -54,11 +54,11 @@ LM Studio can also make configured MCP servers available to an API-driven agent.
 
 ### “Plugin process exited unexpectedly with code 1”
 
-The helper could not start or validate the share. Recopy the configuration after moving/rebuilding SourceShelf, confirm sharing is enabled, and confirm the pack still shows a current snapshot.
+The helper could not start or validate the share. Recopy the configuration after moving or updating SourceShelf, confirm sharing is enabled, and confirm the pack still shows a current snapshot.
 
 ### “Unknown method: tools/list”
 
-The client reached a resource-only or older helper. Rebuild or install the current SourceShelf version, recopy the configuration, and restart the integration. Current SourceShelf exposes both `search_pack` and `read_pack_resource`.
+The client reached a resource-only or older helper. Install the current SourceShelf version, recopy the configuration, and restart the integration. Current SourceShelf exposes both `search_pack` and `read_pack_resource`.
 
 ### The context window fills quickly
 

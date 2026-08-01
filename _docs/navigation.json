@@ -42,6 +42,13 @@
       "description": "Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library."
     },
     {
+      "source": "guides/storage-management.md",
+      "route": "/docs/guides/storage-management/",
+      "label": "Manage Storage",
+      "group": "Guides",
+      "description": "Review SourceShelf storage use, run safe cleanup, and deliberately remove generated source data."
+    },
+    {
       "source": "guides/build-and-manage-packs.md",
       "route": "/docs/guides/build-and-manage-packs/",
       "label": "Build and Manage Packs",

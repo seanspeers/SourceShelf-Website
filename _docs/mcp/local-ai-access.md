@@ -71,9 +71,9 @@ SourceShelf re-evaluates shares after relevant pack, Library, and trust-policy c
 
 The helper reloads registry and snapshot metadata for every request, so a running client cannot keep reading a revoked share.
 
-## Moving or replacing SourceShelf
+## Moving or updating SourceShelf
 
-Copied configurations point to the helper inside the current SourceShelf app bundle. If you move the app, replace a debug build with a release build, or switch between TestFlight and local builds, copy a fresh configuration from the intended app.
+Copied configurations point to the helper inside the SourceShelf app. If you move, reinstall, or update SourceShelf, copy a fresh configuration from **Local AI Access…** so the AI client uses the current helper location.
 
 ## Choose a client guide
 

@@ -585,9 +585,6 @@ async function writeSitemap() {
 }
 
 async function build() {
-  if (navigation.pages.length !== 20) {
-    throw new Error(`Expected 20 documentation pages, found ${navigation.pages.length}`);
-  }
   if (pageBySource.size !== navigation.pages.length) {
     throw new Error("Documentation navigation contains duplicate source paths");
   }

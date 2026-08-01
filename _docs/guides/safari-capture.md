@@ -2,14 +2,11 @@
 
 The SourceShelf Safari extension saves the current page, main content, a selection, a selected page area, or a basket of research highlights as local Markdown.
 
-## Enable the correct extension
+## Enable the Safari extension
 
-1. Launch the SourceShelf app you intend to use.
+1. Launch SourceShelf.
 2. Open **Safari > Settings > Extensions**.
-3. Enable the SourceShelf extension shown as coming from that app.
-4. If several SourceShelf builds are installed, disable the others while testing. The extension version and containing-app name in Safari help identify the build.
-
-Debug, TestFlight, and released builds can have separate app-group data. A Safari extension communicates with its containing SourceShelf build, so a recipe created in one build may not appear in another.
+3. Enable the SourceShelf extension.
 
 ## Capture modes
 
@@ -72,7 +69,7 @@ Review drafts survive app relaunch. Saving reparses the edited Markdown and copi
 
 If a new recipe does not appear in Safari:
 
-1. Confirm the extension belongs to the same SourceShelf build where the recipe was created.
-2. Open the SourceShelf app once so it can publish the current recipe snapshot.
+1. Confirm the SourceShelf extension is enabled in Safari.
+2. Open SourceShelf once so it can publish the current recipes.
 3. Close and reopen the extension popup; a Safari restart should not normally be necessary.
 4. If the menu is empty, open **Capture Settings** from the popup and confirm at least Standard or a custom recipe exists.

@@ -26,17 +26,16 @@ Diagnostics belong on standard error. JSON-RPC protocol messages belong on stand
 
 Likely causes:
 
-- the configured app was moved, rebuilt, or replaced;
+- the configured app was moved, updated, or replaced;
 - the copied share was revoked;
 - global MCP sharing is disabled;
-- the snapshot or registry cannot be read;
-- the helper belongs to a different SourceShelf build or app group.
+- the snapshot or registry cannot be read.
 
-Open the intended SourceShelf build, confirm the pack share, and copy a fresh configuration.
+Open SourceShelf, confirm the pack share, and copy a fresh configuration.
 
 ### Method not found: `tools/list`
 
-The client reached an older resource-only helper. Install or rebuild current SourceShelf, then recopy the command and restart the client integration. Current SourceShelf advertises `search_pack` and `read_pack_resource`.
+The client reached an older resource-only helper. Install the current SourceShelf version, then recopy the command and restart the client integration. Current SourceShelf advertises `search_pack` and `read_pack_resource`.
 
 ### Resource not found
 
@@ -62,11 +61,7 @@ Use meaningful content terms rather than punctuation-heavy text. Search is local
 
 Call `read_pack_resource` again with the returned cursor. Smaller `max_characters` values help limited-context models.
 
-### “(null) differs from previously opened versions” on macOS
-
-This Gatekeeper-style prompt can appear when a frequently rebuilt debug helper has incomplete or unstable bundle identity. Use the current signed app build and helper, ensure the helper’s executable metadata and code signing are current, then recopy its path. Do not approve a helper you did not build or install intentionally.
-
-## 4. Revoke and rebuild
+## 4. Create a new authorization
 
 If the client state remains ambiguous:
 
