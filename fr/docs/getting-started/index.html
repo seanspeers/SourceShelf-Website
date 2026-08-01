@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cette procédure détaillée convertit quelques fichiers, crée un pack ordonné, le vérifie et l&#39;exporte.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/getting-started/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/getting-started/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/getting-started/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/getting-started/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/getting-started/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/getting-started/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/getting-started/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Commencer avec SourceShelf | Documentation SourceShelf">
+  <meta property="og:description" content="Cette procédure détaillée convertit quelques fichiers, crée un pack ordonné, le vérifie et l&#39;exporte.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/getting-started/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Commencer avec SourceShelf | Documentation SourceShelf">
+  <meta name="twitter:description" content="Cette procédure détaillée convertit quelques fichiers, crée un pack ordonné, le vérifie et l&#39;exporte.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Commencer avec SourceShelf | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li aria-current="page">Commencer avec SourceShelf</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/" aria-current="page">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/" aria-current="page">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="commencer-avec-sourceshelf">Commencer avec SourceShelf</h1>
+<p>Cette procédure détaillée convertit quelques fichiers, crée un pack ordonné, le vérifie et l&#39;exporte.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#section-1-choisissez-un-dossier-de-sortie">1. Choisissez un dossier de sortie</a></li><li class="toc-level-2"><a href="#section-2-convertir-des-fichiers">2. Convertir des fichiers</a></li><li class="toc-level-2"><a href="#section-3-réviser-la-bibliothèque">3. Réviser la bibliothèque</a></li><li class="toc-level-2"><a href="#section-4-construire-un-pack">4. Construire un pack</a></li><li class="toc-level-2"><a href="#section-5-gérer-la-confiance-et-la-sécurité">5. Gérer la confiance et la sécurité</a></li><li class="toc-level-2"><a href="#section-6-exportation">6. exportation</a></li><li class="toc-level-2"><a href="#prochaines-étapes">Prochaines étapes</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="section-1-choisissez-un-dossier-de-sortie">1. Choisissez un dossier de sortie <a class="heading-anchor" href="#section-1-choisissez-un-dossier-de-sortie" aria-label="Lien vers la section: 1. Choisissez un dossier de sortie"><span aria-hidden="true">#</span></a></h2>
+<p>ouvert <strong>SourceShelf &gt; Paramètres &gt; Général</strong> et choisissez un dossier de sortie. Le Markdown converti y est sauvegardé. SourceShelf se souvient de l&#39;accès au dossier, de sorte que les conversions ultérieures peuvent l&#39;utiliser sans autre message de confirmation.</p>
+<p>Choisissez un dossier facile à reconnaître et à sauvegarder. SourceShelf conserve également les métadonnées de la bibliothèque locale et les actifs gérés dans son conteneur d&#39;application ; le changement du dossier de sortie ne déplace pas les anciens fichiers Markdown.</p>
+<h2 id="section-2-convertir-des-fichiers">2. Convertir des fichiers <a class="heading-anchor" href="#section-2-convertir-des-fichiers" aria-label="Lien vers la section: 2. Convertir des fichiers"><span aria-hidden="true">#</span></a></h2>
+<p>ouvert <strong>convertir</strong>, puis faites glisser les fichiers dans la zone de dépose ou choisissez <strong>Sélectionner des fichiers</strong>. Vous pouvez également utiliser <strong>Fichier &gt; Ouvrir</strong>, convertissez un dossier entier, ou importez un local <code>llms.txt</code> Collection.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/convert-1600.webp" srcset="/docs/assets/images/convert-800.webp 800w, /docs/assets/images/convert-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="L&#39;espace de travail Convertir prêt pour les fichiers locaux" width="1600" height="1068" loading="lazy" decoding="async">
+</figure>
+<p>Chaque conversion réussie crée :</p>
+<ul><li>Un fichier Markdown dans le dossier de sortie ;</li><li>Une entrée de bibliothèque avec son titre, son type de source, ses dates et sa disponibilité ;</li><li>Métadonnées sémantiques gérées utilisées par les aperçus, le regroupement et la comparaison ;</li><li>Actifs archivés lorsque le format source ou la capture incluent des images prises en charge.</li></ul>
+<p>Le fichier original n&#39;est pas modifié.</p>
+<h2 id="section-3-réviser-la-bibliothèque">3. Réviser la bibliothèque <a class="heading-anchor" href="#section-3-réviser-la-bibliothèque" aria-label="Lien vers la section: 3. Réviser la bibliothèque"><span aria-hidden="true">#</span></a></h2>
+<p>ouvert <strong>bibliothèque</strong>. Les articles nouvellement convertis apparaissent en haut lorsqu&#39;ils sont regroupés par date. Sélectionnez un article pour ouvrir l&#39;inspecteur. utiliser <strong>avant-première</strong> Pour le contenu rendu et <strong>Source Markdown</strong> Pour le Markdown stocké exact, y compris le matériel avant YAML.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/library-1600.webp" srcset="/docs/assets/images/library-800.webp 800w, /docs/assets/images/library-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Sources de démonstration synthétiques dans la bibliothèque" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+<p>Les filtres de la bibliothèque n&#39;affectent que ce que vous voyez. Ils ne changent pas le pack actuel.</p>
+<h2 id="section-4-construire-un-pack">4. Construire un pack <a class="heading-anchor" href="#section-4-construire-un-pack" aria-label="Lien vers la section: 4. Construire un pack"><span aria-hidden="true">#</span></a></h2>
+<p>ouvert <strong>Packs</strong>, choisir <strong>Nouveau pack</strong>, et utilisez le navigateur de sources à gauche pour trouver du matériel. Ajoutez des sources individuelles ou utilisez :</p>
+<ul><li><strong>Ajouter des correspondances</strong> Pour les filtres actuels ;</li><li><strong>Ajouter tout exportable</strong> Pour chaque élément de bibliothèque lisible ;</li><li><strong>Ajouter depuis la dernière exportation</strong> Pour les articles capturés ou convertis après la dernière exportation réussie.</li></ul>
+<p>Réorganisez la liste centrale en glissant les éléments ou en utilisant <strong>Avancer</strong> et <strong>Avancer vers le bas</strong>. commande affichée devient la commande d&#39;exportation et la commande présentée via Local AI Access.</p>
+<p>Enregistrez le pack pour lui donner un nom durable et permettre la comparaison des packs vivants, <code>llms.txt</code> Génération de dossiers, et MCP Partage.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/pack-builder-1600.webp" srcset="/docs/assets/images/pack-builder-800.webp 800w, /docs/assets/images/pack-builder-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un pack commandé fabriqué à partir de fichiers de recherche municipaux synthétiques." width="1600" height="977" loading="lazy" decoding="async">
+</figure>
+<h2 id="section-5-gérer-la-confiance-et-la-sécurité">5. Gérer la confiance et la sécurité <a class="heading-anchor" href="#section-5-gérer-la-confiance-et-la-sécurité" aria-label="Lien vers la section: 5. Gérer la confiance et la sécurité"><span aria-hidden="true">#</span></a></h2>
+<p>sélectionner <strong>Confiance et sécurité</strong>. SourceShelf vérifie la lisibilité de la source, le nomage et la structure du pack, les dates de modification, l&#39;âge de la source web, les références aux actifs, les hachages de contenu et les modèles conservateurs qui peuvent indiquer un langage d&#39;injection de prompt.</p>
+<p>Les avertissements sont de nature consultative. SourceShelf conserve le contenu original et le classe comme un matériau de référence non fiable ; il ne prétend pas le désinfecter.</p>
+<h2 id="section-6-exportation">6. exportation <a class="heading-anchor" href="#section-6-exportation" aria-label="Lien vers la section: 6. exportation"><span aria-hidden="true">#</span></a></h2>
+<p>sélectionner <strong>Exporter...</strong>, puis choisissez la destination qui correspond à votre flux de travail :</p>
+<ul><li><strong>Pack de référence AI ZIP</strong> Pour les chats IA, les agents et les espaces de travail de projet ;</li><li><strong>OKF v0.2 Pack ZIP</strong> Pour les catalogues et agents basés sur des normes ;</li><li><strong>Pack de contexte Markdown</strong> Pour un seul fichier portable ;</li><li><strong>llms.txt Dossier de collection</strong> Pour un dossier organisé et inspectable ;</li><li><strong>Copier le Markdown combiné</strong> Pour une pâte rapide.</li></ul>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/export-chooser-1600.webp" srcset="/docs/assets/images/export-chooser-800.webp 800w, /docs/assets/images/export-chooser-1600.webp 1516w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Les cinq choix d&#39;exportation SourceShelf" width="1516" height="1396" loading="lazy" decoding="async">
+</figure>
+<p>ZIP et <code>llms.txt</code> Les exportations de dossiers effectuent un nouveau contrôle de confiance et de sécurité. Les exportations de Markdown et de presse-papiers commencent immédiatement. Une exportation réussie enregistre une référence locale pour <strong>Recharger et comparer</strong>.</p>
+<h2 id="prochaines-étapes">Prochaines étapes <a class="heading-anchor" href="#prochaines-étapes" aria-label="Lien vers la section: Prochaines étapes"><span aria-hidden="true">#</span></a></h2>
+<ul><li>Capturez la recherche web avec <a href="/fr/docs/guides/safari-capture/">L&#39;extension Safari</a>.</li><li>Connectez un pack sauvegardé à une application locale d&#39;IA avec <a href="/fr/docs/mcp/local-ai-access/">Accès local à l&#39;IA</a>.</li><li>Découvrez ce que contient chaque pack dans <a href="/fr/docs/guides/export-formats/">Choisissez un format d&#39;exportation</a>.</li><li>Apprenez comment la rétention et le nettoyage fonctionnent dans <a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a>.</li></ul>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/"><span>Précédent</span><strong>Guide de l’utilisateur SourceShelf</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/guides/safari-capture/"><span>Suivant</span><strong>Capturer depuis Safari</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#section-1-choisissez-un-dossier-de-sortie">1. Choisissez un dossier de sortie</a></li><li class="toc-level-2"><a href="#section-2-convertir-des-fichiers">2. Convertir des fichiers</a></li><li class="toc-level-2"><a href="#section-3-réviser-la-bibliothèque">3. Réviser la bibliothèque</a></li><li class="toc-level-2"><a href="#section-4-construire-un-pack">4. Construire un pack</a></li><li class="toc-level-2"><a href="#section-5-gérer-la-confiance-et-la-sécurité">5. Gérer la confiance et la sécurité</a></li><li class="toc-level-2"><a href="#section-6-exportation">6. exportation</a></li><li class="toc-level-2"><a href="#prochaines-étapes">Prochaines étapes</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

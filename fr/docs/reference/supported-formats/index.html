@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SourceShelf détecte les formats à partir de l’extension du fichier et du type de contenu macOS.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/reference/supported-formats/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/reference/supported-formats/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Formats pris en charge | Documentation SourceShelf">
+  <meta property="og:description" content="SourceShelf détecte les formats à partir de l’extension du fichier et du type de contenu macOS.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/reference/supported-formats/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Formats pris en charge | Documentation SourceShelf">
+  <meta name="twitter:description" content="SourceShelf détecte les formats à partir de l’extension du fichier et du type de contenu macOS.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Formats pris en charge | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Référence</li><li aria-current="page">Formats pris en charge</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/" aria-current="page">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/" aria-current="page">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="formats-pris-en-charge">Formats pris en charge</h1>
+<p>SourceShelf détecte les formats à partir de l’extension du fichier et du type de contenu macOS.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#entrées-locales-prises-en-charge">Entrées locales prises en charge</a></li><li class="toc-level-2"><a href="#formats-non-pris-en-charge-directement">Formats non pris en charge directement</a></li><li class="toc-level-2"><a href="#formats-de-sortie">Formats de sortie</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="entrées-locales-prises-en-charge">Entrées locales prises en charge <a class="heading-anchor" href="#entrées-locales-prises-en-charge" aria-label="Lien vers la section: Entrées locales prises en charge"><span aria-hidden="true">#</span></a></h2>
+<section class="table-wrap" tabindex="0" aria-label="Tableau défilant"><table><thead><tr><th scope="col">Format</th><th scope="col">Extensions</th><th scope="col">Comportement principal</th></tr></thead><tbody><tr><td>PDF</td><td><code>.pdf</code></td><td>Extrait le texte et la structure des pages et utilise l’OCR local pour les pages numérisées.</td></tr>
+<tr><td>Texte brut</td><td><code>.txt</code>, <code>.text</code> et types de texte brut compatibles</td><td>Conserve le texte lisible.</td></tr>
+<tr><td>Markdown</td><td><code>.md</code>, <code>.markdown</code> et types compatibles</td><td>Conserve le Markdown comme contenu source de référence.</td></tr>
+<tr><td>HTML</td><td><code>.html</code>, <code>.htm</code></td><td>Extrait la structure HTML locale sans charger de ressources distantes.</td></tr>
+<tr><td>Texte enrichi</td><td><code>.rtf</code></td><td>Extrait le texte mis en forme dans une structure compatible avec Markdown.</td></tr>
+<tr><td>Images</td><td><code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.tif</code>, <code>.tiff</code>, <code>.heic</code>, <code>.heif</code></td><td>Utilise l’OCR local.</td></tr>
+<tr><td>Microsoft Word</td><td><code>.docx</code></td><td>Extrait les titres, paragraphes, listes et tableaux pris en charge, ainsi que les images compatibles.</td></tr>
+<tr><td>Microsoft PowerPoint</td><td><code>.pptx</code></td><td>Extrait les limites des diapositives, les titres, les listes, le texte et les tableaux.</td></tr>
+<tr><td>Microsoft Excel</td><td><code>.xlsx</code></td><td>Extrait les limites des feuilles et les tableaux.</td></tr></tbody></table></section>
+<p>L’extension Safari capture également des pages Web et des sélections. L’importation locale d’un fichier <code>llms.txt</code> accepte un index accompagné de liens relatifs vers des fichiers <code>.md</code>, <code>.markdown</code> et <code>.txt</code>.</p>
+<h2 id="formats-non-pris-en-charge-directement">Formats non pris en charge directement <a class="heading-anchor" href="#formats-non-pris-en-charge-directement" aria-label="Lien vers la section: Formats non pris en charge directement"><span aria-hidden="true">#</span></a></h2>
+<p>Les anciens fichiers Office <code>.doc</code>, <code>.ppt</code> et <code>.xls</code> sont détectés, mais ne sont pas convertis. Enregistrez-les d’abord au format <code>.docx</code>, <code>.pptx</code> ou <code>.xlsx</code>.</p>
+<p>Les limites actuelles concernent notamment l’évaluation avancée des formules de feuilles de calcul, les animations, médias et notes du présentateur PowerPoint, les nouveaux médias Office intégrés, les notes de bas de page et le suivi des modifications Word, la précision de l’OCR et la conservation des mises en page numérisées complexes.</p>
+<h2 id="formats-de-sortie">Formats de sortie <a class="heading-anchor" href="#formats-de-sortie" aria-label="Lien vers la section: Formats de sortie"><span aria-hidden="true">#</span></a></h2>
+<p>Toutes les conversions créent du Markdown. Les packs peuvent produire un ZIP de pack de référence IA, un bundle OKF v0.2, un pack de contexte Markdown, un dossier de collection <code>llms.txt</code> ou du Markdown copié dans le presse-papiers.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/reference/settings/"><span>Précédent</span><strong>Référence des réglages</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/reference/privacy-and-security/"><span>Suivant</span><strong>Confidentialité et sécurité</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#entrées-locales-prises-en-charge">Entrées locales prises en charge</a></li><li class="toc-level-2"><a href="#formats-non-pris-en-charge-directement">Formats non pris en charge directement</a></li><li class="toc-level-2"><a href="#formats-de-sortie">Formats de sortie</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

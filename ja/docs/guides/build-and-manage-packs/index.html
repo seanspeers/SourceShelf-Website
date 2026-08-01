@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="パックは、ライブラリソースの順序付けされた選択です。保存されたパックは、SourceShelfの耐久性のあるコレクションであり、エクスポート、比較、ローカルAIアクセスに使用される単位です。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="パックを作成・管理 | SourceShelfドキュメント">
+  <meta property="og:description" content="パックは、ライブラリソースの順序付けされた選択です。保存されたパックは、SourceShelfの耐久性のあるコレクションであり、エクスポート、比較、ローカルAIアクセスに使用される単位です。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/guides/build-and-manage-packs/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="パックを作成・管理 | SourceShelfドキュメント">
+  <meta name="twitter:description" content="パックは、ライブラリソースの順序付けされた選択です。保存されたパックは、SourceShelfの耐久性のあるコレクションであり、エクスポート、比較、ローカルAIアクセスに使用される単位です。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>パックを作成・管理 | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ガイド</li><li aria-current="page">パックを作成・管理</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/" aria-current="page">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/" aria-current="page">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="パックを作成-管理">パックを作成・管理</h1>
+<p>パックは、ライブラリソースの順序付けされた選択です。保存されたパックは、SourceShelfの耐久性のあるコレクションであり、エクスポート、比較、ローカルAIアクセスに使用される単位です。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#パックスのワークスペース">パックスのワークスペース</a></li><li class="toc-level-2"><a href="#ソースを追加して順序する">ソースを追加して順序する</a></li><li class="toc-level-2"><a href="#ドラフトと明示的な保存">ドラフトと明示的な保存</a></li><li class="toc-level-2"><a href="#保存先-名前変更-削除">保存先、名前変更、削除</a></li><li class="toc-level-2"><a href="#参照が欠落している">参照が欠落している</a></li><li class="toc-level-2"><a href="#パックのエクスポート後は-生き生き-になる">パックのエクスポート後は「生き生き」になる</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="パックスのワークスペース">パックスのワークスペース <a class="heading-anchor" href="#パックスのワークスペース" aria-label="セクションへのリンク: パックスのワークスペース"><span aria-hidden="true">#</span></a></h2>
+<p>左欄はコンパクトなライブラリブラウザです。中央欄は並べられたパックです。ウィンドウの幅が大きい場合、インスペクタは3番目の欄として表示されます。コンパクトな幅の場合、シートで開きます。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/pack-builder-1600.webp" srcset="/docs/assets/images/pack-builder-800.webp 800w, /docs/assets/images/pack-builder-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="合成デモソースから構築された保存済みパック" width="1600" height="977" loading="lazy" decoding="async">
+</figure>
+<p>ヘッダーを使用して、保存済みのパックを選択、新しいパックを開始、変更を保存、別の名前で保存、名前を変更、または削除します。</p>
+<h2 id="ソースを追加して順序する">ソースを追加して順序する <a class="heading-anchor" href="#ソースを追加して順序する" aria-label="セクションへのリンク: ソースを追加して順序する"><span aria-hidden="true">#</span></a></h2>
+<ul><li>メンバーシップを変更するには、ソースの横にあるプラス (+) またはマイナス (-) コントロールを選択します。</li><li><strong>マッチングを追加する</strong> 現在のブラウザフィルターに一致する読み取り可能なソースを追加します。</li><li><strong>すべてエクスポート可能なものを追加する</strong> すべての読み取り可能なライブラリソースを追加します。</li><li><strong>最後にエクスポートしてから追加する</strong> 現在のパックの最新の成功したエクスポート後に作成されたソースを追加します。</li><li>ソースをドラッグして再順序化するか、または <strong>上がる</strong> そして <strong>下がる</strong> キーボードでアクセス可能な順序のために。</li></ul>
+<p>エクスポート業者とその MCP スナップショットは表示された順序でソースを受け取ります。</p>
+<h2 id="ドラフトと明示的な保存">ドラフトと明示的な保存 <a class="heading-anchor" href="#ドラフトと明示的な保存" aria-label="セクションへのリンク: ドラフトと明示的な保存"><span aria-hidden="true">#</span></a></h2>
+<p>パッケージの変更は、選択するまでドラフトのままです。 <strong>保存する</strong> いや <strong>変更を保存する</strong>. SourceShelfは、再起動後にアクティブなパック、オーダー、および未保存のドラフトメタデータを復元しますが、ドラフトスナップショットにはマークダウンコンテンツが含まれていません。</p>
+<p>現在のドラフトが汚れている状態でパックを変更したり、新しいパックを開始したりすると、SourceShelfは次のサービスを提供します。</p>
+<ul><li><strong>保存する</strong> 現在の変更を保持して継続します。</li><li><strong>廃棄する</strong> 保存したメンバーシップに戻って継続する。</li><li><strong>中止する</strong> 現在のドラフトに留まるために。</li></ul>
+<p>保存に失敗すると、ドラフトが汚れてしまい、要求されたスイッチがキャンセルされます。</p>
+<h2 id="保存先-名前変更-削除">保存先、名前変更、削除 <a class="heading-anchor" href="#保存先-名前変更-削除" aria-label="セクションへのリンク: 保存先、名前変更、削除"><span aria-hidden="true">#</span></a></h2>
+<p><strong>保存名として</strong> 別の保存済みパックを作成します。正規化された名前が既存のパックと重複すると、SourceShelfは何かを交換する前に確認します。</p>
+<p>名前の変更は、パックタイトルとマニフェストコレクションメタデータに使用される保存済みパックの名前を変更します。保存済みパックの削除は、ライブラリのエントリやマークダウンファイルを削除しません。アクティブなパックを削除すると、その内容は無題の未完成ドラフトに分離されます。</p>
+<h2 id="参照が欠落している">参照が欠落している <a class="heading-anchor" href="#参照が欠落している" aria-label="セクションへのリンク: 参照が欠落している"><span aria-hidden="true">#</span></a></h2>
+<p>ライブラリアイテムまたはマークダウンファイルが使用できない場合、保存された参照は保持されます。プレースホルダーは引き続き再順序付けまたは削除できます。信頼性とセキュリティレポートは、未解決の参照をエラーとして報告しますが、少なくとも他のソースが読み取れる場合はエクスポートを許可します。</p>
+<h2 id="パックのエクスポート後は-生き生き-になる">パックのエクスポート後は「生き生き」になる <a class="heading-anchor" href="#パックのエクスポート後は-生き生き-になる" aria-label="セクションへのリンク: パックのエクスポート後は「生き生き」になる"><span aria-hidden="true">#</span></a></h2>
+<p>成功したエクスポートでは、順序、ハッシュ、日付、およびエクスポート形式を含むローカルベースラインが記録されます。 <strong>更新＆比較</strong> 現在の地元のライブラリの状態をその基準と比較します。 それは決してウェブを再訪しません URL。</p>
+<p>見てみる <a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、および継続運用パック</a> 比較の意味のために。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/guides/storage-management/"><span>前へ</span><strong>SourceShelfのストレージを管理</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/guides/export-formats/"><span>次へ</span><strong>書き出し形式を選択</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#パックスのワークスペース">パックスのワークスペース</a></li><li class="toc-level-2"><a href="#ソースを追加して順序する">ソースを追加して順序する</a></li><li class="toc-level-2"><a href="#ドラフトと明示的な保存">ドラフトと明示的な保存</a></li><li class="toc-level-2"><a href="#保存先-名前変更-削除">保存先、名前変更、削除</a></li><li class="toc-level-2"><a href="#参照が欠落している">参照が欠落している</a></li><li class="toc-level-2"><a href="#パックのエクスポート後は-生き生き-になる">パックのエクスポート後は「生き生き」になる</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

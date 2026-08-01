@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LM Studio ローカルモデルを実行し、として機能できます。 MCP SourceShelfのヘルパーを開始するホスト。信頼性の高いツール呼び出しサポートを備えたモデルを使用してください。モデルは選択する必要があります searchpack そして readpackresource 会話の過程で。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SourceShelfをLM Studioで使う | SourceShelfドキュメント">
+  <meta property="og:description" content="LM Studio ローカルモデルを実行し、として機能できます。 MCP SourceShelfのヘルパーを開始するホスト。信頼性の高いツール呼び出しサポートを備えたモデルを使用してください。モデルは選択する必要があります searchpack そして readpackresource 会話の過程で。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/mcp/lm-studio/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SourceShelfをLM Studioで使う | SourceShelfドキュメント">
+  <meta name="twitter:description" content="LM Studio ローカルモデルを実行し、として機能できます。 MCP SourceShelfのヘルパーを開始するホスト。信頼性の高いツール呼び出しサポートを備えたモデルを使用してください。モデルは選択する必要があります searchpack そして readpackresource 会話の過程で。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>SourceShelfをLM Studioで使う | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ローカルAIアクセス</li><li aria-current="page">SourceShelfをLM Studioで使う</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/" aria-current="page">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/" aria-current="page">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="sourceshelfをlm-studioで使う">SourceShelfをLM Studioで使う</h1>
+<p>LM Studio ローカルモデルを実行し、として機能できます。 MCP SourceShelfのヘルパーを開始するホスト。信頼性の高いツール呼び出しサポートを備えたモデルを使用してください。モデルは選択する必要があります <code>search_pack</code> そして <code>read_pack_resource</code> 会話の過程で。</p>
+<p>最終確認日：2026年8月1日。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#要件">要件</a></li><li class="toc-level-2"><a href="#sourceshelf接続をインストールする">SourceShelf接続をインストールする</a></li><li class="toc-level-2"><a href="#ツールをテストする">ツールをテストする</a></li><li class="toc-level-2"><a href="#lm-studio-ローカルapiサーバーとして">LM Studio ローカルAPIサーバーとして</a></li><li class="toc-level-2"><a href="#一般的な-lm-studio-エラー">一般的な LM Studio エラー</a></li><li class="toc-level-3"><a href="#プラグインプロセスが予期せずコード-1-で終了しました">「プラグインプロセスが予期せずコード 1 で終了しました」</a></li><li class="toc-level-3"><a href="#不明な方法-ツール-リスト">「不明な方法：ツール/リスト」</a></li><li class="toc-level-3"><a href="#コンテキストウィンドウがすぐに埋まる">コンテキストウィンドウがすぐに埋まる</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="要件">要件 <a class="heading-anchor" href="#要件" aria-label="セクションへのリンク: 要件"><span aria-hidden="true">#</span></a></h2>
+<ul><li>電流 LM Studio と一緒にリリースする MCP サポート（LM Studio 文書 MCP 0.3.17からサポートされます）。</li><li>ツールを使用できるモデルをダウンロードしてロードしたものです。</li><li>作成した現在のSourceShelf共有フォルダ <strong>パック&gt;その他&gt;ローカルAIアクセス...</strong>。</li></ul>
+<h2 id="sourceshelf接続をインストールする">SourceShelf接続をインストールする <a class="heading-anchor" href="#sourceshelf接続をインストールする" aria-label="セクションへのリンク: SourceShelf接続をインストールする"><span aria-hidden="true">#</span></a></h2>
+<ol><li>SourceShelf で、パッケージの <strong>ローカルAIアクセス</strong> シート。</li><li>選択する <strong>コピー MCP 設定</strong>。</li><li>で LM Studio、を開く <strong>プログラム</strong> タブ。</li><li>選択する <strong>設置する</strong>、それから <strong>mcp.jsonを編集する</strong>。</li><li>コピーしたものを貼り付けまたは結合します。 <code>mcpServers</code> エントリー。保持したい他のサーバーを削除しないでください。</li><li>ファイルを保存し、SourceShelf統合を有効にします。</li></ol>
+<p>結果は次の形になります。</p>
+<div class="code-block"><pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;sourceshelf-municipal-research&quot;: {
+      &quot;command&quot;: &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;,
+      &quot;args&quot;: [&quot;--share&quot;, &quot;&lt;share-id&gt;&quot;]
+    }
+  }
+}</code></pre></div>
+<p>SourceShelfによってコピーされた正確なコマンドと共有IDを使用してください。アプリケーションまたはヘルパーパスを手動で置き換えないでください。</p>
+<h2 id="ツールをテストする">ツールをテストする <a class="heading-anchor" href="#ツールをテストする" aria-label="セクションへのリンク: ツールをテストする"><span aria-hidden="true">#</span></a></h2>
+<p>ツール対応のローカルモデルを読み込み、狭い、明示的なリクエストから始めます。</p>
+<blockquote><p>SourceShelfツールを使用して、共有パックで樹冠ターゲットを検索します。最も一致するリソースを読み取り、ターゲットを要約し、SourceShelfリソースを引用します。 URI。一般的な知識から答えないでください。</p></blockquote>
+<p>小型モデルの場合、シーケンスを明示的にします。</p>
+<blockquote><p>最初の電話 <code>search_pack</code> クエリ付きで <code>tree canopy targets</code> そして5の制限があります。それから電話してください <code>read_pack_resource</code> 最適な結果を得るために。答えは返されたテキストのみに基づいてください。</p></blockquote>
+<p>検索呼び出しが1つ続き、1つ以上のバインドされた読み込みが続いているはずです。モデルがツールを呼び出す代わりにツールを説明している場合は、より強力な関数呼び出しサポートを備えたモデルを試したり、手順の言い回しを維持したりしてください。</p>
+<h2 id="lm-studio-ローカルapiサーバーとして">LM Studio ローカルAPIサーバーとして <a class="heading-anchor" href="#lm-studio-ローカルapiサーバーとして" aria-label="セクションへのリンク: LM Studio ローカルAPIサーバーとして"><span aria-hidden="true">#</span></a></h2>
+<p>LM Studio 構成することもできます MCP API駆動型エージェントに利用可能なサーバー。 現在の LM Studio ドキュメントでは、APIクライアントがサーバーを呼び出す前に、サーバーの構成と認証設定が必要となります。 <code>mcp.json</code>。これは高度なルートです。組み込みのチャットは最も簡単な機能テストです。</p>
+<h2 id="一般的な-lm-studio-エラー">一般的な LM Studio エラー <a class="heading-anchor" href="#一般的な-lm-studio-エラー" aria-label="セクションへのリンク: 一般的な LM Studio エラー"><span aria-hidden="true">#</span></a></h2>
+<h3 id="プラグインプロセスが予期せずコード-1-で終了しました">「プラグインプロセスが予期せずコード 1 で終了しました」 <a class="heading-anchor" href="#プラグインプロセスが予期せずコード-1-で終了しました" aria-label="セクションへのリンク: 「プラグインプロセスが予期せずコード 1 で終了しました」"><span aria-hidden="true">#</span></a></h3>
+<p>ヘルパーは共有を開始したり検証したりできませんでした。SourceShelfを移動または更新した後、構成をコピーして、共有が有効になっていることを確認し、パッケージが現在のスナップショットが表示されていることを確認します。</p>
+<h3 id="不明な方法-ツール-リスト">「不明な方法：ツール/リスト」 <a class="heading-anchor" href="#不明な方法-ツール-リスト" aria-label="セクションへのリンク: 「不明な方法：ツール/リスト」"><span aria-hidden="true">#</span></a></h3>
+<p>クライアントがリソースのみまたは古いヘルパーに到達しました。現在のSourceShelfバージョンをインストールし、構成をコピーして、統合を再起動します。現在のSourceShelfは両方を露出しています <code>search_pack</code> そして <code>read_pack_resource</code>。</p>
+<h3 id="コンテキストウィンドウがすぐに埋まる">コンテキストウィンドウがすぐに埋まる <a class="heading-anchor" href="#コンテキストウィンドウがすぐに埋まる" aria-label="セクションへのリンク: コンテキストウィンドウがすぐに埋まる"><span aria-hidden="true">#</span></a></h3>
+<p>モデルに最初に検索してもらい、1つか2つの結果のみを読み取ってもらいます。SourceShelfのページ付き読み取りツールは、すべてのリソースをプロンプトにロードすることを避けるために特別に作成されています。</p>
+<p>公式参照： <a href="https://lmstudio.ai/docs/app/mcp">LM Studio MCP サーバー</a>、 <a href="https://lmstudio.ai/docs/developer/core/mcp">LM Studio MCP APIの使用</a>、 <a href="https://lmstudio.ai/docs/developer/core/server/settings">LM Studio サーバー設定</a>。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/mcp/local-ai-access/"><span>前へ</span><strong>ローカルAIアクセス（MCP）</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/mcp/ollama/"><span>次へ</span><strong>SourceShelfをOllamaで使う</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#要件">要件</a></li><li class="toc-level-2"><a href="#sourceshelf接続をインストールする">SourceShelf接続をインストールする</a></li><li class="toc-level-2"><a href="#ツールをテストする">ツールをテストする</a></li><li class="toc-level-2"><a href="#lm-studio-ローカルapiサーバーとして">LM Studio ローカルAPIサーバーとして</a></li><li class="toc-level-2"><a href="#一般的な-lm-studio-エラー">一般的な LM Studio エラー</a></li><li class="toc-level-3"><a href="#プラグインプロセスが予期せずコード-1-で終了しました">「プラグインプロセスが予期せずコード 1 で終了しました」</a></li><li class="toc-level-3"><a href="#不明な方法-ツール-リスト">「不明な方法：ツール/リスト」</a></li><li class="toc-level-3"><a href="#コンテキストウィンドウがすぐに埋まる">コンテキストウィンドウがすぐに埋まる</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

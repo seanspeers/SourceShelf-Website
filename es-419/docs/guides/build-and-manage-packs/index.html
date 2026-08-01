@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Un paquete es una selección ordenada de fuentes de la Biblioteca. Los paquetes guardados son las colecciones duraderas de SourceShelf y la unidad utilizada para la exportación, comparación y acceso local a IA.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/es-419/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Crear y administrar paquetes | Documentación de SourceShelf">
+  <meta property="og:description" content="Un paquete es una selección ordenada de fuentes de la Biblioteca. Los paquetes guardados son las colecciones duraderas de SourceShelf y la unidad utilizada para la exportación, comparación y acceso local a IA.">
+  <meta property="og:url" content="https://sourceshelf.app/es-419/docs/guides/build-and-manage-packs/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Crear y administrar paquetes | Documentación de SourceShelf">
+  <meta name="twitter:description" content="Un paquete es una selección ordenada de fuentes de la Biblioteca. Los paquetes guardados son las colecciones duraderas de SourceShelf y la unidad utilizada para la exportación, comparación y acceso local a IA.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Crear y administrar paquetes | Documentación de SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("es-419");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="/es-419/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/es-419/">Inicio</a>
+        <a class="nav-link" href="/es-419/privacy.html">Privacidad</a>
+        <a class="nav-link" href="/es-419/docs/" aria-current="page">Documentación</a>
+        <a class="nav-link" href="/es-419/support.html">Soporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Descargar SourceShelf en la Mac App Store">Descargar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Elegir idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419" selected>Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Cambiar al modo claro" data-dark-label="Cambiar al modo oscuro" aria-label="Activar o desactivar el modo oscuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/es-419/">Inicio</a></li><li><a href="/es-419/docs/">Documentación</a></li><li>Guías</li><li aria-current="page">Crear y administrar paquetes</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Explorar la documentación</summary>
+        <nav aria-label="Navegación móvil de la documentación"><a class="docs-nav-home" href="/es-419/docs/">Inicio de la documentación</a><section class="docs-nav-group"><h2>Primeros pasos</h2><ul><li><a href="/es-419/docs/getting-started/">Comenzar con SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guías</h2><ul><li><a href="/es-419/docs/guides/safari-capture/">Capturar desde Safari</a></li><li><a href="/es-419/docs/guides/convert-files/">Convertir archivos y carpetas</a></li><li><a href="/es-419/docs/guides/library-and-inspector/">Biblioteca e inspector</a></li><li><a href="/es-419/docs/guides/storage-management/">Administrar el almacenamiento de SourceShelf</a></li><li><a href="/es-419/docs/guides/build-and-manage-packs/" aria-current="page">Crear y administrar paquetes</a></li><li><a href="/es-419/docs/guides/export-formats/">Elegir un formato de exportación</a></li><li><a href="/es-419/docs/guides/trust-safety-and-refresh/">Confianza y seguridad y paquetes en evolución</a></li><li><a href="/es-419/docs/guides/llms-txt/">Importar y exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acceso local a IA</h2><ul><li><a href="/es-419/docs/mcp/local-ai-access/">Acceso local a IA (MCP)</a></li><li><a href="/es-419/docs/mcp/lm-studio/">Usar SourceShelf con LM Studio</a></li><li><a href="/es-419/docs/mcp/ollama/">Usar SourceShelf con Ollama</a></li><li><a href="/es-419/docs/mcp/codex/">Usar SourceShelf con Codex</a></li><li><a href="/es-419/docs/mcp/claude-code/">Usar SourceShelf con Claude Code</a></li><li><a href="/es-419/docs/mcp/opencode/">Usar SourceShelf con OpenCode</a></li><li><a href="/es-419/docs/mcp/troubleshooting/">Solución de problemas de MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referencia</h2><ul><li><a href="/es-419/docs/reference/settings/">Referencia de configuración</a></li><li><a href="/es-419/docs/reference/supported-formats/">Formatos compatibles</a></li><li><a href="/es-419/docs/reference/privacy-and-security/">Privacidad y seguridad</a></li><li><a href="/es-419/docs/reference/glossary/">Glosario</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barra lateral de la documentación">
+          <nav aria-label="Navegación de la documentación"><a class="docs-nav-home" href="/es-419/docs/">Inicio de la documentación</a><section class="docs-nav-group"><h2>Primeros pasos</h2><ul><li><a href="/es-419/docs/getting-started/">Comenzar con SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guías</h2><ul><li><a href="/es-419/docs/guides/safari-capture/">Capturar desde Safari</a></li><li><a href="/es-419/docs/guides/convert-files/">Convertir archivos y carpetas</a></li><li><a href="/es-419/docs/guides/library-and-inspector/">Biblioteca e inspector</a></li><li><a href="/es-419/docs/guides/storage-management/">Administrar el almacenamiento de SourceShelf</a></li><li><a href="/es-419/docs/guides/build-and-manage-packs/" aria-current="page">Crear y administrar paquetes</a></li><li><a href="/es-419/docs/guides/export-formats/">Elegir un formato de exportación</a></li><li><a href="/es-419/docs/guides/trust-safety-and-refresh/">Confianza y seguridad y paquetes en evolución</a></li><li><a href="/es-419/docs/guides/llms-txt/">Importar y exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acceso local a IA</h2><ul><li><a href="/es-419/docs/mcp/local-ai-access/">Acceso local a IA (MCP)</a></li><li><a href="/es-419/docs/mcp/lm-studio/">Usar SourceShelf con LM Studio</a></li><li><a href="/es-419/docs/mcp/ollama/">Usar SourceShelf con Ollama</a></li><li><a href="/es-419/docs/mcp/codex/">Usar SourceShelf con Codex</a></li><li><a href="/es-419/docs/mcp/claude-code/">Usar SourceShelf con Claude Code</a></li><li><a href="/es-419/docs/mcp/opencode/">Usar SourceShelf con OpenCode</a></li><li><a href="/es-419/docs/mcp/troubleshooting/">Solución de problemas de MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referencia</h2><ul><li><a href="/es-419/docs/reference/settings/">Referencia de configuración</a></li><li><a href="/es-419/docs/reference/supported-formats/">Formatos compatibles</a></li><li><a href="/es-419/docs/reference/privacy-and-security/">Privacidad y seguridad</a></li><li><a href="/es-419/docs/reference/glossary/">Glosario</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="crear-y-administrar-paquetes">Crear y administrar paquetes</h1>
+<p>Un paquete es una selección ordenada de fuentes de la Biblioteca. Los paquetes guardados son las colecciones duraderas de SourceShelf y la unidad utilizada para la exportación, comparación y acceso local a IA.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>En esta página</summary><nav class="docs-toc-list" aria-label="Tabla de contenido móvil"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#el-espacio-de-trabajo-de-packs">El espacio de trabajo de Packs</a></li><li class="toc-level-2"><a href="#agregar-y-ordenar-fuentes">Agregar y ordenar fuentes</a></li><li class="toc-level-2"><a href="#drafteos-y-ahorros-explícitos">Drafteos y ahorros explícitos</a></li><li class="toc-level-2"><a href="#guardar-como-cambiar-de-nombre-y-eliminar">Guardar como, cambiar de nombre y eliminar</a></li><li class="toc-level-2"><a href="#referencias-faltantes">Referencias faltantes</a></li><li class="toc-level-2"><a href="#los-paquetes-se-convierten-en-vivos-después-de-la-exportación">Los paquetes se convierten en &quot;vivos&quot; después de la exportación</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="el-espacio-de-trabajo-de-packs">El espacio de trabajo de Packs <a class="heading-anchor" href="#el-espacio-de-trabajo-de-packs" aria-label="Enlace a la sección: El espacio de trabajo de Packs"><span aria-hidden="true">#</span></a></h2>
+<p>La columna izquierda es un navegador de biblioteca compacto. La columna central es el paquete ordenado. En ventanas de mayor ancho, el inspector aparece como una tercera columna; en anchos compactos se abre en una hoja.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/pack-builder-1600.webp" srcset="/docs/assets/images/pack-builder-800.webp 800w, /docs/assets/images/pack-builder-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un paquete guardado construido a partir de fuentes de demostración sintéticas" width="1600" height="977" loading="lazy" decoding="async">
+</figure>
+<p>Utilice el encabezado para seleccionar un paquete guardado, iniciar uno nuevo, guardar cambios, guardar con un nombre diferente, renombrarlo o eliminarlo.</p>
+<h2 id="agregar-y-ordenar-fuentes">Agregar y ordenar fuentes <a class="heading-anchor" href="#agregar-y-ordenar-fuentes" aria-label="Enlace a la sección: Agregar y ordenar fuentes"><span aria-hidden="true">#</span></a></h2>
+<ul><li>Seleccione el control más o menos junto a una fuente para cambiar la membresía.</li><li><strong>Agregar coincidencias</strong> añade fuentes legibles que coincidan con los filtros actuales del navegador.</li><li><strong>Agregar todo lo exportable</strong> agrega todas las fuentes de la Biblioteca legibles.</li><li><strong>Agregar desde la última exportación</strong> añade fuentes creadas después de la exportación exitosa más reciente del paquete actual.</li><li>Arrastre las fuentes para reordenarlas o use <strong>Subir</strong> y <strong>Mueve hacia abajo</strong> para pedidos accesibles con el teclado.</li></ul>
+<p>Exportadores y MCP Las instantáneas reciben las fuentes en el orden que se muestran.</p>
+<h2 id="drafteos-y-ahorros-explícitos">Drafteos y ahorros explícitos <a class="heading-anchor" href="#drafteos-y-ahorros-explícitos" aria-label="Enlace a la sección: Drafteos y ahorros explícitos"><span aria-hidden="true">#</span></a></h2>
+<p>Los cambios de paquete son borradores hasta que los seleccione. <strong>guardar</strong> Oregón <strong>Guardar cambios</strong>. SourceShelf restaura el paquete activo, el orden de los paquetes y los metadatos del borrador no guardados después del reinicio, pero la instantánea del borrador nunca contiene contenido Markdown.</p>
+<p>Si cambias de paquete o comienzas un nuevo paquete mientras el borrador actual está sucio, SourceShelf ofrece:</p>
+<ul><li><strong>guardar</strong> para persistir en los cambios actuales y continuar;</li><li><strong>rechazo</strong> para volver a la membresía guardada y continuar;</li><li><strong>cancelar</strong> para permanecer en el borrador actual.</li></ul>
+<p>Una guardado fallida deja el borrador sucio y cancela el cambio solicitado.</p>
+<h2 id="guardar-como-cambiar-de-nombre-y-eliminar">Guardar como, cambiar de nombre y eliminar <a class="heading-anchor" href="#guardar-como-cambiar-de-nombre-y-eliminar" aria-label="Enlace a la sección: Guardar como, cambiar de nombre y eliminar"><span aria-hidden="true">#</span></a></h2>
+<p><strong>Guardar como</strong> crea otro paquete guardado. Si el nombre normalizado choca con un paquete existente, SourceShelf pregunta antes de reemplazar cualquier cosa.</p>
+<p>Renombrar cambia el nombre del paquete guardado que se usa para los títulos de los paquetes y los metadatos de la colección de manifiestos. Eliminar un paquete guardado no elimina las entradas de la Biblioteca ni los archivos Markdown. Si eliminas el paquete activo, sus contenidos se desprenden en un borrador sucio sin título.</p>
+<h2 id="referencias-faltantes">Referencias faltantes <a class="heading-anchor" href="#referencias-faltantes" aria-label="Enlace a la sección: Referencias faltantes"><span aria-hidden="true">#</span></a></h2>
+<p>Las referencias guardadas se mantienen cuando un elemento de la Biblioteca o un archivo Markdown se vuelve inaccesible. El lugar de vacío aún se puede reordenar o eliminar. Trust &amp; Safety reporta la referencia no resuelta como un error, permitiendo la exportación cuando al menos otra fuente sea legible.</p>
+<h2 id="los-paquetes-se-convierten-en-vivos-después-de-la-exportación">Los paquetes se convierten en &quot;vivos&quot; después de la exportación <a class="heading-anchor" href="#los-paquetes-se-convierten-en-vivos-después-de-la-exportación" aria-label="Enlace a la sección: Los paquetes se convierten en &quot;vivos&quot; después de la exportación"><span aria-hidden="true">#</span></a></h2>
+<p>Un registro de exportación exitoso registra una línea de base local que contiene el pedido, los hashes, las fechas y el formato de exportación. <strong>Actualizar y comparar</strong> compara el estado actual de la Biblioteca local con esa línea de base. Nunca revisa una página web. URL.</p>
+<p>ver <a href="/es-419/docs/guides/trust-safety-and-refresh/">Confianza y seguridad y paquetes de vida</a> para los significados de comparación.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Páginas de documentación"><a class="docs-page-link docs-page-link-previous" href="/es-419/docs/guides/storage-management/"><span>Anterior</span><strong>Administrar el almacenamiento de SourceShelf</strong></a><a class="docs-page-link docs-page-link-next" href="/es-419/docs/guides/export-formats/"><span>Siguiente</span><strong>Elegir un formato de exportación</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenido de la página"><nav class="docs-toc-list" aria-label="Tabla de contenido"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#el-espacio-de-trabajo-de-packs">El espacio de trabajo de Packs</a></li><li class="toc-level-2"><a href="#agregar-y-ordenar-fuentes">Agregar y ordenar fuentes</a></li><li class="toc-level-2"><a href="#drafteos-y-ahorros-explícitos">Drafteos y ahorros explícitos</a></li><li class="toc-level-2"><a href="#guardar-como-cambiar-de-nombre-y-eliminar">Guardar como, cambiar de nombre y eliminar</a></li><li class="toc-level-2"><a href="#referencias-faltantes">Referencias faltantes</a></li><li class="toc-level-2"><a href="#los-paquetes-se-convierten-en-vivos-después-de-la-exportación">Los paquetes se convierten en &quot;vivos&quot; después de la exportación</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/es-419/">Inicio</a>
+        <a href="/es-419/privacy.html">Privacidad</a>
+        <a href="/es-419/docs/">Documentación</a>
+        <a href="/es-419/support.html">Soporte</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ライブラリはソースブラウザです。意図的にパックとは別になっています。ライブラリをフィルタリングしても、保存されたパックは開かれず、再順序付けもされず、変更もされません。SourceShelfは、ライブラリのエントリを明示的に削除するまで保持します。古いソースは自動的に廃棄されません。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ライブラリとインスペクタ | SourceShelfドキュメント">
+  <meta property="og:description" content="ライブラリはソースブラウザです。意図的にパックとは別になっています。ライブラリをフィルタリングしても、保存されたパックは開かれず、再順序付けもされず、変更もされません。SourceShelfは、ライブラリのエントリを明示的に削除するまで保持します。古いソースは自動的に廃棄されません。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/guides/library-and-inspector/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ライブラリとインスペクタ | SourceShelfドキュメント">
+  <meta name="twitter:description" content="ライブラリはソースブラウザです。意図的にパックとは別になっています。ライブラリをフィルタリングしても、保存されたパックは開かれず、再順序付けもされず、変更もされません。SourceShelfは、ライブラリのエントリを明示的に削除するまで保持します。古いソースは自動的に廃棄されません。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>ライブラリとインスペクタ | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ガイド</li><li aria-current="page">ライブラリとインスペクタ</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/" aria-current="page">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/" aria-current="page">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="ライブラリとインスペクタ">ライブラリとインスペクタ</h1>
+<p>ライブラリはソースブラウザです。意図的にパックとは別になっています。ライブラリをフィルタリングしても、保存されたパックは開かれず、再順序付けもされず、変更もされません。SourceShelfは、ライブラリのエントリを明示的に削除するまで保持します。古いソースは自動的に廃棄されません。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/library-1600.webp" srcset="/docs/assets/images/library-800.webp 800w, /docs/assets/images/library-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="ライブラリに表示される合成ファイル" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#検索とフィルター">検索とフィルター</a></li><li class="toc-level-2"><a href="#ソースステータス">ソースステータス</a></li><li class="toc-level-2"><a href="#行アクション">行アクション</a></li><li class="toc-level-2"><a href="#インスペクタ">インスペクタ</a></li><li class="toc-level-2"><a href="#メンテナンス">メンテナンス</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="検索とフィルター">検索とフィルター <a class="heading-anchor" href="#検索とフィルター" aria-label="セクションへのリンク: 検索とフィルター"><span aria-hidden="true">#</span></a></h2>
+<p>タイトルや起源などのソース詳細を検索します。フィルターを使用して、ライブラリを以下のように絞り込むことができます。</p>
+<ol><li>テキストを検索する。</li><li>日付;</li><li>ソースの起源；</li><li>コンテンツタイプ；</li><li>利用可能状況；</li><li>保存済みパック会員資格。</li></ol>
+<p>アクティブなフィルターは、その順番で取り外し可能なチップとして表示されます。チップを取り外すと、そのフィルターのみリセットされます。 <strong>すべてリセットする</strong> すべてのアクティブなフィルターをクリアします。</p>
+<h2 id="ソースステータス">ソースステータス <a class="heading-anchor" href="#ソースステータス" aria-label="セクションへのリンク: ソースステータス"><span aria-hidden="true">#</span></a></h2>
+<ul><li>緑色のステータスは、読み取り可能なMarkdownを示します。</li><li>警告は、ソースまたはアーカイブされた資産の問題に注意を促します。</li><li>Markdown が現在読み込めない場合、使用できないソースはライブラリに残ります。</li><li>保存済みのパッケージのプレースホルダーは、ライブラリレコードが欠落している場合でも表示され続けます。そのため、再順序付けや削除を行うことができます。</li></ul>
+<p>SourceShelfは意図的に健康な行から繰り返される「エクスポート可能」ラベルを省略しています。詳細が必要な場合は、アイテムを選択するか、そのステータスを確認してください。</p>
+<h2 id="行アクション">行アクション <a class="heading-anchor" href="#行アクション" aria-label="セクションへのリンク: 行アクション"><span aria-hidden="true">#</span></a></h2>
+<p>ウィンドウが十分な大きさになったら、ライブラリ行にはツールチップ付きの個々のアクションアイコンが表示されます。スペースが限られている場合は、同じアクションがメニューに移動します。アイテムによっては、アクションには次のものがあります。</p>
+<ul><li>詳細を表示する。</li><li>現在のパックに追加または削除します。</li><li>マークダウンを開く。</li><li>Finder で表示する。</li><li>パスコピー；</li><li>星をつけるか、星を外すか。</li><li>ライブラリから削除する。</li></ul>
+<p>ライブラリからアイテムを削除しても、その生成されたMarkdownは削除されません。保存済みパックの参照は保留されます。</p>
+<h2 id="インスペクタ">インスペクタ <a class="heading-anchor" href="#インスペクタ" aria-label="セクションへのリンク: インスペクタ"><span aria-hidden="true">#</span></a></h2>
+<p>より広いウィンドウサイズでは、インスペクターは3番目の可変列になります。最小のウィンドウ幅に近いところでは、シートとして開き、ライブラリまたは両方のパックビルディング列が引き続き使用可能です。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/inspector-preview-1600.webp" srcset="/docs/assets/images/inspector-preview-800.webp 800w, /docs/assets/images/inspector-preview-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="合成レポートのレンダリングされたマークダウンプレビュー" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+<p>インスペクタは示します。</p>
+<ul><li>完全なタイトルと原産地；</li><li>キャプチャと修正の日付；</li><li>ローカルソースと出力パス；</li><li>現在の利用可能性と警告；</li><li>推定トークンとアーカイブされた画像の個数。</li><li>開く、表示する、コピーするアクション。</li><li><strong>プレビュー</strong> そして <strong>マークダウンソース</strong> タブ。</li></ul>
+<p>プレビューは、ローカルMarkdownファイルから最大256KiBを読み込みます。レンダリングの前に、のみの最初のYAMLを削除し、スペースとブロック構造を維持し、リモート画像やその他のリモートアセットを取得しません。ソースタブは、YAMLと正確なMarkdownテキストを保持します。トリミング通知には、次のリンクが含まれています。 <strong>マークダウンを開く</strong> ファイルが大きい場合。</p>
+<h2 id="メンテナンス">メンテナンス <a class="heading-anchor" href="#メンテナンス" aria-label="セクションへのリンク: メンテナンス"><span aria-hidden="true">#</span></a></h2>
+<p>ライブラリメンテナンスメニューを使用すると、欠落しているエントリを削除したり、スターマークが付いていない履歴をクリアしたりできます。これらの操作は、生成されたMarkdownファイルではなく、ライブラリレコードに対して行われます。</p>
+<p>ストレージのクリーニングを行う場合は、 <strong>設定 &gt; 一般 &gt; ストレージの確認…</strong>. セーフクリーニングは、孤立した管理データ、古いキャッシュ、期限切れのキャプチャスタージ、および取り消されたデータに限定されます。 MCP スナップショット。マークダウンクリーニングを生成するには、影響を受けるソースを選択して確認する必要があります。出力はゴミ箱に移動されますが、元のインポートされたドキュメントは決して変更されません。スター付きおよび保存パックソースは、意図的に保護ソース選択を有効にしない限りロックされます。 見てみる <a href="/ja/docs/guides/storage-management/">SourceShelfストレージを管理する</a> ガイド付きのウォークスルーについては。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/guides/convert-files/"><span>前へ</span><strong>ファイルとフォルダを変換</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/guides/storage-management/"><span>次へ</span><strong>SourceShelfのストレージを管理</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#検索とフィルター">検索とフィルター</a></li><li class="toc-level-2"><a href="#ソースステータス">ソースステータス</a></li><li class="toc-level-2"><a href="#行アクション">行アクション</a></li><li class="toc-level-2"><a href="#インスペクタ">インスペクタ</a></li><li class="toc-level-2"><a href="#メンテナンス">メンテナンス</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

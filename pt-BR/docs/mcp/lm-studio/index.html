@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="LM Studio Pode executar um modelo local e agir como o MCP Anfitrião que inicia o assistente do SourceShelf. Use um modelo com suporte confiável para chamadas de ferramentas; o modelo precisa escolher searchpack e readpackresource Durante a conversa.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/pt-BR/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/lm-studio/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Usar o SourceShelf com o LM Studio | Documentação do SourceShelf">
+  <meta property="og:description" content="LM Studio Pode executar um modelo local e agir como o MCP Anfitrião que inicia o assistente do SourceShelf. Use um modelo com suporte confiável para chamadas de ferramentas; o modelo precisa escolher searchpack e readpackresource Durante a conversa.">
+  <meta property="og:url" content="https://sourceshelf.app/pt-BR/docs/mcp/lm-studio/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Usar o SourceShelf com o LM Studio | Documentação do SourceShelf">
+  <meta name="twitter:description" content="LM Studio Pode executar um modelo local e agir como o MCP Anfitrião que inicia o assistente do SourceShelf. Use um modelo com suporte confiável para chamadas de ferramentas; o modelo precisa escolher searchpack e readpackresource Durante a conversa.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Usar o SourceShelf com o LM Studio | Documentação do SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("pt-BR");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="/pt-BR/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/pt-BR/">Início</a>
+        <a class="nav-link" href="/pt-BR/privacy.html">Privacidade</a>
+        <a class="nav-link" href="/pt-BR/docs/" aria-current="page">Documentação</a>
+        <a class="nav-link" href="/pt-BR/support.html">Suporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Baixar o SourceShelf na Mac App Store">Baixar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Escolher idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR" selected>Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Mudar para o modo claro" data-dark-label="Mudar para o modo escuro" aria-label="Ativar ou desativar o modo escuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/pt-BR/">Início</a></li><li><a href="/pt-BR/docs/">Documentação</a></li><li>Acesso local à IA</li><li aria-current="page">Usar o SourceShelf com o LM Studio</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Explorar a documentação</summary>
+        <nav aria-label="Navegação móvel da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/" aria-current="page">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barra lateral da documentação">
+          <nav aria-label="Navegação da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/" aria-current="page">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="usar-o-sourceshelf-com-o-lm-studio">Usar o SourceShelf com o LM Studio</h1>
+<p>LM Studio Pode executar um modelo local e agir como o MCP Anfitrião que inicia o assistente do SourceShelf. Use um modelo com suporte confiável para chamadas de ferramentas; o modelo precisa escolher <code>search_pack</code> e <code>read_pack_resource</code> Durante a conversa.</p>
+<p>Última verificação: 01-08-2026.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Nesta página</summary><nav class="docs-toc-list" aria-label="Sumário móvel"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#requisitos">Requisitos</a></li><li class="toc-level-2"><a href="#instale-a-conexão-sourceshelf">Instale a conexão SourceShelf</a></li><li class="toc-level-2"><a href="#teste-as-ferramentas">Teste as ferramentas</a></li><li class="toc-level-2"><a href="#lm-studio-como-um-servidor-api-local">LM Studio Como um servidor API local</a></li><li class="toc-level-2"><a href="#comum-lm-studio-erros">comum LM Studio Erros</a></li><li class="toc-level-3"><a href="#o-processo-do-plugin-foi-encerrado-inesperadamente-com-o-código-1">&quot;O processo do plugin foi encerrado inesperadamente com o código 1&quot;</a></li><li class="toc-level-3"><a href="#método-desconhecido-ferramentas-lista">&quot;Método desconhecido: ferramentas/lista&quot;</a></li><li class="toc-level-3"><a href="#a-janela-de-contexto-preenche-se-rapidamente">A janela de contexto preenche-se rapidamente</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="requisitos">Requisitos <a class="heading-anchor" href="#requisitos" aria-label="Link para a seção: Requisitos"><span aria-hidden="true">#</span></a></h2>
+<ul><li>Uma corrente LM Studio Lançamento com MCP Suporte (LM Studio Documentos MCP Suporte a partir de 0.3.17).</li><li>Um modelo baixado e carregado que suporta o uso de ferramentas.</li><li>Uma partilha atual do SourceShelf criada através de <strong>Pacotes &gt; Mais &gt; Acesso Local à IA...</strong>.</li></ul>
+<h2 id="instale-a-conexão-sourceshelf">Instale a conexão SourceShelf <a class="heading-anchor" href="#instale-a-conexão-sourceshelf" aria-label="Link para a seção: Instale a conexão SourceShelf"><span aria-hidden="true">#</span></a></h2>
+<ol><li>No SourceShelf, abra o pacote <strong>Acesso local de IA</strong> Folha.</li><li>selecionar <strong>cópia MCP configuração</strong>.</li><li>pol LM Studio, abra o <strong>programa</strong> Tábua.</li><li>selecionar <strong>instalar</strong>, então <strong>Editar mcp.json</strong>.</li><li>Cole ou mescle o copiado <code>mcpServers</code> Entrada. Não remova outros servidores que você deseja manter.</li><li>Salve o arquivo e ative a integração SourceShelf.</li></ol>
+<p>O resultado tem essa forma:</p>
+<div class="code-block"><pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;sourceshelf-municipal-research&quot;: {
+      &quot;command&quot;: &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;,
+      &quot;args&quot;: [&quot;--share&quot;, &quot;&lt;share-id&gt;&quot;]
+    }
+  }
+}</code></pre></div>
+<p>Use o comando exato e compartilhe o ID copiado pelo SourceShelf. Não substitua manualmente um caminho de aplicativo ou auxiliar.</p>
+<h2 id="teste-as-ferramentas">Teste as ferramentas <a class="heading-anchor" href="#teste-as-ferramentas" aria-label="Link para a seção: Teste as ferramentas"><span aria-hidden="true">#</span></a></h2>
+<p>Carregue um modelo local compatível com ferramentas e comece com uma solicitação estreita e explícita:</p>
+<blockquote><p>Use as ferramentas SourceShelf para pesquisar o pacote compartilhado por alvos de copa de árvore. Leia o recurso que melhor combina, resuma os alvos e cite o recurso SourceShelf. URI. Não responda com conhecimentos gerais.</p></blockquote>
+<p>Para um modelo menor, faça a sequência explícita:</p>
+<blockquote><p>Primeira chamada <code>search_pack</code> Com a consulta <code>tree canopy targets</code> E um limite de 5. Então ligue <code>read_pack_resource</code> Para o melhor resultado. Baseie a resposta apenas no texto retornado.</p></blockquote>
+<p>Você deve ver uma chamada de pesquisa seguida por uma ou mais leituras limitadas. Se o modelo descrever as ferramentas em vez de chamá-las, experimente um modelo com suporte mais forte para chamadas de função ou mantenha a formulação procedural.</p>
+<h2 id="lm-studio-como-um-servidor-api-local">LM Studio Como um servidor API local <a class="heading-anchor" href="#lm-studio-como-um-servidor-api-local" aria-label="Link para a seção: LM Studio Como um servidor API local"><span aria-hidden="true">#</span></a></h2>
+<p>LM Studio Também pode ser configurado MCP Servidores disponíveis para um agente orientado por API. atual LM Studio A documentação requer configuração do servidor e configurações de autorização antes que os clientes API possam invocar servidores de <code>mcp.json</code>. Esta é uma rota avançada; o bate-papo integrado é o teste funcional mais simples.</p>
+<h2 id="comum-lm-studio-erros">comum LM Studio Erros <a class="heading-anchor" href="#comum-lm-studio-erros" aria-label="Link para a seção: comum LM Studio Erros"><span aria-hidden="true">#</span></a></h2>
+<h3 id="o-processo-do-plugin-foi-encerrado-inesperadamente-com-o-código-1">&quot;O processo do plugin foi encerrado inesperadamente com o código 1&quot; <a class="heading-anchor" href="#o-processo-do-plugin-foi-encerrado-inesperadamente-com-o-código-1" aria-label="Link para a seção: &quot;O processo do plugin foi encerrado inesperadamente com o código 1&quot;"><span aria-hidden="true">#</span></a></h3>
+<p>O assistente não conseguiu iniciar ou validar a partilha. Recopie a configuração depois de mover ou atualizar o SourceShelf, confirme que a partilha está ativada e confirme que o pacote ainda mostra uma captura de tela atual.</p>
+<h3 id="método-desconhecido-ferramentas-lista">&quot;Método desconhecido: ferramentas/lista&quot; <a class="heading-anchor" href="#método-desconhecido-ferramentas-lista" aria-label="Link para a seção: &quot;Método desconhecido: ferramentas/lista&quot;"><span aria-hidden="true">#</span></a></h3>
+<p>O cliente atingiu um auxiliar apenas de recursos ou mais antigo. Instale a versão atual do SourceShelf, copie a configuração novamente e reinicie a integração. O SourceShelf atual expõe ambos <code>search_pack</code> e <code>read_pack_resource</code>.</p>
+<h3 id="a-janela-de-contexto-preenche-se-rapidamente">A janela de contexto preenche-se rapidamente <a class="heading-anchor" href="#a-janela-de-contexto-preenche-se-rapidamente" aria-label="Link para a seção: A janela de contexto preenche-se rapidamente"><span aria-hidden="true">#</span></a></h3>
+<p>Peça ao modelo para pesquisar primeiro e ler apenas um ou dois resultados. A ferramenta de leitura em páginas do SourceShelf existe especificamente para evitar carregar todos os recursos no prompt.</p>
+<p>Referências oficiais: <a href="https://lmstudio.ai/docs/app/mcp">LM Studio MCP Servidores</a>, <a href="https://lmstudio.ai/docs/developer/core/mcp">LM Studio MCP Uso de API</a>, <a href="https://lmstudio.ai/docs/developer/core/server/settings">LM Studio Configurações do servidor</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Páginas da documentação"><a class="docs-page-link docs-page-link-previous" href="/pt-BR/docs/mcp/local-ai-access/"><span>Anterior</span><strong>Acesso local à IA (MCP)</strong></a><a class="docs-page-link docs-page-link-next" href="/pt-BR/docs/mcp/ollama/"><span>Próximo</span><strong>Usar o SourceShelf com o Ollama</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Conteúdo da página"><nav class="docs-toc-list" aria-label="Sumário"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#requisitos">Requisitos</a></li><li class="toc-level-2"><a href="#instale-a-conexão-sourceshelf">Instale a conexão SourceShelf</a></li><li class="toc-level-2"><a href="#teste-as-ferramentas">Teste as ferramentas</a></li><li class="toc-level-2"><a href="#lm-studio-como-um-servidor-api-local">LM Studio Como um servidor API local</a></li><li class="toc-level-2"><a href="#comum-lm-studio-erros">comum LM Studio Erros</a></li><li class="toc-level-3"><a href="#o-processo-do-plugin-foi-encerrado-inesperadamente-com-o-código-1">&quot;O processo do plugin foi encerrado inesperadamente com o código 1&quot;</a></li><li class="toc-level-3"><a href="#método-desconhecido-ferramentas-lista">&quot;Método desconhecido: ferramentas/lista&quot;</a></li><li class="toc-level-3"><a href="#a-janela-de-contexto-preenche-se-rapidamente">A janela de contexto preenche-se rapidamente</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/pt-BR/">Início</a>
+        <a href="/pt-BR/privacy.html">Privacidade</a>
+        <a href="/pt-BR/docs/">Documentação</a>
+        <a href="/pt-BR/support.html">Suporte</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

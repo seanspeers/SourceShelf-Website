@@ -1,3 +1,4 @@
 exclude:
   - _docs
+  - _site
   - _tools

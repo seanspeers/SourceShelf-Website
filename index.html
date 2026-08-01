@@ -5,20 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="SourceShelf turns webpages, files, folders, and documentation exports into local Markdown and OKF-compatible AI-ready knowledge packs on your Mac.">
   <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="SourceShelf">
   <meta property="og:description" content="Capture local Markdown with assets and export structured AI-ready knowledge packs, including OKF-compatible bundles.">
-  <meta property="og:url" content="https://SourceShelf.app/">
-  <meta property="og:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta property="og:url" content="https://sourceshelf.app/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SourceShelf">
   <meta name="twitter:description" content="Capture local Markdown with assets and export structured AI-ready knowledge packs, including OKF-compatible bundles.">
-  <meta name="twitter:image" content="https://SourceShelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
   <title>SourceShelf</title>
-  <link rel="icon" href="assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
-  <link rel="apple-touch-icon" href="assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="styles.css?v=20260801">
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -33,17 +42,18 @@
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-current="page">
-        <img class="brand-icon" src="assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+      <a class="brand" href="/" aria-current="page">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
         <span>SourceShelf</span>
       </a>
       <div class="nav-links">
-        <a class="nav-link" href="index.html" aria-current="page">Home</a>
-        <a class="nav-link" href="privacy.html">Privacy</a>
-        <a class="nav-link" href="docs/">Documentation</a>
-        <a class="nav-link" href="support.html">Support</a>
+        <a class="nav-link" href="/" aria-current="page">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
       </div>
@@ -53,17 +63,17 @@
   <main id="main" class="main">
     <section class="section hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <img class="hero-icon" src="assets/icons/SourceShelf-Icon-lightmode.png" alt="SourceShelf app icon" width="116" height="116">
+        <img class="hero-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="SourceShelf app icon" width="116" height="116">
         <h1 id="hero-title">SourceShelf</h1>
         <p class="tagline">Turn webpages, files, and folders into local Markdown and OKF-compatible AI-ready knowledge packs.</p>
         <p class="subheading">Capture web pages from Safari, convert documents and documentation folders to Markdown, preserve useful images, and export structured AI Reference Packs — including Open Knowledge Format bundles — all locally on your Mac.</p>
         <div class="actions">
           <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">Download on the Mac App Store</a>
-          <a class="button button-secondary" href="privacy.html">View privacy details</a>
+          <a class="button button-secondary" href="/privacy.html">View privacy details</a>
         </div>
       </div>
       <div class="hero-visual">
-        <img class="hero-product-image" src="assets/hero-sourceshelf-preview.png" alt="SourceShelf app screens showing Safari capture, folder conversion, generated Markdown, Shortcuts automation, and OKF-compatible AI Reference Pack export." width="2400" height="1500">
+        <img class="hero-product-image" src="/assets/hero-sourceshelf-preview.png" alt="SourceShelf app screens showing Safari capture, folder conversion, generated Markdown, Shortcuts automation, and OKF-compatible AI Reference Pack export." width="2400" height="1500">
       </div>
     </section>
 
@@ -82,7 +92,7 @@
             <p>Capture webpages, files, and folders as clean Markdown with source metadata preserved.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/1-save-as-markdown.png" alt="SourceShelf save as Markdown screen showing local source capture options." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/1-save-as-markdown.png" alt="SourceShelf save as Markdown screen showing local source capture options." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -93,7 +103,7 @@
             <p>Save full pages, main content, selected text, or visible page areas directly from Safari, including browser-local images Safari can access during capture.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/2-clip-web-content.png" alt="SourceShelf Safari clipping screen with options for full page, main content, selected text, and visible area." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/2-clip-web-content.png" alt="SourceShelf Safari clipping screen with options for full page, main content, selected text, and visible area." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -104,7 +114,7 @@
             <p>Convert whole folders of PDFs, Office files, images, HTML, text, Markdown, and exported documentation sites.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/3-batch-conversion.png" alt="SourceShelf batch conversion screen for converting a folder of supported files." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/3-batch-conversion.png" alt="SourceShelf batch conversion screen for converting a folder of supported files." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -115,7 +125,7 @@
             <p>Find the right sources fast, even when your local archive grows.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/4-recent-search-filter.png" alt="SourceShelf Recent screen with search and filtering controls." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/4-recent-search-filter.png" alt="SourceShelf Recent screen with search and filtering controls." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -126,7 +136,7 @@
             <p>Turn selected captures and documents into structured ZIP exports, including OKF-compatible bundles with Markdown pages, metadata, and an index.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/5-ai-ready-packs.png" alt="SourceShelf AI Reference Pack builder showing selected sources, health checks, and OKF-compatible bundle export." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/5-ai-ready-packs.png" alt="SourceShelf AI Reference Pack builder showing selected sources, health checks, and OKF-compatible bundle export." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -137,7 +147,7 @@
             <p>OCR scanned PDFs and images locally on your Mac.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/6-scanned-pdf-support.png" alt="SourceShelf OCR screen for scanned PDFs and images." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/6-scanned-pdf-support.png" alt="SourceShelf OCR screen for scanned PDFs and images." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -148,7 +158,7 @@
             <p>Readable Markdown with source metadata preserved, plus images saved in clear sidecar folders like <code>Page Name.assets</code>.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/7-generate-markdown.png" alt="SourceShelf generated Markdown preview with source metadata." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/7-generate-markdown.png" alt="SourceShelf generated Markdown preview with source metadata." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -159,7 +169,7 @@
             <p>Captures, assets, pack checks, cleanup, and exports all happen locally on your Mac with no cloud processing or telemetry.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/8-private-by-design.png" alt="SourceShelf privacy screen describing local-first processing." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/8-private-by-design.png" alt="SourceShelf privacy screen describing local-first processing." width="2880" height="1800" loading="lazy">
           </div>
         </article>
 
@@ -170,7 +180,7 @@
             <p>Automate Markdown conversion with Apple Shortcuts.</p>
           </div>
           <div class="screenshot-frame">
-            <img src="assets/screenshots/9-shortcut-automation.png" alt="SourceShelf Shortcuts automation screen for Markdown conversion workflows." width="2880" height="1800" loading="lazy">
+            <img src="/assets/screenshots/9-shortcut-automation.png" alt="SourceShelf Shortcuts automation screen for Markdown conversion workflows." width="2880" height="1800" loading="lazy">
           </div>
         </article>
       </div>
@@ -195,7 +205,7 @@
           <h2 id="pack-included-title">Clear bundle contents</h2>
           <ul class="plain-list">
             <li>Each selected source becomes its own Markdown page for easy browsing and reuse.</li>
-            <li>Export OKF-compatible bundle ZIPs based on Google's <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF)</a> specification.</li>
+            <li>Export OKF-compatible bundle ZIPs based on Google&#39;s <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">Open Knowledge Format (OKF)</a> specification.</li>
             <li>Remote images, skipped media, and linked documents are called out when they remain links instead of bundled files.</li>
           </ul>
         </section>
@@ -258,14 +268,14 @@
     <div class="footer-inner">
       <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
       <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="privacy.html">Privacy</a>
-        <a href="docs/">Documentation</a>
-        <a href="support.html">Support</a>
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
         <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
       </div>
     </div>
   </footer>
-  <script src="script.js?v=20260801"></script>
+  <script src="/script.js?v=20260801-2"></script>
 </body>
 </html>

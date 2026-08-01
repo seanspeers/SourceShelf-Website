@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ollama ローカルモデルを実行します。 MCP-可能なエージェント—例えば Codex、 Claude Code、または OpenCode—SourceShelf接続をホストし、そのモデルにツールを提供します。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SourceShelfをOllamaで使う | SourceShelfドキュメント">
+  <meta property="og:description" content="Ollama ローカルモデルを実行します。 MCP-可能なエージェント—例えば Codex、 Claude Code、または OpenCode—SourceShelf接続をホストし、そのモデルにツールを提供します。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/mcp/ollama/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SourceShelfをOllamaで使う | SourceShelfドキュメント">
+  <meta name="twitter:description" content="Ollama ローカルモデルを実行します。 MCP-可能なエージェント—例えば Codex、 Claude Code、または OpenCode—SourceShelf接続をホストし、そのモデルにツールを提供します。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>SourceShelfをOllamaで使う | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ローカルAIアクセス</li><li aria-current="page">SourceShelfをOllamaで使う</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/" aria-current="page">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/" aria-current="page">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="sourceshelfをollamaで使う">SourceShelfをOllamaで使う</h1>
+<p>Ollama ローカルモデルを実行します。 MCP-可能なエージェント—例えば Codex、 Claude Code、または OpenCode—SourceShelf接続をホストし、そのモデルにツールを提供します。</p>
+<p>OllamaのネイティブチャットとAPIサポートツール通話、しかし Ollama SourceShelfはそれ自体ではありません。 MCP クライアント。したがって、最も簡単なテストは次のとおりです。</p>
+<div class="code-block"><pre><code class="language-text">SourceShelf MCP helper → Codex / Claude Code / OpenCode → Ollama model</code></pre></div>
+<p>最終確認日：2026年8月1日。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#推奨設定-ollama-と-codex">推奨設定： Ollama と Codex</a></li><li class="toc-level-2"><a href="#ollama-と-opencode">Ollama と OpenCode</a></li><li class="toc-level-2"><a href="#ollama-と-claude-code">Ollama と Claude Code</a></li><li class="toc-level-2"><a href="#のマニュアルローカルモデルモード-codex">のマニュアルローカルモデルモード Codex</a></li><li class="toc-level-2"><a href="#モデルを選択する">モデルを選択する</a></li><li class="toc-level-2"><a href="#上級-自分の橋を作ろう">上級：自分の橋を作ろう</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="推奨設定-ollama-と-codex">推奨設定： Ollama と Codex <a class="heading-anchor" href="#推奨設定-ollama-と-codex" aria-label="セクションへのリンク: 推奨設定： Ollama と Codex"><span aria-hidden="true">#</span></a></h2>
+<ol><li>SourceShelf 共有を作成し、そのコマンドをコピーします。</li><li>に追加する Codex 使用している <a href="/ja/docs/mcp/codex/">その Codex ガイド</a>。</li><li>起動する Codex スルー Ollama:</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch codex</code></pre></div>
+<ol><li>十分な大きさのコンテキストウィンドウと信頼性の高いツール呼び出しを備えたインストール済みのモデルを選択します。</li><li>で Codex、走る <code>/mcp</code> SourceShelfサーバーとその2つのツールが存在することを確認します。</li><li>尋ねる：</li></ol>
+<blockquote><p>SourceShelfパックで公共交通機関の利用者数の傾向を検索し、最適な結果を読み、リソースを引用します。 URI。</p></blockquote>
+<p>Ollama コーディングエージェントには少なくとも64Kのコンテキストウィンドウを推奨します。SourceShelfの検索優先ワークフローは不要なコンテキストを減らしますが、エージェント自体にはまだツール定義と結果のためのスペースが必要になる場合があります。</p>
+<h2 id="ollama-と-opencode">Ollama と OpenCode <a class="heading-anchor" href="#ollama-と-opencode" aria-label="セクションへのリンク: Ollama と OpenCode"><span aria-hidden="true">#</span></a></h2>
+<ol><li>SourceShelf を設定する OpenCode 使用している <a href="/ja/docs/mcp/opencode/">その OpenCode ガイド</a>。</li><li>ローカルエージェントを起動します。 Ollama:</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch opencode</code></pre></div>
+<p>Ollama 一時的な起動構成を既存の OpenCode 構成なので、あなたのSourceShelf MCP エントリーは引き続き利用可能です。</p>
+<h2 id="ollama-と-claude-code">Ollama と Claude Code <a class="heading-anchor" href="#ollama-と-claude-code" aria-label="セクションへのリンク: Ollama と Claude Code"><span aria-hidden="true">#</span></a></h2>
+<ol><li>ソースシェルフを構成するには、 <a href="/ja/docs/mcp/claude-code/">その Claude Code ガイド</a>。</li><li>開始：</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch claude</code></pre></div>
+<p>それから使用する <code>/mcp</code> で Claude Code サーバーを確認する。</p>
+<h2 id="のマニュアルローカルモデルモード-codex">のマニュアルローカルモデルモード Codex <a class="heading-anchor" href="#のマニュアルローカルモデルモード-codex" aria-label="セクションへのリンク: のマニュアルローカルモデルモード Codex"><span aria-hidden="true">#</span></a></h2>
+<p>もしあなたの Codex 設定はすでに次の場所にポインタを向けています。 Ollama、また、次のように開始することもできます。</p>
+<div class="code-block"><pre><code class="language-sh">codex --oss</code></pre></div>
+<p>その MCP 構成は保持されます。 Codex; <code>--oss</code> ローカルオープンソースモデルプロバイダーを選択します。複数のローカルプロバイダーを維持している場合は、名前付きを使用します Codex 代わりにプロフィール。</p>
+<h2 id="モデルを選択する">モデルを選択する <a class="heading-anchor" href="#モデルを選択する" aria-label="セクションへのリンク: モデルを選択する"><span aria-hidden="true">#</span></a></h2>
+<p>以下の条件を満たすモデルを探してください。 Ollama ページまたはドキュメントにツール/関数の呼び出しが明示的に言及されている場合。小型モデルは、次の直接的なプロンプトの恩恵を受けます。</p>
+<blockquote><p>コール <code>search_pack</code> 最初に。 使う <code>read_pack_resource</code> 上位結果のみ。推測しないで、パック全体を読み込まないでください。</p></blockquote>
+<p>モデルが仮定のツール呼び出しを繰り返しテキストとして書き込む場合、ホスト接続は機能している場合がありますが、モデルのツール呼び出し動作は機能していません。SourceShelfをデバッグする前に、より強力なツール対応モデルで確認してください。</p>
+<h2 id="上級-自分の橋を作ろう">上級：自分の橋を作ろう <a class="heading-anchor" href="#上級-自分の橋を作ろう" aria-label="セクションへのリンク: 上級：自分の橋を作ろう"><span aria-hidden="true">#</span></a></h2>
+<p>使用するアプリケーション OllamaのチャットAPIは関数を定義して実行することができますが、また、また実装する必要があります MCP クライアントまたはそれらの機能をSourceShelfに翻訳します。 MCP コール。SourceShelfは意図的にネットワークエンドポイントを提供しません。通常のテストでは、既存のエージェントホストの方がはるかにシンプルで安全です。</p>
+<p>公式参照： <a href="https://docs.ollama.com/capabilities/tool-calling">Ollama ツールコール</a>、 <a href="https://docs.ollama.com/cli">Ollama 起動する</a>、 <a href="https://docs.ollama.com/integrations/codex">Ollama と Codex</a>、 <a href="https://docs.ollama.com/integrations/opencode">Ollama と OpenCode</a>、 <a href="https://docs.ollama.com/integrations/claude-code">Ollama と Claude Code</a>。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/mcp/lm-studio/"><span>前へ</span><strong>SourceShelfをLM Studioで使う</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/mcp/codex/"><span>次へ</span><strong>SourceShelfをCodexで使う</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#推奨設定-ollama-と-codex">推奨設定： Ollama と Codex</a></li><li class="toc-level-2"><a href="#ollama-と-opencode">Ollama と OpenCode</a></li><li class="toc-level-2"><a href="#ollama-と-claude-code">Ollama と Claude Code</a></li><li class="toc-level-2"><a href="#のマニュアルローカルモデルモード-codex">のマニュアルローカルモデルモード Codex</a></li><li class="toc-level-2"><a href="#モデルを選択する">モデルを選択する</a></li><li class="toc-level-2"><a href="#上級-自分の橋を作ろう">上級：自分の橋を作ろう</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

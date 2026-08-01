@@ -6,6 +6,12 @@
   <meta name="description" content="Import local llms.txt collections and generate ordered, inspectable llms.txt export folders.">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="https://sourceshelf.app/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/llms-txt/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Import and Export llms.txt | SourceShelf Documentation">
   <meta property="og:description" content="Import local llms.txt collections and generate ordered, inspectable llms.txt export folders.">
@@ -18,8 +24,10 @@
   <title>Import and Export llms.txt | SourceShelf Documentation</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -44,7 +52,8 @@
         <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
       </div>
@@ -56,16 +65,16 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Guides</li><li aria-current="page">Import and Export llms.txt</li></ol></nav>
       <details class="docs-mobile-nav">
         <summary>Browse documentation</summary>
-        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/" aria-current="page">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/" aria-current="page">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
       </details>
       <div class="docs-layout">
         <aside class="docs-sidebar" aria-label="Documentation sidebar">
-          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/" aria-current="page">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/" aria-current="page">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
         </aside>
         <article class="docs-article">
@@ -75,20 +84,20 @@
           </header>
           <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#import-a-collection">Import a collection</a></li><li class="toc-level-2"><a href="#what-the-parser-accepts">What the parser accepts</a></li><li class="toc-level-2"><a href="#local-link-safety">Local-link safety</a></li><li class="toc-level-2"><a href="#generate-a-collection-folder">Generate a collection folder</a></li></ol></nav></details>
           <div class="docs-article-body">
-            <h2 id="import-a-collection">Import a collection <a class="heading-anchor" href="#import-a-collection" aria-label="Link to Import a collection"><span aria-hidden="true">#</span></a></h2>
+            <h2 id="import-a-collection">Import a collection <a class="heading-anchor" href="#import-a-collection" aria-label="Section link: Import a collection"><span aria-hidden="true">#</span></a></h2>
 <p>Choose <strong>File &gt; Import llms.txt…</strong> or use the action in <strong>Convert</strong>. Select either:</p>
 <ul><li>an <code>llms.txt</code> file; or</li><li>a folder containing <code>llms.txt</code>.</li></ul>
 <p>Choose the folder when the index contains local document links. That gives SourceShelf a safe root against which to resolve them.</p>
-<h2 id="what-the-parser-accepts">What the parser accepts <a class="heading-anchor" href="#what-the-parser-accepts" aria-label="Link to What the parser accepts"><span aria-hidden="true">#</span></a></h2>
+<h2 id="what-the-parser-accepts">What the parser accepts <a class="heading-anchor" href="#what-the-parser-accepts" aria-label="Section link: What the parser accepts"><span aria-hidden="true">#</span></a></h2>
 <p>An index must contain one H1 title. It may also contain:</p>
 <ul><li>an optional blockquote summary;</li><li>detail prose;</li><li>ordered H2 sections;</li><li>Markdown link-list entries with descriptions;</li><li>a special <code>## Optional</code> section.</li></ul>
 <p>An optional byte-order mark is accepted. Malformed optional entries are reported as warnings.</p>
-<h2 id="local-link-safety">Local-link safety <a class="heading-anchor" href="#local-link-safety" aria-label="Link to Local-link safety"><span aria-hidden="true">#</span></a></h2>
+<h2 id="local-link-safety">Local-link safety <a class="heading-anchor" href="#local-link-safety" aria-label="Section link: Local-link safety"><span aria-hidden="true">#</span></a></h2>
 <p>SourceShelf resolves only relative <code>.md</code>, <code>.markdown</code>, and <code>.txt</code> links contained beneath the selected root. It rejects:</p>
 <ul><li><code>..</code> traversal;</li><li>absolute local paths;</li><li>symlinks that escape the root;</li><li>unsupported URL schemes.</li></ul>
 <p>HTTP(S) links become named unavailable Library references. Their titles, descriptions, and provenance remain visible, but SourceShelf does not fetch them. Repeated targets are deduplicated by normalized identity, preserving the first occurrence.</p>
 <p>The imported index is the first readable Library item. Local documents follow in index order. SourceShelf creates a saved pack named from the H1 and offers replace, save-as, or cancel behavior for a normalized-name collision.</p>
-<h2 id="generate-a-collection-folder">Generate a collection folder <a class="heading-anchor" href="#generate-a-collection-folder" aria-label="Link to Generate a collection folder"><span aria-hidden="true">#</span></a></h2>
+<h2 id="generate-a-collection-folder">Generate a collection folder <a class="heading-anchor" href="#generate-a-collection-folder" aria-label="Section link: Generate a collection folder"><span aria-hidden="true">#</span></a></h2>
 <p>Open a clean saved pack, choose <strong>Export… &gt; llms.txt Collection Folder</strong>, pass Trust &amp; Safety, and select a parent folder. SourceShelf creates a collision-safe <code>&lt;pack-name&gt;-llms</code> folder:</p>
 <div class="code-block"><pre><code class="language-text">&lt;pack-name&gt;-llms/
 ├── llms.txt
@@ -102,7 +111,7 @@
 <p>Only archived images actually referenced by readable Markdown are included. Unreadable entries without valid web provenance are omitted and reported after generation.</p>
 <p>SourceShelf does not generate <code>llms-full.txt</code>, retrieval chunks, embeddings, or remote downloads for this format.</p>
           </div>
-          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/trust-safety-and-refresh/"><span>Previous</span><strong>Trust &amp; Safety and Living Packs</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/local-ai-access/"><span>Next</span><strong>Local AI Access Overview</strong></a></nav>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/trust-safety-and-refresh/"><span>Previous</span><strong>Trust &amp; Safety and Living Packs</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/local-ai-access/"><span>Next</span><strong>Local AI Access (MCP)</strong></a></nav>
         </article>
         <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#import-a-collection">Import a collection</a></li><li class="toc-level-2"><a href="#what-the-parser-accepts">What the parser accepts</a></li><li class="toc-level-2"><a href="#local-link-safety">Local-link safety</a></li><li class="toc-level-2"><a href="#generate-a-collection-folder">Generate a collection folder</a></li></ol></nav></aside>
       </div>
@@ -121,6 +130,6 @@
       </div>
     </div>
   </footer>
-  <script src="/script.js?v=20260801"></script>
+  <script src="/script.js?v=20260801-2"></script>
 </body>
 </html>

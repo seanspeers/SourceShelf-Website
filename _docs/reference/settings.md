@@ -2,6 +2,12 @@
 
 Open **SourceShelf > Settings**. The window is resizable and is organized into five tabs.
 
+## Language
+
+SourceShelf supports English, French, Latin American Spanish, Brazilian Portuguese, and Japanese. It follows the language selected for SourceShelf in **System Settings > General > Language & Region > Applications**, falling back to your preferred macOS language order. The Safari extension follows Safari’s interface language.
+
+Changing the interface language does not translate source documents, custom recipe or pack names, exported source text, MCP identifiers, filenames, or manifest fields.
+
 ## General
 
 Choose the output folder used for new converted and captured Markdown. SourceShelf stores an authorized bookmark locally so it can return to that folder. Changing it affects future output; it does not move existing files.

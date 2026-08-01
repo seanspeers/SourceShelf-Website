@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SourceShelf convertit les documents locaux pris en charge en Markdown sans les télécharger ni faire de requêtes réseau.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/convert-files/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/convert-files/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Convertir des fichiers et des dossiers | Documentation SourceShelf">
+  <meta property="og:description" content="SourceShelf convertit les documents locaux pris en charge en Markdown sans les télécharger ni faire de requêtes réseau.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/guides/convert-files/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Convertir des fichiers et des dossiers | Documentation SourceShelf">
+  <meta name="twitter:description" content="SourceShelf convertit les documents locaux pris en charge en Markdown sans les télécharger ni faire de requêtes réseau.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Convertir des fichiers et des dossiers | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Guides</li><li aria-current="page">Convertir des fichiers et des dossiers</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/" aria-current="page">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/" aria-current="page">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="convertir-des-fichiers-et-des-dossiers">Convertir des fichiers et des dossiers</h1>
+<p>SourceShelf convertit les documents locaux pris en charge en Markdown sans les télécharger ni faire de requêtes réseau.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#manières-de-commencer-une-conversion">Manières de commencer une conversion</a></li><li class="toc-level-2"><a href="#quest-ce-qui-est-préservé">Qu&#39;est-ce qui est préservé ?</a></li><li class="toc-level-2"><a href="#noms-de-sortie-et-collisions">Noms de sortie et collisions</a></li><li class="toc-level-2"><a href="#mémoire-cache-sémantique">Mémoire cache sémantique</a></li><li class="toc-level-2"><a href="#si-une-conversion-échoue">Si une conversion échoue</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="manières-de-commencer-une-conversion">Manières de commencer une conversion <a class="heading-anchor" href="#manières-de-commencer-une-conversion" aria-label="Lien vers la section: Manières de commencer une conversion"><span aria-hidden="true">#</span></a></h2>
+<ul><li>Faites glisser des fichiers ou des dossiers dans <strong>convertir</strong>.</li><li>sélectionner <strong>Sélectionner des fichiers</strong> ou <strong>Sélectionner le dossier</strong>.</li><li>utiliser <strong>Fichier &gt; Ouvrir</strong> Pour les fichiers.</li><li>utiliser <strong>Fichier &gt; Importation llms.txt...</strong> Pour un local <code>llms.txt</code> Fichier d&#39;index ou de collection.</li><li>Utilisez l&#39;action Accès rapides SourceShelf pour une conversion de fichiers automatisée.</li></ul>
+<p>Lors de la conversion d&#39;un dossier, SourceShelf examine les fichiers pris en charge à l&#39;intérieur et signale les éléments omis. La conversion de dossier ne transforme pas le dossier lui-même en un pack enregistré ; ajoutez les éléments de la bibliothèque résultants à un pack ultérieurement.</p>
+<h2 id="quest-ce-qui-est-préservé">Qu&#39;est-ce qui est préservé ? <a class="heading-anchor" href="#quest-ce-qui-est-préservé" aria-label="Lien vers la section: Qu&#39;est-ce qui est préservé ?"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf construit un document sémantique avant de générer de nouveaux Markdown. En fonction de la source, il peut conserver les titres, les paragraphes, les listes, les tableaux, le code, les images, les légendes, les limites des diapositives ou des pages et le contenu de secours brut.</p>
+<p>Pour les PDF et images numérisés, SourceShelf utilise l&#39;OCR local. La reconnaissance de documents structurés est utilisée lorsque disponible sur la version macOS installée ; les systèmes plus anciens utilisent le chemin OCR de compatibilité.</p>
+<h2 id="noms-de-sortie-et-collisions">Noms de sortie et collisions <a class="heading-anchor" href="#noms-de-sortie-et-collisions" aria-label="Lien vers la section: Noms de sortie et collisions"><span aria-hidden="true">#</span></a></h2>
+<p>Les noms générés sont désinfectés pour le système de fichiers. Si la destination contient déjà le même nom, SourceShelf choisit un nom sûr contre les collisions au lieu de le remplacer silencieusement.</p>
+<p>Les chemins de fichiers source sont conservés pour les actions locales d&#39;ouverture et de révélation d&#39;Open, mais ne sont pas placés dans les manifeste exportés. MCP Instantanés, ou provenance générée pour les conversions de fichiers.</p>
+<h2 id="mémoire-cache-sémantique">Mémoire cache sémantique <a class="heading-anchor" href="#mémoire-cache-sémantique" aria-label="Lien vers la section: Mémoire cache sémantique"><span aria-hidden="true">#</span></a></h2>
+<p>Pour les articles gérés, les magasins SourceShelf stockent <code>semantic-document.json</code> dans le répertoire géré de manière privée de l&#39;élément. Il comprend le chèque de somme exact en octets Markdown utilisé pour décider si la cache est toujours valide.</p>
+<p>Si vous modifiez le Markdown dans une autre application, SourceShelf détecte le changement de chiffrage et le reformule lorsqu&#39;il en a besoin. Il ne réécrit pas votre fichier modifié. Un cache sémantique manquant ou endommagé n&#39;est pas bloquant.</p>
+<h2 id="si-une-conversion-échoue">Si une conversion échoue <a class="heading-anchor" href="#si-une-conversion-échoue" aria-label="Lien vers la section: Si une conversion échoue"><span aria-hidden="true">#</span></a></h2>
+<ol><li>Confirmez que la source existe toujours et peut être ouverte dans son application normale.</li><li>Confirmez que le dossier de sortie est disponible dans <strong>Paramètres &gt; Général</strong>.</li><li>Essayez un seul fichier plutôt qu&#39;un dossier entier pour isoler le format.</li><li>Pour un scan, vérifiez que la page est droite et qu&#39;elle a suffisamment de contraste pour l&#39;OCR.</li><li>Vérifiez si le type de fichier apparaît dans <a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a>.</li></ol>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/guides/safari-capture/"><span>Précédent</span><strong>Capturer depuis Safari</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/guides/library-and-inspector/"><span>Suivant</span><strong>Bibliothèque et inspecteur</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#manières-de-commencer-une-conversion">Manières de commencer une conversion</a></li><li class="toc-level-2"><a href="#quest-ce-qui-est-préservé">Qu&#39;est-ce qui est préservé ?</a></li><li class="toc-level-2"><a href="#noms-de-sortie-et-collisions">Noms de sortie et collisions</a></li><li class="toc-level-2"><a href="#mémoire-cache-sémantique">Mémoire cache sémantique</a></li><li class="toc-level-2"><a href="#si-une-conversion-échoue">Si une conversion échoue</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

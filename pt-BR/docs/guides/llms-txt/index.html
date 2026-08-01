@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Da SourceShelf llms.txt o suporte é experimental e deliberadamente offline. Ele pode importar um índice local e gerar uma pasta de coleção portátil, mas nunca recupera links da internet.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/pt-BR/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/llms-txt/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/llms-txt/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Importar e exportar llms.txt | Documentação do SourceShelf">
+  <meta property="og:description" content="Da SourceShelf llms.txt o suporte é experimental e deliberadamente offline. Ele pode importar um índice local e gerar uma pasta de coleção portátil, mas nunca recupera links da internet.">
+  <meta property="og:url" content="https://sourceshelf.app/pt-BR/docs/guides/llms-txt/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Importar e exportar llms.txt | Documentação do SourceShelf">
+  <meta name="twitter:description" content="Da SourceShelf llms.txt o suporte é experimental e deliberadamente offline. Ele pode importar um índice local e gerar uma pasta de coleção portátil, mas nunca recupera links da internet.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Importar e exportar llms.txt | Documentação do SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("pt-BR");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="/pt-BR/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/pt-BR/">Início</a>
+        <a class="nav-link" href="/pt-BR/privacy.html">Privacidade</a>
+        <a class="nav-link" href="/pt-BR/docs/" aria-current="page">Documentação</a>
+        <a class="nav-link" href="/pt-BR/support.html">Suporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Baixar o SourceShelf na Mac App Store">Baixar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Escolher idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR" selected>Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Mudar para o modo claro" data-dark-label="Mudar para o modo escuro" aria-label="Ativar ou desativar o modo escuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/pt-BR/">Início</a></li><li><a href="/pt-BR/docs/">Documentação</a></li><li>Guias</li><li aria-current="page">Importar e exportar llms.txt</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Explorar a documentação</summary>
+        <nav aria-label="Navegação móvel da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/" aria-current="page">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barra lateral da documentação">
+          <nav aria-label="Navegação da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/" aria-current="page">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="importar-e-exportar-llms-txt">Importar e exportar llms.txt</h1>
+<p>Da SourceShelf <code>llms.txt</code> o suporte é experimental e deliberadamente offline. Ele pode importar um índice local e gerar uma pasta de coleção portátil, mas nunca recupera links da internet.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Nesta página</summary><nav class="docs-toc-list" aria-label="Sumário móvel"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#importar-uma-coleção">Importar uma coleção</a></li><li class="toc-level-2"><a href="#o-que-o-analisador-aceita">O que o analisador aceita</a></li><li class="toc-level-2"><a href="#segurança-do-link-local">Segurança do link local</a></li><li class="toc-level-2"><a href="#gerar-uma-pasta-de-coleção">Gerar uma pasta de coleção</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="importar-uma-coleção">Importar uma coleção <a class="heading-anchor" href="#importar-uma-coleção" aria-label="Link para a seção: Importar uma coleção"><span aria-hidden="true">#</span></a></h2>
+<p>escolher <strong>Arquivo &gt; Importar llms.txt...</strong> Ou use a ação em <strong>converter</strong>. Selecione qualquer um dos seguintes:</p>
+<ul><li>Um <code>llms.txt</code> Arquivo; ou</li><li>Uma pasta contendo <code>llms.txt</code>.</li></ul>
+<p>Escolha a pasta quando o índice conter links de documentos locais. Isso dá ao SourceShelf uma raiz segura contra a qual resolvê-los.</p>
+<h2 id="o-que-o-analisador-aceita">O que o analisador aceita <a class="heading-anchor" href="#o-que-o-analisador-aceita" aria-label="Link para a seção: O que o analisador aceita"><span aria-hidden="true">#</span></a></h2>
+<p>Um índice deve conter um título H1. Também pode conter:</p>
+<ul><li>Um resumo opcional de citação em bloco;</li><li>Prosa detalhada;</li><li>Ordenou seções H2;</li><li>Entradas de lista de links Markdown com descrições;</li><li>Um especial <code>## Optional</code> Seção.</li></ul>
+<p>Uma marca opcional de ordem de byte é aceita. Entradas opcionais malformadas são relatadas como avisos.</p>
+<h2 id="segurança-do-link-local">Segurança do link local <a class="heading-anchor" href="#segurança-do-link-local" aria-label="Link para a seção: Segurança do link local"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf resolve apenas relativos <code>.md</code>, <code>.markdown</code>, e <code>.txt</code> Links contidos abaixo da raiz selecionada. Ele rejeita:</p>
+<ul><li><code>..</code> Traversal;</li><li>Caminhos locais absolutos;</li><li>Links simbólicos que escapam da raiz;</li><li>sem suporte URL Esquemas.</li></ul>
+<p>Os links HTTP(S) tornam-se referências de biblioteca nomeadas indisponíveis. Seus títulos, descrições e proveniência permanecem visíveis, mas o SourceShelf não os recupera. Alvos repetidos são deduplicados por identidade normalizada, preservando a primeira ocorrência.</p>
+<p>O índice importado é o primeiro item da Biblioteca legível. Os documentos locais seguem na ordem do índice. A SourceShelf cria um pacote salvo com o nome H1 e oferece comportamento de substituição, salvar como ou cancelamento para uma colisão de nome normalizado.</p>
+<h2 id="gerar-uma-pasta-de-coleção">Gerar uma pasta de coleção <a class="heading-anchor" href="#gerar-uma-pasta-de-coleção" aria-label="Link para a seção: Gerar uma pasta de coleção"><span aria-hidden="true">#</span></a></h2>
+<p>Abra um pacote salvo limpo, escolha <strong>Exportar... &gt; llms.txt Pastinha de Coleção</strong>, passe pela Confiança e Segurança e selecione uma pasta de pai. A SourceShelf cria um seguro contra colisões <code>&lt;pack-name&gt;-llms</code> Pastinha:</p>
+<div class="code-block"><pre><code class="language-text">&lt;pack-name&gt;-llms/
+├── llms.txt
+├── documents/
+│   └── ordered-source.md
+├── assets/
+│   └── referenced-image.png
+├── sourceshelf-manifest.json
+└── checksums.sha256</code></pre></div>
+<p>O índice raiz contém o título do pacote, um resumo de conteúdo não confiável, ordenado <code>## Sources</code> Links, e <code>## Optional</code> Entradas para fontes indisponíveis com proveniência web válida. Os links de imagens de documentos são reescritos para arquivos copiados em <code>assets/</code>.</p>
+<p>Apenas imagens arquivadas realmente referenciadas por Markdown legível estão incluídas. Entradas ilegíveis sem proveniência web válida são omitidas e relatadas após a geração.</p>
+<p>SourceShelf não gera <code>llms-full.txt</code>, blocos de recuperação, incorporações ou downloads remotos para este formato.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Páginas da documentação"><a class="docs-page-link docs-page-link-previous" href="/pt-BR/docs/guides/trust-safety-and-refresh/"><span>Anterior</span><strong>Confiança e segurança e pacotes em evolução</strong></a><a class="docs-page-link docs-page-link-next" href="/pt-BR/docs/mcp/local-ai-access/"><span>Próximo</span><strong>Acesso local à IA (MCP)</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Conteúdo da página"><nav class="docs-toc-list" aria-label="Sumário"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#importar-uma-coleção">Importar uma coleção</a></li><li class="toc-level-2"><a href="#o-que-o-analisador-aceita">O que o analisador aceita</a></li><li class="toc-level-2"><a href="#segurança-do-link-local">Segurança do link local</a></li><li class="toc-level-2"><a href="#gerar-uma-pasta-de-coleção">Gerar uma pasta de coleção</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/pt-BR/">Início</a>
+        <a href="/pt-BR/privacy.html">Privacidade</a>
+        <a href="/pt-BR/docs/">Documentação</a>
+        <a href="/pt-BR/support.html">Suporte</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

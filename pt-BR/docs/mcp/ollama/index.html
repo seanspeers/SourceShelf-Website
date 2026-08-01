@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ollama Executa o modelo local. Um MCP-agente capaz—como Codex, Claude Code, ou OpenCode— hospeda a conexão SourceShelf e fornece suas ferramentas para esse modelo.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/pt-BR/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Usar o SourceShelf com o Ollama | Documentação do SourceShelf">
+  <meta property="og:description" content="Ollama Executa o modelo local. Um MCP-agente capaz—como Codex, Claude Code, ou OpenCode— hospeda a conexão SourceShelf e fornece suas ferramentas para esse modelo.">
+  <meta property="og:url" content="https://sourceshelf.app/pt-BR/docs/mcp/ollama/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Usar o SourceShelf com o Ollama | Documentação do SourceShelf">
+  <meta name="twitter:description" content="Ollama Executa o modelo local. Um MCP-agente capaz—como Codex, Claude Code, ou OpenCode— hospeda a conexão SourceShelf e fornece suas ferramentas para esse modelo.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Usar o SourceShelf com o Ollama | Documentação do SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("pt-BR");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir para o conteúdo</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegação principal">
+      <a class="brand" href="/pt-BR/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/pt-BR/">Início</a>
+        <a class="nav-link" href="/pt-BR/privacy.html">Privacidade</a>
+        <a class="nav-link" href="/pt-BR/docs/" aria-current="page">Documentação</a>
+        <a class="nav-link" href="/pt-BR/support.html">Suporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Baixar o SourceShelf na Mac App Store">Baixar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Escolher idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR" selected>Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Mudar para o modo claro" data-dark-label="Mudar para o modo escuro" aria-label="Ativar ou desativar o modo escuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Trilha de navegação"><ol><li><a href="/pt-BR/">Início</a></li><li><a href="/pt-BR/docs/">Documentação</a></li><li>Acesso local à IA</li><li aria-current="page">Usar o SourceShelf com o Ollama</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Explorar a documentação</summary>
+        <nav aria-label="Navegação móvel da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/" aria-current="page">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barra lateral da documentação">
+          <nav aria-label="Navegação da documentação"><a class="docs-nav-home" href="/pt-BR/docs/">Início da documentação</a><section class="docs-nav-group"><h2>Primeiros passos</h2><ul><li><a href="/pt-BR/docs/getting-started/">Começar a usar o SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guias</h2><ul><li><a href="/pt-BR/docs/guides/safari-capture/">Capturar no Safari</a></li><li><a href="/pt-BR/docs/guides/convert-files/">Converter arquivos e pastas</a></li><li><a href="/pt-BR/docs/guides/library-and-inspector/">Biblioteca e inspetor</a></li><li><a href="/pt-BR/docs/guides/storage-management/">Gerenciar o armazenamento do SourceShelf</a></li><li><a href="/pt-BR/docs/guides/build-and-manage-packs/">Criar e gerenciar pacotes</a></li><li><a href="/pt-BR/docs/guides/export-formats/">Escolher um formato de exportação</a></li><li><a href="/pt-BR/docs/guides/trust-safety-and-refresh/">Confiança e segurança e pacotes em evolução</a></li><li><a href="/pt-BR/docs/guides/llms-txt/">Importar e exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acesso local à IA</h2><ul><li><a href="/pt-BR/docs/mcp/local-ai-access/">Acesso local à IA (MCP)</a></li><li><a href="/pt-BR/docs/mcp/lm-studio/">Usar o SourceShelf com o LM Studio</a></li><li><a href="/pt-BR/docs/mcp/ollama/" aria-current="page">Usar o SourceShelf com o Ollama</a></li><li><a href="/pt-BR/docs/mcp/codex/">Usar o SourceShelf com o Codex</a></li><li><a href="/pt-BR/docs/mcp/claude-code/">Usar o SourceShelf com o Claude Code</a></li><li><a href="/pt-BR/docs/mcp/opencode/">Usar o SourceShelf com o OpenCode</a></li><li><a href="/pt-BR/docs/mcp/troubleshooting/">Solução de problemas do MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referência</h2><ul><li><a href="/pt-BR/docs/reference/settings/">Referência de ajustes</a></li><li><a href="/pt-BR/docs/reference/supported-formats/">Formatos compatíveis</a></li><li><a href="/pt-BR/docs/reference/privacy-and-security/">Privacidade e segurança</a></li><li><a href="/pt-BR/docs/reference/glossary/">Glossário</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="usar-o-sourceshelf-com-o-ollama">Usar o SourceShelf com o Ollama</h1>
+<p>Ollama Executa o modelo local. Um MCP-agente capaz—como Codex, Claude Code, ou OpenCode— hospeda a conexão SourceShelf e fornece suas ferramentas para esse modelo.</p>
+<p>OllamaChamada de ferramenta de suporte de bate-papo nativo e API, mas Ollama Não é por si só a SourceShelf MCP Cliente. O teste mais simples é, portanto:</p>
+<div class="code-block"><pre><code class="language-text">SourceShelf MCP helper → Codex / Claude Code / OpenCode → Ollama model</code></pre></div>
+<p>Última verificação: 01-08-2026.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Nesta página</summary><nav class="docs-toc-list" aria-label="Sumário móvel"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#configuração-recomendada-ollama-com-codex">Configuração recomendada: Ollama com Codex</a></li><li class="toc-level-2"><a href="#ollama-com-opencode">Ollama com OpenCode</a></li><li class="toc-level-2"><a href="#ollama-com-claude-code">Ollama com Claude Code</a></li><li class="toc-level-2"><a href="#modo-manual-de-modelo-local-no-codex">Modo manual de modelo local no Codex</a></li><li class="toc-level-2"><a href="#escolhendo-um-modelo">Escolhendo um modelo</a></li><li class="toc-level-2"><a href="#avancado-construa-sua-própria-ponte">Avancado: construa sua própria ponte</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="configuração-recomendada-ollama-com-codex">Configuração recomendada: Ollama com Codex <a class="heading-anchor" href="#configuração-recomendada-ollama-com-codex" aria-label="Link para a seção: Configuração recomendada: Ollama com Codex"><span aria-hidden="true">#</span></a></h2>
+<ol><li>Crie a partilha SourceShelf e copie seu comando.</li><li>Adicione-o a Codex Usando <a href="/pt-BR/docs/mcp/codex/">o Codex guia</a>.</li><li>lançamento Codex através Ollama:</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch codex</code></pre></div>
+<ol><li>Escolha um modelo instalado com uma janela de contexto suficientemente grande e chamadas de ferramentas confiáveis.</li><li>pol Codex, correr <code>/mcp</code> E confirme que o servidor SourceShelf e suas duas ferramentas estão presentes.</li><li>Pergunte:</li></ol>
+<blockquote><p>Pesquise o pacote SourceShelf para tendências de passageiros de transporte público, leia o melhor resultado e cite o recurso. URI.</p></blockquote>
+<p>Ollama Recomenda pelo menos uma janela de contexto de 64K para agentes de codificação. O fluxo de trabalho de pesquisa primeiro da SourceShelf reduz o contexto desnecessário, mas o próprio agente ainda pode precisar de espaço para definições de ferramentas e resultados.</p>
+<h2 id="ollama-com-opencode">Ollama com OpenCode <a class="heading-anchor" href="#ollama-com-opencode" aria-label="Link para a seção: Ollama com OpenCode"><span aria-hidden="true">#</span></a></h2>
+<ol><li>Configurar SourceShelf em OpenCode Usando <a href="/pt-BR/docs/mcp/opencode/">o OpenCode guia</a>.</li><li>Inicie o agente local através de Ollama:</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch opencode</code></pre></div>
+<p>Ollama Diz que funde profundamente a configuração de lançamento temporária com uma existente OpenCode Configuração, então seu SourceShelf MCP A entrada permanece disponível.</p>
+<h2 id="ollama-com-claude-code">Ollama com Claude Code <a class="heading-anchor" href="#ollama-com-claude-code" aria-label="Link para a seção: Ollama com Claude Code"><span aria-hidden="true">#</span></a></h2>
+<ol><li>Configure SourceShelf usando <a href="/pt-BR/docs/mcp/claude-code/">o Claude Code guia</a>.</li><li>Lançamento:</li></ol>
+<div class="code-block"><pre><code class="language-sh">ollama launch claude</code></pre></div>
+<p>Então use <code>/mcp</code> pol Claude Code Para confirmar o servidor.</p>
+<h2 id="modo-manual-de-modelo-local-no-codex">Modo manual de modelo local no Codex <a class="heading-anchor" href="#modo-manual-de-modelo-local-no-codex" aria-label="Link para a seção: Modo manual de modelo local no Codex"><span aria-hidden="true">#</span></a></h2>
+<p>Se o seu Codex A configuração já aponta para Ollama, você também pode começar com:</p>
+<div class="code-block"><pre><code class="language-sh">codex --oss</code></pre></div>
+<p>o MCP A configuração permanece em Codex; <code>--oss</code> Escolha o provedor de modelo de código aberto local. Se você manter vários provedores locais, use um nomeado Codex Perfil em vez disso.</p>
+<h2 id="escolhendo-um-modelo">Escolhendo um modelo <a class="heading-anchor" href="#escolhendo-um-modelo" aria-label="Link para a seção: Escolhendo um modelo"><span aria-hidden="true">#</span></a></h2>
+<p>Procure um modelo cujo Ollama A página ou documentação menciona explicitamente a chamada de ferramentas/funções. Modelos menores se beneficiam de prompts diretos, como:</p>
+<blockquote><p>chamada <code>search_pack</code> Primeiro. uso <code>read_pack_resource</code> Somente no resultado superior. Não adivinhe e não leia o pacote inteiro.</p></blockquote>
+<p>Se o modelo escrever repetidamente uma chamada hipotética de ferramenta como texto, a conexão do host pode estar funcionando enquanto o comportamento de chamada de ferramenta do modelo não está. Confirme com um modelo mais capaz de ferramentas antes de depurar o SourceShelf.</p>
+<h2 id="avancado-construa-sua-própria-ponte">Avancado: construa sua própria ponte <a class="heading-anchor" href="#avancado-construa-sua-própria-ponte" aria-label="Link para a seção: Avancado: construa sua própria ponte"><span aria-hidden="true">#</span></a></h2>
+<p>Um aplicativo usando OllamaA API de bate-papo pode definir funções e executá-las, mas também deve implementar um MCP Cliente ou traduza essas funções para o SourceShelf MCP Chamadas. O SourceShelf não fornece intencionalmente um endpoint de rede. Para testes normais, um host de agente existente é muito mais simples e seguro.</p>
+<p>Referências oficiais: <a href="https://docs.ollama.com/capabilities/tool-calling">Ollama Chamada de ferramenta</a>, <a href="https://docs.ollama.com/cli">Ollama lançamento</a>, <a href="https://docs.ollama.com/integrations/codex">Ollama com Codex</a>, <a href="https://docs.ollama.com/integrations/opencode">Ollama com OpenCode</a>, <a href="https://docs.ollama.com/integrations/claude-code">Ollama com Claude Code</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Páginas da documentação"><a class="docs-page-link docs-page-link-previous" href="/pt-BR/docs/mcp/lm-studio/"><span>Anterior</span><strong>Usar o SourceShelf com o LM Studio</strong></a><a class="docs-page-link docs-page-link-next" href="/pt-BR/docs/mcp/codex/"><span>Próximo</span><strong>Usar o SourceShelf com o Codex</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Conteúdo da página"><nav class="docs-toc-list" aria-label="Sumário"><h2>Nesta página</h2><ol><li class="toc-level-2"><a href="#configuração-recomendada-ollama-com-codex">Configuração recomendada: Ollama com Codex</a></li><li class="toc-level-2"><a href="#ollama-com-opencode">Ollama com OpenCode</a></li><li class="toc-level-2"><a href="#ollama-com-claude-code">Ollama com Claude Code</a></li><li class="toc-level-2"><a href="#modo-manual-de-modelo-local-no-codex">Modo manual de modelo local no Codex</a></li><li class="toc-level-2"><a href="#escolhendo-um-modelo">Escolhendo um modelo</a></li><li class="toc-level-2"><a href="#avancado-construa-sua-própria-ponte">Avancado: construa sua própria ponte</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/pt-BR/">Início</a>
+        <a href="/pt-BR/privacy.html">Privacidade</a>
+        <a href="/pt-BR/docs/">Documentação</a>
+        <a href="/pt-BR/support.html">Suporte</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

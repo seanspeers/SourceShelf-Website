@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="この手順では、いくつかのファイルを変換し、順序付けされたパックを作成し、それをチェックし、エクスポートします。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/getting-started/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/getting-started/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/getting-started/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/getting-started/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/getting-started/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/getting-started/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/getting-started/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SourceShelfを使い始める | SourceShelfドキュメント">
+  <meta property="og:description" content="この手順では、いくつかのファイルを変換し、順序付けされたパックを作成し、それをチェックし、エクスポートします。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/getting-started/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SourceShelfを使い始める | SourceShelfドキュメント">
+  <meta name="twitter:description" content="この手順では、いくつかのファイルを変換し、順序付けされたパックを作成し、それをチェックし、エクスポートします。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>SourceShelfを使い始める | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li aria-current="page">SourceShelfを使い始める</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/" aria-current="page">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/" aria-current="page">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="sourceshelfを使い始める">SourceShelfを使い始める</h1>
+<p>この手順では、いくつかのファイルを変換し、順序付けされたパックを作成し、それをチェックし、エクスポートします。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#section-1-出力フォルダを選択する">1. 出力フォルダを選択する</a></li><li class="toc-level-2"><a href="#section-2-ファイルを変換する">2. ファイルを変換する</a></li><li class="toc-level-2"><a href="#section-3-ライブラリを確認する">3. ライブラリを確認する</a></li><li class="toc-level-2"><a href="#section-4-パックを作成する">4. パックを作成する</a></li><li class="toc-level-2"><a href="#section-5-信頼性と安全性を実行する">5. 信頼性と安全性を実行する</a></li><li class="toc-level-2"><a href="#section-6-エクスポート">6. エクスポート</a></li><li class="toc-level-2"><a href="#次のステップ">次のステップ</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="section-1-出力フォルダを選択する">1. 出力フォルダを選択する <a class="heading-anchor" href="#section-1-出力フォルダを選択する" aria-label="セクションへのリンク: 1. 出力フォルダを選択する"><span aria-hidden="true">#</span></a></h2>
+<p>開いている <strong>ソースシェルフ &gt; 設定 &gt; 一般</strong> および出力フォルダを選択します。変換されたMarkdownはそこに保存されます。SourceShelfはフォルダのアクセス情報を記憶するため、後で変換を行うときに別のプロンプトなしで使用できます。</p>
+<p>認識しやすく、バックアップしやすいフォルダを選択してください。SourceShelfは、ローカルライブラリのメタデータと管理された資産もアプリコンテナに保持しています。出力フォルダの変更は、古いMarkdownファイルを移動しません。</p>
+<h2 id="section-2-ファイルを変換する">2. ファイルを変換する <a class="heading-anchor" href="#section-2-ファイルを変換する" aria-label="セクションへのリンク: 2. ファイルを変換する"><span aria-hidden="true">#</span></a></h2>
+<p>開いている <strong>改宗する</strong>、その後、ファイルをドロップエリアにドラッグするか、選択します。 <strong>ファイルを選択する</strong>. あなたはまた使用することができます <strong>ファイル&gt;開く</strong>、フォルダ全体を変換するか、ローカルをインポートします。 <code>llms.txt</code> コレクション。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/convert-1600.webp" srcset="/docs/assets/images/convert-800.webp 800w, /docs/assets/images/convert-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="ローカルファイルに対応した変換ワークスペース" width="1600" height="1068" loading="lazy" decoding="async">
+</figure>
+<p>各成功したコンバージョンにより、以下が生成されます。</p>
+<ul><li>出力フォルダのMarkdownファイル。</li><li>タイトル、ソースタイプ、日付、利用可能性を含むライブラリエントリ。</li><li>プレビュー、チャンキング、比較に使用される管理された意味的メタデータ。</li><li>ソースフォーマットまたはキャプチャにサポートされている画像が含まれている場合、アーカイブされた資産。</li></ul>
+<p>元のファイルは変更されません。</p>
+<h2 id="section-3-ライブラリを確認する">3. ライブラリを確認する <a class="heading-anchor" href="#section-3-ライブラリを確認する" aria-label="セクションへのリンク: 3. ライブラリを確認する"><span aria-hidden="true">#</span></a></h2>
+<p>開いている <strong>ライブラリ</strong>。新しく変換されたアイテムは、日付でグループ化すると上に表示されます。アイテムを選択してインスペクタを開きます。 使う <strong>プレビュー</strong> レンダリングされたコンテンツと <strong>マークダウンソース</strong> YAMLの前文を含む正確な保存されたMarkdownについては。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/library-1600.webp" srcset="/docs/assets/images/library-800.webp 800w, /docs/assets/images/library-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="ライブラリ内の合成デモソース" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+<p>ライブラリフィルターは、表示される内容のみに影響を与えます。現在のパックは変更されません。</p>
+<h2 id="section-4-パックを作成する">4. パックを作成する <a class="heading-anchor" href="#section-4-パックを作成する" aria-label="セクションへのリンク: 4. パックを作成する"><span aria-hidden="true">#</span></a></h2>
+<p>開いている <strong>パック</strong>、選ぶ <strong>新しいパック</strong>、そして左側のソースブラウザを使用して資料を探します。個々のソースを追加するか、使用してください。</p>
+<ul><li><strong>マッチングを追加する</strong> 現在のフィルターの場合。</li><li><strong>すべてエクスポート可能なものを追加する</strong> 読み取り可能なライブラリアイテムごとに。</li><li><strong>最後にエクスポートしてから追加する</strong> 最後の成功したエクスポート後にキャプチャまたは変換されたアイテムの場合。</li></ul>
+<p>アイテムをドラッグするか、を使用して、中央リストを再順序します。 <strong>上がる</strong> そして <strong>下がる</strong>。表示された順序は、エクスポート順序となり、ローカルAIアクセスを通じて提示された順序となります。</p>
+<p>パックを保存して耐久性のある名前を与え、ライブパック比較を有効にします。 <code>llms.txt</code> フォルダ生成、および MCP 共有する。</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/pack-builder-1600.webp" srcset="/docs/assets/images/pack-builder-800.webp 800w, /docs/assets/images/pack-builder-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="合成市販研究ファイルから作られたオーダーパック" width="1600" height="977" loading="lazy" decoding="async">
+</figure>
+<h2 id="section-5-信頼性と安全性を実行する">5. 信頼性と安全性を実行する <a class="heading-anchor" href="#section-5-信頼性と安全性を実行する" aria-label="セクションへのリンク: 5. 信頼性と安全性を実行する"><span aria-hidden="true">#</span></a></h2>
+<p>選択する <strong>信頼性と安全性</strong>. SourceShelfは、ソースの読みやすさ、名前付け、パッケージ構造、変更日、ウェブソースの年齢、アセット参照、コンテンツハッシュ、およびプロンプト注入言語を示している可能性のある保守的なパターンをチェックします。</p>
+<p>警告は勧告です。SourceShelfは元のコンテンツを保存し、それを信頼できない参照資料としてラベル付けします。それはそれを消毒していると主張するものではありません。</p>
+<h2 id="section-6-エクスポート">6. エクスポート <a class="heading-anchor" href="#section-6-エクスポート" aria-label="セクションへのリンク: 6. エクスポート"><span aria-hidden="true">#</span></a></h2>
+<p>選択する <strong>エクスポート...</strong>、次にワークフローに一致する目的地に選択します。</p>
+<ul><li><strong>AI リファレンスパック ZIP</strong> AIチャット、エージェント、プロジェクトワークスペース用。</li><li><strong>OKF v0.2 バンドル ZIP</strong> 標準ベースのカタログとエージェント用。</li><li><strong>マークダウンコンテキストパック</strong> 1つのポータブルファイルの場合；</li><li><strong>llms.txt コレクションフォルダ</strong> 順序済みの、検査可能なフォルダの場合。</li><li><strong>結合マークダウンをコピーする</strong> 素早く貼り付けるために。</li></ul>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/export-chooser-1600.webp" srcset="/docs/assets/images/export-chooser-800.webp 800w, /docs/assets/images/export-chooser-1600.webp 1516w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelfの5つのエクスポートオプション" width="1516" height="1396" loading="lazy" decoding="async">
+</figure>
+<p>ZIPと <code>llms.txt</code> フォルダエクスポートは、新しいTrust &amp; Safetyチェックを実行します。Markdownとクリップボードエクスポートはすぐに開始されます。成功したエクスポートは、次のためのローカルベースラインを記録します。 <strong>更新＆比較</strong>。</p>
+<h2 id="次のステップ">次のステップ <a class="heading-anchor" href="#次のステップ" aria-label="セクションへのリンク: 次のステップ"><span aria-hidden="true">#</span></a></h2>
+<ul><li>ウェブリサーチをキャプチャする <a href="/ja/docs/guides/safari-capture/">Safari拡張機能</a>。</li><li>保存したパックをローカルAIアプリに接続するには、 <a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス</a>。</li><li>各バンドルに何が含まれているかをご覧ください。 <a href="/ja/docs/guides/export-formats/">エクスポート形式を選択する</a>。</li><li>保留とクリーニングの仕組みについて学びます。 <a href="/ja/docs/guides/storage-management/">SourceShelfストレージを管理する</a>。</li></ul>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/"><span>前へ</span><strong>SourceShelfユーザーガイド</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/guides/safari-capture/"><span>次へ</span><strong>Safariからキャプチャ</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#section-1-出力フォルダを選択する">1. 出力フォルダを選択する</a></li><li class="toc-level-2"><a href="#section-2-ファイルを変換する">2. ファイルを変換する</a></li><li class="toc-level-2"><a href="#section-3-ライブラリを確認する">3. ライブラリを確認する</a></li><li class="toc-level-2"><a href="#section-4-パックを作成する">4. パックを作成する</a></li><li class="toc-level-2"><a href="#section-5-信頼性と安全性を実行する">5. 信頼性と安全性を実行する</a></li><li class="toc-level-2"><a href="#section-6-エクスポート">6. エクスポート</a></li><li class="toc-level-2"><a href="#次のステップ">次のステップ</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

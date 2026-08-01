@@ -6,6 +6,12 @@
   <meta name="description" content="Share one saved SourceShelf pack with compatible local AI applications through read-only MCP access.">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Local AI Access (MCP) | SourceShelf Documentation">
   <meta property="og:description" content="Share one saved SourceShelf pack with compatible local AI applications through read-only MCP access.">
@@ -18,8 +24,10 @@
   <title>Local AI Access (MCP) | SourceShelf Documentation</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -44,7 +52,8 @@
         <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
       </div>
@@ -56,16 +65,16 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Local AI Access</li><li aria-current="page">Local AI Access (MCP)</li></ol></nav>
       <details class="docs-mobile-nav">
         <summary>Browse documentation</summary>
-        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/" aria-current="page">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/" aria-current="page">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
       </details>
       <div class="docs-layout">
         <aside class="docs-sidebar" aria-label="Documentation sidebar">
-          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/" aria-current="page">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/" aria-current="page">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
         </aside>
         <article class="docs-article">
@@ -76,7 +85,7 @@
           </header>
           <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#before-you-connect-a-client">Before you connect a client</a></li><li class="toc-level-2"><a href="#what-sourceshelf-publishes">What SourceShelf publishes</a></li><li class="toc-level-2"><a href="#resources-and-tools">Resources and tools</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#copy-the-connection-details">Copy the connection details</a></li><li class="toc-level-2"><a href="#snapshot-refresh-and-revocation">Snapshot refresh and revocation</a></li><li class="toc-level-2"><a href="#moving-or-updating-sourceshelf">Moving or updating SourceShelf</a></li><li class="toc-level-2"><a href="#choose-a-client-guide">Choose a client guide</a></li><li class="toc-level-2"><a href="#protocol-notes">Protocol notes</a></li></ol></nav></details>
           <div class="docs-article-body">
-            <h2 id="before-you-connect-a-client">Before you connect a client <a class="heading-anchor" href="#before-you-connect-a-client" aria-label="Link to Before you connect a client"><span aria-hidden="true">#</span></a></h2>
+            <h2 id="before-you-connect-a-client">Before you connect a client <a class="heading-anchor" href="#before-you-connect-a-client" aria-label="Section link: Before you connect a client"><span aria-hidden="true">#</span></a></h2>
 <ol><li>Open <strong>SourceShelf &gt; Settings &gt; Integrations</strong>.</li><li>Enable <strong>Local MCP sharing</strong>.</li><li>Open <strong>Packs</strong> and select a saved pack.</li><li>Save any outstanding changes.</li><li>Choose <strong>More &gt; Local AI Access…</strong>.</li><li>Review the fresh Trust &amp; Safety result. If it has warnings or readable-source errors, explicitly choose <strong>Share with Issues</strong> to continue.</li></ol>
 <figure class="docs-figure">
   <img src="/docs/assets/images/integrations-settings-1600.webp" srcset="/docs/assets/images/integrations-settings-800.webp 800w, /docs/assets/images/integrations-settings-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="The opt-in Local MCP Sharing setting" width="1600" height="1107" loading="lazy" decoding="async">
@@ -85,36 +94,36 @@
   <img src="/docs/assets/images/local-ai-access-1600.webp" srcset="/docs/assets/images/local-ai-access-800.webp 800w, /docs/assets/images/local-ai-access-1600.webp 1380w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="A current Local AI Access snapshot for a synthetic saved pack" width="1380" height="880" loading="lazy" decoding="async">
 </figure>
 <p>An untitled or dirty pack cannot be shared. A pack with no readable sources is blocked.</p>
-<h2 id="what-sourceshelf-publishes">What SourceShelf publishes <a class="heading-anchor" href="#what-sourceshelf-publishes" aria-label="Link to What SourceShelf publishes"><span aria-hidden="true">#</span></a></h2>
+<h2 id="what-sourceshelf-publishes">What SourceShelf publishes <a class="heading-anchor" href="#what-sourceshelf-publishes" aria-label="Section link: What SourceShelf publishes"><span aria-hidden="true">#</span></a></h2>
 <p>Each authorization creates a random share ID and an immutable snapshot containing only the selected pack:</p>
 <ul><li>a pack overview with ordered source links;</li><li>a generated <code>llms.txt</code> index;</li><li>a public JSON catalog;</li><li>one Markdown resource per readable source;</li><li>referenced archived images;</li><li>checksums and an internal URI allowlist.</li></ul>
 <p>The snapshot does <strong>not</strong> include source-file paths, output-folder paths, security bookmarks, unrelated Library items, or write access.</p>
 <p>Text reads prepend an untrusted-reference notice without changing the stored Markdown body. Every requested URI is checked against the snapshot allowlist and its SHA-256 checksum before it is served.</p>
-<h2 id="resources-and-tools">Resources and tools <a class="heading-anchor" href="#resources-and-tools" aria-label="Link to Resources and tools"><span aria-hidden="true">#</span></a></h2>
+<h2 id="resources-and-tools">Resources and tools <a class="heading-anchor" href="#resources-and-tools" aria-label="Section link: Resources and tools"><span aria-hidden="true">#</span></a></h2>
 <p>The server exposes discoverable <code>sourceshelf://pack/...</code> resources and two read-only tools:</p>
-<h3 id="searchpack-query-limit"><code>search_pack(query, limit)</code> <a class="heading-anchor" href="#searchpack-query-limit" aria-label="Link to searchpack(query, limit)"><span aria-hidden="true">#</span></a></h3>
+<h3 id="searchpack-query-limit"><code>search_pack(query, limit)</code> <a class="heading-anchor" href="#searchpack-query-limit" aria-label="Section link: searchpack(query, limit)"><span aria-hidden="true">#</span></a></h3>
 <p>Searches the shared pack locally and returns ranked excerpts plus resource URIs. Search is deterministic and lexical; it does not use embeddings, make network requests, or call a model.</p>
-<h3 id="readpackresource-uri-cursor-maxcharacters"><code>read_pack_resource(uri, cursor, max_characters)</code> <a class="heading-anchor" href="#readpackresource-uri-cursor-maxcharacters" aria-label="Link to readpackresource(uri, cursor, maxcharacters)"><span aria-hidden="true">#</span></a></h3>
+<h3 id="readpackresource-uri-cursor-maxcharacters"><code>read_pack_resource(uri, cursor, max_characters)</code> <a class="heading-anchor" href="#readpackresource-uri-cursor-maxcharacters" aria-label="Section link: readpackresource(uri, cursor, maxcharacters)"><span aria-hidden="true">#</span></a></h3>
 <p>Reads a text resource in bounded pages. The cursor lets a client continue through a long source without overfilling a smaller model’s context window.</p>
 <p>This pair is especially useful for local models: the model can search narrowly, read only the most relevant source sections, and cite their SourceShelf URIs. A compatible host still needs to let the model call tools.</p>
-<h2 id="copy-the-connection-details">Copy the connection details <a class="heading-anchor" href="#copy-the-connection-details" aria-label="Link to Copy the connection details"><span aria-hidden="true">#</span></a></h2>
+<h2 id="copy-the-connection-details">Copy the connection details <a class="heading-anchor" href="#copy-the-connection-details" aria-label="Section link: Copy the connection details"><span aria-hidden="true">#</span></a></h2>
 <p>The <strong>Local AI Access</strong> sheet provides:</p>
 <ul><li><strong>Copy MCP Configuration</strong> — JSON in the common <code>mcpServers</code> format used by LM Studio and several clients;</li><li><strong>Copy Command</strong> — the helper executable plus <code>--share</code> authorization argument;</li><li><strong>Refresh</strong> — rebuild the snapshot after an explicit review when needed;</li><li><strong>Stop Sharing</strong> — revoke the authorization immediately.</li></ul>
 <p>Treat the copied share ID like a local access token. It is not a password sent over the internet, but any process running as your user that has the ID and helper path can request that snapshot.</p>
-<h2 id="snapshot-refresh-and-revocation">Snapshot refresh and revocation <a class="heading-anchor" href="#snapshot-refresh-and-revocation" aria-label="Link to Snapshot refresh and revocation"><span aria-hidden="true">#</span></a></h2>
+<h2 id="snapshot-refresh-and-revocation">Snapshot refresh and revocation <a class="heading-anchor" href="#snapshot-refresh-and-revocation" aria-label="Section link: Snapshot refresh and revocation"><span aria-hidden="true">#</span></a></h2>
 <p>SourceShelf re-evaluates shares after relevant pack, Library, and trust-policy changes:</p>
 <ul><li>If a fresh Trust &amp; Safety result is ready, SourceShelf can replace the snapshot automatically.</li><li>If new warnings or errors appear, the previous valid snapshot stays available and the share becomes <strong>Review Required</strong>.</li><li>Select <strong>Refresh</strong> and confirm before publishing those changes.</li><li>Deleting the saved pack revokes its share.</li><li><strong>Stop Sharing</strong>, <strong>Revoke All</strong>, or disabling Local MCP sharing invalidates copied configurations immediately.</li></ul>
 <p>The helper reloads registry and snapshot metadata for every request, so a running client cannot keep reading a revoked share.</p>
-<h2 id="moving-or-updating-sourceshelf">Moving or updating SourceShelf <a class="heading-anchor" href="#moving-or-updating-sourceshelf" aria-label="Link to Moving or updating SourceShelf"><span aria-hidden="true">#</span></a></h2>
+<h2 id="moving-or-updating-sourceshelf">Moving or updating SourceShelf <a class="heading-anchor" href="#moving-or-updating-sourceshelf" aria-label="Section link: Moving or updating SourceShelf"><span aria-hidden="true">#</span></a></h2>
 <p>Copied configurations point to the helper inside the SourceShelf app. If you move, reinstall, or update SourceShelf, copy a fresh configuration from <strong>Local AI Access…</strong> so the AI client uses the current helper location.</p>
-<h2 id="choose-a-client-guide">Choose a client guide <a class="heading-anchor" href="#choose-a-client-guide" aria-label="Link to Choose a client guide"><span aria-hidden="true">#</span></a></h2>
+<h2 id="choose-a-client-guide">Choose a client guide <a class="heading-anchor" href="#choose-a-client-guide" aria-label="Section link: Choose a client guide"><span aria-hidden="true">#</span></a></h2>
 <ul><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li></ul>
 <p>See <a href="/docs/mcp/troubleshooting/">MCP troubleshooting</a> if the helper exits, tools are missing, or a share is not current.</p>
-<h2 id="protocol-notes">Protocol notes <a class="heading-anchor" href="#protocol-notes" aria-label="Link to Protocol notes"><span aria-hidden="true">#</span></a></h2>
+<h2 id="protocol-notes">Protocol notes <a class="heading-anchor" href="#protocol-notes" aria-label="Section link: Protocol notes"><span aria-hidden="true">#</span></a></h2>
 <p>SourceShelf’s helper uses MCP over stdio and supports the protocol version implemented by its bundled Swift SDK. The server publishes resources and the two read-only tools only; it does not publish prompts, write tools, subscriptions, or list-change notifications.</p>
 <p>Further reading: <a href="https://modelcontextprotocol.io/docs/learn/server-concepts">MCP resources</a>, <a href="https://modelcontextprotocol.io/docs/learn/server-concepts#tools">MCP tools</a>.</p>
           </div>
-          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/llms-txt/"><span>Previous</span><strong>Import and Export llms.txt</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/lm-studio/"><span>Next</span><strong>LM Studio</strong></a></nav>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/llms-txt/"><span>Previous</span><strong>Import and Export llms.txt</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/lm-studio/"><span>Next</span><strong>Use SourceShelf with LM Studio</strong></a></nav>
         </article>
         <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#before-you-connect-a-client">Before you connect a client</a></li><li class="toc-level-2"><a href="#what-sourceshelf-publishes">What SourceShelf publishes</a></li><li class="toc-level-2"><a href="#resources-and-tools">Resources and tools</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#copy-the-connection-details">Copy the connection details</a></li><li class="toc-level-2"><a href="#snapshot-refresh-and-revocation">Snapshot refresh and revocation</a></li><li class="toc-level-2"><a href="#moving-or-updating-sourceshelf">Moving or updating SourceShelf</a></li><li class="toc-level-2"><a href="#choose-a-client-guide">Choose a client guide</a></li><li class="toc-level-2"><a href="#protocol-notes">Protocol notes</a></li></ol></nav></aside>
       </div>
@@ -133,6 +142,6 @@
       </div>
     </div>
   </footer>
-  <script src="/script.js?v=20260801"></script>
+  <script src="/script.js?v=20260801-2"></script>
 </body>
 </html>

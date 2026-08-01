@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Politique de confidentialité pour SourceShelf, une application Mac locale-first pour la capture Markdown, l&#39;archivage d&#39;actifs et l&#39;exportation de packs prêts pour l&#39;IA.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/privacy.html">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/privacy.html">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/privacy.html">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/privacy.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/privacy.html">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/privacy.html">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Politique de confidentialité | SourceShelf">
+  <meta property="og:description" content="SourceShelf traite les captures, les actifs, les contrôles de paquets, le nettoyage et les exportations localement sur votre Mac.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/privacy.html">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Politique de confidentialité | SourceShelf">
+  <meta name="twitter:description" content="SourceShelf traite les captures, les actifs, les contrôles de paquets, le nettoyage et les exportations localement sur votre Mac.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Politique de confidentialité | SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html" aria-current="page">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main">
+    <section class="section page-hero" aria-labelledby="page-title">
+      <p class="eyebrow">SourceShelf</p>
+      <h1 id="page-title">Politique de confidentialité</h1>
+      <p>SourceShelf est conçu comme une application Mac locale en premier lieu. Il traite les captures, les conversions, les actifs archivés, les contrôles de paquets, le nettoyage et les exportations sur votre Mac et ne utilise pas la conversion en nuage, l&#39;analyse, la télémétrie, les comptes ou les API de conversion externes.</p>
+    </section>
+
+    <section class="section content-grid" aria-label="Détails de confidentialité">
+      <section class="content-section" aria-labelledby="local-title">
+        <h2 id="local-title">Ce qui reste local</h2>
+        <ul class="plain-list">
+          <li>Captures Safari</li>
+          <li>Conversions de fichiers/dossiers</li>
+          <li>Importations du site de documentation</li>
+          <li>OCR du PDF et de l&#39;image numérisés à l&#39;aide de l&#39;Apple Vision local.</li>
+          <li>Génération de packs de contexte et de paquets compatibles avec OKF</li>
+          <li>Paquet de contrôles de santé pour les paquets de référence IA</li>
+          <li>Actifs web archivés et dossiers d&#39;images de sidecar</li>
+          <li>Utilisation du stockage local et nettoyage des actifs orphelins</li>
+          <li>Histoire récente</li>
+          <li>Sélections/collections enregistrées</li>
+          <li>Queue de transfert de Safari</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="storage-title">
+        <h2 id="storage-title">Emplacement des fichiers</h2>
+        <p>Les fichiers Markdown générés sont enregistrés dans le dossier de sortie sélectionné par l&#39;utilisateur. Les images capturées peuvent être enregistrées avec Markdown dans des dossiers sidecar lisibles tels que <code>Page Name.assets</code>. Reference Pack ZIPs, ZIPs de paquets compatibles OKF et Context Packs sont enregistrés ou copiés là où l&#39;utilisateur le souhaite. L&#39;historique de l&#39;application, les paramètres, les sélections enregistrées et les actifs web archivés sont stockés localement dans le conteneur application/app-group.</p>
+        <p>Les images sont suivies par le fichier d&#39;enregistrement de l&#39;élément SourceShelf, donc le déplacement ou la suppression d&#39;un fichier Markdown exporté ne détruit pas automatiquement les actifs archivés.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="storage-management-title">
+        <h2 id="storage-management-title">Stockage local et nettoyage</h2>
+        <p>La page de confidentialité locale explique les actifs web archivés, montre l&#39;utilisation du stockage local et offre un nettoyage minutieux uniquement pour les fichiers véritablement orphelins. Le nettoyage est conçu pour éviter de supprimer les actifs toujours détenus par une entrée de SourceShelf.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="does-not-title">
+        <h2 id="does-not-title">Ce que SourceShelf ne fait pas</h2>
+        <ul class="plain-list">
+          <li>Pas de télémétrie</li>
+          <li>Pas d&#39;analyse</li>
+          <li>Pas de cloud OCR</li>
+          <li>Pas de conversion en nuage</li>
+          <li>Pas d&#39;API de conversion externe</li>
+          <li>Aucune compte n&#39;est requise.</li>
+        </ul>
+      </section>
+
+      <section class="content-section" aria-labelledby="after-export-title">
+        <h2 id="after-export-title">Après l’exportation</h2>
+        <p>Les fichiers Markdown exportés, les dossiers d&#39;actifs sidecar, les packs contextuels, les ZIP des packs de référence IA et les ZIP des paquets compatibles OKF sont des fichiers normaux. Vous contrôlez où vous les enregistrez, les copiez, les téléchargez ou les partagez.</p>
+      </section>
+
+      <section class="content-section" aria-labelledby="website-privacy-title">
+        <h2 id="website-privacy-title">Confidentialité du site Web</h2>
+        <p>Ce site Web n&#39;utilise aucune analyse, aucun script de suivi, aucun pixel publicitaire, aucun cookie ou aucun type de police/CDN externe. Les pages GitHub ou les fournisseurs de DNS/hébergement peuvent traiter les journaux ordinaires du serveur dans le cadre de l&#39;hébergement.</p>
+        <p>SourceShelf stocke uniquement vos préférences de thème et de langue localement dans votre navigateur. Ces préférences ne sont pas utilisées à des fins de suivi et ne sont jamais envoyées à SourceShelf.</p>
+        <p>Pour des questions de confidentialité, envoyez un e-mail <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

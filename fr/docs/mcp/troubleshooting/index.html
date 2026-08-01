@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Travaillez à partir de SourceShelf vers l&#39;extérieur : instantané, chemin d&#39;aide, connexion client, puis comportement du modèle.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/troubleshooting/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/troubleshooting/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Dépannage MCP | Documentation SourceShelf">
+  <meta property="og:description" content="Travaillez à partir de SourceShelf vers l&#39;extérieur : instantané, chemin d&#39;aide, connexion client, puis comportement du modèle.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/mcp/troubleshooting/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dépannage MCP | Documentation SourceShelf">
+  <meta name="twitter:description" content="Travaillez à partir de SourceShelf vers l&#39;extérieur : instantané, chemin d&#39;aide, connexion client, puis comportement du modèle.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Dépannage MCP | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Accès local à l’IA</li><li aria-current="page">Dépannage MCP</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/" aria-current="page">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/" aria-current="page">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="dépannage-mcp">Dépannage MCP</h1>
+<p>Travaillez à partir de SourceShelf vers l&#39;extérieur : instantané, chemin d&#39;aide, connexion client, puis comportement du modèle.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#section-1-confirmer-létat-de-sourceshelf">1. Confirmer l&#39;état de SourceShelf</a></li><li class="toc-level-2"><a href="#section-2-tester-directement-la-commande-copiée">2. Tester directement la commande copiée.</a></li><li class="toc-level-2"><a href="#section-3-erreurs-courantes">3. Erreurs courantes</a></li><li class="toc-level-3"><a href="#le-processus-a-été-terminé-avec-le-code-1-connexion-fermée">Le processus a été terminé avec le code 1 / connexion fermée.</a></li><li class="toc-level-3"><a href="#méthode-non-trouvée-tools-list">Méthode non trouvée : tools/list</a></li><li class="toc-level-3"><a href="#ressource-non-trouvée">Ressource non trouvée</a></li><li class="toc-level-3"><a href="#échec-de-la-somme-de-contrôle">Échec de la somme de contrôle</a></li><li class="toc-level-3"><a href="#le-client-affiche-des-ressources-mais-le-modèle-ne-appelle-jamais-les-outils">Le client affiche des ressources, mais le modèle ne appelle jamais les outils.</a></li><li class="toc-level-3"><a href="#la-recherche-manque-une-phrase-exacte">La recherche manque une phrase exacte</a></li><li class="toc-level-3"><a href="#une-longue-source-est-coupée">Une longue source est coupée.</a></li><li class="toc-level-2"><a href="#section-4-créer-une-nouvelle-autorisation">4. Créer une nouvelle autorisation</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="section-1-confirmer-létat-de-sourceshelf">1. Confirmer l&#39;état de SourceShelf <a class="heading-anchor" href="#section-1-confirmer-létat-de-sourceshelf" aria-label="Lien vers la section: 1. Confirmer l&#39;état de SourceShelf"><span aria-hidden="true">#</span></a></h2>
+<p>Ouvrez le pack sauvegardé <strong>Accès local à l&#39;IA</strong> Feuille et vérifier :</p>
+<ul><li>Le partage mondial est activé ;</li><li>Le pack est sauvegardé et n&#39;a pas de modifications non sauvegardées ;</li><li>Une capture d&#39;écran publiée est affichée ;</li><li>Le statut est <strong>actuel</strong>, ou vous avez intentionnellement conservé un <strong>Révision requise</strong> Instantané ;</li><li>L&#39;instantané contient au moins une source lisible.</li></ul>
+<p>sélectionner <strong>rafraîchir</strong> Si vous souhaitez examiner et publier les modifications actuelles. utiliser <strong>copie MCP configuration</strong> Encore une fois après tout changement du chemin d&#39;installation de SourceShelf.</p>
+<h2 id="section-2-tester-directement-la-commande-copiée">2. Tester directement la commande copiée. <a class="heading-anchor" href="#section-2-tester-directement-la-commande-copiée" aria-label="Lien vers la section: 2. Tester directement la commande copiée."><span aria-hidden="true">#</span></a></h2>
+<p>coller <strong>Commande de copie</strong> Dans le terminal. Un stdio MCP l&#39;assistant attend normalement silencieusement l&#39;entrée du protocole ; il ne s&#39;agit pas d&#39;une application de shell interactive. Si elle s&#39;arrête immédiatement et affiche un diagnostic, vérifiez le message à la recherche d&#39;une part manquante, d&#39;un registre désactivé, d&#39;une instantané invalide ou d&#39;une erreur de chiffrage. Appuyez sur Control-C pour arrêter un test direct en attente.</p>
+<p>Les diagnostics appartiennent à l&#39;erreur standard. Les messages du protocole JSON-RPC appartiennent à la sortie standard. Les clients qui fusionnent ou réécrivent ces flux peuvent rompre la connexion.</p>
+<h2 id="section-3-erreurs-courantes">3. Erreurs courantes <a class="heading-anchor" href="#section-3-erreurs-courantes" aria-label="Lien vers la section: 3. Erreurs courantes"><span aria-hidden="true">#</span></a></h2>
+<h3 id="le-processus-a-été-terminé-avec-le-code-1-connexion-fermée">Le processus a été terminé avec le code 1 / connexion fermée. <a class="heading-anchor" href="#le-processus-a-été-terminé-avec-le-code-1-connexion-fermée" aria-label="Lien vers la section: Le processus a été terminé avec le code 1 / connexion fermée."><span aria-hidden="true">#</span></a></h3>
+<p>Causes probables :</p>
+<ul><li>L&#39;application configurée a été déplacée, mise à jour ou remplacée ;</li><li>La participation copiée a été révoquée ;</li><li>mondial MCP Le partage est désactivé ;</li><li>L&#39;instantané ou le registre ne peut pas être lu.</li></ul>
+<p>Ouvrez Open SourceShelf, confirmez le partage du pack et copiez une nouvelle configuration.</p>
+<h3 id="méthode-non-trouvée-tools-list">Méthode non trouvée : <code>tools/list</code> <a class="heading-anchor" href="#méthode-non-trouvée-tools-list" aria-label="Lien vers la section: Méthode non trouvée : tools/list"><span aria-hidden="true">#</span></a></h3>
+<p>Le client a atteint un assistant plus ancien qui ne dispose que de ressources. Installez la version actuelle de SourceShelf, puis recopiez la commande et redémarrez l&#39;intégration du client. SourceShelf actuel annonce <code>search_pack</code> et <code>read_pack_resource</code>.</p>
+<h3 id="ressource-non-trouvée">Ressource non trouvée <a class="heading-anchor" href="#ressource-non-trouvée" aria-label="Lien vers la section: Ressource non trouvée"><span aria-hidden="true">#</span></a></h3>
+<p>le URI Est issu d&#39;un autre pack, d&#39;une autre part, d&#39;une capture d&#39;écran plus ancienne ou n&#39;est pas sur la liste d&#39;autorisation des captures d&#39;écran. Recherchez à nouveau et lisez le URI Renvoyé par le résultat actuel de la recherche.</p>
+<h3 id="échec-de-la-somme-de-contrôle">Échec de la somme de contrôle <a class="heading-anchor" href="#échec-de-la-somme-de-contrôle" aria-label="Lien vers la section: Échec de la somme de contrôle"><span aria-hidden="true">#</span></a></h3>
+<p>SourceShelf refuse de servir un fichier instantané qui ne correspond plus à son chèque de somme publié. Rechargez le partage depuis SourceShelf. Ne modifiez pas les fichiers à l&#39;intérieur. <code>MCP Shares/&lt;share-id&gt;/</code> Manuellement.</p>
+<h3 id="le-client-affiche-des-ressources-mais-le-modèle-ne-appelle-jamais-les-outils">Le client affiche des ressources, mais le modèle ne appelle jamais les outils. <a class="heading-anchor" href="#le-client-affiche-des-ressources-mais-le-modèle-ne-appelle-jamais-les-outils" aria-label="Lien vers la section: Le client affiche des ressources, mais le modèle ne appelle jamais les outils."><span aria-hidden="true">#</span></a></h3>
+<p>le MCP La connexion fonctionne, mais la politique du modèle ou de l&#39;hôte ne génère pas d&#39;appels d&#39;outils. Essayez :</p>
+<blockquote><p>Premier appel <code>search_pack</code> Avec une requête <code>...</code>. Puis appelez <code>read_pack_resource</code> Sur le résultat le plus élevé. Ne répondez pas avant que les deux appels ne soient terminés.</p></blockquote>
+<p>Si cela devient toujours du texte brut, testez un modèle connu pour prendre en charge l&#39;appel de fonctions.</p>
+<h3 id="la-recherche-manque-une-phrase-exacte">La recherche manque une phrase exacte <a class="heading-anchor" href="#la-recherche-manque-une-phrase-exacte" aria-label="Lien vers la section: La recherche manque une phrase exacte"><span aria-hidden="true">#</span></a></h3>
+<p>Utilisez des termes de contenu significatifs plutôt que du texte chargé de ponctuation. La recherche est une récupération lexicale locale, et non une recherche d&#39;intégration sémantique. Essayez un autre mot ou une phrase plus courte.</p>
+<h3 id="une-longue-source-est-coupée">Une longue source est coupée. <a class="heading-anchor" href="#une-longue-source-est-coupée" aria-label="Lien vers la section: Une longue source est coupée."><span aria-hidden="true">#</span></a></h3>
+<p>appeler <code>read_pack_resource</code> Encore une fois avec le curseur retourné. Plus petit <code>max_characters</code> Les valeurs aident les modèles de contexte limité.</p>
+<h2 id="section-4-créer-une-nouvelle-autorisation">4. Créer une nouvelle autorisation <a class="heading-anchor" href="#section-4-créer-une-nouvelle-autorisation" aria-label="Lien vers la section: 4. Créer une nouvelle autorisation"><span aria-hidden="true">#</span></a></h2>
+<p>Si l&#39;état du client reste ambigu :</p>
+<ol><li>Supprimez l&#39;entrée du serveur du client IA.</li><li>Dans SourceShelf, choisissez <strong>Arrêtez de partager</strong>.</li><li>Enregistrez et recheckez le pack.</li><li>Créez une nouvelle autorisation d&#39;accès local à l&#39;IA.</li><li>Ajoutez la configuration nouvellement copiée au client.</li></ol>
+<p>Une nouvelle autorisation obtient un nouveau identifiant de part. Les anciennes configurations restent invalides.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/mcp/opencode/"><span>Précédent</span><strong>Utiliser SourceShelf avec OpenCode</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/reference/settings/"><span>Suivant</span><strong>Référence des réglages</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#section-1-confirmer-létat-de-sourceshelf">1. Confirmer l&#39;état de SourceShelf</a></li><li class="toc-level-2"><a href="#section-2-tester-directement-la-commande-copiée">2. Tester directement la commande copiée.</a></li><li class="toc-level-2"><a href="#section-3-erreurs-courantes">3. Erreurs courantes</a></li><li class="toc-level-3"><a href="#le-processus-a-été-terminé-avec-le-code-1-connexion-fermée">Le processus a été terminé avec le code 1 / connexion fermée.</a></li><li class="toc-level-3"><a href="#méthode-non-trouvée-tools-list">Méthode non trouvée : tools/list</a></li><li class="toc-level-3"><a href="#ressource-non-trouvée">Ressource non trouvée</a></li><li class="toc-level-3"><a href="#échec-de-la-somme-de-contrôle">Échec de la somme de contrôle</a></li><li class="toc-level-3"><a href="#le-client-affiche-des-ressources-mais-le-modèle-ne-appelle-jamais-les-outils">Le client affiche des ressources, mais le modèle ne appelle jamais les outils.</a></li><li class="toc-level-3"><a href="#la-recherche-manque-une-phrase-exacte">La recherche manque une phrase exacte</a></li><li class="toc-level-3"><a href="#une-longue-source-est-coupée">Une longue source est coupée.</a></li><li class="toc-level-2"><a href="#section-4-créer-une-nouvelle-autorisation">4. Créer une nouvelle autorisation</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

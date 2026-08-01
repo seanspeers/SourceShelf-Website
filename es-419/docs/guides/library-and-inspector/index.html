@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="La Biblioteca es el navegador de fuentes. Está deliberadamente separada de los Paquetes: filtrar la Biblioteca nunca abre, reordena ni cambia un paquete guardado. SourceShelf conserva las entradas de la Biblioteca hasta que las eliminas explícitamente; no descarta automáticamente las fuentes más antiguas.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/es-419/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/library-and-inspector/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Biblioteca e inspector | Documentación de SourceShelf">
+  <meta property="og:description" content="La Biblioteca es el navegador de fuentes. Está deliberadamente separada de los Paquetes: filtrar la Biblioteca nunca abre, reordena ni cambia un paquete guardado. SourceShelf conserva las entradas de la Biblioteca hasta que las eliminas explícitamente; no descarta automáticamente las fuentes más antiguas.">
+  <meta property="og:url" content="https://sourceshelf.app/es-419/docs/guides/library-and-inspector/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Biblioteca e inspector | Documentación de SourceShelf">
+  <meta name="twitter:description" content="La Biblioteca es el navegador de fuentes. Está deliberadamente separada de los Paquetes: filtrar la Biblioteca nunca abre, reordena ni cambia un paquete guardado. SourceShelf conserva las entradas de la Biblioteca hasta que las eliminas explícitamente; no descarta automáticamente las fuentes más antiguas.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Biblioteca e inspector | Documentación de SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("es-419");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="/es-419/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/es-419/">Inicio</a>
+        <a class="nav-link" href="/es-419/privacy.html">Privacidad</a>
+        <a class="nav-link" href="/es-419/docs/" aria-current="page">Documentación</a>
+        <a class="nav-link" href="/es-419/support.html">Soporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Descargar SourceShelf en la Mac App Store">Descargar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Elegir idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419" selected>Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Cambiar al modo claro" data-dark-label="Cambiar al modo oscuro" aria-label="Activar o desactivar el modo oscuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/es-419/">Inicio</a></li><li><a href="/es-419/docs/">Documentación</a></li><li>Guías</li><li aria-current="page">Biblioteca e inspector</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Explorar la documentación</summary>
+        <nav aria-label="Navegación móvil de la documentación"><a class="docs-nav-home" href="/es-419/docs/">Inicio de la documentación</a><section class="docs-nav-group"><h2>Primeros pasos</h2><ul><li><a href="/es-419/docs/getting-started/">Comenzar con SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guías</h2><ul><li><a href="/es-419/docs/guides/safari-capture/">Capturar desde Safari</a></li><li><a href="/es-419/docs/guides/convert-files/">Convertir archivos y carpetas</a></li><li><a href="/es-419/docs/guides/library-and-inspector/" aria-current="page">Biblioteca e inspector</a></li><li><a href="/es-419/docs/guides/storage-management/">Administrar el almacenamiento de SourceShelf</a></li><li><a href="/es-419/docs/guides/build-and-manage-packs/">Crear y administrar paquetes</a></li><li><a href="/es-419/docs/guides/export-formats/">Elegir un formato de exportación</a></li><li><a href="/es-419/docs/guides/trust-safety-and-refresh/">Confianza y seguridad y paquetes en evolución</a></li><li><a href="/es-419/docs/guides/llms-txt/">Importar y exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acceso local a IA</h2><ul><li><a href="/es-419/docs/mcp/local-ai-access/">Acceso local a IA (MCP)</a></li><li><a href="/es-419/docs/mcp/lm-studio/">Usar SourceShelf con LM Studio</a></li><li><a href="/es-419/docs/mcp/ollama/">Usar SourceShelf con Ollama</a></li><li><a href="/es-419/docs/mcp/codex/">Usar SourceShelf con Codex</a></li><li><a href="/es-419/docs/mcp/claude-code/">Usar SourceShelf con Claude Code</a></li><li><a href="/es-419/docs/mcp/opencode/">Usar SourceShelf con OpenCode</a></li><li><a href="/es-419/docs/mcp/troubleshooting/">Solución de problemas de MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referencia</h2><ul><li><a href="/es-419/docs/reference/settings/">Referencia de configuración</a></li><li><a href="/es-419/docs/reference/supported-formats/">Formatos compatibles</a></li><li><a href="/es-419/docs/reference/privacy-and-security/">Privacidad y seguridad</a></li><li><a href="/es-419/docs/reference/glossary/">Glosario</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barra lateral de la documentación">
+          <nav aria-label="Navegación de la documentación"><a class="docs-nav-home" href="/es-419/docs/">Inicio de la documentación</a><section class="docs-nav-group"><h2>Primeros pasos</h2><ul><li><a href="/es-419/docs/getting-started/">Comenzar con SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guías</h2><ul><li><a href="/es-419/docs/guides/safari-capture/">Capturar desde Safari</a></li><li><a href="/es-419/docs/guides/convert-files/">Convertir archivos y carpetas</a></li><li><a href="/es-419/docs/guides/library-and-inspector/" aria-current="page">Biblioteca e inspector</a></li><li><a href="/es-419/docs/guides/storage-management/">Administrar el almacenamiento de SourceShelf</a></li><li><a href="/es-419/docs/guides/build-and-manage-packs/">Crear y administrar paquetes</a></li><li><a href="/es-419/docs/guides/export-formats/">Elegir un formato de exportación</a></li><li><a href="/es-419/docs/guides/trust-safety-and-refresh/">Confianza y seguridad y paquetes en evolución</a></li><li><a href="/es-419/docs/guides/llms-txt/">Importar y exportar llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Acceso local a IA</h2><ul><li><a href="/es-419/docs/mcp/local-ai-access/">Acceso local a IA (MCP)</a></li><li><a href="/es-419/docs/mcp/lm-studio/">Usar SourceShelf con LM Studio</a></li><li><a href="/es-419/docs/mcp/ollama/">Usar SourceShelf con Ollama</a></li><li><a href="/es-419/docs/mcp/codex/">Usar SourceShelf con Codex</a></li><li><a href="/es-419/docs/mcp/claude-code/">Usar SourceShelf con Claude Code</a></li><li><a href="/es-419/docs/mcp/opencode/">Usar SourceShelf con OpenCode</a></li><li><a href="/es-419/docs/mcp/troubleshooting/">Solución de problemas de MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Referencia</h2><ul><li><a href="/es-419/docs/reference/settings/">Referencia de configuración</a></li><li><a href="/es-419/docs/reference/supported-formats/">Formatos compatibles</a></li><li><a href="/es-419/docs/reference/privacy-and-security/">Privacidad y seguridad</a></li><li><a href="/es-419/docs/reference/glossary/">Glosario</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="biblioteca-e-inspector">Biblioteca e inspector</h1>
+<p>La Biblioteca es el navegador de fuentes. Está deliberadamente separada de los Paquetes: filtrar la Biblioteca nunca abre, reordena ni cambia un paquete guardado. SourceShelf conserva las entradas de la Biblioteca hasta que las eliminas explícitamente; no descarta automáticamente las fuentes más antiguas.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/library-1600.webp" srcset="/docs/assets/images/library-800.webp 800w, /docs/assets/images/library-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Archivos sintéticos mostrados en la Biblioteca" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+          </header>
+          <details class="docs-toc-mobile"><summary>En esta página</summary><nav class="docs-toc-list" aria-label="Tabla de contenido móvil"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#búsqueda-y-filtros">Búsqueda y filtros</a></li><li class="toc-level-2"><a href="#estado-de-la-fuente">Estado de la fuente</a></li><li class="toc-level-2"><a href="#acciones-de-fila">Acciones de fila</a></li><li class="toc-level-2"><a href="#investigador">investigador</a></li><li class="toc-level-2"><a href="#mantenimiento">mantenimiento</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="búsqueda-y-filtros">Búsqueda y filtros <a class="heading-anchor" href="#búsqueda-y-filtros" aria-label="Enlace a la sección: Búsqueda y filtros"><span aria-hidden="true">#</span></a></h2>
+<p>Busca coincidencias con detalles de la fuente como títulos y orígenes. Los filtros pueden restringir la Biblioteca por:</p>
+<ol><li>buscar texto;</li><li>fecha;</li><li>origen de la fuente;</li><li>tipo de contenido;</li><li>estado de disponibilidad;</li><li>membresía de paquete guardado.</li></ol>
+<p>Los filtros activos aparecen como chips extraíbles en ese orden. Eliminar un chip solo restablece ese filtro. <strong>Restablecer todo</strong> limpia todos los filtros activos.</p>
+<h2 id="estado-de-la-fuente">Estado de la fuente <a class="heading-anchor" href="#estado-de-la-fuente" aria-label="Enlace a la sección: Estado de la fuente"><span aria-hidden="true">#</span></a></h2>
+<ul><li>Un estado verde indica Markdown legible.</li><li>Un aviso llama la atención sobre un problema con una fuente o un activo archivado.</li><li>Una fuente no disponible permanece en la Biblioteca cuando su Markdown no se puede leer actualmente.</li><li>Un lugar de almacenamiento para paquetes guardados permanece visible incluso si falta su registro en la Biblioteca, por lo que aún se puede volver a ordenar o eliminar.</li></ul>
+<p>SourceShelf omite intencionalmente una etiqueta repetida de &quot;Exportable&quot; de las filas sanas. Selecciona el artículo o inspíralo para verificar su estado cuando necesites detalles.</p>
+<h2 id="acciones-de-fila">Acciones de fila <a class="heading-anchor" href="#acciones-de-fila" aria-label="Enlace a la sección: Acciones de fila"><span aria-hidden="true">#</span></a></h2>
+<p>Cuando la ventana es lo suficientemente ancha, las filas de la Biblioteca muestran iconos de acción individuales con herramientas de ayuda. En menos espacio, las mismas acciones se mueven a un menú. Dependiendo del elemento, las acciones incluyen:</p>
+<ul><li>Mostrar detalles;</li><li>Agregar o eliminar del paquete actual;</li><li>Abrir Markdown;</li><li>Revelar en Finder;</li><li>Copiar ruta;</li><li>Estrella o desestrella;</li><li>Eliminar de la Biblioteca.</li></ul>
+<p>Eliminar un elemento de la Biblioteca no elimina su Markdown generado. Las referencias de paquetes guardados permanecen como espacios en blanco.</p>
+<h2 id="investigador">investigador <a class="heading-anchor" href="#investigador" aria-label="Enlace a la sección: investigador"><span aria-hidden="true">#</span></a></h2>
+<p>En tamaños de ventana más amplios, el inspector es una tercera columna escalable. Cerca del ancho mínimo de la ventana, se abre como una hoja para que las columnas de construcción de paquetes de la Biblioteca o ambas sigan siendo utilizables.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/inspector-preview-1600.webp" srcset="/docs/assets/images/inspector-preview-800.webp 800w, /docs/assets/images/inspector-preview-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Vista previa renderizada de Markdown para un informe sintético" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+<p>El inspector muestra:</p>
+<ul><li>título completo y procedencia;</li><li>fechas de captura y modificación;</li><li>rutas de origen y salida locales;</li><li>disponibilidad actual y advertencias;</li><li>cantidad estimada de tokens y imágenes archivadas;</li><li>Acciones de Abrir, Revelar y Copiar;</li><li><strong>tráiler</strong> y <strong>Fuente Markdown</strong> pestañas.</li></ul>
+<p>La vista previa lee como máximo 256 KiB del archivo Markdown local. Solo quita los YAML iniciales antes de renderizar, conserva los espacios y la estructura de bloques, y no busca imágenes o otros recursos remotos. La pestaña de origen preserva el YAML y el texto Markdown exacto. Un aviso de truncamiento enlaza a <strong>Abrir Markdown</strong> cuando el archivo es más grande.</p>
+<h2 id="mantenimiento">mantenimiento <a class="heading-anchor" href="#mantenimiento" aria-label="Enlace a la sección: mantenimiento"><span aria-hidden="true">#</span></a></h2>
+<p>El menú de mantenimiento de la Biblioteca puede eliminar entradas faltantes o borrar el historial sin marcar. Estas acciones operan sobre los registros de la Biblioteca, no sobre los archivos Markdown generados.</p>
+<p>Para limpiar el almacenamiento, abra <strong>Configuración &gt; General &gt; Revisar almacenamiento...</strong>. Cleanup Safe se limita a datos gestionados huérfanos, cachés obsoletos, etapas de captura caducadas y revocadas. MCP instantáneas. La limpieza generada de Markdown requiere seleccionar las fuentes afectadas y confirmar; la salida se mueve a la papelera, mientras que los documentos importados originales nunca se tocan. Las fuentes con estrellas y guardadas se bloquean a menos que habilites deliberadamente la selección de fuentes protegidas. ver <a href="/es-419/docs/guides/storage-management/">Administrar el almacenamiento de SourceShelf</a> para una guía detallada.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Páginas de documentación"><a class="docs-page-link docs-page-link-previous" href="/es-419/docs/guides/convert-files/"><span>Anterior</span><strong>Convertir archivos y carpetas</strong></a><a class="docs-page-link docs-page-link-next" href="/es-419/docs/guides/storage-management/"><span>Siguiente</span><strong>Administrar el almacenamiento de SourceShelf</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenido de la página"><nav class="docs-toc-list" aria-label="Tabla de contenido"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#búsqueda-y-filtros">Búsqueda y filtros</a></li><li class="toc-level-2"><a href="#estado-de-la-fuente">Estado de la fuente</a></li><li class="toc-level-2"><a href="#acciones-de-fila">Acciones de fila</a></li><li class="toc-level-2"><a href="#investigador">investigador</a></li><li class="toc-level-2"><a href="#mantenimiento">mantenimiento</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/es-419/">Inicio</a>
+        <a href="/es-419/privacy.html">Privacidad</a>
+        <a href="/es-419/docs/">Documentación</a>
+        <a href="/es-419/support.html">Soporte</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

@@ -6,6 +6,12 @@
   <meta name="description" content="Create ordered SourceShelf packs, manage drafts and saved packs, and maintain living export baselines.">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/build-and-manage-packs/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/build-and-manage-packs/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Build and Manage Packs | SourceShelf Documentation">
   <meta property="og:description" content="Create ordered SourceShelf packs, manage drafts and saved packs, and maintain living export baselines.">
@@ -18,8 +24,10 @@
   <title>Build and Manage Packs | SourceShelf Documentation</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -44,7 +52,8 @@
         <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
       </div>
@@ -56,16 +65,16 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Guides</li><li aria-current="page">Build and Manage Packs</li></ol></nav>
       <details class="docs-mobile-nav">
         <summary>Browse documentation</summary>
-        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/" aria-current="page">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/" aria-current="page">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
       </details>
       <div class="docs-layout">
         <aside class="docs-sidebar" aria-label="Documentation sidebar">
-          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/" aria-current="page">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/" aria-current="page">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
         </aside>
         <article class="docs-article">
@@ -75,30 +84,30 @@
           </header>
           <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#the-packs-workspace">The Packs workspace</a></li><li class="toc-level-2"><a href="#add-and-order-sources">Add and order sources</a></li><li class="toc-level-2"><a href="#drafts-and-explicit-saving">Drafts and explicit saving</a></li><li class="toc-level-2"><a href="#save-as-rename-and-delete">Save As, rename, and delete</a></li><li class="toc-level-2"><a href="#missing-references">Missing references</a></li><li class="toc-level-2"><a href="#packs-become-living-after-export">Packs become “living” after export</a></li></ol></nav></details>
           <div class="docs-article-body">
-            <h2 id="the-packs-workspace">The Packs workspace <a class="heading-anchor" href="#the-packs-workspace" aria-label="Link to The Packs workspace"><span aria-hidden="true">#</span></a></h2>
+            <h2 id="the-packs-workspace">The Packs workspace <a class="heading-anchor" href="#the-packs-workspace" aria-label="Section link: The Packs workspace"><span aria-hidden="true">#</span></a></h2>
 <p>The left column is a compact Library browser. The middle column is the ordered pack. At larger window widths, the inspector appears as a third column; at compact widths it opens in a sheet.</p>
 <figure class="docs-figure">
   <img src="/docs/assets/images/pack-builder-1600.webp" srcset="/docs/assets/images/pack-builder-800.webp 800w, /docs/assets/images/pack-builder-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="A saved pack built from synthetic demo sources" width="1600" height="977" loading="lazy" decoding="async">
 </figure>
 <p>Use the header to select a saved pack, start a new one, save changes, save under a different name, rename, or delete it.</p>
-<h2 id="add-and-order-sources">Add and order sources <a class="heading-anchor" href="#add-and-order-sources" aria-label="Link to Add and order sources"><span aria-hidden="true">#</span></a></h2>
+<h2 id="add-and-order-sources">Add and order sources <a class="heading-anchor" href="#add-and-order-sources" aria-label="Section link: Add and order sources"><span aria-hidden="true">#</span></a></h2>
 <ul><li>Select the plus or minus control beside a source to change membership.</li><li><strong>Add Matching</strong> adds readable sources matching the current browser filters.</li><li><strong>Add All Exportable</strong> adds all readable Library sources.</li><li><strong>Add Since Last Export</strong> adds sources created after the current pack’s most recent successful export.</li><li>Drag sources to reorder them, or use <strong>Move Up</strong> and <strong>Move Down</strong> for keyboard-accessible ordering.</li></ul>
 <p>Exporters and MCP snapshots receive sources in the displayed order.</p>
-<h2 id="drafts-and-explicit-saving">Drafts and explicit saving <a class="heading-anchor" href="#drafts-and-explicit-saving" aria-label="Link to Drafts and explicit saving"><span aria-hidden="true">#</span></a></h2>
+<h2 id="drafts-and-explicit-saving">Drafts and explicit saving <a class="heading-anchor" href="#drafts-and-explicit-saving" aria-label="Section link: Drafts and explicit saving"><span aria-hidden="true">#</span></a></h2>
 <p>Pack changes are drafts until you select <strong>Save</strong> or <strong>Save Changes</strong>. SourceShelf restores the active pack, ordering, and unsaved draft metadata after relaunch, but the draft snapshot never contains Markdown content.</p>
 <p>If you switch packs or start a new pack while the current draft is dirty, SourceShelf offers:</p>
 <ul><li><strong>Save</strong> to persist the current changes and continue;</li><li><strong>Discard</strong> to return to the saved membership and continue;</li><li><strong>Cancel</strong> to stay on the current draft.</li></ul>
 <p>A failed save leaves the draft dirty and cancels the requested switch.</p>
-<h2 id="save-as-rename-and-delete">Save As, rename, and delete <a class="heading-anchor" href="#save-as-rename-and-delete" aria-label="Link to Save As, rename, and delete"><span aria-hidden="true">#</span></a></h2>
+<h2 id="save-as-rename-and-delete">Save As, rename, and delete <a class="heading-anchor" href="#save-as-rename-and-delete" aria-label="Section link: Save As, rename, and delete"><span aria-hidden="true">#</span></a></h2>
 <p><strong>Save As</strong> creates another saved pack. If its normalized name collides with an existing pack, SourceShelf asks before replacing anything.</p>
 <p>Renaming changes the saved-pack name used for pack titles and manifest collection metadata. Deleting a saved pack does not delete Library entries or Markdown files. If you delete the active pack, its contents detach into an untitled dirty draft.</p>
-<h2 id="missing-references">Missing references <a class="heading-anchor" href="#missing-references" aria-label="Link to Missing references"><span aria-hidden="true">#</span></a></h2>
+<h2 id="missing-references">Missing references <a class="heading-anchor" href="#missing-references" aria-label="Section link: Missing references"><span aria-hidden="true">#</span></a></h2>
 <p>Saved references are retained when a Library item or Markdown file becomes unavailable. The placeholder can still be reordered or removed. Trust &amp; Safety reports the unresolved reference as an error, while allowing export when at least one other source is readable.</p>
-<h2 id="packs-become-living-after-export">Packs become “living” after export <a class="heading-anchor" href="#packs-become-living-after-export" aria-label="Link to Packs become “living” after export"><span aria-hidden="true">#</span></a></h2>
+<h2 id="packs-become-living-after-export">Packs become “living” after export <a class="heading-anchor" href="#packs-become-living-after-export" aria-label="Section link: Packs become “living” after export"><span aria-hidden="true">#</span></a></h2>
 <p>A successful export records a local baseline containing order, hashes, dates, and the export format. <strong>Refresh &amp; Compare</strong> compares the present local Library state with that baseline. It never revisits a web URL.</p>
 <p>See <a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and living packs</a> for the comparison meanings.</p>
           </div>
-          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/storage-management/"><span>Previous</span><strong>Manage Storage</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/guides/export-formats/"><span>Next</span><strong>Choose an Export Format</strong></a></nav>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/storage-management/"><span>Previous</span><strong>Manage SourceShelf Storage</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/guides/export-formats/"><span>Next</span><strong>Choose an Export Format</strong></a></nav>
         </article>
         <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#the-packs-workspace">The Packs workspace</a></li><li class="toc-level-2"><a href="#add-and-order-sources">Add and order sources</a></li><li class="toc-level-2"><a href="#drafts-and-explicit-saving">Drafts and explicit saving</a></li><li class="toc-level-2"><a href="#save-as-rename-and-delete">Save As, rename, and delete</a></li><li class="toc-level-2"><a href="#missing-references">Missing references</a></li><li class="toc-level-2"><a href="#packs-become-living-after-export">Packs become “living” after export</a></li></ol></nav></aside>
       </div>
@@ -117,6 +126,6 @@
       </div>
     </div>
   </footer>
-  <script src="/script.js?v=20260801"></script>
+  <script src="/script.js?v=20260801-2"></script>
 </body>
 </html>

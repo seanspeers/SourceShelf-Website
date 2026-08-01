@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ouvert SourceShelf &gt; Paramètres. est rétrécissable et est organisée en cinq onglets.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/reference/settings/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/reference/settings/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/reference/settings/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/reference/settings/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/reference/settings/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/reference/settings/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/reference/settings/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Référence des réglages | Documentation SourceShelf">
+  <meta property="og:description" content="ouvert SourceShelf &gt; Paramètres. est rétrécissable et est organisée en cinq onglets.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/reference/settings/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Référence des réglages | Documentation SourceShelf">
+  <meta name="twitter:description" content="ouvert SourceShelf &gt; Paramètres. est rétrécissable et est organisée en cinq onglets.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Référence des réglages | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Référence</li><li aria-current="page">Référence des réglages</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/" aria-current="page">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/" aria-current="page">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="référence-des-réglages">Référence des réglages</h1>
+<p>ouvert <strong>SourceShelf &gt; Paramètres</strong>. est rétrécissable et est organisée en cinq onglets.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#langue">Langue</a></li><li class="toc-level-2"><a href="#général">général</a></li><li class="toc-level-2"><a href="#capture">capture</a></li><li class="toc-level-2"><a href="#exportation">exportation</a></li><li class="toc-level-2"><a href="#intégrations">Intégrations</a></li><li class="toc-level-2"><a href="#vie-privée">vie privée</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="langue">Langue <a class="heading-anchor" href="#langue" aria-label="Lien vers la section: Langue"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf prend en charge l’anglais, le français, l’espagnol d’Amérique latine, le portugais du Brésil et le japonais. L’app utilise la langue choisie pour SourceShelf dans <strong>Réglages Système &gt; Général &gt; Langue et région &gt; Applications</strong>. Sinon, elle suit l’ordre des langues préférées de macOS. L’extension Safari suit la langue de l’interface de Safari.</p>
+<p>Changer la langue de l’interface ne traduit pas les documents sources, les noms personnalisés de recettes ou de packs, le texte exporté, les identifiants MCP, les noms de fichiers ni les champs des manifestes.</p>
+<h2 id="général">général <a class="heading-anchor" href="#général" aria-label="Lien vers la section: général"><span aria-hidden="true">#</span></a></h2>
+<p>Choisissez le dossier de sortie utilisé pour le nouveau Markdown converti et capturé. SourceShelf stocke un marque-page autorisé localement afin qu&#39;il puisse revenir dans ce dossier. En le modifiant, cela affecte la sortie future ; il ne déplace pas les fichiers existants.</p>
+<p><strong>Examen du stockage...</strong> inventaires générés Markdown, actifs de production projetés, copies de bibliothèque gérées, caches sémantiques, locaux MCP Des instantanés, et capture des brouillons/staging. Safe Cleanup supprime uniquement les données internes orphelines ou régénérables. La nettoyage à partir de source générée est un flux de travail de sélection et de confirmation distinct qui déplace les fichiers de sortie dans la corbeille ; les sources étiquetées et enregistrées sont protégées par défaut, et les documents importés originaux ne sont jamais des cibles de suppression. voir <a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a> Pour le flux de travail complet.</p>
+<h2 id="capture">capture <a class="heading-anchor" href="#capture" aria-label="Lien vers la section: capture"><span aria-hidden="true">#</span></a></h2>
+<p>Les paramètres de capture comprennent :</p>
+<ul><li>Statut de l&#39;extension Safari et un raccourci vers les paramètres de l&#39;extension Safari ;</li><li>Organisation par domaine et date ;</li><li>Comportement de l&#39;image web archivée ;</li><li>L&#39;âge de la sténacité mondiale de la capture web ;</li><li>Capturer la création, la duplication, la suppression, l&#39;affichage, les modèles, le YAML, le comportement et les règles de domaine des recettes ;</li><li>L&#39;action de clavier de capture rapide Safari et sa recette préférée.</li></ul>
+<p>Les modifications des recettes sont enregistrées localement et publiées dans l&#39;extension SourceShelf Safari.</p>
+<h2 id="exportation">exportation <a class="heading-anchor" href="#exportation" aria-label="Lien vers la section: exportation"><span aria-hidden="true">#</span></a></h2>
+<p>Choisissez le format initialement sélectionné dans le sélecteur d&#39;exportation des packs. Les paramètres et le sélecteur partagent une seule préférence ; la confirmation d&#39;un choix différent le met à jour, tandis que l&#39;annulation ne le fait pas.</p>
+<p><strong>Inclure des morceaux de récupération dans les ZIP des packs de référence IA.</strong> Ajoute modèle-neutre <code>chunks.jsonl</code>. est activé par défaut et ne ajoute jamais d&#39;embeddings.</p>
+<h2 id="intégrations">Intégrations <a class="heading-anchor" href="#intégrations" aria-label="Lien vers la section: Intégrations"><span aria-hidden="true">#</span></a></h2>
+<p><strong>Activer local MCP Partageant</strong> est désactivé par défaut. Lorsqu&#39;il est activé, les packs enregistrés individuels peuvent être autorisés à partir de <strong>Packs &gt; Plus &gt; Accès local à l&#39;IA...</strong>.</p>
+<p>Cette onglet affiche le nombre de partages actifs et fournit <strong>Packs ouverts</strong> et <strong>Annuler tout</strong>. le partage ou la révocation de tout cela supprime les instantanés et invalide immédiatement les configurations clients copiées.</p>
+<p>voir <a href="/fr/docs/mcp/local-ai-access/">Accès local à l&#39;IA</a>.</p>
+<h2 id="vie-privée">vie privée <a class="heading-anchor" href="#vie-privée" aria-label="Lien vers la section: vie privée"><span aria-hidden="true">#</span></a></h2>
+<p>Cette onglet résume le stockage local, les exportations, les blocs de récupération, la comparaison des livraisons et le comportement de conseil en matière de confiance et de sécurité. <strong>Ouvrir les détails de la confidentialité</strong> Ouvre l&#39;explication complète de la confidentialité dans l&#39;application.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/mcp/troubleshooting/"><span>Précédent</span><strong>Dépannage MCP</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/reference/supported-formats/"><span>Suivant</span><strong>Formats pris en charge</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#langue">Langue</a></li><li class="toc-level-2"><a href="#général">général</a></li><li class="toc-level-2"><a href="#capture">capture</a></li><li class="toc-level-2"><a href="#exportation">exportation</a></li><li class="toc-level-2"><a href="#intégrations">Intégrations</a></li><li class="toc-level-2"><a href="#vie-privée">vie privée</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

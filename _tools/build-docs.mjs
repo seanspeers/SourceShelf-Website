@@ -7,15 +7,61 @@ const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(toolsDirectory, "..");
 const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
+const siteSourceRoot = path.join(siteRoot, "_site");
 const canonicalOrigin = "https://sourceshelf.app";
 const buildDate = "2026-08-01";
+const assetVersion = "20260801-2";
+const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
-const navigation = JSON.parse(
+const baseNavigation = JSON.parse(
   await readFile(path.join(sourceRoot, "navigation.json"), "utf8")
 );
+const translationOverrides = JSON.parse(
+  await readFile(path.join(siteSourceRoot, "translation-overrides.json"), "utf8")
+);
+const editorialOverrides = JSON.parse(
+  await readFile(path.join(siteSourceRoot, "editorial-overrides.json"), "utf8")
+);
+const locales = await Promise.all(localeCodes.map(async (code) => {
+  const catalog = JSON.parse(
+    await readFile(path.join(siteSourceRoot, "locales", `${code}.json`), "utf8")
+  );
+  const prefix = code === "en" ? "" : `/${code}`;
+  const translations = {
+    ...catalog.translations,
+    ...(translationOverrides[code] || {}),
+    ...(editorialOverrides[code] || {})
+  };
+  const locale = {
+    code,
+    prefix,
+    nativeName: catalog.nativeName,
+    translations
+  };
+  locale.pages = baseNavigation.pages.map((page) => ({
+    ...page,
+    locale,
+    source: code === "en" ? page.source : `locales/${code}/${page.source}`,
+    logicalSource: page.source,
+    logicalRoute: page.route,
+    route: `${prefix}${page.route}`
+  }));
+  return locale;
+}));
+const localeByCode = new Map(locales.map((locale) => [locale.code, locale]));
+const allPages = locales.flatMap((locale) => locale.pages);
 
-const pageBySource = new Map(navigation.pages.map((page) => [page.source, page]));
+const pageBySource = new Map(allPages.map((page) => [page.source, page]));
 const imageMap = new Map();
+
+function translate(locale, value) {
+  if (!value) return value;
+  return locale.translations[value] || value;
+}
+
+function localizedRoute(locale, logicalRoute) {
+  return `${locale.prefix}${logicalRoute}`;
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -39,12 +85,11 @@ function plainText(value) {
 
 function slugify(value) {
   const slug = plainText(value)
-    .normalize("NFKD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .normalize("NFKC")
     .replace(/&/g, " and ")
     .replace(/[’']/g, "")
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/[^\p{Letter}\p{Number}]+/gu, "-")
     .replace(/^-+|-+$/g, "");
   const resolvedSlug = slug || "section";
   return /^[0-9]/.test(resolvedSlug) ? `section-${resolvedSlug}` : resolvedSlug;
@@ -244,7 +289,7 @@ function renderMarkdown(markdown, page) {
       const label = plainText(text);
       const anchor = level === 1
         ? ""
-        : ` <a class="heading-anchor" href="#${slug}" aria-label="Link to ${escapeHtml(label)}"><span aria-hidden="true">#</span></a>`;
+        : ` <a class="heading-anchor" href="#${slug}" aria-label="${escapeHtml(translate(page.locale, "Section link"))}: ${escapeHtml(label)}"><span aria-hidden="true">#</span></a>`;
       blocks.push({
         type: "heading",
         level,
@@ -278,7 +323,7 @@ function renderMarkdown(markdown, page) {
       }).join("\n");
       blocks.push({
         type: "table",
-        html: `<section class="table-wrap" tabindex="0" aria-label="Scrollable table"><table><thead><tr>${headHtml}</tr></thead><tbody>${bodyHtml}</tbody></table></section>`
+        html: `<section class="table-wrap" tabindex="0" aria-label="${escapeHtml(translate(page.locale, "Scrollable table"))}"><table><thead><tr>${headHtml}</tr></thead><tbody>${bodyHtml}</tbody></table></section>`
       });
       continue;
     }
@@ -335,7 +380,11 @@ function renderMarkdown(markdown, page) {
       if (hardBreak) return `${rendered}<br>`;
       return lineIndex < paragraphLines.length - 1 ? `${rendered} ` : rendered;
     }).join("");
-    blocks.push({ type: "paragraph", html: `<p>${paragraph}</p>` });
+    blocks.push({
+      type: "paragraph",
+      text: plainText(paragraphLines.join(" ")),
+      html: `<p>${paragraph}</p>`
+    });
   }
 
   if (!blocks.length || blocks[0].type !== "heading" || blocks[0].level !== 1) {
@@ -348,6 +397,7 @@ function renderMarkdown(markdown, page) {
     title: blocks[0].text,
     leadHtml: blocks.slice(0, splitIndex).map((block) => block.html).join("\n"),
     bodyHtml: blocks.slice(splitIndex).map((block) => block.html).join("\n"),
+    description: blocks.find((block) => block.type === "paragraph")?.text || blocks[0].text,
     headings,
     sectionCount: headings.filter((heading) => heading.level === 2).length
   };
@@ -413,58 +463,123 @@ async function optimizeImages() {
 }
 
 function renderNavigation(currentPage) {
-  const homePage = navigation.pages[0];
+  const { locale } = currentPage;
+  const homePage = locale.pages[0];
   const homeCurrent = currentPage.route === homePage.route ? ' aria-current="page"' : "";
-  const groups = navigation.groups.map((group) => {
-    const links = navigation.pages
+  const groups = baseNavigation.groups.map((group) => {
+    const links = locale.pages
       .filter((page) => page.group === group)
       .map((page) => {
         const current = currentPage.route === page.route ? ' aria-current="page"' : "";
-        return `<li><a href="${page.route}"${current}>${escapeHtml(page.label)}</a></li>`;
+        return `<li><a href="${page.route}"${current}>${escapeHtml(page.rendered.title)}</a></li>`;
       })
       .join("");
-    return `<section class="docs-nav-group"><h2>${escapeHtml(group)}</h2><ul>${links}</ul></section>`;
+    return `<section class="docs-nav-group"><h2>${escapeHtml(translate(locale, group))}</h2><ul>${links}</ul></section>`;
   }).join("\n");
 
-  return `<a class="docs-nav-home" href="${homePage.route}"${homeCurrent}>Documentation Home</a>${groups}`;
+  return `<a class="docs-nav-home" href="${homePage.route}"${homeCurrent}>${escapeHtml(translate(locale, "Documentation Home"))}</a>${groups}`;
 }
 
 function renderBreadcrumbs(page, title) {
-  const crumbs = ['<li><a href="/">Home</a></li>'];
-  if (page.route === "/docs/") {
-    crumbs.push('<li aria-current="page">Documentation</li>');
+  const { locale } = page;
+  const homeRoute = localizedRoute(locale, "/");
+  const docsRoute = localizedRoute(locale, "/docs/");
+  const crumbs = [`<li><a href="${homeRoute}">${escapeHtml(translate(locale, "Home"))}</a></li>`];
+  if (page.logicalRoute === "/docs/") {
+    crumbs.push(`<li aria-current="page">${escapeHtml(translate(locale, "Documentation"))}</li>`);
   } else {
-    crumbs.push('<li><a href="/docs/">Documentation</a></li>');
+    crumbs.push(`<li><a href="${docsRoute}">${escapeHtml(translate(locale, "Documentation"))}</a></li>`);
     if (page.group && page.group !== "Getting Started") {
-      crumbs.push(`<li>${escapeHtml(page.group)}</li>`);
+      crumbs.push(`<li>${escapeHtml(translate(locale, page.group))}</li>`);
     }
     crumbs.push(`<li aria-current="page">${escapeHtml(title)}</li>`);
   }
-  return `<nav class="breadcrumbs" aria-label="Breadcrumb"><ol>${crumbs.join("")}</ol></nav>`;
+  return `<nav class="breadcrumbs" aria-label="${escapeHtml(translate(locale, "Breadcrumb"))}"><ol>${crumbs.join("")}</ol></nav>`;
 }
 
-function renderToc(headings, className, label) {
+function renderToc(headings, className, label, locale) {
   const links = headings.map((heading) => (
     `<li class="toc-level-${heading.level}"><a href="#${heading.slug}">${escapeHtml(heading.text)}</a></li>`
   )).join("");
-  return `<nav class="${className}" aria-label="${label}"><h2>On this page</h2><ol>${links}</ol></nav>`;
+  return `<nav class="${className}" aria-label="${escapeHtml(translate(locale, label))}"><h2>${escapeHtml(translate(locale, "On this page"))}</h2><ol>${links}</ol></nav>`;
 }
 
 function renderPagination(page) {
-  const index = navigation.pages.findIndex((candidate) => candidate.route === page.route);
-  const previous = navigation.pages[index - 1];
-  const next = navigation.pages[index + 1];
+  const { locale } = page;
+  const index = locale.pages.findIndex((candidate) => candidate.route === page.route);
+  const previous = locale.pages[index - 1];
+  const next = locale.pages[index + 1];
   const previousHtml = previous
-    ? `<a class="docs-page-link docs-page-link-previous" href="${previous.route}"><span>Previous</span><strong>${escapeHtml(previous.label)}</strong></a>`
+    ? `<a class="docs-page-link docs-page-link-previous" href="${previous.route}"><span>${escapeHtml(translate(locale, "Previous"))}</span><strong>${escapeHtml(previous.rendered.title)}</strong></a>`
     : '<span class="docs-page-link-placeholder" aria-hidden="true"></span>';
   const nextHtml = next
-    ? `<a class="docs-page-link docs-page-link-next" href="${next.route}"><span>Next</span><strong>${escapeHtml(next.label)}</strong></a>`
+    ? `<a class="docs-page-link docs-page-link-next" href="${next.route}"><span>${escapeHtml(translate(locale, "Next"))}</span><strong>${escapeHtml(next.rendered.title)}</strong></a>`
     : '<span class="docs-page-link-placeholder" aria-hidden="true"></span>';
-  return `<nav class="docs-pagination" aria-label="Documentation pages">${previousHtml}${nextHtml}</nav>`;
+  return `<nav class="docs-pagination" aria-label="${escapeHtml(translate(locale, "Documentation pages"))}">${previousHtml}${nextHtml}</nav>`;
 }
 
-function themeBootstrap() {
-  return `<script>
+function renderAlternateLinks(logicalRoute) {
+  const links = locales.map((locale) => (
+    `  <link rel="alternate" hreflang="${locale.code}" href="${canonicalOrigin}${localizedRoute(locale, logicalRoute)}">`
+  ));
+  links.push(`  <link rel="alternate" hreflang="x-default" href="${canonicalOrigin}${logicalRoute}">`);
+  return links.join("\n");
+}
+
+function renderLanguageSelector(locale) {
+  const options = locales.map((candidate) => {
+    const selected = candidate.code === locale.code ? " selected" : "";
+    return `<option value="${candidate.code}" lang="${candidate.code}"${selected}>${escapeHtml(candidate.nativeName)}</option>`;
+  }).join("");
+  return `<label class="locale-picker"><span class="visually-hidden">${escapeHtml(translate(locale, "Language"))}</span><select data-locale-select aria-label="${escapeHtml(translate(locale, "Select language"))}">${options}</select></label>`;
+}
+
+function renderHeader(locale, currentSection) {
+  const link = (section, route, label) => {
+    const current = currentSection === section ? ' aria-current="page"' : "";
+    return `<a class="nav-link" href="${localizedRoute(locale, route)}"${current}>${escapeHtml(translate(locale, label))}</a>`;
+  };
+  const brandCurrent = currentSection === "home" ? ' aria-current="page"' : "";
+  return `<header class="site-header">
+    <nav class="nav" aria-label="${escapeHtml(translate(locale, "Main navigation"))}">
+      <a class="brand" href="${localizedRoute(locale, "/")}"${brandCurrent}>
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        ${link("home", "/", "Home")}
+        ${link("privacy", "/privacy.html", "Privacy")}
+        ${link("docs", "/docs/", "Documentation")}
+        ${link("support", "/support.html", "Support")}
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="${escapeHtml(translate(locale, "Download SourceShelf on the Mac App Store"))}">${escapeHtml(translate(locale, "Download"))}</a>
+        ${renderLanguageSelector(locale)}
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="${escapeHtml(translate(locale, "Switch to light mode"))}" data-dark-label="${escapeHtml(translate(locale, "Switch to dark mode"))}" aria-label="${escapeHtml(translate(locale, "Toggle dark mode"))}" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>`;
+}
+
+function renderFooter(locale) {
+  return `<footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a>
+        <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
+        <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
+        <a href="${localizedRoute(locale, "/support.html")}">${escapeHtml(translate(locale, "Support"))}</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>`;
+}
+
+function headBootstrap(locale) {
+  return `<script src="/locale.js?v=${assetVersion}"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap(${JSON.stringify(locale.code)});
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -477,71 +592,57 @@ function themeBootstrap() {
 }
 
 function renderPage(page, rendered) {
-  const title = `${rendered.title} | SourceShelf Documentation`;
+  const { locale } = page;
+  const title = `${rendered.title} | ${translate(locale, "SourceShelf Documentation")}`;
   const canonicalUrl = `${canonicalOrigin}${page.route}`;
+  const description = page.locale.code === "en" ? page.description : rendered.description;
   const navigationHtml = renderNavigation(page);
   const hasToc = rendered.sectionCount >= 3;
   const mobileToc = hasToc
-    ? `<details class="docs-toc-mobile"><summary>On this page</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents")}</details>`
+    ? `<details class="docs-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`
     : "";
   const desktopToc = hasToc
-    ? `<aside class="docs-toc" aria-label="Page contents">${renderToc(rendered.headings, "docs-toc-list", "Table of contents")}</aside>`
+    ? `<aside class="docs-toc" aria-label="${escapeHtml(translate(locale, "Page contents"))}">${renderToc(rendered.headings, "docs-toc-list", "Table of contents", locale)}</aside>`
     : '<div class="docs-toc docs-toc-empty" aria-hidden="true"></div>';
 
   const html = `<!DOCTYPE html>
-<html lang="en">
+<html lang="${locale.code}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="${escapeHtml(page.description)}">
+  <meta name="description" content="${escapeHtml(description)}">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="${canonicalUrl}">
+${renderAlternateLinks(page.logicalRoute)}
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escapeHtml(title)}">
-  <meta property="og:description" content="${escapeHtml(page.description)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
   <meta property="og:url" content="${canonicalUrl}">
   <meta property="og:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(title)}">
-  <meta name="twitter:description" content="${escapeHtml(page.description)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
   <meta name="twitter:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
   <title>${escapeHtml(title)}</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260801">
-  ${themeBootstrap()}
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="/">
-        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
-        <span>SourceShelf</span>
-      </a>
-      <div class="nav-links">
-        <a class="nav-link" href="/">Home</a>
-        <a class="nav-link" href="/privacy.html">Privacy</a>
-        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
-        <a class="nav-link" href="/support.html">Support</a>
-        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
-          <span class="theme-toggle-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-    </nav>
-  </header>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, "docs")}
 
   <main id="main" class="main docs-main">
     <div class="docs-page">
       ${renderBreadcrumbs(page, rendered.title)}
       <details class="docs-mobile-nav">
-        <summary>Browse documentation</summary>
-        <nav aria-label="Mobile documentation navigation">${navigationHtml}</nav>
+        <summary>${escapeHtml(translate(locale, "Browse documentation"))}</summary>
+        <nav aria-label="${escapeHtml(translate(locale, "Mobile documentation navigation"))}">${navigationHtml}</nav>
       </details>
       <div class="docs-layout">
-        <aside class="docs-sidebar" aria-label="Documentation sidebar">
-          <nav aria-label="Documentation navigation">${navigationHtml}</nav>
+        <aside class="docs-sidebar" aria-label="${escapeHtml(translate(locale, "Documentation sidebar"))}">
+          <nav aria-label="${escapeHtml(translate(locale, "Documentation navigation"))}">${navigationHtml}</nav>
         </aside>
         <article class="docs-article">
           <header class="docs-article-header">
@@ -558,58 +659,175 @@ function renderPage(page, rendered) {
     </div>
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
-      <div class="footer-links">
-        <a href="/">Home</a>
-        <a href="/privacy.html">Privacy</a>
-        <a href="/docs/">Documentation</a>
-        <a href="/support.html">Support</a>
-        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
-      </div>
-    </div>
-  </footer>
-  <script src="/script.js?v=20260801"></script>
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
 </body>
 </html>
 `;
   return html.replace(/[ \t]+$/gm, "");
 }
 
+const generalPages = [
+  { template: "index.html", logicalRoute: "/", section: "home" },
+  { template: "privacy.html", logicalRoute: "/privacy.html", section: "privacy" },
+  { template: "support.html", logicalRoute: "/support.html", section: "support" }
+];
+
+const preservedSiteStrings = new Set([
+  "SourceShelf",
+  "support@sourceshelf.app",
+  "Markdown",
+  "Open Knowledge Format (OKF)",
+  "Page Name.assets",
+  "TXT",
+  "HTML",
+  "RTF",
+  "PNG",
+  "JPEG",
+  "TIFF",
+  "HEIC/HEIF where supported",
+  "DOCX",
+  "PPTX",
+  "XLSX",
+  ".doc",
+  ".ppt",
+  ".xls",
+  ".docx",
+  ".pptx",
+  ".xlsx"
+]);
+
+function extractMatch(pattern, source, description) {
+  const match = source.match(pattern);
+  if (!match) throw new Error(`Could not extract ${description} from a general-page template`);
+  return match[1];
+}
+
+function localizeValue(locale, rawValue) {
+  const leading = rawValue.match(/^\s*/)?.[0] || "";
+  const trailing = rawValue.match(/\s*$/)?.[0] || "";
+  const value = rawValue.trim().replace(/\s+/g, " ");
+  if (!value || preservedSiteStrings.has(value) || !/[\p{Letter}]/u.test(value)) return rawValue;
+  const translated = translate(locale, value);
+  return `${leading}${escapeHtml(translated)}${trailing}`;
+}
+
+function localizeMainHtml(locale, html) {
+  let output = html.replace(/>([^<]+)</g, (match, value) => `>${localizeValue(locale, value)}<`);
+  output = output.replace(/\b(aria-label|alt|title)="([^"]+)"/g, (match, attribute, value) => (
+    `${attribute}="${localizeValue(locale, value).trim()}"`
+  ));
+  output = output
+    .replace(/\bsrc="assets\//g, 'src="/assets/')
+    .replace(/\bhref="index\.html"/g, `href="${localizedRoute(locale, "/")}"`)
+    .replace(/\bhref="privacy\.html"/g, `href="${localizedRoute(locale, "/privacy.html")}"`)
+    .replace(/\bhref="support\.html"/g, `href="${localizedRoute(locale, "/support.html")}"`)
+    .replace(/\bhref="docs\/"/g, `href="${localizedRoute(locale, "/docs/")}"`);
+  return output;
+}
+
+function renderGeneralPage(definition, locale, template) {
+  const title = extractMatch(/<title>([^<]+)<\/title>/, template, "page title");
+  const description = extractMatch(/<meta name="description" content="([^"]+)">/, template, "page description");
+  const socialTitle = extractMatch(/<meta property="og:title" content="([^"]+)">/, template, "social title");
+  const socialDescription = extractMatch(/<meta property="og:description" content="([^"]+)">/, template, "social description");
+  const main = extractMatch(/(<main\b[\s\S]*?<\/main>)/, template, "main content");
+  const route = localizedRoute(locale, definition.logicalRoute);
+  const canonicalUrl = `${canonicalOrigin}${route}`;
+  const localizedTitle = translate(locale, title);
+  const localizedDescription = translate(locale, description);
+  const localizedSocialTitle = translate(locale, socialTitle);
+  const localizedSocialDescription = translate(locale, socialDescription);
+
+  const html = `<!DOCTYPE html>
+<html lang="${locale.code}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${escapeHtml(localizedDescription)}">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="${canonicalUrl}">
+${renderAlternateLinks(definition.logicalRoute)}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(localizedSocialTitle)}">
+  <meta property="og:description" content="${escapeHtml(localizedSocialDescription)}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(localizedSocialTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(localizedSocialDescription)}">
+  <meta name="twitter:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>${escapeHtml(localizedTitle)}</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
+</head>
+<body>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, definition.section)}
+
+  ${localizeMainHtml(locale, main)}
+
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
+</body>
+</html>
+`;
+  return html.replace(/[ \t]+$/gm, "");
+}
+
+async function buildGeneralPages() {
+  for (const definition of generalPages) {
+    const template = await readFile(path.join(siteSourceRoot, "templates", definition.template), "utf8");
+    for (const locale of locales) {
+      const outputDirectory = locale.code === "en" ? siteRoot : path.join(siteRoot, locale.code);
+      await mkdir(outputDirectory, { recursive: true });
+      await writeFile(path.join(outputDirectory, definition.template), renderGeneralPage(definition, locale, template));
+    }
+  }
+}
+
 async function writeSitemap() {
-  const routes = ["/", "/privacy.html", "/support.html", ...navigation.pages.map((page) => page.route)];
+  const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
+  const routes = [...generalRoutes, ...allPages.map((page) => page.route)];
   const entries = routes.map((route) => `  <url>\n    <loc>${canonicalOrigin}${route}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
 }
 
 async function build() {
-  if (pageBySource.size !== navigation.pages.length) {
+  if (pageBySource.size !== allPages.length) {
     throw new Error("Documentation navigation contains duplicate source paths");
   }
-  const routes = new Set(navigation.pages.map((page) => page.route));
-  if (routes.size !== navigation.pages.length) {
+  const routes = new Set(allPages.map((page) => page.route));
+  if (routes.size !== allPages.length) {
     throw new Error("Documentation navigation contains duplicate routes");
   }
 
+  for (const locale of locales.filter((candidate) => candidate.code !== "en")) {
+    await rm(path.join(siteRoot, locale.code), { recursive: true, force: true });
+  }
   await rm(outputRoot, { recursive: true, force: true });
   await mkdir(outputRoot, { recursive: true });
   await optimizeImages();
 
-  for (const page of navigation.pages) {
+  for (const page of allPages) {
     const sourceFile = path.join(sourceRoot, page.source);
     const markdown = await readFile(sourceFile, "utf8");
-    const rendered = renderMarkdown(markdown, page);
-    const outputDirectory = page.route === "/docs/"
-      ? outputRoot
-      : path.join(siteRoot, page.route.slice(1));
+    page.rendered = renderMarkdown(markdown, page);
+  }
+
+  await buildGeneralPages();
+
+  for (const page of allPages) {
+    const outputDirectory = path.join(siteRoot, page.route.slice(1));
     await mkdir(outputDirectory, { recursive: true });
-    await writeFile(path.join(outputDirectory, "index.html"), renderPage(page, rendered));
+    await writeFile(path.join(outputDirectory, "index.html"), renderPage(page, page.rendered));
   }
 
   await writeSitemap();
-  console.log(`Generated ${navigation.pages.length} documentation pages and ${imageMap.size * 2} image variants.`);
+  console.log(`Generated ${generalPages.length * locales.length} general pages, ${allPages.length} documentation pages, and ${imageMap.size * 2} image variants.`);
 }
 
 await build();

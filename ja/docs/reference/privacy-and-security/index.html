@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SourceShelfはデフォルトでローカルです。ファイルの変換、OCR、ウェブキャプチャ処理、意味解析、プレビュー、リクエストチャンクング、信頼性とセキュリティ、チェックサム、エクスポート、 llms.txt インポート、継続運用パック比較、そして MCP このMacで検索/読み込みを実行します。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/reference/privacy-and-security/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/reference/privacy-and-security/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="プライバシーとセキュリティ | SourceShelfドキュメント">
+  <meta property="og:description" content="SourceShelfはデフォルトでローカルです。ファイルの変換、OCR、ウェブキャプチャ処理、意味解析、プレビュー、リクエストチャンクング、信頼性とセキュリティ、チェックサム、エクスポート、 llms.txt インポート、継続運用パック比較、そして MCP このMacで検索/読み込みを実行します。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/reference/privacy-and-security/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="プライバシーとセキュリティ | SourceShelfドキュメント">
+  <meta name="twitter:description" content="SourceShelfはデフォルトでローカルです。ファイルの変換、OCR、ウェブキャプチャ処理、意味解析、プレビュー、リクエストチャンクング、信頼性とセキュリティ、チェックサム、エクスポート、 llms.txt インポート、継続運用パック比較、そして MCP このMacで検索/読み込みを実行します。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>プライバシーとセキュリティ | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>リファレンス</li><li aria-current="page">プライバシーとセキュリティ</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/" aria-current="page">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/" aria-current="page">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="プライバシーとセキュリティ">プライバシーとセキュリティ</h1>
+<p>SourceShelfはデフォルトでローカルです。ファイルの変換、OCR、ウェブキャプチャ処理、意味解析、プレビュー、リクエストチャンクング、信頼性とセキュリティ、チェックサム、エクスポート、 <code>llms.txt</code> インポート、継続運用パック比較、そして MCP このMacで検索/読み込みを実行します。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#ネットワークなし保証">ネットワークなし保証</a></li><li class="toc-level-2"><a href="#sourceshelfが保存しているもの">SourceShelfが保存しているもの</a></li><li class="toc-level-2"><a href="#ローカルパスプライバシー">ローカルパスプライバシー</a></li><li class="toc-level-2"><a href="#信頼分類">信頼分類</a></li><li class="toc-level-2"><a href="#mcp-境界線">MCP 境界線</a></li><li class="toc-level-2"><a href="#idと構成を共有する">IDと構成を共有する</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="ネットワークなし保証">ネットワークなし保証 <a class="heading-anchor" href="#ネットワークなし保証" aria-label="セクションへのリンク: ネットワークなし保証"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelfは次の期間中にリモートコンテンツを取得しません。</p>
+<ul><li>ファイルの変換またはプレビュー；</li><li><code>llms.txt</code> インポートまたは生成；</li><li>更新＆比較；</li><li>MCP リソースのリスト、検索、または読み込み；</li><li>バケット生成。</li></ul>
+<p>Safariのキャプチャは、有効になっている拡張機能を通じて、すでに表示しているページからコンテンツを受け取ります。 リモコン URL地元で見つかりました <code>llms.txt</code> 取得されるのではなく、使用できない参照として保持されます。</p>
+<h2 id="sourceshelfが保存しているもの">SourceShelfが保存しているもの <a class="heading-anchor" href="#sourceshelfが保存しているもの" aria-label="セクションへのリンク: SourceShelfが保存しているもの"><span aria-hidden="true">#</span></a></h2>
+<p>使用する機能に応じて、ローカルストレージには次のものが含まれます。</p>
+<ul><li>出力フォルダ内のMarkdownを変換しました。</li><li>ライブラリの履歴と保存済みパック。</li><li>ドラフトメタデータの順序；</li><li>意味的ドキュメントキャッシュ；</li><li>アーカイブされたウェブ画像；</li><li>レシピをキャプチャし、キューに並んだレビューのドラフトを保存します。</li><li>成功したエクスポート基準線；</li><li>明示的に承認された MCP スナップショット。</li></ul>
+<p>ドラフトスナップショットとベースラインには、任意のマークダウンコンテンツのコピーではなく、識別子、順序、日付、ハッシュが保存されます。 MCP スナップショットは意図的に共有パックの読み取り可能なMarkdownと参照されたアセットのみをコピーするため、サンドボックス化されたヘルパーは幅広いファイルアクセスを必要としません。</p>
+<p>ライブラリレコードは、削除するまで保持されます。 <strong>設定 &gt; 一般 &gt; ストレージの確認…</strong> 生成されたソースデータの削除から、安全で再生可能なクリーニングを分離します。ユーザーが表示できる生成された出力はゴミ箱に移動され、スター付きおよび保存パックソースはデフォルトで保護され、元のインポートされたドキュメントは選択または削除されません。 見てみる <a href="/ja/docs/guides/storage-management/">SourceShelfストレージを管理する</a> クリーニングワークフローのために。</p>
+<h2 id="ローカルパスプライバシー">ローカルパスプライバシー <a class="heading-anchor" href="#ローカルパスプライバシー" aria-label="セクションへのリンク: ローカルパスプライバシー"><span aria-hidden="true">#</span></a></h2>
+<p>このアプリは独自のインスペクタでローカルパスを表示するため、ファイルを開いたり表示したりできます。ファイルソースパスは、エクスポートされた原産地、OKF概念、マニフェストから除外されます。 <code>llms.txt</code> 出力、そして MCP スナップショット。スクリーンショットドキュメントも同様に、これらのローカル専用詳細をトリミングまたはマスクする必要があります。</p>
+<h2 id="信頼分類">信頼分類 <a class="heading-anchor" href="#信頼分類" aria-label="セクションへのリンク: 信頼分類"><span aria-hidden="true">#</span></a></h2>
+<p>キャプチャされた変換されたテキストはマークされています。 <code>untrusted_reference</code>。信頼性と安全に関する警告はガイダンスであり、その資料が消毒されたことを決して主張するものではありません。その中に含まれる指示に従う前に、ソーステキストを確認してください。</p>
+<h2 id="mcp-境界線">MCP 境界線 <a class="heading-anchor" href="#mcp-境界線" aria-label="セクションへのリンク: MCP 境界線"><span aria-hidden="true">#</span></a></h2>
+<p>MCP 共有とは：</p>
+<ul><li>デフォルトで無効化されています。</li><li>保存されたパックごとに承認されます。</li><li>ネットワークリスナーがない署名済みのローカルstdioヘルパーによって提供されます。</li><li>読み取り専用；</li><li>許可リストによって制限され、そして SHA-256 検証；</li><li>すぐに取り消すことができます。</li></ul>
+<p>この2つのツールはスナップショットを検索し、許可リストに載っているリソースを読み取ります。ファイルシステムパスツール、一般的なファイルブラウザ、書き込みアクション、リモート検索、プロンプト、またはサブスクリプションはありません。</p>
+<h2 id="idと構成を共有する">IDと構成を共有する <a class="heading-anchor" href="#idと構成を共有する" aria-label="セクションへのリンク: IDと構成を共有する"><span aria-hidden="true">#</span></a></h2>
+<p>共有IDは、1つのローカルスナップショットを承認します。公開リポジトリやドキュメントのスクリーンショットから離してください。SourceShelfを移動、再インストール、または更新した場合、ヘルパーパスを再コピーしてください。クライアント構成を削除するだけで頼るのではなく、SourceShelfからのアクセスを取り消してください。</p>
+<p>製品のプライバシーに関する声明については、<a href="/ja/privacy.html">SourceShelfプライバシーポリシー</a>をご覧ください。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/reference/supported-formats/"><span>前へ</span><strong>対応形式</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/reference/glossary/"><span>次へ</span><strong>用語集</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#ネットワークなし保証">ネットワークなし保証</a></li><li class="toc-level-2"><a href="#sourceshelfが保存しているもの">SourceShelfが保存しているもの</a></li><li class="toc-level-2"><a href="#ローカルパスプライバシー">ローカルパスプライバシー</a></li><li class="toc-level-2"><a href="#信頼分類">信頼分類</a></li><li class="toc-level-2"><a href="#mcp-境界線">MCP 境界線</a></li><li class="toc-level-2"><a href="#idと構成を共有する">IDと構成を共有する</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

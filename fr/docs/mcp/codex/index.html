@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Codex Peut lancer l&#39;assistant stdio de SourceShelf et exposer les ressources et les outils du pack partagé à un cloud ou Ollama-modèle local soutenu.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/mcp/codex/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/codex/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/codex/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/codex/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/codex/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/codex/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/codex/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Utiliser SourceShelf avec Codex | Documentation SourceShelf">
+  <meta property="og:description" content="Codex Peut lancer l&#39;assistant stdio de SourceShelf et exposer les ressources et les outils du pack partagé à un cloud ou Ollama-modèle local soutenu.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/mcp/codex/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Utiliser SourceShelf avec Codex | Documentation SourceShelf">
+  <meta name="twitter:description" content="Codex Peut lancer l&#39;assistant stdio de SourceShelf et exposer les ressources et les outils du pack partagé à un cloud ou Ollama-modèle local soutenu.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Utiliser SourceShelf avec Codex | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Accès local à l’IA</li><li aria-current="page">Utiliser SourceShelf avec Codex</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/" aria-current="page">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/" aria-current="page">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="utiliser-sourceshelf-avec-codex">Utiliser SourceShelf avec Codex</h1>
+<p>Codex Peut lancer l&#39;assistant stdio de SourceShelf et exposer les ressources et les outils du pack partagé à un cloud ou Ollama-modèle local soutenu.</p>
+<p>Dernière vérification : 01/08/2026.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#option-1-ajouter-le-serveur-depuis-la-ligne-de-commande">Option 1 : ajouter le serveur depuis la ligne de commande</a></li><li class="toc-level-2"><a href="#option-2-modifier-codex-configuration">Option 2 : modifier Codex configuration</a></li><li class="toc-level-2"><a href="#option-3-codex-paramètres-de-lapplication">Option 3 : Codex Paramètres de l&#39;application</a></li><li class="toc-level-2"><a href="#tester-le-pack-partagé">Tester le pack partagé</a></li><li class="toc-level-2"><a href="#supprimez-ou-remplacez-la-connexion">Supprimez ou remplacez la connexion</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="option-1-ajouter-le-serveur-depuis-la-ligne-de-commande">Option 1 : ajouter le serveur depuis la ligne de commande <a class="heading-anchor" href="#option-1-ajouter-le-serveur-depuis-la-ligne-de-commande" aria-label="Lien vers la section: Option 1 : ajouter le serveur depuis la ligne de commande"><span aria-hidden="true">#</span></a></h2>
+<ol><li>Dans SourceShelf, créez un partage et sélectionnez <strong>Commande de copie</strong>.</li><li>Ajoutez-le à Codex. z le chemin exact de l&#39;assistant et l&#39;identifiant de partage de SourceShelf :</li></ol>
+<div class="code-block"><pre><code class="language-sh">codex mcp add sourceshelf-municipal-research -- \
+  &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot; \
+  --share &quot;&lt;share-id&gt;&quot;</code></pre></div>
+<ol><li>Vérifier l&#39;enregistrement :</li></ol>
+<div class="code-block"><pre><code class="language-sh">codex mcp list</code></pre></div>
+<ol><li>commencer Codex Et entrez <code>/mcp</code> Pour inspecter le serveur connecté.</li></ol>
+<h2 id="option-2-modifier-codex-configuration">Option 2 : modifier Codex configuration <a class="heading-anchor" href="#option-2-modifier-codex-configuration" aria-label="Lien vers la section: Option 2 : modifier Codex configuration"><span aria-hidden="true">#</span></a></h2>
+<p>Codex Les clients partagent MCP Configuration dans <code>~/.codex/config.toml</code>. :</p>
+<div class="code-block"><pre><code class="language-toml">[mcp_servers.sourceshelf-municipal-research]
+command = &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;
+args = [&quot;--share&quot;, &quot;&lt;share-id&gt;&quot;]</code></pre></div>
+<p>Vous pouvez plutôt mettre l&#39;entrée dans le projet de confiance. <code>.codex/config.toml</code> Lorsque la connexion doit être spécifique au projet. Utilisez la commande exacte copiée de la partage SourceShelf.</p>
+<h2 id="option-3-codex-paramètres-de-lapplication">Option 3 : Codex Paramètres de l&#39;application <a class="heading-anchor" href="#option-3-codex-paramètres-de-lapplication" aria-label="Lien vers la section: Option 3 : Codex Paramètres de l&#39;application"><span aria-hidden="true">#</span></a></h2>
+<p>dans Codex Paramètres de l&#39;application, ajoutez un MCP Serveur, choisissez <strong>STDIO</strong>, entrez la commande et les arguments d&#39;aide, enregistrez et redémarrez la connexion. La même configuration du serveur est disponible pour Codex CLI parce que les clients partagent <code>config.toml</code>.</p>
+<h2 id="tester-le-pack-partagé">Tester le pack partagé <a class="heading-anchor" href="#tester-le-pack-partagé" aria-label="Lien vers la section: Tester le pack partagé"><span aria-hidden="true">#</span></a></h2>
+<p>Essayer :</p>
+<blockquote><p>Utilisez SourceShelf pour trouver les indicateurs climatiques du pack de démonstration. Lisez la source la plus pertinente, résumez la tendance rapportée et citez son <code>sourceshelf://</code> URI. ne pas inspecter les fichiers locaux non liés.</p></blockquote>
+<p>Pour un modèle local via Ollama:</p>
+<div class="code-block"><pre><code class="language-sh">ollama launch codex</code></pre></div>
+<p>Ou utiliser <code>codex --oss</code> Quand votre Codex La configuration du fournisseur local cible déjà Ollama.</p>
+<h2 id="supprimez-ou-remplacez-la-connexion">Supprimez ou remplacez la connexion <a class="heading-anchor" href="#supprimez-ou-remplacez-la-connexion" aria-label="Lien vers la section: Supprimez ou remplacez la connexion"><span aria-hidden="true">#</span></a></h2>
+<p>utiliser <code>codex mcp remove sourceshelf-municipal-research</code> Pour supprimer l&#39;entrée du client. Cela ne révoque pas la part SourceShelf. Pour révoquer l&#39;accès immédiatement, choisissez <strong>Arrêtez de partager</strong> Dans SourceShelf aussi.</p>
+<p>Si vous déplacez, réinstallez ou mettez à jour SourceShelf, supprimez ou mettez à jour l&#39;ancien. Codex Entrée et copie d&#39;un chemin d&#39;aide frais.</p>
+<p>Référence officielle : <a href="https://developers.openai.com/codex/mcp/">Codex MCP configuration</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/mcp/ollama/"><span>Précédent</span><strong>Utiliser SourceShelf avec Ollama</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/mcp/claude-code/"><span>Suivant</span><strong>Utiliser SourceShelf avec Claude Code</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#option-1-ajouter-le-serveur-depuis-la-ligne-de-commande">Option 1 : ajouter le serveur depuis la ligne de commande</a></li><li class="toc-level-2"><a href="#option-2-modifier-codex-configuration">Option 2 : modifier Codex configuration</a></li><li class="toc-level-2"><a href="#option-3-codex-paramètres-de-lapplication">Option 3 : Codex Paramètres de l&#39;application</a></li><li class="toc-level-2"><a href="#tester-le-pack-partagé">Tester le pack partagé</a></li><li class="toc-level-2"><a href="#supprimez-ou-remplacez-la-connexion">Supprimez ou remplacez la connexion</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

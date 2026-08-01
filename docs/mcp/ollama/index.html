@@ -6,6 +6,12 @@
   <meta name="description" content="Use an Ollama model with a SourceShelf MCP connection hosted by Codex, Claude Code, or OpenCode.">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/ollama/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/ollama/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Use SourceShelf with Ollama | SourceShelf Documentation">
   <meta property="og:description" content="Use an Ollama model with a SourceShelf MCP connection hosted by Codex, Claude Code, or OpenCode.">
@@ -18,8 +24,10 @@
   <title>Use SourceShelf with Ollama | SourceShelf Documentation</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -44,7 +52,8 @@
         <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
       </div>
@@ -56,16 +65,16 @@
       <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Local AI Access</li><li aria-current="page">Use SourceShelf with Ollama</li></ol></nav>
       <details class="docs-mobile-nav">
         <summary>Browse documentation</summary>
-        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/" aria-current="page">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/" aria-current="page">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
       </details>
       <div class="docs-layout">
         <aside class="docs-sidebar" aria-label="Documentation sidebar">
-          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
-<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
-<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/" aria-current="page">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/" aria-current="page">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
 <section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
         </aside>
         <article class="docs-article">
@@ -78,33 +87,33 @@
           </header>
           <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#recommended-setup-ollama-with-codex">Recommended setup: Ollama with Codex</a></li><li class="toc-level-2"><a href="#ollama-with-opencode">Ollama with OpenCode</a></li><li class="toc-level-2"><a href="#ollama-with-claude-code">Ollama with Claude Code</a></li><li class="toc-level-2"><a href="#manual-local-model-mode-in-codex">Manual local-model mode in Codex</a></li><li class="toc-level-2"><a href="#choosing-a-model">Choosing a model</a></li><li class="toc-level-2"><a href="#advanced-build-your-own-bridge">Advanced: build your own bridge</a></li></ol></nav></details>
           <div class="docs-article-body">
-            <h2 id="recommended-setup-ollama-with-codex">Recommended setup: Ollama with Codex <a class="heading-anchor" href="#recommended-setup-ollama-with-codex" aria-label="Link to Recommended setup: Ollama with Codex"><span aria-hidden="true">#</span></a></h2>
+            <h2 id="recommended-setup-ollama-with-codex">Recommended setup: Ollama with Codex <a class="heading-anchor" href="#recommended-setup-ollama-with-codex" aria-label="Section link: Recommended setup: Ollama with Codex"><span aria-hidden="true">#</span></a></h2>
 <ol><li>Create the SourceShelf share and copy its command.</li><li>Add it to Codex using <a href="/docs/mcp/codex/">the Codex guide</a>.</li><li>Launch Codex through Ollama:</li></ol>
 <div class="code-block"><pre><code class="language-sh">ollama launch codex</code></pre></div>
 <ol><li>Choose an installed model with a sufficiently large context window and reliable tool calling.</li><li>In Codex, run <code>/mcp</code> and confirm the SourceShelf server and its two tools are present.</li><li>Ask:</li></ol>
 <blockquote><p>Search the SourceShelf pack for public transit ridership trends, read the best result, and cite the resource URI.</p></blockquote>
 <p>Ollama recommends at least a 64K context window for coding agents. SourceShelf’s search-first workflow reduces unnecessary context, but the agent itself may still need room for tool definitions and results.</p>
-<h2 id="ollama-with-opencode">Ollama with OpenCode <a class="heading-anchor" href="#ollama-with-opencode" aria-label="Link to Ollama with OpenCode"><span aria-hidden="true">#</span></a></h2>
+<h2 id="ollama-with-opencode">Ollama with OpenCode <a class="heading-anchor" href="#ollama-with-opencode" aria-label="Section link: Ollama with OpenCode"><span aria-hidden="true">#</span></a></h2>
 <ol><li>Configure SourceShelf in OpenCode using <a href="/docs/mcp/opencode/">the OpenCode guide</a>.</li><li>Start the local agent through Ollama:</li></ol>
 <div class="code-block"><pre><code class="language-sh">ollama launch opencode</code></pre></div>
 <p>Ollama says it deep-merges the temporary launch configuration with an existing OpenCode configuration, so your SourceShelf MCP entry remains available.</p>
-<h2 id="ollama-with-claude-code">Ollama with Claude Code <a class="heading-anchor" href="#ollama-with-claude-code" aria-label="Link to Ollama with Claude Code"><span aria-hidden="true">#</span></a></h2>
+<h2 id="ollama-with-claude-code">Ollama with Claude Code <a class="heading-anchor" href="#ollama-with-claude-code" aria-label="Section link: Ollama with Claude Code"><span aria-hidden="true">#</span></a></h2>
 <ol><li>Configure SourceShelf using <a href="/docs/mcp/claude-code/">the Claude Code guide</a>.</li><li>Launch:</li></ol>
 <div class="code-block"><pre><code class="language-sh">ollama launch claude</code></pre></div>
 <p>Then use <code>/mcp</code> in Claude Code to confirm the server.</p>
-<h2 id="manual-local-model-mode-in-codex">Manual local-model mode in Codex <a class="heading-anchor" href="#manual-local-model-mode-in-codex" aria-label="Link to Manual local-model mode in Codex"><span aria-hidden="true">#</span></a></h2>
+<h2 id="manual-local-model-mode-in-codex">Manual local-model mode in Codex <a class="heading-anchor" href="#manual-local-model-mode-in-codex" aria-label="Section link: Manual local-model mode in Codex"><span aria-hidden="true">#</span></a></h2>
 <p>If your Codex setup already points to Ollama, you can also start it with:</p>
 <div class="code-block"><pre><code class="language-sh">codex --oss</code></pre></div>
 <p>The MCP configuration remains in Codex; <code>--oss</code> chooses the local open-source model provider. If you maintain multiple local providers, use a named Codex profile instead.</p>
-<h2 id="choosing-a-model">Choosing a model <a class="heading-anchor" href="#choosing-a-model" aria-label="Link to Choosing a model"><span aria-hidden="true">#</span></a></h2>
+<h2 id="choosing-a-model">Choosing a model <a class="heading-anchor" href="#choosing-a-model" aria-label="Section link: Choosing a model"><span aria-hidden="true">#</span></a></h2>
 <p>Look for a model whose Ollama page or documentation explicitly mentions tool/function calling. Smaller models benefit from direct prompts such as:</p>
 <blockquote><p>Call <code>search_pack</code> first. Use <code>read_pack_resource</code> only on the top result. Do not guess and do not read the entire pack.</p></blockquote>
 <p>If the model repeatedly writes a hypothetical tool call as text, the host connection may be working while the model’s tool-call behavior is not. Confirm with a stronger tool-capable model before debugging SourceShelf.</p>
-<h2 id="advanced-build-your-own-bridge">Advanced: build your own bridge <a class="heading-anchor" href="#advanced-build-your-own-bridge" aria-label="Link to Advanced: build your own bridge"><span aria-hidden="true">#</span></a></h2>
+<h2 id="advanced-build-your-own-bridge">Advanced: build your own bridge <a class="heading-anchor" href="#advanced-build-your-own-bridge" aria-label="Section link: Advanced: build your own bridge"><span aria-hidden="true">#</span></a></h2>
 <p>An application using Ollama’s chat API can define functions and execute them, but it must also implement an MCP client or translate those functions to SourceShelf’s MCP calls. SourceShelf intentionally does not provide a network endpoint. For normal testing, an existing agent host is much simpler and safer.</p>
 <p>Official references: <a href="https://docs.ollama.com/capabilities/tool-calling">Ollama tool calling</a>, <a href="https://docs.ollama.com/cli">Ollama launch</a>, <a href="https://docs.ollama.com/integrations/codex">Ollama with Codex</a>, <a href="https://docs.ollama.com/integrations/opencode">Ollama with OpenCode</a>, <a href="https://docs.ollama.com/integrations/claude-code">Ollama with Claude Code</a>.</p>
           </div>
-          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/lm-studio/"><span>Previous</span><strong>LM Studio</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/codex/"><span>Next</span><strong>Codex</strong></a></nav>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/lm-studio/"><span>Previous</span><strong>Use SourceShelf with LM Studio</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/codex/"><span>Next</span><strong>Use SourceShelf with Codex</strong></a></nav>
         </article>
         <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#recommended-setup-ollama-with-codex">Recommended setup: Ollama with Codex</a></li><li class="toc-level-2"><a href="#ollama-with-opencode">Ollama with OpenCode</a></li><li class="toc-level-2"><a href="#ollama-with-claude-code">Ollama with Claude Code</a></li><li class="toc-level-2"><a href="#manual-local-model-mode-in-codex">Manual local-model mode in Codex</a></li><li class="toc-level-2"><a href="#choosing-a-model">Choosing a model</a></li><li class="toc-level-2"><a href="#advanced-build-your-own-bridge">Advanced: build your own bridge</a></li></ol></nav></aside>
       </div>
@@ -123,6 +132,6 @@
       </div>
     </div>
   </footer>
-  <script src="/script.js?v=20260801"></script>
+  <script src="/script.js?v=20260801-2"></script>
 </body>
 </html>

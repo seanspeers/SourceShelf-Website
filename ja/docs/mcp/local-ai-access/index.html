@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ローカルAIアクセスを使用すると、互換性のあるAIアプリケーションは、保存されたSourceShelfパックを繰り返しエクスポートしてアップロードすることなく、検索して読み込むことができます。共有はローカルで、読み取り専用で、パック範囲内で、デフォルトではオフになっています。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ローカルAIアクセス（MCP） | SourceShelfドキュメント">
+  <meta property="og:description" content="ローカルAIアクセスを使用すると、互換性のあるAIアプリケーションは、保存されたSourceShelfパックを繰り返しエクスポートしてアップロードすることなく、検索して読み込むことができます。共有はローカルで、読み取り専用で、パック範囲内で、デフォルトではオフになっています。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/mcp/local-ai-access/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ローカルAIアクセス（MCP） | SourceShelfドキュメント">
+  <meta name="twitter:description" content="ローカルAIアクセスを使用すると、互換性のあるAIアプリケーションは、保存されたSourceShelfパックを繰り返しエクスポートしてアップロードすることなく、検索して読み込むことができます。共有はローカルで、読み取り専用で、パック範囲内で、デフォルトではオフになっています。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>ローカルAIアクセス（MCP） | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ローカルAIアクセス</li><li aria-current="page">ローカルAIアクセス（MCP）</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/" aria-current="page">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/" aria-current="page">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="ローカルaiアクセス-mcp">ローカルAIアクセス（MCP）</h1>
+<p>ローカルAIアクセスを使用すると、互換性のあるAIアプリケーションは、保存されたSourceShelfパックを繰り返しエクスポートしてアップロードすることなく、検索して読み込むことができます。共有はローカルで、読み取り専用で、パック範囲内で、デフォルトではオフになっています。</p>
+<p>SourceShelfはモデルコンテキストプロトコル (MCP）標準の入力/出力を超えます。 Web サーバーまたはネットワークリスナーを開始しません。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#クライアントを接続する前に">クライアントを接続する前に</a></li><li class="toc-level-2"><a href="#sourceshelfが公開するもの">SourceShelfが公開するもの</a></li><li class="toc-level-2"><a href="#リソースとツール">リソースとツール</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#接続詳細をコピーする">接続詳細をコピーする</a></li><li class="toc-level-2"><a href="#スナップショットの更新と取り消し">スナップショットの更新と取り消し</a></li><li class="toc-level-2"><a href="#sourceshelf-の移動または更新">SourceShelf の移動または更新</a></li><li class="toc-level-2"><a href="#クライアントガイドを選択する">クライアントガイドを選択する</a></li><li class="toc-level-2"><a href="#プロトコルノート">プロトコルノート</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="クライアントを接続する前に">クライアントを接続する前に <a class="heading-anchor" href="#クライアントを接続する前に" aria-label="セクションへのリンク: クライアントを接続する前に"><span aria-hidden="true">#</span></a></h2>
+<ol><li>開いている <strong>SourceShelf &gt; 設定 &gt; 統合</strong>。</li><li>有効にする <strong>地元の MCP 共有する</strong>。</li><li>開いている <strong>パック</strong> そして、保存したパックを選択します。</li><li>未完了の変更を保存します。</li><li>選ぶ <strong>もっと見る&gt;ローカルAIアクセス…</strong>。</li><li>最新のTrust &amp; Safetyの結果を確認します。警告や読み取り可能なソースエラーがある場合は、明示的に選択します。 <strong>問題と共有する</strong> 続けるために。</li></ol>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/integrations-settings-1600.webp" srcset="/docs/assets/images/integrations-settings-800.webp 800w, /docs/assets/images/integrations-settings-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="オプトインローカル MCP 共有設定" width="1600" height="1107" loading="lazy" decoding="async">
+</figure>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/local-ai-access-1600.webp" srcset="/docs/assets/images/local-ai-access-800.webp 800w, /docs/assets/images/local-ai-access-1600.webp 1380w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="合成保存パック用の現在のローカルAIアクセススナップショット" width="1380" height="880" loading="lazy" decoding="async">
+</figure>
+<p>タイトルのないまたは汚れたパックは共有できません。読み取り可能なソースがないパックはブロックされます。</p>
+<h2 id="sourceshelfが公開するもの">SourceShelfが公開するもの <a class="heading-anchor" href="#sourceshelfが公開するもの" aria-label="セクションへのリンク: SourceShelfが公開するもの"><span aria-hidden="true">#</span></a></h2>
+<p>各承認により、ランダムな共有IDと、選択したパッケージのみを含む不変のスナップショットが作成されます。</p>
+<ul><li>順序付けされたソースリンクを含むパッケージの概要。</li><li>生成された <code>llms.txt</code> インデックス；</li><li>公開JSONカタログ；</li><li>読み取り可能なソースごとに1つのMarkdownリソース。</li><li>参照されたアーカイブ画像。</li><li>チェックサムと内部 URI 許可リスト。</li></ul>
+<p>スナップショットはします <strong>そうしない</strong> ソースファイルのパス、出力フォルダのパス、セキュリティブックマーク、関連のないライブラリアイテム、または書き込みアクセスを含める。</p>
+<p>テキストには、保存されたMarkdownボディを変更せずに、信頼できない参照通知を前置することが記載されています。要求されたすべての URI スナップショット許可リストとその SHA-256 提供される前にチェックサム。</p>
+<h2 id="リソースとツール">リソースとツール <a class="heading-anchor" href="#リソースとツール" aria-label="セクションへのリンク: リソースとツール"><span aria-hidden="true">#</span></a></h2>
+<p>サーバーは発見可能なものを公開します <code>sourceshelf://pack/...</code> リソースと2つの読み取り専用ツール：</p>
+<h3 id="searchpack-query-limit"><code>search_pack(query, limit)</code> <a class="heading-anchor" href="#searchpack-query-limit" aria-label="セクションへのリンク: searchpack(query, limit)"><span aria-hidden="true">#</span></a></h3>
+<p>共有パックをローカルで検索し、ランキングされた抜粋とリソースを返します URIs。検索は決定論的で語彙的であり、エンベディングを使用せず、ネットワークリクエストを実行せず、モデルを呼び出しません。</p>
+<h3 id="readpackresource-uri-cursor-maxcharacters"><code>read_pack_resource(uri, cursor, max_characters)</code> <a class="heading-anchor" href="#readpackresource-uri-cursor-maxcharacters" aria-label="セクションへのリンク: readpackresource(uri, cursor, maxcharacters)"><span aria-hidden="true">#</span></a></h3>
+<p>境界付きページでテキストリソースを読み込みます。カーソルは、小さなモデルのコンテキストウィンドウをオーバーフローさせずに、クライアントが長いソースを継続できるようにします。</p>
+<p>このペアは、ローカルモデルにとって特に便利です。モデルは絞り込みして検索でき、最も関連性の高いソースセクションのみを読み取り、SourceShelfを引用できます。 URIs. 互換性のあるホストは、まだモデルがツールを呼び出すことを許可する必要があります。</p>
+<h2 id="接続詳細をコピーする">接続詳細をコピーする <a class="heading-anchor" href="#接続詳細をコピーする" aria-label="セクションへのリンク: 接続詳細をコピーする"><span aria-hidden="true">#</span></a></h2>
+<p>その <strong>ローカルAIアクセス</strong> シートは提供します：</p>
+<ul><li><strong>コピー MCP 設定</strong> — 共通のJSON <code>mcpServers</code> 使用されるフォーマット LM Studio そしていくつかのクライアントたち。</li><li><strong>コピーコマンド</strong> — ヘルパー実行ファイルプラス <code>--share</code> 承認の議論；</li><li><strong>思い出す</strong> — 必要に応じて、明示的なレビューの後、スナップショットを再構築します。</li><li><strong>共有を停止する</strong> — すぐに承認を取り消します。</li></ul>
+<p>コピーされた共有IDをローカルアクセストークンのように扱う必要があります。これはインターネット経由で送信されたパスワードではなく、IDとヘルパーパスを持つユーザーとして実行されているどのプロセスでもそのスナップショットを要求できます。</p>
+<h2 id="スナップショットの更新と取り消し">スナップショットの更新と取り消し <a class="heading-anchor" href="#スナップショットの更新と取り消し" aria-label="セクションへのリンク: スナップショットの更新と取り消し"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf は、関連するパッケージ、ライブラリ、およびトラストポリシーの変更後、株式を再評価します。</p>
+<ul><li>新しいTrust &amp; Safetyの結果が準備ができたら、SourceShelfはスナップショットを自動的に置き換えることができます。</li><li>新しい警告やエラーが表示された場合、以前の有効なスナップショットは引き続き使用可能で、共有は <strong>レビューが必要</strong>。</li><li>選択する <strong>思い出す</strong> そして、それらの変更をパブリッシュする前に確認してください。</li><li>保存したパックを削除すると、その共有権が取り消されます。</li><li><strong>共有を停止する</strong>、 <strong>すべて取り消す</strong>、またはローカルを無効にする MCP 共有すると、コピーした構成はすぐに無効になります。</li></ul>
+<p>ヘルパーは、各リクエストに対してレジストリとスナップショットメタデータを再読み込みするため、実行中のクライアントは取り消された共有物を読み続けることができません。</p>
+<h2 id="sourceshelf-の移動または更新">SourceShelf の移動または更新 <a class="heading-anchor" href="#sourceshelf-の移動または更新" aria-label="セクションへのリンク: SourceShelf の移動または更新"><span aria-hidden="true">#</span></a></h2>
+<p>コピーされた構成は、SourceShelfアプリ内のヘルパーを指します。SourceShelfを移動、再インストール、または更新する場合は、から新しい構成をコピーします。 <strong>ローカルAIアクセス...</strong> したがって、AIクライアントは現在のヘルパー位置を使用します。</p>
+<h2 id="クライアントガイドを選択する">クライアントガイドを選択する <a class="heading-anchor" href="#クライアントガイドを選択する" aria-label="セクションへのリンク: クライアントガイドを選択する"><span aria-hidden="true">#</span></a></h2>
+<ul><li><a href="/ja/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/ja/docs/mcp/ollama/">Ollama</a></li><li><a href="/ja/docs/mcp/codex/">Codex</a></li><li><a href="/ja/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/ja/docs/mcp/opencode/">OpenCode</a></li></ul>
+<p>見てみる <a href="/ja/docs/mcp/troubleshooting/">MCP トラブルシューティング</a> ヘルパーが終了した場合、ツールが欠落している場合、または共有ファイルが最新でない場合。</p>
+<h2 id="プロトコルノート">プロトコルノート <a class="heading-anchor" href="#プロトコルノート" aria-label="セクションへのリンク: プロトコルノート"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelfのヘルパーは使用します MCP stdioを超え、バンドルされたSwift SDKによって実装されたプロトコルバージョンをサポートします。サーバーはリソースと2つの読み取り専用ツールのみをパブリッシュします。プロンプト、書き込みツール、サブスクリプション、リスト変更通知はパブリッシュしません。</p>
+<p>さらなる読書： <a href="https://modelcontextprotocol.io/docs/learn/server-concepts">MCP 資源</a>、 <a href="https://modelcontextprotocol.io/docs/learn/server-concepts#tools">MCP ツール</a>。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/guides/llms-txt/"><span>前へ</span><strong>llms.txtのインポートとエクスポート</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/mcp/lm-studio/"><span>次へ</span><strong>SourceShelfをLM Studioで使う</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#クライアントを接続する前に">クライアントを接続する前に</a></li><li class="toc-level-2"><a href="#sourceshelfが公開するもの">SourceShelfが公開するもの</a></li><li class="toc-level-2"><a href="#リソースとツール">リソースとツール</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#接続詳細をコピーする">接続詳細をコピーする</a></li><li class="toc-level-2"><a href="#スナップショットの更新と取り消し">スナップショットの更新と取り消し</a></li><li class="toc-level-2"><a href="#sourceshelf-の移動または更新">SourceShelf の移動または更新</a></li><li class="toc-level-2"><a href="#クライアントガイドを選択する">クライアントガイドを選択する</a></li><li class="toc-level-2"><a href="#プロトコルノート">プロトコルノート</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

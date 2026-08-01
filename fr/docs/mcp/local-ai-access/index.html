@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="L&#39;accès local à l&#39;IA permet à une application IA compatible de rechercher et de lire un pack SourceShelf sauvegardé sans l&#39;exporter et le télécharger à plusieurs reprises. Le partage est local, en lecture seule, dans le contexte du pack et est désactivé par défaut.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/mcp/local-ai-access/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/mcp/local-ai-access/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Accès local à l’IA (MCP) | Documentation SourceShelf">
+  <meta property="og:description" content="L&#39;accès local à l&#39;IA permet à une application IA compatible de rechercher et de lire un pack SourceShelf sauvegardé sans l&#39;exporter et le télécharger à plusieurs reprises. Le partage est local, en lecture seule, dans le contexte du pack et est désactivé par défaut.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/mcp/local-ai-access/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Accès local à l’IA (MCP) | Documentation SourceShelf">
+  <meta name="twitter:description" content="L&#39;accès local à l&#39;IA permet à une application IA compatible de rechercher et de lire un pack SourceShelf sauvegardé sans l&#39;exporter et le télécharger à plusieurs reprises. Le partage est local, en lecture seule, dans le contexte du pack et est désactivé par défaut.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Accès local à l’IA (MCP) | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>Accès local à l’IA</li><li aria-current="page">Accès local à l’IA (MCP)</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/" aria-current="page">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/" aria-current="page">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="accès-local-à-lia-mcp">Accès local à l’IA (MCP)</h1>
+<p>L&#39;accès local à l&#39;IA permet à une application IA compatible de rechercher et de lire un pack SourceShelf sauvegardé sans l&#39;exporter et le télécharger à plusieurs reprises. Le partage est local, en lecture seule, dans le contexte du pack et est désactivé par défaut.</p>
+<p>SourceShelf utilise le protocole de contexte de modèle (MCP) par rapport à l&#39;entrée/sortie standard. Il ne lance pas un serveur Web ou un écouteur réseau.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#avant-de-connecter-un-client">Avant de connecter un client</a></li><li class="toc-level-2"><a href="#ce-que-sourceshelf-publie">Ce que SourceShelf publie</a></li><li class="toc-level-2"><a href="#ressources-et-outils">Ressources et outils</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#copiez-les-détails-de-la-connexion">Copiez les détails de la connexion</a></li><li class="toc-level-2"><a href="#récupération-et-annulation-de-linstantané">Récupération et annulation de l&#39;instantané.</a></li><li class="toc-level-2"><a href="#déplacer-ou-mettre-à-jour-sourceshelf">Déplacer ou mettre à jour SourceShelf</a></li><li class="toc-level-2"><a href="#choisissez-un-guide-client">Choisissez un guide client</a></li><li class="toc-level-2"><a href="#notes-du-protocole">Notes du protocole</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="avant-de-connecter-un-client">Avant de connecter un client <a class="heading-anchor" href="#avant-de-connecter-un-client" aria-label="Lien vers la section: Avant de connecter un client"><span aria-hidden="true">#</span></a></h2>
+<ol><li>ouvert <strong>SourceShelf &gt; Paramètres &gt; Intégrations</strong>.</li><li>favoriser <strong>local MCP Partageant</strong>.</li><li>ouvert <strong>Packs</strong> Et sélectionnez un pack enregistré.</li><li>Enregistrez toutes les modifications en cours.</li><li>choisir <strong>Plus &gt; Accès local à l&#39;IA...</strong>.</li><li>Examinez les résultats récents de Trust &amp; Safety. Si vous y trouvez des avertissements ou des erreurs de source lisibles, choisissez explicitement <strong>Partager avec des problèmes</strong> Pour continuer.</li></ol>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/integrations-settings-1600.webp" srcset="/docs/assets/images/integrations-settings-800.webp 800w, /docs/assets/images/integrations-settings-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Le local par choix MCP Paramètres de partage" width="1600" height="1107" loading="lazy" decoding="async">
+</figure>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/local-ai-access-1600.webp" srcset="/docs/assets/images/local-ai-access-800.webp 800w, /docs/assets/images/local-ai-access-1600.webp 1380w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Une capture d&#39;écran actuelle d&#39;accès local à l&#39;IA pour un pack sauvegardé synthétique." width="1380" height="880" loading="lazy" decoding="async">
+</figure>
+<p>Un pack sans titre ou sale ne peut pas être partagé. Un pack sans sources lisibles est bloqué.</p>
+<h2 id="ce-que-sourceshelf-publie">Ce que SourceShelf publie <a class="heading-anchor" href="#ce-que-sourceshelf-publie" aria-label="Lien vers la section: Ce que SourceShelf publie"><span aria-hidden="true">#</span></a></h2>
+<p>Chaque autorisation crée un identifiant de partage aléatoire et une capture d&#39;écran immuable contenant uniquement le pack sélectionné :</p>
+<ul><li>Un aperçu du pack avec des liens de source triés par ordre ;</li><li>Un généré <code>llms.txt</code> Indice ;</li><li>Un catalogue JSON public ;</li><li>Une ressource Markdown par source lisible ;</li><li>Images archivées référencées ;</li><li>Les chiffrages de contrôle et un interne URI Liste d&#39;autorisations.</li></ul>
+<p>L&#39;instantané le fait <strong>pas du tout</strong> inclure les chemins des fichiers sources, les chemins des dossiers de sortie, les favoris de sécurité, les éléments de la bibliothèque non liés ou l&#39;accès écrit.</p>
+<p>Le texte indique de préceder une notice de référence non fiable sans modifier le corps Markdown stocké. Chaque demande URI est vérifié contre la liste d&#39;autorisations de snapshot et son SHA-256 Checksum avant qu&#39;il ne soit servi.</p>
+<h2 id="ressources-et-outils">Ressources et outils <a class="heading-anchor" href="#ressources-et-outils" aria-label="Lien vers la section: Ressources et outils"><span aria-hidden="true">#</span></a></h2>
+<p>Le serveur expose ce qui peut être découvert. <code>sourceshelf://pack/...</code> Ressources et deux outils à lecture seule :</p>
+<h3 id="searchpack-query-limit"><code>search_pack(query, limit)</code> <a class="heading-anchor" href="#searchpack-query-limit" aria-label="Lien vers la section: searchpack(query, limit)"><span aria-hidden="true">#</span></a></h3>
+<p>Recherche le pack partagé localement et renvoie des extraits classés ainsi que la ressource. URIs. La recherche est déterministe et lexicale ; elle ne utilise pas d&#39;embeddings, ne fait pas de requêtes réseau ou ne appelle pas de modèle.</p>
+<h3 id="readpackresource-uri-cursor-maxcharacters"><code>read_pack_resource(uri, cursor, max_characters)</code> <a class="heading-anchor" href="#readpackresource-uri-cursor-maxcharacters" aria-label="Lien vers la section: readpackresource(uri, cursor, maxcharacters)"><span aria-hidden="true">#</span></a></h3>
+<p>Lit une ressource texte dans des pages limitées. Le curseur permet à un client de continuer à travers une longue source sans surcharger la fenêtre de contexte d&#39;un modèle plus petit.</p>
+<p>Ce duo est particulièrement utile pour les modèles locaux : le modèle peut rechercher de manière précise, lire uniquement les sections de source les plus pertinentes et citer leur SourceShelf. URIUn hôte compatible doit toujours permettre au modèle d&#39;appeler les outils.</p>
+<h2 id="copiez-les-détails-de-la-connexion">Copiez les détails de la connexion <a class="heading-anchor" href="#copiez-les-détails-de-la-connexion" aria-label="Lien vers la section: Copiez les détails de la connexion"><span aria-hidden="true">#</span></a></h2>
+<p>le <strong>Accès local à l&#39;IA</strong> La feuille fournit :</p>
+<ul><li><strong>copie MCP configuration</strong> — JSON dans le commun <code>mcpServers</code> Format utilisé par LM Studio Et plusieurs clients ;</li><li><strong>Commande de copie</strong> — l&#39;exécutable d&#39;aide plus <code>--share</code> Argument d&#39;autorisation ;</li><li><strong>rafraîchir</strong> — reconstruire l&#39;instantané après une révision explicite lorsque nécessaire ;</li><li><strong>Arrêtez de partager</strong> — révoquer immédiatement l&#39;autorisation.</li></ul>
+<p>Traitez l&#39;identifiant de part copié comme un jeton d&#39;accès local. Il ne s&#39;agit pas d&#39;un mot de passe envoyé sur Internet, mais tout processus exécuté en tant qu&#39;utilisateur qui possède l&#39;identifiant et le chemin auxiliaire peut demander cette capture d&#39;écran.</p>
+<h2 id="récupération-et-annulation-de-linstantané">Récupération et annulation de l&#39;instantané. <a class="heading-anchor" href="#récupération-et-annulation-de-linstantané" aria-label="Lien vers la section: Récupération et annulation de l&#39;instantané."><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf réévalue les actions après des changements pertinents dans les packs, la bibliothèque et la politique de confiance :</p>
+<ul><li>Si un nouveau résultat Trust &amp; Safety est prêt, SourceShelf peut remplacer automatiquement l&#39;instantané.</li><li>Si de nouveaux avertissements ou erreurs apparaissent, l&#39;instantané valide précédent reste disponible et le partage devient <strong>Révision requise</strong>.</li><li>sélectionner <strong>rafraîchir</strong> Et confirmez avant de publier ces changements.</li><li>La suppression du pack sauvegardé annule sa part.</li><li><strong>Arrêtez de partager</strong>, <strong>Annuler tout</strong>, ou désactiver Local MCP Le partage invalide immédiatement les configurations copiées.</li></ul>
+<p>L&#39;assistant recharge le registre et les métadonnées de snapshot pour chaque demande, de sorte qu&#39;un client en cours d&#39;exécution ne peut pas continuer à lire un partage révoqué.</p>
+<h2 id="déplacer-ou-mettre-à-jour-sourceshelf">Déplacer ou mettre à jour SourceShelf <a class="heading-anchor" href="#déplacer-ou-mettre-à-jour-sourceshelf" aria-label="Lien vers la section: Déplacer ou mettre à jour SourceShelf"><span aria-hidden="true">#</span></a></h2>
+<p>Les configurations copiées pointent vers l&#39;assistant à l&#39;intérieur de l&#39;application SourceShelf. Si vous déplacez, réinstallez ou mettez à jour SourceShelf, copiez une configuration fraîche à partir de <strong>Accès local à l&#39;IA...</strong> Donc le client IA utilise l&#39;emplacement actuel de l&#39;assistant.</p>
+<h2 id="choisissez-un-guide-client">Choisissez un guide client <a class="heading-anchor" href="#choisissez-un-guide-client" aria-label="Lien vers la section: Choisissez un guide client"><span aria-hidden="true">#</span></a></h2>
+<ul><li><a href="/fr/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">OpenCode</a></li></ul>
+<p>voir <a href="/fr/docs/mcp/troubleshooting/">MCP diagnostic des anomalies</a> Si l&#39;assistant quitte, des outils manquent ou un partage n&#39;est pas à jour.</p>
+<h2 id="notes-du-protocole">Notes du protocole <a class="heading-anchor" href="#notes-du-protocole" aria-label="Lien vers la section: Notes du protocole"><span aria-hidden="true">#</span></a></h2>
+<p>Les utilisations de l&#39;assistant de SourceShelf MCP Au-dessus de stdio et prend en charge la version du protocole implémentée par son SDK Swift intégré. Le serveur ne publie que les ressources et les deux outils à lecture seule ; il ne publie pas les invites, les outils d&#39;écriture, les abonnements ou les notifications de modification de liste.</p>
+<p>Lecture complémentaire : <a href="https://modelcontextprotocol.io/docs/learn/server-concepts">MCP Ressources</a>, <a href="https://modelcontextprotocol.io/docs/learn/server-concepts#tools">MCP Outils</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/guides/llms-txt/"><span>Précédent</span><strong>Importer et exporter llms.txt</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/mcp/lm-studio/"><span>Suivant</span><strong>Utiliser SourceShelf avec LM Studio</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#avant-de-connecter-un-client">Avant de connecter un client</a></li><li class="toc-level-2"><a href="#ce-que-sourceshelf-publie">Ce que SourceShelf publie</a></li><li class="toc-level-2"><a href="#ressources-et-outils">Ressources et outils</a></li><li class="toc-level-3"><a href="#searchpack-query-limit">searchpack(query, limit)</a></li><li class="toc-level-3"><a href="#readpackresource-uri-cursor-maxcharacters">readpackresource(uri, cursor, maxcharacters)</a></li><li class="toc-level-2"><a href="#copiez-les-détails-de-la-connexion">Copiez les détails de la connexion</a></li><li class="toc-level-2"><a href="#récupération-et-annulation-de-linstantané">Récupération et annulation de l&#39;instantané.</a></li><li class="toc-level-2"><a href="#déplacer-ou-mettre-à-jour-sourceshelf">Déplacer ou mettre à jour SourceShelf</a></li><li class="toc-level-2"><a href="#choisissez-un-guide-client">Choisissez un guide client</a></li><li class="toc-level-2"><a href="#notes-du-protocole">Notes du protocole</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/fr/">Accueil</a>
+        <a href="/fr/privacy.html">Confidentialité</a>
+        <a href="/fr/docs/">Documentation</a>
+        <a href="/fr/support.html">Assistance</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>

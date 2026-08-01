@@ -32,7 +32,9 @@
       toggle.setAttribute("aria-pressed", resolvedTheme === "dark" ? "true" : "false");
       toggle.setAttribute(
         "aria-label",
-        resolvedTheme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+        resolvedTheme === "dark"
+          ? toggle.getAttribute("data-light-label") || "Switch to light mode"
+          : toggle.getAttribute("data-dark-label") || "Switch to dark mode"
       );
     }
   }
@@ -48,12 +50,19 @@
   }
 
   if (!getStoredTheme()) {
-    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+    var colorScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    var handleColorSchemeChange = function () {
       applyTheme(null);
-    });
+    };
+    if (colorScheme.addEventListener) {
+      colorScheme.addEventListener("change", handleColorSchemeChange);
+    } else if (colorScheme.addListener) {
+      colorScheme.addListener(handleColorSchemeChange);
+    }
   }
 
   if (year) {
     year.textContent = String(new Date().getFullYear());
   }
+
 })();

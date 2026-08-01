@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://SourceShelf.app/sitemap.xml
+Sitemap: https://sourceshelf.app/sitemap.xml

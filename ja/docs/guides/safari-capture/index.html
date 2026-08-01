@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SourceShelf Safari拡張機能は、現在のページ、メインコンテンツ、選択内容、選択されたページエリア、または研究ハイライトのバスケットをローカルMarkdownとして保存します。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/guides/safari-capture/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/guides/safari-capture/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Safariからキャプチャ | SourceShelfドキュメント">
+  <meta property="og:description" content="SourceShelf Safari拡張機能は、現在のページ、メインコンテンツ、選択内容、選択されたページエリア、または研究ハイライトのバスケットをローカルMarkdownとして保存します。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/guides/safari-capture/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Safariからキャプチャ | SourceShelfドキュメント">
+  <meta name="twitter:description" content="SourceShelf Safari拡張機能は、現在のページ、メインコンテンツ、選択内容、選択されたページエリア、または研究ハイライトのバスケットをローカルMarkdownとして保存します。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Safariからキャプチャ | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801-2">
+  <script src="/locale.js?v=20260801-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>ガイド</li><li aria-current="page">Safariからキャプチャ</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/" aria-current="page">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>ガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/" aria-current="page">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="safariからキャプチャ">Safariからキャプチャ</h1>
+<p>SourceShelf Safari拡張機能は、現在のページ、メインコンテンツ、選択内容、選択されたページエリア、または研究ハイライトのバスケットをローカルMarkdownとして保存します。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#safari拡張機能を有効にする">Safari拡張機能を有効にする</a></li><li class="toc-level-2"><a href="#キャプチャモード">キャプチャモード</a></li><li class="toc-level-2"><a href="#レシピをキャプチャする">レシピをキャプチャする</a></li><li class="toc-level-2"><a href="#テンプレートとyaml">テンプレートとYAML</a></li><li class="toc-level-2"><a href="#ワンステップキーボードキャプチャ">ワンステップキーボードキャプチャ</a></li><li class="toc-level-2"><a href="#研究のハイライト">研究のハイライト</a></li><li class="toc-level-2"><a href="#保存する前にレビューする">保存する前にレビューする</a></li><li class="toc-level-2"><a href="#トラブルシューティングレシピ">トラブルシューティングレシピ</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="safari拡張機能を有効にする">Safari拡張機能を有効にする <a class="heading-anchor" href="#safari拡張機能を有効にする" aria-label="セクションへのリンク: Safari拡張機能を有効にする"><span aria-hidden="true">#</span></a></h2>
+<ol><li>SourceShelfを起動します。</li><li>開いている <strong>Safari &gt; 設定 &gt; 拡張機能</strong>。</li><li>SourceShelf拡張機能を有効にします。</li></ol>
+<h2 id="キャプチャモード">キャプチャモード <a class="heading-anchor" href="#キャプチャモード" aria-label="セクションへのリンク: キャプチャモード"><span aria-hidden="true">#</span></a></h2>
+<ul><li><strong>レシピデフォルトを使用する</strong> 選択したレシピの内容モードに従います。</li><li><strong>ページ全体をマークダウンとして保存する</strong> 広いページのボディを維持します。</li><li><strong>メインコンテンツをマークダウンとして保存する</strong> 主な記事または文書に焦点を当てます。</li><li><strong>選択内容をマークダウンとして保存する</strong> 現在のSafariのテキスト選択を使用します。</li><li><strong>エリアをマークダウンとして選択する</strong> ページ領域を選択できます。</li><li><strong>ハイライトをマークダウンとして保存する</strong> オーダーメイドのハイライトバスケットとオプションのショートノートを組み合わせて使用します。</li></ul>
+<p>明示的なポップアップアクションは、そのキャプチャのレシピのデフォルトをオーバーライドします。</p>
+<h2 id="レシピをキャプチャする">レシピをキャプチャする <a class="heading-anchor" href="#レシピをキャプチャする" aria-label="セクションへのリンク: レシピをキャプチャする"><span aria-hidden="true">#</span></a></h2>
+<p>開いている <strong>ソースシェルフ &gt; 設定 &gt; キャプチャ</strong> レシピを作成、コピー、再順序付け、または削除します。レシピは次のことを定義できます。</p>
+<ul><li>ファイル名と相対フォルダテンプレート。</li><li>カスタムYAMLフィールド；</li><li>デフォルトコンテンツモード。</li><li>画像とリンクの動作；</li><li>保存前にレビューする動作。</li><li>錆び防止ポリシー；</li><li>正確なホストとワイルドカードドメインルールを順序しました。</li></ul>
+<p>正確なホストは、次のような主要なワイルドカードよりも具体的です。 <code>*.example.com</code>。複数のルールが同様に具体的である場合、それらの保存された順序が一致を決定します。</p>
+<p>組み込みの <strong>標準</strong> レシピはクイックセーブ動作を反映しており、設定が欠落している場合、無効な場合、または削除されたレシピを参照している場合にデフォルトとして使用されます。</p>
+<h2 id="テンプレートとyaml">テンプレートとYAML <a class="heading-anchor" href="#テンプレートとyaml" aria-label="セクションへのリンク: テンプレートとYAML"><span aria-hidden="true">#</span></a></h2>
+<p>テンプレートは使用できます。 <code>{title}</code>、 <code>{domain}</code>、 <code>{date}</code>、 <code>{time}</code>、 <code>{captured_at}</code>、 <code>{mode}</code>、 <code>{recipe}</code>、 <code>{url}</code>、そして <code>{note}</code>. SourceShelfは、すべてのフォルダコンポーネントを消毒し、絶対パスと <code>..</code>、および目的先を承認された出力フォルダの下に保持します。</p>
+<p>カスタムYAMLキーは、ユニークで有効である必要があります。SourceShelfは、以下の情報を含むソースシフのキーを保護します。 <code>title</code>、 <code>url</code>、 <code>domain</code>、 <code>captured_at</code>、 <code>source</code>、そして <code>created_by</code>。</p>
+<h2 id="ワンステップキーボードキャプチャ">ワンステップキーボードキャプチャ <a class="heading-anchor" href="#ワンステップキーボードキャプチャ" aria-label="セクションへのリンク: ワンステップキーボードキャプチャ"><span aria-hidden="true">#</span></a></h2>
+<p>で <strong>設定 &gt; キャプチャ</strong>、Safariのクイックキャプチャショートカットレシピを選択します。次に、Safariの拡張機能キーボードショートカット設定を開き、SourceShelfのクイックキャプチャコマンドにキーパターンを割り当てます。</p>
+<p>ソースシェルフが呼び出されたとき、ソースシェルフは次の順序でレシピを選択します。</p>
+<ol><li>アクティブページの最も具体的なドメインルール。</li><li>構成されたショートカットレシピ。</li><li>標準のフォールバックレシピ。</li></ol>
+<p>シンプルなページ、メインコンテンツ、または互換性のある選択レシピは、ポップアップを開かずにすぐに保存できます。レビューが必要なレシピや、エリア選択やハイライトコレクションなどのインタラクティブなワークフローは、代わりに拡張機能を開きます。</p>
+<h2 id="研究のハイライト">研究のハイライト <a class="heading-anchor" href="#研究のハイライト" aria-label="セクションへのリンク: 研究のハイライト"><span aria-hidden="true">#</span></a></h2>
+<p>ページ上のテキストを選択し、SourceShelfを開き、 <strong>現在の選択を追加する</strong>。順序のあるバスケットを構築するには、繰り返してください。抜粋を削除したり、再順序したりして、保存する前に短いメモを追加できます。 <code>.highlights</code> 捕獲する。</p>
+<p>バスケットはブラウザタブに限定され、 URL。ネイティブハンドオフが受け入れられた後、またはナビゲーションによって時代遅れになった場合にのみクリアされます。</p>
+<h2 id="保存する前にレビューする">保存する前にレビューする <a class="heading-anchor" href="#保存する前にレビューする" aria-label="セクションへのリンク: 保存する前にレビューする"><span aria-hidden="true">#</span></a></h2>
+<p>レビューが有効なレシピは、SourceShelfでローカルレビューシートをキューにします。相対的なデスティネーション、ファイル名、カスタムYAML、メモ、Markdownボディを編集した後、プレビューとMarkdownソースを切り替えることができます。原産地は読み取り専用のままです。</p>
+<p>ドラフトのレビューは、アプリの再起動後も生き残り続けます。保存すると、編集されたMarkdownが再解析され、参照されているステージング済み画像のみがコピーされます。キャンセルすると、ドラフトとそのステージング済みアセットが削除されます。</p>
+<h2 id="トラブルシューティングレシピ">トラブルシューティングレシピ <a class="heading-anchor" href="#トラブルシューティングレシピ" aria-label="セクションへのリンク: トラブルシューティングレシピ"><span aria-hidden="true">#</span></a></h2>
+<p>新しいレシピが Safari に表示されない場合は、次の手順を実行します。</p>
+<ol><li>Safari で SourceShelf 拡張機能が有効になっていることを確認します。</li><li>Open SourceShelfを一度開いて、現在のレシピをパブリッシュできるようにします。</li><li>拡張機能のポップアップを閉じて再度開きます。通常、Safari の再起動は必要ありません。</li><li>メニューが空の場合は、開きます。 <strong>キャプチャ設定</strong> ポップアップから、少なくとも標準レシピまたはカスタムレシピが存在することを確認します。</li></ol>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/getting-started/"><span>前へ</span><strong>SourceShelfを使い始める</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/guides/convert-files/"><span>次へ</span><strong>ファイルとフォルダを変換</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#safari拡張機能を有効にする">Safari拡張機能を有効にする</a></li><li class="toc-level-2"><a href="#キャプチャモード">キャプチャモード</a></li><li class="toc-level-2"><a href="#レシピをキャプチャする">レシピをキャプチャする</a></li><li class="toc-level-2"><a href="#テンプレートとyaml">テンプレートとYAML</a></li><li class="toc-level-2"><a href="#ワンステップキーボードキャプチャ">ワンステップキーボードキャプチャ</a></li><li class="toc-level-2"><a href="#研究のハイライト">研究のハイライト</a></li><li class="toc-level-2"><a href="#保存する前にレビューする">保存する前にレビューする</a></li><li class="toc-level-2"><a href="#トラブルシューティングレシピ">トラブルシューティングレシピ</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/ja/">ホーム</a>
+        <a href="/ja/privacy.html">プライバシー</a>
+        <a href="/ja/docs/">ドキュメント</a>
+        <a href="/ja/support.html">サポート</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801-2"></script>
+</body>
+</html>
