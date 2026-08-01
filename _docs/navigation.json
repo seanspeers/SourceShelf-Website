@@ -1,0 +1,150 @@
+{
+  "groups": [
+    "Getting Started",
+    "Guides",
+    "Local AI Access",
+    "Reference"
+  ],
+  "pages": [
+    {
+      "source": "README.md",
+      "route": "/docs/",
+      "label": "Documentation Home",
+      "group": null,
+      "description": "Learn how to capture, convert, organize, inspect, export, and share local SourceShelf knowledge packs."
+    },
+    {
+      "source": "getting-started.md",
+      "route": "/docs/getting-started/",
+      "label": "Get Started",
+      "group": "Getting Started",
+      "description": "Convert your first files, review the SourceShelf Library, build an ordered pack, and choose an export format."
+    },
+    {
+      "source": "guides/safari-capture.md",
+      "route": "/docs/guides/safari-capture/",
+      "label": "Capture from Safari",
+      "group": "Guides",
+      "description": "Capture pages, main content, selections, page areas, and research highlights from Safari with SourceShelf."
+    },
+    {
+      "source": "guides/convert-files.md",
+      "route": "/docs/guides/convert-files/",
+      "label": "Convert Files and Folders",
+      "group": "Guides",
+      "description": "Convert supported files and folders into local Markdown while preserving useful structure and assets."
+    },
+    {
+      "source": "guides/library-and-inspector.md",
+      "route": "/docs/guides/library-and-inspector/",
+      "label": "Library and Inspector",
+      "group": "Guides",
+      "description": "Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library."
+    },
+    {
+      "source": "guides/build-and-manage-packs.md",
+      "route": "/docs/guides/build-and-manage-packs/",
+      "label": "Build and Manage Packs",
+      "group": "Guides",
+      "description": "Create ordered SourceShelf packs, manage drafts and saved packs, and maintain living export baselines."
+    },
+    {
+      "source": "guides/export-formats.md",
+      "route": "/docs/guides/export-formats/",
+      "label": "Choose an Export Format",
+      "group": "Guides",
+      "description": "Choose between AI Reference Pack, OKF, Markdown, llms.txt, and clipboard export workflows."
+    },
+    {
+      "source": "guides/trust-safety-and-refresh.md",
+      "route": "/docs/guides/trust-safety-and-refresh/",
+      "label": "Trust & Safety and Living Packs",
+      "group": "Guides",
+      "description": "Review SourceShelf pack readiness, trust warnings, freshness, checksums, assets, and living-pack changes."
+    },
+    {
+      "source": "guides/llms-txt.md",
+      "route": "/docs/guides/llms-txt/",
+      "label": "Import and Export llms.txt",
+      "group": "Guides",
+      "description": "Import local llms.txt collections and generate ordered, inspectable llms.txt export folders."
+    },
+    {
+      "source": "mcp/local-ai-access.md",
+      "route": "/docs/mcp/local-ai-access/",
+      "label": "Local AI Access Overview",
+      "group": "Local AI Access",
+      "description": "Share one saved SourceShelf pack with compatible local AI applications through read-only MCP access."
+    },
+    {
+      "source": "mcp/lm-studio.md",
+      "route": "/docs/mcp/lm-studio/",
+      "label": "LM Studio",
+      "group": "Local AI Access",
+      "description": "Connect a SourceShelf pack to LM Studio and test local search and read tools."
+    },
+    {
+      "source": "mcp/ollama.md",
+      "route": "/docs/mcp/ollama/",
+      "label": "Ollama",
+      "group": "Local AI Access",
+      "description": "Use an Ollama model with a SourceShelf MCP connection hosted by Codex, Claude Code, or OpenCode."
+    },
+    {
+      "source": "mcp/codex.md",
+      "route": "/docs/mcp/codex/",
+      "label": "Codex",
+      "group": "Local AI Access",
+      "description": "Configure Codex to search and read a locally shared SourceShelf pack."
+    },
+    {
+      "source": "mcp/claude-code.md",
+      "route": "/docs/mcp/claude-code/",
+      "label": "Claude Code",
+      "group": "Local AI Access",
+      "description": "Configure Claude Code to use SourceShelf local MCP search and read tools."
+    },
+    {
+      "source": "mcp/opencode.md",
+      "route": "/docs/mcp/opencode/",
+      "label": "OpenCode",
+      "group": "Local AI Access",
+      "description": "Add SourceShelf as a local MCP server in OpenCode and verify pack access."
+    },
+    {
+      "source": "mcp/troubleshooting.md",
+      "route": "/docs/mcp/troubleshooting/",
+      "label": "MCP Troubleshooting",
+      "group": "Local AI Access",
+      "description": "Diagnose SourceShelf MCP connection, authorization, resource, checksum, search, and client issues."
+    },
+    {
+      "source": "reference/settings.md",
+      "route": "/docs/reference/settings/",
+      "label": "Settings Reference",
+      "group": "Reference",
+      "description": "Reference for SourceShelf general, capture, export, integration, and privacy settings."
+    },
+    {
+      "source": "reference/supported-formats.md",
+      "route": "/docs/reference/supported-formats/",
+      "label": "Supported Formats",
+      "group": "Reference",
+      "description": "Supported SourceShelf input formats, conversion behavior, current limitations, and output formats."
+    },
+    {
+      "source": "reference/privacy-and-security.md",
+      "route": "/docs/reference/privacy-and-security/",
+      "label": "Privacy and Security",
+      "group": "Reference",
+      "description": "Understand SourceShelf local processing, stored data, path privacy, trust classification, and MCP boundaries."
+    },
+    {
+      "source": "reference/glossary.md",
+      "route": "/docs/reference/glossary/",
+      "label": "Glossary",
+      "group": "Reference",
+      "description": "Definitions for SourceShelf capture, Library, packs, exports, trust checks, and Local AI Access terminology."
+    }
+  ]
+}

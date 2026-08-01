@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Configure Claude Code to use SourceShelf local MCP search and read tools.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/mcp/claude-code/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Use SourceShelf with Claude Code | SourceShelf Documentation">
+  <meta property="og:description" content="Configure Claude Code to use SourceShelf local MCP search and read tools.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/mcp/claude-code/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Use SourceShelf with Claude Code | SourceShelf Documentation">
+  <meta name="twitter:description" content="Configure Claude Code to use SourceShelf local MCP search and read tools.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Use SourceShelf with Claude Code | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Local AI Access</li><li aria-current="page">Use SourceShelf with Claude Code</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/" aria-current="page">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/" aria-current="page">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="use-sourceshelf-with-claude-code">Use SourceShelf with Claude Code</h1>
+<p>Claude Code can host SourceShelf’s local stdio server and provide its search and read tools to the active model.</p>
+<p>Last verified: 2026-08-01.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#add-the-server">Add the server</a></li><li class="toc-level-2"><a href="#verify">Verify</a></li><li class="toc-level-2"><a href="#test-prompt">Test prompt</a></li><li class="toc-level-2"><a href="#project-configuration">Project configuration</a></li><li class="toc-level-2"><a href="#use-an-ollama-model">Use an Ollama model</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="add-the-server">Add the server <a class="heading-anchor" href="#add-the-server" aria-label="Link to Add the server"><span aria-hidden="true">#</span></a></h2>
+<p>Create a SourceShelf share, then run:</p>
+<div class="code-block"><pre><code class="language-sh">claude mcp add --transport stdio --scope user sourceshelf-municipal-research -- \
+  &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot; \
+  --share &quot;&lt;share-id&gt;&quot;</code></pre></div>
+<p>Use the exact path and share ID shown by SourceShelf. The <code>--scope user</code> option makes the connection available across your projects. Omit it for Claude Code’s default local/project-specific scope, or use <code>--scope project</code> when the team should receive a checked-in <code>.mcp.json</code> entry.</p>
+<h2 id="verify">Verify <a class="heading-anchor" href="#verify" aria-label="Link to Verify"><span aria-hidden="true">#</span></a></h2>
+<p>From a shell:</p>
+<div class="code-block"><pre><code class="language-sh">claude mcp list</code></pre></div>
+<p>Inside Claude Code, enter:</p>
+<div class="code-block"><pre><code class="language-text">/mcp</code></pre></div>
+<p>Confirm that <code>search_pack</code> and <code>read_pack_resource</code> appear.</p>
+<h2 id="test-prompt">Test prompt <a class="heading-anchor" href="#test-prompt" aria-label="Link to Test prompt"><span aria-hidden="true">#</span></a></h2>
+<blockquote><p>Search the SourceShelf pack for the transit service notice. Read the most relevant result and explain the service change, citing the <code>sourceshelf://</code> URI. Use no other files or web sources.</p></blockquote>
+<p>For a weaker model, explicitly require one search followed by a read.</p>
+<h2 id="project-configuration">Project configuration <a class="heading-anchor" href="#project-configuration" aria-label="Link to Project configuration"><span aria-hidden="true">#</span></a></h2>
+<p>Claude Code also supports <code>.mcp.json</code>. SourceShelf’s copied configuration already uses the common <code>mcpServers</code> shape:</p>
+<div class="code-block"><pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;sourceshelf-municipal-research&quot;: {
+      &quot;type&quot;: &quot;stdio&quot;,
+      &quot;command&quot;: &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;,
+      &quot;args&quot;: [&quot;--share&quot;, &quot;&lt;share-id&gt;&quot;]
+    }
+  }
+}</code></pre></div>
+<p>Do not commit a real share ID to a public repository. Prefer user scope for a personal SourceShelf snapshot.</p>
+<h2 id="use-an-ollama-model">Use an Ollama model <a class="heading-anchor" href="#use-an-ollama-model" aria-label="Link to Use an Ollama model"><span aria-hidden="true">#</span></a></h2>
+<p>After the SourceShelf entry is configured, Ollama can launch Claude Code against a local model:</p>
+<div class="code-block"><pre><code class="language-sh">ollama launch claude</code></pre></div>
+<p>The Claude Code process remains the MCP host; Ollama supplies the model.</p>
+<p>Official reference: <a href="https://code.claude.com/docs/en/mcp">Claude Code MCP</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/codex/"><span>Previous</span><strong>Codex</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/opencode/"><span>Next</span><strong>OpenCode</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#add-the-server">Add the server</a></li><li class="toc-level-2"><a href="#verify">Verify</a></li><li class="toc-level-2"><a href="#test-prompt">Test prompt</a></li><li class="toc-level-2"><a href="#project-configuration">Project configuration</a></li><li class="toc-level-2"><a href="#use-an-ollama-model">Use an Ollama model</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

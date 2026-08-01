@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Reference for SourceShelf general, capture, export, integration, and privacy settings.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/reference/settings/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Settings Reference | SourceShelf Documentation">
+  <meta property="og:description" content="Reference for SourceShelf general, capture, export, integration, and privacy settings.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/reference/settings/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Settings Reference | SourceShelf Documentation">
+  <meta name="twitter:description" content="Reference for SourceShelf general, capture, export, integration, and privacy settings.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Settings Reference | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Reference</li><li aria-current="page">Settings Reference</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/" aria-current="page">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/" aria-current="page">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="settings-reference">Settings Reference</h1>
+<p>Open <strong>SourceShelf &gt; Settings</strong>. The window is resizable and is organized into five tabs.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#general">General</a></li><li class="toc-level-2"><a href="#capture">Capture</a></li><li class="toc-level-2"><a href="#export">Export</a></li><li class="toc-level-2"><a href="#integrations">Integrations</a></li><li class="toc-level-2"><a href="#privacy">Privacy</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="general">General <a class="heading-anchor" href="#general" aria-label="Link to General"><span aria-hidden="true">#</span></a></h2>
+<p>Choose the output folder used for new converted and captured Markdown. SourceShelf stores an authorized bookmark locally so it can return to that folder. Changing it affects future output; it does not move existing files.</p>
+<h2 id="capture">Capture <a class="heading-anchor" href="#capture" aria-label="Link to Capture"><span aria-hidden="true">#</span></a></h2>
+<p>Capture settings include:</p>
+<ul><li>Safari extension status and a shortcut to Safari’s extension settings;</li><li>organization by domain and date;</li><li>archived web-image behavior;</li><li>the global web-capture staleness age;</li><li>capture recipe creation, duplication, deletion, ordering, templates, YAML, behavior, and domain rules;</li><li>the Safari quick-capture keyboard action and its preferred recipe.</li></ul>
+<p>Recipe changes are saved to the app-group container and published for the matching Safari extension build.</p>
+<h2 id="export">Export <a class="heading-anchor" href="#export" aria-label="Link to Export"><span aria-hidden="true">#</span></a></h2>
+<p>Choose the format initially selected in the Packs export chooser. The setting and chooser share one preference; confirming a different choice updates it, while canceling does not.</p>
+<p><strong>Include retrieval chunks in AI Reference Pack ZIPs</strong> adds model-neutral <code>chunks.jsonl</code>. It defaults on and never adds embeddings.</p>
+<h2 id="integrations">Integrations <a class="heading-anchor" href="#integrations" aria-label="Link to Integrations"><span aria-hidden="true">#</span></a></h2>
+<p><strong>Enable local MCP sharing</strong> is off by default. When enabled, individual saved packs can be authorized from <strong>Packs &gt; More &gt; Local AI Access…</strong>.</p>
+<p>This tab shows the active-share count and provides <strong>Open Packs</strong> and <strong>Revoke All</strong>. Disabling sharing or revoking all removes snapshots and immediately invalidates copied client configurations.</p>
+<p>See <a href="/docs/mcp/local-ai-access/">Local AI Access</a>.</p>
+<h2 id="privacy">Privacy <a class="heading-anchor" href="#privacy" aria-label="Link to Privacy"><span aria-hidden="true">#</span></a></h2>
+<p>This tab summarizes local storage, exports, retrieval chunks, living-pack comparison, and advisory Trust &amp; Safety behavior. <strong>Open Privacy Details</strong> opens the full in-app privacy explanation.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/troubleshooting/"><span>Previous</span><strong>MCP Troubleshooting</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/reference/supported-formats/"><span>Next</span><strong>Supported Formats</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#general">General</a></li><li class="toc-level-2"><a href="#capture">Capture</a></li><li class="toc-level-2"><a href="#export">Export</a></li><li class="toc-level-2"><a href="#integrations">Integrations</a></li><li class="toc-level-2"><a href="#privacy">Privacy</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

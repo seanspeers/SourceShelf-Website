@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Connect a SourceShelf pack to LM Studio and test local search and read tools.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Use SourceShelf with LM Studio | SourceShelf Documentation">
+  <meta property="og:description" content="Connect a SourceShelf pack to LM Studio and test local search and read tools.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/mcp/lm-studio/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Use SourceShelf with LM Studio | SourceShelf Documentation">
+  <meta name="twitter:description" content="Connect a SourceShelf pack to LM Studio and test local search and read tools.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Use SourceShelf with LM Studio | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Local AI Access</li><li aria-current="page">Use SourceShelf with LM Studio</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/" aria-current="page">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/" aria-current="page">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="use-sourceshelf-with-lm-studio">Use SourceShelf with LM Studio</h1>
+<p>LM Studio can run a local model and act as the MCP host that starts SourceShelf’s helper. Use a model with reliable tool-calling support; the model needs to choose <code>search_pack</code> and <code>read_pack_resource</code> during the conversation.</p>
+<p>Last verified: 2026-08-01.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#requirements">Requirements</a></li><li class="toc-level-2"><a href="#install-the-sourceshelf-connection">Install the SourceShelf connection</a></li><li class="toc-level-2"><a href="#test-the-tools">Test the tools</a></li><li class="toc-level-2"><a href="#lm-studio-as-a-local-api-server">LM Studio as a local API server</a></li><li class="toc-level-2"><a href="#common-lm-studio-errors">Common LM Studio errors</a></li><li class="toc-level-3"><a href="#plugin-process-exited-unexpectedly-with-code-1">“Plugin process exited unexpectedly with code 1”</a></li><li class="toc-level-3"><a href="#unknown-method-tools-list">“Unknown method: tools/list”</a></li><li class="toc-level-3"><a href="#the-context-window-fills-quickly">The context window fills quickly</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="requirements">Requirements <a class="heading-anchor" href="#requirements" aria-label="Link to Requirements"><span aria-hidden="true">#</span></a></h2>
+<ul><li>A current LM Studio release with MCP support (LM Studio documents MCP support from 0.3.17).</li><li>A downloaded and loaded model that supports tool use.</li><li>A current SourceShelf share created through <strong>Packs &gt; More &gt; Local AI Access…</strong>.</li></ul>
+<h2 id="install-the-sourceshelf-connection">Install the SourceShelf connection <a class="heading-anchor" href="#install-the-sourceshelf-connection" aria-label="Link to Install the SourceShelf connection"><span aria-hidden="true">#</span></a></h2>
+<ol><li>In SourceShelf, open the pack’s <strong>Local AI Access</strong> sheet.</li><li>Select <strong>Copy MCP Configuration</strong>.</li><li>In LM Studio, open the <strong>Program</strong> tab.</li><li>Select <strong>Install</strong>, then <strong>Edit mcp.json</strong>.</li><li>Paste or merge the copied <code>mcpServers</code> entry. Do not remove other servers you want to keep.</li><li>Save the file and enable the SourceShelf integration.</li></ol>
+<p>The result has this shape:</p>
+<div class="code-block"><pre><code class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;sourceshelf-municipal-research&quot;: {
+      &quot;command&quot;: &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;,
+      &quot;args&quot;: [&quot;--share&quot;, &quot;&lt;share-id&gt;&quot;]
+    }
+  }
+}</code></pre></div>
+<p>Use the exact command and share ID copied by SourceShelf. A debug build usually points into Xcode’s build products rather than <code>/Applications</code>.</p>
+<h2 id="test-the-tools">Test the tools <a class="heading-anchor" href="#test-the-tools" aria-label="Link to Test the tools"><span aria-hidden="true">#</span></a></h2>
+<p>Load a tool-capable local model and start with a narrow, explicit request:</p>
+<blockquote><p>Use the SourceShelf tools to search the shared pack for tree canopy targets. Read the best matching resource, summarize the targets, and cite the SourceShelf resource URI. Do not answer from general knowledge.</p></blockquote>
+<p>For a smaller model, make the sequence explicit:</p>
+<blockquote><p>First call <code>search_pack</code> with the query <code>tree canopy targets</code> and a limit of 5. Then call <code>read_pack_resource</code> for the best result. Base the answer only on the returned text.</p></blockquote>
+<p>You should see one search call followed by one or more bounded reads. If the model describes the tools instead of calling them, try a model with stronger function-calling support or keep the procedural wording.</p>
+<h2 id="lm-studio-as-a-local-api-server">LM Studio as a local API server <a class="heading-anchor" href="#lm-studio-as-a-local-api-server" aria-label="Link to LM Studio as a local API server"><span aria-hidden="true">#</span></a></h2>
+<p>LM Studio can also make configured MCP servers available to an API-driven agent. Current LM Studio documentation requires server configuration and authorization settings before API clients can invoke servers from <code>mcp.json</code>. This is an advanced route; the built-in chat is the simplest functional test.</p>
+<h2 id="common-lm-studio-errors">Common LM Studio errors <a class="heading-anchor" href="#common-lm-studio-errors" aria-label="Link to Common LM Studio errors"><span aria-hidden="true">#</span></a></h2>
+<h3 id="plugin-process-exited-unexpectedly-with-code-1">“Plugin process exited unexpectedly with code 1” <a class="heading-anchor" href="#plugin-process-exited-unexpectedly-with-code-1" aria-label="Link to “Plugin process exited unexpectedly with code 1”"><span aria-hidden="true">#</span></a></h3>
+<p>The helper could not start or validate the share. Recopy the configuration after moving/rebuilding SourceShelf, confirm sharing is enabled, and confirm the pack still shows a current snapshot.</p>
+<h3 id="unknown-method-tools-list">“Unknown method: tools/list” <a class="heading-anchor" href="#unknown-method-tools-list" aria-label="Link to “Unknown method: tools/list”"><span aria-hidden="true">#</span></a></h3>
+<p>The client reached a resource-only or older helper. Rebuild or install the current SourceShelf version, recopy the configuration, and restart the integration. Current SourceShelf exposes both <code>search_pack</code> and <code>read_pack_resource</code>.</p>
+<h3 id="the-context-window-fills-quickly">The context window fills quickly <a class="heading-anchor" href="#the-context-window-fills-quickly" aria-label="Link to The context window fills quickly"><span aria-hidden="true">#</span></a></h3>
+<p>Ask the model to search first and read only one or two results. SourceShelf’s paged read tool exists specifically to avoid loading every resource into the prompt.</p>
+<p>Official references: <a href="https://lmstudio.ai/docs/app/mcp">LM Studio MCP servers</a>, <a href="https://lmstudio.ai/docs/developer/core/mcp">LM Studio MCP API use</a>, <a href="https://lmstudio.ai/docs/developer/core/server/settings">LM Studio server settings</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/local-ai-access/"><span>Previous</span><strong>Local AI Access Overview</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/ollama/"><span>Next</span><strong>Ollama</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#requirements">Requirements</a></li><li class="toc-level-2"><a href="#install-the-sourceshelf-connection">Install the SourceShelf connection</a></li><li class="toc-level-2"><a href="#test-the-tools">Test the tools</a></li><li class="toc-level-2"><a href="#lm-studio-as-a-local-api-server">LM Studio as a local API server</a></li><li class="toc-level-2"><a href="#common-lm-studio-errors">Common LM Studio errors</a></li><li class="toc-level-3"><a href="#plugin-process-exited-unexpectedly-with-code-1">“Plugin process exited unexpectedly with code 1”</a></li><li class="toc-level-3"><a href="#unknown-method-tools-list">“Unknown method: tools/list”</a></li><li class="toc-level-3"><a href="#the-context-window-fills-quickly">The context window fills quickly</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

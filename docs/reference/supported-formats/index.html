@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Supported SourceShelf input formats, conversion behavior, current limitations, and output formats.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/reference/supported-formats/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Supported Formats | SourceShelf Documentation">
+  <meta property="og:description" content="Supported SourceShelf input formats, conversion behavior, current limitations, and output formats.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/reference/supported-formats/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Supported Formats | SourceShelf Documentation">
+  <meta name="twitter:description" content="Supported SourceShelf input formats, conversion behavior, current limitations, and output formats.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Supported Formats | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Reference</li><li aria-current="page">Supported Formats</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/" aria-current="page">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/" aria-current="page">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="supported-formats">Supported Formats</h1>
+<p>SourceShelf detects formats from both the file extension and the macOS content type.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#supported-local-inputs">Supported local inputs</a></li><li class="toc-level-2"><a href="#not-supported-directly">Not supported directly</a></li><li class="toc-level-2"><a href="#output-formats">Output formats</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="supported-local-inputs">Supported local inputs <a class="heading-anchor" href="#supported-local-inputs" aria-label="Link to Supported local inputs"><span aria-hidden="true">#</span></a></h2>
+<section class="table-wrap" tabindex="0" aria-label="Scrollable table"><table><thead><tr><th scope="col">Format</th><th scope="col">Extensions</th><th scope="col">Main behavior</th></tr></thead><tbody><tr><td>PDF</td><td><code>.pdf</code></td><td>Extracts text and page structure; uses local OCR for scanned pages.</td></tr>
+<tr><td>Plain text</td><td><code>.txt</code>, <code>.text</code> and compatible plain-text types</td><td>Preserves readable text.</td></tr>
+<tr><td>Markdown</td><td><code>.md</code>, <code>.markdown</code> and compatible types</td><td>Preserves Markdown as authoritative source content.</td></tr>
+<tr><td>HTML</td><td><code>.html</code>, <code>.htm</code></td><td>Extracts local HTML structure without loading remote resources.</td></tr>
+<tr><td>Rich Text</td><td><code>.rtf</code></td><td>Extracts styled text into Markdown-compatible structure.</td></tr>
+<tr><td>Images</td><td><code>.png</code>, <code>.jpg</code>, <code>.jpeg</code>, <code>.tif</code>, <code>.tiff</code>, <code>.heic</code>, <code>.heif</code></td><td>Uses local OCR.</td></tr>
+<tr><td>Microsoft Word</td><td><code>.docx</code></td><td>Extracts supported headings, paragraphs, lists, tables, and existing image handling.</td></tr>
+<tr><td>Microsoft PowerPoint</td><td><code>.pptx</code></td><td>Extracts slide boundaries, titles, lists, text, and tables.</td></tr>
+<tr><td>Microsoft Excel</td><td><code>.xlsx</code></td><td>Extracts sheet boundaries and tables.</td></tr></tbody></table></section>
+<p>The Safari extension also captures web pages and selections. Local <code>llms.txt</code> import accepts an index plus contained relative <code>.md</code>, <code>.markdown</code>, and <code>.txt</code> links.</p>
+<h2 id="not-supported-directly">Not supported directly <a class="heading-anchor" href="#not-supported-directly" aria-label="Link to Not supported directly"><span aria-hidden="true">#</span></a></h2>
+<p>Legacy Office <code>.doc</code>, <code>.ppt</code>, and <code>.xls</code> files are detected but not converted. Save them as <code>.docx</code>, <code>.pptx</code>, or <code>.xlsx</code> first.</p>
+<p>Current limitations include advanced spreadsheet formula evaluation, PowerPoint animation/media/speaker notes, newly extracted embedded Office media, Word footnotes and tracked revisions, perfect OCR, and complex scanned layout preservation.</p>
+<h2 id="output-formats">Output formats <a class="heading-anchor" href="#output-formats" aria-label="Link to Output formats"><span aria-hidden="true">#</span></a></h2>
+<p>All conversions create Markdown. Packs can produce AI Reference Pack ZIP, OKF v0.2 Bundle ZIP, Markdown Context Pack, <code>llms.txt</code> Collection Folder, or clipboard Markdown.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/reference/settings/"><span>Previous</span><strong>Settings Reference</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/reference/privacy-and-security/"><span>Next</span><strong>Privacy and Security</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#supported-local-inputs">Supported local inputs</a></li><li class="toc-level-2"><a href="#not-supported-directly">Not supported directly</a></li><li class="toc-level-2"><a href="#output-formats">Output formats</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

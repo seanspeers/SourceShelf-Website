@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Understand SourceShelf local processing, stored data, path privacy, trust classification, and MCP boundaries.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/reference/privacy-and-security/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Privacy and Security | SourceShelf Documentation">
+  <meta property="og:description" content="Understand SourceShelf local processing, stored data, path privacy, trust classification, and MCP boundaries.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/reference/privacy-and-security/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy and Security | SourceShelf Documentation">
+  <meta name="twitter:description" content="Understand SourceShelf local processing, stored data, path privacy, trust classification, and MCP boundaries.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Privacy and Security | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Reference</li><li aria-current="page">Privacy and Security</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/" aria-current="page">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/" aria-current="page">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="privacy-and-security">Privacy and Security</h1>
+<p>SourceShelf is local by default. File conversion, OCR, web-capture processing, semantic parsing, previews, retrieval chunking, Trust &amp; Safety, checksums, export, <code>llms.txt</code> import, living-pack comparison, and MCP search/read operate on this Mac.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#no-network-guarantee">No-network guarantee</a></li><li class="toc-level-2"><a href="#what-sourceshelf-stores">What SourceShelf stores</a></li><li class="toc-level-2"><a href="#local-path-privacy">Local path privacy</a></li><li class="toc-level-2"><a href="#trust-classification">Trust classification</a></li><li class="toc-level-2"><a href="#mcp-boundaries">MCP boundaries</a></li><li class="toc-level-2"><a href="#share-ids-and-configurations">Share IDs and configurations</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="no-network-guarantee">No-network guarantee <a class="heading-anchor" href="#no-network-guarantee" aria-label="Link to No-network guarantee"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf does not fetch remote content during:</p>
+<ul><li>file conversion or preview;</li><li><code>llms.txt</code> import or generation;</li><li>Refresh &amp; Compare;</li><li>MCP resource listing, search, or reads;</li><li>bundle generation.</li></ul>
+<p>A Safari capture receives content from the page you are already viewing through the enabled extension. Remote URLs found in local <code>llms.txt</code> are retained as unavailable references rather than fetched.</p>
+<h2 id="what-sourceshelf-stores">What SourceShelf stores <a class="heading-anchor" href="#what-sourceshelf-stores" aria-label="Link to What SourceShelf stores"><span aria-hidden="true">#</span></a></h2>
+<p>Depending on the features you use, local storage includes:</p>
+<ul><li>converted Markdown in the output folder;</li><li>Library history and saved packs;</li><li>ordered draft metadata;</li><li>semantic-document caches;</li><li>archived web images;</li><li>capture recipes and queued review drafts;</li><li>successful-export baselines;</li><li>explicitly authorized MCP snapshots.</li></ul>
+<p>Draft snapshots and baselines store identifiers, order, dates, and hashes—not copies of arbitrary Markdown content. MCP snapshots intentionally copy only a shared pack’s readable Markdown and referenced assets so the sandboxed helper does not need broad file access.</p>
+<h2 id="local-path-privacy">Local path privacy <a class="heading-anchor" href="#local-path-privacy" aria-label="Link to Local path privacy"><span aria-hidden="true">#</span></a></h2>
+<p>The app shows local paths in its own inspector so you can open or reveal files. File-source paths are excluded from exported provenance, OKF concepts, manifests, <code>llms.txt</code> output, and MCP snapshots. Screenshot documentation should likewise crop or mask these local-only details.</p>
+<h2 id="trust-classification">Trust classification <a class="heading-anchor" href="#trust-classification" aria-label="Link to Trust classification"><span aria-hidden="true">#</span></a></h2>
+<p>Captured and converted text is marked <code>untrusted_reference</code>. Trust &amp; Safety warnings are advisory and never claim that the material was sanitized. Review source text before following any instruction it contains.</p>
+<h2 id="mcp-boundaries">MCP boundaries <a class="heading-anchor" href="#mcp-boundaries" aria-label="Link to MCP boundaries"><span aria-hidden="true">#</span></a></h2>
+<p>MCP sharing is:</p>
+<ul><li>disabled by default;</li><li>authorized per saved pack;</li><li>served by a signed local stdio helper with no network listener;</li><li>read-only;</li><li>restricted by an allowlist and SHA-256 verification;</li><li>immediately revocable.</li></ul>
+<p>The two tools search the snapshot and read an allowlisted resource. There is no filesystem-path tool, general file browser, write action, remote search, prompt, or subscription.</p>
+<h2 id="share-ids-and-configurations">Share IDs and configurations <a class="heading-anchor" href="#share-ids-and-configurations" aria-label="Link to Share IDs and configurations"><span aria-hidden="true">#</span></a></h2>
+<p>A share ID authorizes one local snapshot. Keep it out of public repositories and documentation screenshots. If SourceShelf is moved or rebuilt, recopy the helper path. Revoke access from SourceShelf rather than relying only on removing a client configuration.</p>
+<p>For the product privacy statement and implementation detail, see the <a href="/privacy.html">SourceShelf Privacy Policy</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/reference/supported-formats/"><span>Previous</span><strong>Supported Formats</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/reference/glossary/"><span>Next</span><strong>Glossary</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#no-network-guarantee">No-network guarantee</a></li><li class="toc-level-2"><a href="#what-sourceshelf-stores">What SourceShelf stores</a></li><li class="toc-level-2"><a href="#local-path-privacy">Local path privacy</a></li><li class="toc-level-2"><a href="#trust-classification">Trust classification</a></li><li class="toc-level-2"><a href="#mcp-boundaries">MCP boundaries</a></li><li class="toc-level-2"><a href="#share-ids-and-configurations">Share IDs and configurations</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

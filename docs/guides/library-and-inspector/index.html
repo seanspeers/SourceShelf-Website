@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Library and Inspector | SourceShelf Documentation">
+  <meta property="og:description" content="Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/guides/library-and-inspector/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Library and Inspector | SourceShelf Documentation">
+  <meta name="twitter:description" content="Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Library and Inspector | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Guides</li><li aria-current="page">Library and Inspector</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/" aria-current="page">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/" aria-current="page">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="library-and-inspector">Library and Inspector</h1>
+<p>Library is the source browser. It is deliberately separate from Packs: filtering Library never opens, reorders, or changes a saved pack.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/library-1600.webp" srcset="/docs/assets/images/library-800.webp 800w, /docs/assets/images/library-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Synthetic files shown in the Library" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#search-and-filters">Search and filters</a></li><li class="toc-level-2"><a href="#source-status">Source status</a></li><li class="toc-level-2"><a href="#row-actions">Row actions</a></li><li class="toc-level-2"><a href="#inspector">Inspector</a></li><li class="toc-level-2"><a href="#maintenance">Maintenance</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="search-and-filters">Search and filters <a class="heading-anchor" href="#search-and-filters" aria-label="Link to Search and filters"><span aria-hidden="true">#</span></a></h2>
+<p>Search matches source details such as titles and origins. Filters can narrow the Library by:</p>
+<ol><li>search text;</li><li>date;</li><li>source origin;</li><li>content type;</li><li>availability status;</li><li>saved-pack membership.</li></ol>
+<p>Active filters appear as removable chips in that order. Removing a chip resets only that filter. <strong>Reset All</strong> clears all active filters.</p>
+<h2 id="source-status">Source status <a class="heading-anchor" href="#source-status" aria-label="Link to Source status"><span aria-hidden="true">#</span></a></h2>
+<ul><li>A green status indicates readable Markdown.</li><li>A warning calls attention to a source or archived asset issue.</li><li>An unavailable source remains in Library when its Markdown cannot currently be read.</li><li>A saved-pack placeholder remains visible even if its Library record is missing, so it can still be reordered or removed.</li></ul>
+<p>SourceShelf intentionally omits a repeated “Exportable” label from healthy rows. Select the item or inspect its status when you need details.</p>
+<h2 id="row-actions">Row actions <a class="heading-anchor" href="#row-actions" aria-label="Link to Row actions"><span aria-hidden="true">#</span></a></h2>
+<p>When the window is wide enough, Library rows show individual action icons with tooltips. In less space, the same actions move into a menu. Depending on the item, actions include:</p>
+<ul><li>Show Details;</li><li>Add to or remove from the current pack;</li><li>Open Markdown;</li><li>Reveal in Finder;</li><li>Copy Path;</li><li>Star or unstar;</li><li>Remove from Library.</li></ul>
+<p>Removing an item from Library does not delete its generated Markdown. Saved-pack references remain as placeholders.</p>
+<h2 id="inspector">Inspector <a class="heading-anchor" href="#inspector" aria-label="Link to Inspector"><span aria-hidden="true">#</span></a></h2>
+<p>At wider window sizes, the inspector is a third resizable column. Near the minimum window width, it opens as a sheet so Library or both pack-building columns remain usable.</p>
+<figure class="docs-figure">
+  <img src="/docs/assets/images/inspector-preview-1600.webp" srcset="/docs/assets/images/inspector-preview-800.webp 800w, /docs/assets/images/inspector-preview-1600.webp 1600w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Rendered Markdown preview for a synthetic report" width="1600" height="875" loading="lazy" decoding="async">
+</figure>
+<p>The inspector shows:</p>
+<ul><li>full title and provenance;</li><li>capture and modification dates;</li><li>local source and output paths;</li><li>current availability and warnings;</li><li>estimated tokens and archived-image count;</li><li>Open, Reveal, and Copy actions;</li><li><strong>Preview</strong> and <strong>Markdown Source</strong> tabs.</li></ul>
+<p>The preview reads at most 256 KiB from the local Markdown file. It strips only leading YAML before rendering, retains spacing and block structure, and does not fetch remote images or other remote assets. The source tab preserves YAML and exact Markdown text. A truncation notice links to <strong>Open Markdown</strong> when the file is larger.</p>
+<h2 id="maintenance">Maintenance <a class="heading-anchor" href="#maintenance" aria-label="Link to Maintenance"><span aria-hidden="true">#</span></a></h2>
+<p>The Library maintenance menu can remove missing entries or clear unstarred history. These actions operate on Library records, not generated Markdown files. Star important items before a cleanup.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/guides/convert-files/"><span>Previous</span><strong>Convert Files and Folders</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/guides/build-and-manage-packs/"><span>Next</span><strong>Build and Manage Packs</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#search-and-filters">Search and filters</a></li><li class="toc-level-2"><a href="#source-status">Source status</a></li><li class="toc-level-2"><a href="#row-actions">Row actions</a></li><li class="toc-level-2"><a href="#inspector">Inspector</a></li><li class="toc-level-2"><a href="#maintenance">Maintenance</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>

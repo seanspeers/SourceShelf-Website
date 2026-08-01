@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Add SourceShelf as a local MCP server in OpenCode and verify pack access.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/mcp/opencode/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Use SourceShelf with OpenCode | SourceShelf Documentation">
+  <meta property="og:description" content="Add SourceShelf as a local MCP server in OpenCode and verify pack access.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/mcp/opencode/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Use SourceShelf with OpenCode | SourceShelf Documentation">
+  <meta name="twitter:description" content="Add SourceShelf as a local MCP server in OpenCode and verify pack access.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Use SourceShelf with OpenCode | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260801">
+  <script>
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>Local AI Access</li><li aria-current="page">Use SourceShelf with OpenCode</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/" aria-current="page">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access Overview</a></li><li><a href="/docs/mcp/lm-studio/">LM Studio</a></li><li><a href="/docs/mcp/ollama/">Ollama</a></li><li><a href="/docs/mcp/codex/">Codex</a></li><li><a href="/docs/mcp/claude-code/">Claude Code</a></li><li><a href="/docs/mcp/opencode/" aria-current="page">OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="use-sourceshelf-with-opencode">Use SourceShelf with OpenCode</h1>
+<p>OpenCode can host the SourceShelf stdio helper and make its two read-only tools available to a cloud or Ollama-backed model.</p>
+<p>This guide targets the current OpenCode V2 configuration documented on 2026-08-01. Older releases use a different MCP JSON shape; use that release’s <code>mcp add</code> flow or update its configuration accordingly.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#add-a-local-mcp-server">Add a local MCP server</a></li><li class="toc-level-2"><a href="#verify-and-test">Verify and test</a></li><li class="toc-level-2"><a href="#use-an-ollama-model">Use an Ollama model</a></li><li class="toc-level-2"><a href="#older-opencode-releases">Older OpenCode releases</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="add-a-local-mcp-server">Add a local MCP server <a class="heading-anchor" href="#add-a-local-mcp-server" aria-label="Link to Add a local MCP server"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf’s <strong>Copy MCP Configuration</strong> uses the common <code>mcpServers</code> shape. OpenCode V2 expects a local command array under <code>mcp.servers</code>, so translate it as follows in <code>opencode.json</code>:</p>
+<div class="code-block"><pre><code class="language-json">{
+  &quot;$schema&quot;: &quot;https://opencode.ai/config.json&quot;,
+  &quot;mcp&quot;: {
+    &quot;servers&quot;: {
+      &quot;sourceshelf-municipal-research&quot;: {
+        &quot;type&quot;: &quot;local&quot;,
+        &quot;command&quot;: [
+          &quot;/Applications/SourceShelf.app/Contents/MacOS/SourceShelfMCPServer&quot;,
+          &quot;--share&quot;,
+          &quot;&lt;share-id&gt;&quot;
+        ],
+        &quot;codemode&quot;: false
+      }
+    }
+  }
+}</code></pre></div>
+<p>Use the exact helper path and share ID from SourceShelf. Keep existing OpenCode settings and other servers when merging the entry.</p>
+<p><code>&quot;codemode&quot;: false</code> exposes the two SourceShelf tools directly. That is a useful default for smaller local models because they do not need to write a code-mode wrapper around the calls.</p>
+<h2 id="verify-and-test">Verify and test <a class="heading-anchor" href="#verify-and-test" aria-label="Link to Verify and test"><span aria-hidden="true">#</span></a></h2>
+<p>Open OpenCode and confirm the local MCP server is enabled. Then ask:</p>
+<blockquote><p>Call <code>search_pack</code> for <code>open data publication schedule</code>, read the best resource with <code>read_pack_resource</code>, and answer only from that result. Include its SourceShelf URI.</p></blockquote>
+<p>If the model merely prints a call, switch to a model with better function calling or make the instruction more procedural.</p>
+<h2 id="use-an-ollama-model">Use an Ollama model <a class="heading-anchor" href="#use-an-ollama-model" aria-label="Link to Use an Ollama model"><span aria-hidden="true">#</span></a></h2>
+<p>With the SourceShelf entry already saved:</p>
+<div class="code-block"><pre><code class="language-sh">ollama launch opencode</code></pre></div>
+<p>Ollama documents that it deep-merges its temporary model configuration with your existing OpenCode configuration, preserving the MCP server entry.</p>
+<h2 id="older-opencode-releases">Older OpenCode releases <a class="heading-anchor" href="#older-opencode-releases" aria-label="Link to Older OpenCode releases"><span aria-hidden="true">#</span></a></h2>
+<p>Configuration keys have changed between OpenCode generations. If <code>mcp.servers</code> is rejected, run the installed release’s MCP add command or consult its bundled/current documentation rather than placing both old and new shapes in one file.</p>
+<p>Official references: <a href="https://opencode.ai/v2/docs/mcp-servers">OpenCode V2 MCP servers</a>, <a href="https://docs.ollama.com/integrations/opencode">Ollama with OpenCode</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/mcp/claude-code/"><span>Previous</span><strong>Claude Code</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/troubleshooting/"><span>Next</span><strong>MCP Troubleshooting</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#add-a-local-mcp-server">Add a local MCP server</a></li><li class="toc-level-2"><a href="#verify-and-test">Verify and test</a></li><li class="toc-level-2"><a href="#use-an-ollama-model">Use an Ollama model</a></li><li class="toc-level-2"><a href="#older-opencode-releases">Older OpenCode releases</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/docs/">Documentation</a>
+        <a href="/support.html">Support</a>
+        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260801"></script>
+</body>
+</html>
