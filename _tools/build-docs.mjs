@@ -11,7 +11,7 @@ const siteSourceRoot = path.join(siteRoot, "_site");
 const canonicalOrigin = "https://sourceshelf.app";
 const appStoreUrl = "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12";
 const buildDate = "2026-08-02";
-const assetVersion = "20260802-1";
+const assetVersion = "20260802-2";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const baseNavigation = JSON.parse(
