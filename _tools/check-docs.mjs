@@ -252,6 +252,22 @@ for (const htmlFile of htmlFiles) {
     if (homepageImages.length !== homepageScreenshotNames.length) {
       errors.push(`${publicPath} must contain exactly nine homepage screenshots`);
     }
+    const homepageTriggers = [...html.matchAll(/<a\b[^>]*\bclass="home-screenshot-trigger"[^>]*>/g)].map((match) => match[0]);
+    if (homepageTriggers.length !== homepageScreenshotNames.length) {
+      errors.push(`${publicPath} must contain exactly nine homepage screenshot viewer triggers`);
+    }
+    for (const trigger of homepageTriggers) {
+      const href = trigger.match(/\bhref="([^"]+)"/)?.[1] || "";
+      if (!href.startsWith(`/assets/home/${locale}/`) || !href.endsWith("-2880.webp")) {
+        errors.push(`${publicPath} has an incorrect full-resolution screenshot link: ${href}`);
+      }
+      if (!trigger.includes("data-home-screenshot-trigger") || !trigger.includes('aria-haspopup="dialog"') || !trigger.includes('aria-controls="homepage-lightbox"')) {
+        errors.push(`${publicPath} contains a screenshot trigger without the expected dialog semantics`);
+      }
+      if (!/\bdata-lightbox-alt="[^"]+"/.test(trigger) || !/\bdata-lightbox-caption="[^"]+"/.test(trigger) || !/\baria-label="[^"]+"/.test(trigger)) {
+        errors.push(`${publicPath} contains a screenshot trigger without localized accessible text`);
+      }
+    }
     const usedScreenshotNames = new Set();
     for (const image of homepageImages) {
       checkedImages += 1;
@@ -270,6 +286,9 @@ for (const htmlFile of htmlFiles) {
       if (!image.includes("srcset=") || !image.includes("sizes=")) {
         errors.push(`${publicPath} contains a homepage screenshot without responsive image attributes`);
       }
+      if (image.includes("-2880.webp")) {
+        errors.push(`${publicPath} eagerly exposes a full-resolution screenshot in responsive image markup`);
+      }
     }
     for (const screenshotName of homepageScreenshotNames) {
       if (!usedScreenshotNames.has(screenshotName)) {
@@ -284,6 +303,16 @@ for (const htmlFile of htmlFiles) {
     }
     if (!html.includes('href="#how-it-works"') || !html.includes('id="how-it-works"')) {
       errors.push(`${publicPath} is missing the how-it-works anchor contract`);
+    }
+    if ((html.match(/<dialog\b[^>]*\bdata-home-lightbox\b/g) || []).length !== 1) {
+      errors.push(`${publicPath} must contain one shared homepage screenshot dialog`);
+    }
+    if (!html.includes("data-home-lightbox-image") || !html.includes("data-home-lightbox-close") || !html.includes("data-home-lightbox-zoom")) {
+      errors.push(`${publicPath} is missing screenshot dialog controls`);
+    }
+    const lightboxImage = html.match(/<img\b[^>]*\bdata-home-lightbox-image\b[^>]*>/)?.[0] || "";
+    if (/\bsrc=/.test(lightboxImage)) {
+      errors.push(`${publicPath} preloads the full-resolution screenshot before the viewer opens`);
     }
     const expectedSocialImage = `${canonicalOrigin}/assets/home/${locale}/01-private-ai-source-packs-social.jpg`;
     if (!html.includes(`property="og:image" content="${expectedSocialImage}"`) || !html.includes(`name="twitter:image" content="${expectedSocialImage}"`)) {
@@ -365,8 +394,12 @@ for (const locale of localeCodes) {
   if (homepage.proof.length !== 4 || homepage.capture.items.length !== 3 || homepage.review.items.length !== 2 || homepage.connect.items.length !== 2) {
     errors.push(`${locale} homepage content does not match the shared section structure`);
   }
+  const lightboxKeys = ["open", "openLabel", "close", "closeLabel", "zoom", "fit", "dialogLabel"];
+  if (lightboxKeys.some((key) => !homepage.lightbox?.[key]?.trim())) {
+    errors.push(`${locale} homepage content is missing localized screenshot viewer labels`);
+  }
   for (const screenshotName of homepageScreenshotNames) {
-    for (const width of [960, 1440]) {
+    for (const width of [960, 1440, 2880]) {
       try {
         await access(path.join(siteRoot, `assets/home/${locale}/${screenshotName}-${width}.webp`));
       } catch {
@@ -377,8 +410,8 @@ for (const locale of localeCodes) {
 }
 
 const homepageAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "home")));
-if (homepageAssets.length !== 95) {
-  errors.push(`Expected 95 localized homepage assets, found ${homepageAssets.length}`);
+if (homepageAssets.length !== 140) {
+  errors.push(`Expected 140 localized homepage assets, found ${homepageAssets.length}`);
 }
 
 const sitemap = await readFile(path.join(siteRoot, "sitemap.xml"), "utf8");
@@ -395,5 +428,5 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Checked ${htmlFiles.length} HTML files, ${checkedReferences} local references, ${checkedImages} accessible images, 95 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Checked ${htmlFiles.length} HTML files, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
 }

@@ -74,14 +74,21 @@ for (const [siteLocale, sourceLocale] of Object.entries(localeSources)) {
     }
 
     const baseName = path.basename(screenshotName, ".png");
-    for (const [width, height] of [[960, 600], [1440, 900]]) {
+    const variants = [
+      { width: 960, height: 600, quality: "82", preserveTextEdges: false },
+      { width: 1440, height: 900, quality: "82", preserveTextEdges: false },
+      { width: 2880, height: 1800, quality: "90", preserveTextEdges: true }
+    ];
+    for (const { width, height, quality, preserveTextEdges } of variants) {
       const outputFile = path.join(localeOutput, `${baseName}-${width}.webp`);
+      const qualityArguments = preserveTextEdges ? ["-sharp_yuv"] : [];
       execFileSync(
         "cwebp",
         [
           "-quiet",
-          "-q", "82",
+          "-q", quality,
           "-m", "6",
+          ...qualityArguments,
           "-metadata", "none",
           "-resize", String(width), String(height),
           sourceFile,

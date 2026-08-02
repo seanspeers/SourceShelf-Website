@@ -547,6 +547,163 @@ h1 {
   object-fit: contain;
 }
 
+.home-screenshot-trigger {
+  position: relative;
+  display: block;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.home-screenshot-trigger:hover {
+  text-decoration: none;
+}
+
+.home-screenshot-trigger:focus-visible {
+  z-index: 1;
+  outline: 0;
+  box-shadow: inset 0 0 0 4px var(--focus);
+}
+
+.home-screenshot-expand {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(4, 17, 33, 0.88);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 740;
+  line-height: 1.2;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+body.home-lightbox-open {
+  overflow: hidden;
+}
+
+.home-lightbox {
+  width: min(calc(100vw - 32px), 1600px);
+  max-width: none;
+  height: min(calc(100vh - 32px), 1100px);
+  height: min(calc(100dvh - 32px), 1100px);
+  max-height: none;
+  overflow: hidden;
+  padding: 0;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-strong);
+  color: var(--text);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.5);
+}
+
+.home-lightbox::backdrop {
+  background: rgba(2, 9, 18, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.home-lightbox-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  width: 100%;
+  height: 100%;
+}
+
+.home-lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 15px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-solid);
+}
+
+.home-lightbox-caption {
+  min-width: 0;
+  margin: 0;
+  color: var(--text);
+  font-size: 0.96rem;
+  font-weight: 720;
+  line-height: 1.35;
+}
+
+.home-lightbox-controls {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+
+.home-lightbox-button {
+  min-height: 42px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-elevated);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 720;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.home-lightbox-button:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.home-lightbox-close {
+  border-color: transparent;
+  background: linear-gradient(135deg, var(--accent), #5fe7ed);
+  color: #041121;
+}
+
+.home-lightbox-close:hover {
+  border-color: transparent;
+  background: linear-gradient(135deg, #31d4dc, #7df0f4);
+}
+
+.home-lightbox-viewport {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 24px;
+  background: #041121;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y pinch-zoom;
+}
+
+.home-lightbox-image {
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  box-shadow: 0 20px 58px rgba(0, 0, 0, 0.36);
+}
+
+.home-lightbox.is-zoomed .home-lightbox-viewport {
+  display: block;
+  padding: 0;
+}
+
+.home-lightbox.is-zoomed .home-lightbox-image {
+  width: 2880px;
+  max-width: none;
+  height: 1800px;
+  max-height: none;
+}
+
 .home-proof-list {
   display: flex;
   flex-wrap: wrap;
@@ -1527,6 +1684,47 @@ h1 {
   .home-feature-copy,
   .home-overview-card {
     padding: 20px;
+  }
+
+  .home-screenshot-expand {
+    right: 8px;
+    bottom: 8px;
+    padding: 6px 9px;
+    font-size: 0.73rem;
+  }
+
+  .home-lightbox {
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .home-lightbox-toolbar {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 10px 12px;
+  }
+
+  .home-lightbox-caption {
+    width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .home-lightbox-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .home-lightbox-button {
+    min-height: 40px;
+    padding: 7px 12px;
+    font-size: 0.82rem;
+  }
+
+  .home-lightbox-viewport {
+    padding: 8px;
   }
 
   .home-closing-section {

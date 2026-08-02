@@ -6,6 +6,15 @@
       "socialTitle": "Give your AI the right sources at the right time",
       "socialDescription": "Build a private knowledge library on your Mac, then connect selected sources to compatible AI assistants without giving up control of your files."
     },
+    "lightbox": {
+      "open": "View larger",
+      "openLabel": "View full-screen image",
+      "close": "Close",
+      "closeLabel": "Close full-screen image",
+      "zoom": "View full resolution",
+      "fit": "Fit to screen",
+      "dialogLabel": "Screenshot viewer"
+    },
     "hero": {
       "eyebrow": "Private AI knowledge base for Mac",
       "title": "Give your AI the right sources at the right time.",
@@ -111,6 +120,15 @@
       "description": "Transformez votre Mac en base de connaissances privée pour l’IA. Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA, en local.",
       "socialTitle": "Fournissez à l’IA les bonnes sources au bon moment",
       "socialDescription": "Créez une bibliothèque de connaissances privée sur votre Mac, puis reliez les sources sélectionnées aux assistants IA compatibles sans perdre le contrôle de vos fichiers."
+    },
+    "lightbox": {
+      "open": "Agrandir",
+      "openLabel": "Afficher l’image en plein écran",
+      "close": "Fermer",
+      "closeLabel": "Fermer l’image en plein écran",
+      "zoom": "Afficher en pleine résolution",
+      "fit": "Ajuster à l’écran",
+      "dialogLabel": "Visionneuse de capture d’écran"
     },
     "hero": {
       "eyebrow": "Base de connaissances privée pour l’IA sur Mac",
@@ -218,6 +236,15 @@
       "socialTitle": "Dale a la IA las fuentes adecuadas en el momento justo",
       "socialDescription": "Crea una biblioteca privada de conocimiento en tu Mac y conecta las fuentes que elijas con asistentes de IA compatibles sin perder el control de tus archivos."
     },
+    "lightbox": {
+      "open": "Ver más grande",
+      "openLabel": "Ver imagen en pantalla completa",
+      "close": "Cerrar",
+      "closeLabel": "Cerrar imagen de pantalla completa",
+      "zoom": "Ver en resolución completa",
+      "fit": "Ajustar a la pantalla",
+      "dialogLabel": "Visor de capturas de pantalla"
+    },
     "hero": {
       "eyebrow": "Base privada de conocimiento para IA en Mac",
       "title": "Dale a la IA las fuentes adecuadas en el momento justo.",
@@ -324,6 +351,15 @@
       "socialTitle": "Forneça à IA as fontes certas no momento certo",
       "socialDescription": "Crie uma biblioteca de conhecimento privada no Mac e conecte as fontes selecionadas a assistentes de IA compatíveis sem perder o controle dos seus arquivos."
     },
+    "lightbox": {
+      "open": "Ampliar",
+      "openLabel": "Ver imagem em tela cheia",
+      "close": "Fechar",
+      "closeLabel": "Fechar imagem em tela cheia",
+      "zoom": "Ver em resolução completa",
+      "fit": "Ajustar à tela",
+      "dialogLabel": "Visualizador de capturas de tela"
+    },
     "hero": {
       "eyebrow": "Base de conhecimento privada para IA no Mac",
       "title": "Forneça à IA as fontes certas no momento certo.",
@@ -429,6 +465,15 @@
       "description": "MacをプライベートなAIナレッジベースに。調査資料を収集・整理し、ローカル優先のワークフローで書類をAIアシスタントへ直接接続できます。",
       "socialTitle": "AIへ、必要な知識を",
       "socialDescription": "Mac上にプライベートな知識ライブラリを作成し、ファイルの管理権を保ったまま選択した資料を対応AIアシスタントへ接続できます。"
+    },
+    "lightbox": {
+      "open": "拡大表示",
+      "openLabel": "画像をフルスクリーンで表示",
+      "close": "閉じる",
+      "closeLabel": "フルスクリーン画像を閉じる",
+      "zoom": "フル解像度で表示",
+      "fit": "画面に合わせる",
+      "dialogLabel": "スクリーンショットビューア"
     },
     "hero": {
       "eyebrow": "MacのプライベートAIナレッジベース",

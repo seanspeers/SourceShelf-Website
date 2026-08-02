@@ -10,8 +10,8 @@ const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const canonicalOrigin = "https://sourceshelf.app";
 const appStoreUrl = "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12";
-const buildDate = "2026-08-01";
-const assetVersion = "20260801-3";
+const buildDate = "2026-08-02";
+const assetVersion = "20260802-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const baseNavigation = JSON.parse(
@@ -580,21 +580,26 @@ function renderFooter(locale) {
   </footer>`;
 }
 
-function renderHomepageImage(locale, item, { hero = false } = {}) {
+function renderHomepageImage(locale, item, lightbox, { hero = false } = {}) {
   const basePath = `/assets/home/${locale.code}/${item.image}`;
+  const fullImagePath = `${basePath}-2880.webp`;
+  const caption = item.title || item.alt;
   const loading = hero
     ? 'loading="eager" fetchpriority="high"'
     : 'loading="lazy"';
   const sizes = hero
     ? "(max-width: 920px) calc(100vw - 24px), 680px"
     : "(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px";
-  return `<img class="homepage-screenshot" src="${basePath}-1440.webp" srcset="${basePath}-960.webp 960w, ${basePath}-1440.webp 1440w" sizes="${sizes}" alt="${escapeHtml(item.alt)}" width="1440" height="900" ${loading} decoding="async">`;
+  return `<a class="home-screenshot-trigger" href="${fullImagePath}" data-home-screenshot-trigger data-lightbox-alt="${escapeHtml(item.alt)}" data-lightbox-caption="${escapeHtml(caption)}" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="${escapeHtml(lightbox.openLabel)}: ${escapeHtml(caption)}">
+    <img class="homepage-screenshot" src="${basePath}-1440.webp" srcset="${basePath}-960.webp 960w, ${basePath}-1440.webp 1440w" sizes="${sizes}" alt="${escapeHtml(item.alt)}" width="1440" height="900" ${loading} decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">${escapeHtml(lightbox.open)}</span>
+  </a>`;
 }
 
-function renderHomepageFeatureCard(locale, item) {
+function renderHomepageFeatureCard(locale, item, lightbox) {
   return `<article class="home-feature-card">
     <div class="home-screenshot-frame">
-      ${renderHomepageImage(locale, item)}
+      ${renderHomepageImage(locale, item, lightbox)}
     </div>
     <div class="home-feature-copy">
       <h3>${escapeHtml(item.title)}</h3>
@@ -610,12 +615,13 @@ function renderHomepageMain(locale, content) {
     : escapeHtml(content.hero.title);
   const heroImage = {
     image: "01-private-ai-source-packs",
-    alt: content.hero.alt
+    alt: content.hero.alt,
+    title: content.hero.title
   };
   const proofItems = content.proof.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
-  const captureCards = content.capture.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
-  const reviewCards = content.review.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
-  const connectCards = content.connect.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
+  const captureCards = content.capture.items.map((item) => renderHomepageFeatureCard(locale, item, content.lightbox)).join("\n");
+  const reviewCards = content.review.items.map((item) => renderHomepageFeatureCard(locale, item, content.lightbox)).join("\n");
+  const connectCards = content.connect.items.map((item) => renderHomepageFeatureCard(locale, item, content.lightbox)).join("\n");
 
   return `<main id="main" class="main home-main">
     <section class="section hero home-hero" aria-labelledby="hero-title">
@@ -633,7 +639,7 @@ function renderHomepageMain(locale, content) {
       </div>
       <div class="hero-visual home-hero-visual">
         <div class="home-screenshot-frame home-hero-frame">
-          ${renderHomepageImage(locale, heroImage, { hero: true })}
+          ${renderHomepageImage(locale, heroImage, content.lightbox, { hero: true })}
         </div>
       </div>
     </section>
@@ -683,8 +689,9 @@ function renderHomepageMain(locale, content) {
       <div class="home-screenshot-frame">
         ${renderHomepageImage(locale, {
           image: "09-private-by-design",
-          alt: content.privacy.alt
-        })}
+          alt: content.privacy.alt,
+          title: content.privacy.imageTitle
+        }, content.lightbox)}
       </div>
     </section>
 
@@ -717,7 +724,22 @@ function renderHomepageMain(locale, content) {
         <a class="button button-secondary" href="${localized("/docs/")}">${escapeHtml(content.closing.learn)}</a>
       </div>
     </section>
-  </main>`;
+  </main>
+
+  <dialog id="homepage-lightbox" class="home-lightbox" data-home-lightbox aria-label="${escapeHtml(content.lightbox.dialogLabel)}" aria-describedby="homepage-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="homepage-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="${escapeHtml(content.lightbox.zoom)}" data-fit-label="${escapeHtml(content.lightbox.fit)}" aria-pressed="false">${escapeHtml(content.lightbox.zoom)}</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="${escapeHtml(content.lightbox.closeLabel)}" autofocus>${escapeHtml(content.lightbox.close)}</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="2880" height="1800" decoding="async">
+      </div>
+    </div>
+  </dialog>`;
 }
 
 function headBootstrap(locale) {
