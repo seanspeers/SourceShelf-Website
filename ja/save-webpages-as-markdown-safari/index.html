@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Safariからフルウェブページ、記事、選択、ハイライト、表示領域をキャプチャします。それらをMarkdownとしてローカルに保存し、研究やAIパックに追加します。">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/ja/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/save-webpages-as-markdown-safari/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/save-webpages-as-markdown-safari/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="実際に必要なウェブページの一部を保存します">
+  <meta property="og:description" content="Safariからフルページ、記事、選択、エリア、または順序付けされたハイライトをキャプチャし、ローカルMarkdownとして保存します。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/save-webpages-as-markdown-safari/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/home/ja/01-private-ai-source-packs-social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="実際に必要なウェブページの一部を保存します">
+  <meta name="twitter:description" content="Safariからフルページ、記事、選択、エリア、または順序付けされたハイライトをキャプチャし、ローカルMarkdownとして保存します。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/home/ja/01-private-ai-source-packs-social.jpg">
+  <title>SafariでWebページをMarkdownとして保存する | SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260802-3">
+  <script src="/locale.js?v=20260802-3"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SourceShelf","applicationCategory":"ProductivityApplication","operatingSystem":"macOS 14.0 or later","softwareVersion":"1.0.1","url":"https://sourceshelf.app","downloadUrl":"https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12","offers":{"@type":"Offer","price":12.99,"priceCurrency":"CAD","url":"https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://sourceshelf.app/ja/"},{"@type":"ListItem","position":2,"name":"SourceShelfの使用方法","item":"https://sourceshelf.app/ja/#ways-to-use"},{"@type":"ListItem","position":3,"name":"Safariウェブキャプチャ","item":"https://sourceshelf.app/ja/save-webpages-as-markdown-safari/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main landing-main landing-layout-capture">
+    <div class="landing-page-shell">
+      <nav class="landing-breadcrumbs" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="/ja/">ホーム</a></li>
+      <li><a href="/ja/#ways-to-use">SourceShelfの使用方法</a></li>
+      <li aria-current="page">Safariウェブキャプチャ</li>
+    </ol>
+  </nav>
+      <section class="section hero landing-hero" aria-labelledby="landing-title-safari-markdown">
+        <div class="hero-copy">
+          <p class="eyebrow">Safariウェブキャプチャ</p>
+          <h1 id="landing-title-safari-markdown">実際に必要なウェブページの一部を保存します</h1>
+          <p class="subheading">フルページ、メイン記事、選択されたテキスト、可視領域、または順序付けされたハイライトのセットと研究ノートをキャプチャします。SourceShelfは、結果を明確なソース原産地を持つローカルMarkdownに変換します。</p>
+          <div class="landing-actions">
+            <a class="app-store-badge-link" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">
+    <img src="/assets/app-store-badges/ja.svg" alt="Mac App StoreでSourceShelfを表示する" width="140.18325" height="40">
+  </a>
+            <a class="button button-secondary" href="#how-it-works">それがどのように機能するかをご覧ください</a>
+          </div>
+        </div>
+        <div class="hero-visual landing-hero-visual">
+          <div class="home-screenshot-frame home-hero-frame"><a class="home-screenshot-trigger" href="/assets/home/ja/05-capture-from-safari-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelf Safari拡張機能は、フルページ、メインコンテンツ、選択されたテキスト、選択された領域のキャプチャを提供します。" data-lightbox-caption="必要な素材に合ったキャプチャモードを選択してください。" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="フルスクリーン画像を表示する: 必要な素材に合ったキャプチャモードを選択してください。">
+    <img class="homepage-screenshot" src="/assets/home/ja/05-capture-from-safari-1440.webp" srcset="/assets/home/ja/05-capture-from-safari-960.webp 960w, /assets/home/ja/05-capture-from-safari-1440.webp 1440w" sizes="(max-width: 920px) calc(100vw - 24px), 680px" alt="SourceShelf Safari拡張機能は、フルページ、メインコンテンツ、選択されたテキスト、選択された領域のキャプチャを提供します。" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+  </a></div>
+          <p class="landing-hero-caption">必要な素材に合ったキャプチャモードを選択してください。</p>
+        </div>
+      </section>
+      <ul class="landing-trust-strip" aria-label="SourceShelfの信頼原則">
+        <li>Safari拡張機能</li><li>ローカルキャプチャ</li><li>柔軟なレシピ</li><li>クラウドアカウントなし</li>
+      </ul>
+      <section class="section landing-demo" aria-labelledby="demo-title-safari-markdown">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">製品デモ</p>
+      <h2 id="demo-title-safari-markdown">Safariページから再利用可能なローカルソースへ</h2>
+    </div>
+    <div class="landing-demo-grid">
+      <figure class="landing-demo-preview">
+        <img src="/assets/home/ja/05-capture-from-safari-1440.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><strong>デモが予定されている</strong><span>ページ固有のビデオが制作中です。このプレビューは現在のSourceShelfインターフェースを使用しており、以下の予定のトランスクリプトは、完成したデモが示す正確なワークフローを説明しています。</span></figcaption>
+      </figure>
+      <div id="demo-transcript-safari-markdown" class="landing-transcript">
+        <h3>予定されているデモのトランスクリプト</h3>
+        <p>SourceShelf Safari拡張機能を開き、フルページ、メイン記事、選択されたテキスト、表示領域、または研究ハイライトモードを選択します。</p>
+<p>研究ハイライトについては、意図的に順序を整えていくつかの文章を集め、なぜそれらの文章が重要なのかを説明するオプションのメモを追加します。</p>
+<p>レシピが要求するときにキャプチャを確認し、ソースの由来と適用可能な資産を含むローカルMarkdownを保存します。</p>
+<p>ライブラリでキャプチャを見つけて、関連するドキュメントと組み合わせた集中的なパックを作成します。</p>
+      </div>
+    </div>
+  </section>
+      <div class="section landing-content-grid"><section id="more-than-bookmark" class="landing-content-section" aria-labelledby="heading-more-than-bookmark">
+    <h2 id="heading-more-than-bookmark">ブックマーク以上のものをキャプチャする</h2>
+    <p>ブックマークは、後で移動、変更、または消える可能性のあるページを指します。SourceShelfは、必要な資料を検索、検査、編集し、知識パックに組み込むことができるローカルソースとして保存します。</p>
+<p>ページ全体、検出されたメインコンテンツ、選択されたテキスト、または選択された可視領域を選択します。</p>
+
+  </section>
+<section id="research-highlights" class="landing-content-section landing-content-callout" aria-labelledby="heading-research-highlights">
+    <h2 id="heading-research-highlights">調査する際にハイライトを収集する</h2>
+    <p>「研究ハイライト」を使用すると、1ページから複数の文章を意図的に順序立てて収集し、それらの文章がなぜ重要なのかを説明するオプションのメモを追加できます。</p>
+<p>その結果生じるMarkdownは、キャプチャされたコンテンツとそのソースURLとキャプチャ詳細を一緒に保持します。</p>
+
+  </section>
+<section id="capture-recipes" class="landing-content-section" aria-labelledby="heading-capture-recipes">
+    <h2 id="heading-capture-recipes">繰り返し可能なキャプチャレシピを作成する</h2>
+    <p>レシピは、ファイル名とデスティネーションフォルダを選択し、デフォルトのキャプチャモードを設定し、画像とリンクの動作を制御し、カスタムメタデータを追加し、保存前にレビューをリクエストし、特定のウェブサイトにルールを適用できます。</p>
+<p>クイックキャプチャを使用すると、よく使うレシピを閲覧中に中断せずに実行できます。</p>
+
+  </section>
+<section id="web-to-context" class="landing-content-section" aria-labelledby="heading-web-to-context">
+    <h2 id="heading-web-to-context">ウェブリサーチからAI対応のコンテキストに移行する</h2>
+    <p>キャプチャされたウェブページは、変換されたファイルと同じSourceShelfライブラリに表示されます。記事をレポート、メモ、スプレッドシート、またはスキャンされた資料と組み合わせた、1つのオーダーされたパックにまとめます。</p>
+<p>パッケージをエクスポートするか、互換性のあるAIクライアントに読み取り専用で利用できるようにして、クライアントにブラウジング履歴や関連のないライブラリソースへのアクセスを許可しないでください。</p>
+    <ul class="landing-inline-links"><li><a href="/ja/private-ai-knowledge-base-mac/">キャプチャされたソースからプライベートなAI知識ベースを構築する <span aria-hidden="true">→</span></a></li><li><a href="/ja/research-archive-mac/">ウェブリサーチをローカルアーカイブに保存する <span aria-hidden="true">→</span></a></li><li><a href="/ja/local-ai-reference-packs/">AIワークフロー用の選択されたパッケージキャプチャ <span aria-hidden="true">→</span></a></li></ul>
+  </section></div>
+      <section class="section landing-gallery" aria-label="Safariウェブキャプチャ"><figure class="landing-gallery-item">
+    <div class="home-screenshot-frame"><a class="home-screenshot-trigger" href="/assets/home/ja/06-organize-research-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelfライブラリに整理されたローカルに保存されたSafariキャプチャ。" data-lightbox-caption="キャプチャしたウェブリサーチを検索し、変換されたファイルと一緒に再利用できます。" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="フルスクリーン画像を表示する: キャプチャしたウェブリサーチを検索し、変換されたファイルと一緒に再利用できます。">
+    <img class="homepage-screenshot" src="/assets/home/ja/06-organize-research-1440.webp" srcset="/assets/home/ja/06-organize-research-960.webp 960w, /assets/home/ja/06-organize-research-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="SourceShelfライブラリに整理されたローカルに保存されたSafariキャプチャ。" width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+  </a></div>
+    <figcaption>キャプチャしたウェブリサーチを検索し、変換されたファイルと一緒に再利用できます。</figcaption>
+  </figure></section>
+      <section id="how-it-works" class="section landing-workflow" aria-labelledby="workflow-title-safari-markdown">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">仕組み</p>
+      <h2 id="workflow-title-safari-markdown">ソースから有用なコンテキストへの明確なワークフロー</h2>
+    </div>
+    <ol class="landing-workflow-list"><li>
+    <span class="landing-step-number" aria-hidden="true">1</span>
+    <div><h3>何が重要なかを選択する</h3><p>フルページ、メイン記事、テキスト選択、エリア、ハイライトを選択します。</p></div>
+  </li>
+<li>
+    <span class="landing-step-number" aria-hidden="true">2</span>
+    <div><h3>ローカルに保存する</h3><p>SourceShelfは、適用される場合、ソースとアーカイブされた資産を備えたローカルMarkdownを作成します。</p></div>
+  </li>
+<li>
+    <span class="landing-step-number" aria-hidden="true">3</span>
+    <div><h3>パックに追加する</h3><p>キャプチャを関連するドキュメントと組み合わせて、集中型AIや研究コンテキストとして使用します。</p></div>
+  </li></ol>
+  </section>
+      <section class="section landing-faq" aria-labelledby="faq-title-safari-markdown">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title-safari-markdown">始める前に知っておくべきこと</h2>
+    </div>
+    <div class="landing-faq-list"><article class="landing-faq-item">
+    <h3>SourceShelfは完全なウェブページのみを保存しますか？</h3>
+    <p>いいえ。フルページ、検出されたメインコンテンツ、選択されたテキスト、表示可能な領域、または複数の研究ハイライトをキャプチャできます。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>キャプチャを保存する前に確認できますか？</h3>
+    <p>はい。レシピでは、キャプチャをローカルレビューキューに配置できるため、Markdown、デスティネーション、メモ、カスタムフィールドを最初に編集できます。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>SourceShelfはキャプチャしたページをアップロードしますか？</h3>
+    <p>いいえ。Safari のキャプチャはローカルで処理され、保存されます。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>キャプチャはPDFやOfficeドキュメントと組み合わせて使用できますか？</h3>
+    <p>はい。Safari でキャプチャしたファイルと変換したファイルは、ライブラリに共存し、同じ保存済みパックに追加できます。</p>
+  </article></div>
+  </section>
+      <section class="section landing-related" aria-labelledby="related-title-safari-markdown">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">関連するユースケース</p>
+      <h2 id="related-title-safari-markdown">SourceShelfを探索し続けましょう</h2>
+    </div>
+    <div class="landing-related-grid"><article class="landing-related-card">
+      <p class="eyebrow">Mac用のプライベートAI知識ベース</p>
+      <h3><a href="/ja/private-ai-knowledge-base-mac/">MacをプライベートなAI知識ベースに変える</a></h3>
+      <p>選択した知識をキャプチャ、変換、整理、およびローカル処理と読み取り専用AIアクセスに接続します。</p>
+    </article>
+<article class="landing-related-card">
+      <p class="eyebrow">ローカル研究アーカイブ</p>
+      <h3><a href="/ja/research-archive-mac/">数年後でもまだ使用できる研究アーカイブを構築する</a></h3>
+      <p>ウェブリサーチをキャプチャし、ドキュメントを変換し、原産地を保存し、結果をポータブルなMarkdownと保存パックとして保存します。</p>
+    </article>
+<article class="landing-related-card">
+      <p class="eyebrow">AIのための集中的なコンテキスト</p>
+      <h3><a href="/ja/local-ai-reference-packs/">AIに無構造のフォルダではなく、焦点を当てたリファレンスパックを提供します。</a></h3>
+      <p>重要なソースを選択して並べ替えた後、ポータブルなコンテキストをエクスポートするか、保存したパックを読み取り専用で共有します。</p>
+    </article></div>
+  </section>
+      <section class="section landing-closing" aria-labelledby="closing-title-safari-markdown">
+        <div><h2 id="closing-title-safari-markdown">タブが閉じても役立つウェブリサーチを保存する</h2><p>重要なものだけをキャプチャし、ローカルで検査可能なMarkdownとして保存します。</p></div>
+        <a class="app-store-badge-link" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">
+    <img src="/assets/app-store-badges/ja.svg" alt="Mac App StoreでSourceShelfを表示する" width="140.18325" height="40">
+  </a>
+      </section>
+    </div>
+  </main>
+  <dialog id="homepage-lightbox" class="home-lightbox" data-home-lightbox aria-label="スクリーンショットビューア" aria-describedby="homepage-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="homepage-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="フル解像度を表示する" data-fit-label="画面にフィットする" aria-pressed="false">フル解像度を表示する</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="フルスクリーン画像を閉じる">閉じる</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="2880" height="1800" decoding="async">
+      </div>
+    </div>
+  </dialog>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/ja/">ホーム</a>
+          <a href="/ja/privacy.html">プライバシー</a>
+          <a href="/ja/docs/">ドキュメント</a>
+          <a href="/ja/support.html">サポート</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelfのユースケース">
+        <h2>SourceShelfの使用方法</h2>
+        <ul><li><a href="/ja/private-ai-knowledge-base-mac/">Mac用のプライベートAI知識ベース</a></li><li><a href="/ja/pdf-to-markdown-mac/">ローカルPDF変換</a></li><li><a href="/ja/save-webpages-as-markdown-safari/">Safariウェブキャプチャ</a></li><li><a href="/ja/local-ai-reference-packs/">AIのための集中的なコンテキスト</a></li><li><a href="/ja/research-archive-mac/">ローカル研究アーカイブ</a></li><li><a href="/ja/mcp-knowledge-base-mac/">読み取り専用MCP知識アクセス</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260802-3"></script>
+</body>
+</html>

@@ -1,0 +1,975 @@
+{
+  "code" : "pt-BR",
+  "nativeName" : "Português (Brasil)",
+  "pages" : [
+    {
+      "campaignKey" : "privateAIKnowledgeBase",
+      "closing" : {
+        "description" : "Mantenha seu conhecimento local, portátil e deliberadamente limitado ao fluxo de trabalho de IA que você escolher.",
+        "heading" : "Construa uma base de conhecimento privada a partir das fontes em que confia"
+      },
+      "demo" : {
+        "captions" : "private-ai-knowledge-base.vtt",
+        "poster" : "private-ai-knowledge-base-poster.webp",
+        "previewImage" : "01-private-ai-source-packs",
+        "title" : "De fontes dispersas a contexto selecionado de IA",
+        "transcript" : [
+          "Comece salvando uma página da web útil ou convertendo documentos e cópias digitalizadas em Markdown local.",
+          "Pesquise na Biblioteca SourceShelf, escolha as fontes que importam e organize-as em um pacote salvo ordenado.",
+          "Exporte o pacote como contexto portátil ou autorize uma instantânea imutável, somente de leitura para um cliente de IA compatível.",
+          "Use Atualizar e Comparar mais tarde para revisar as alterações e revogar o Acesso Local à IA sempre que a partilha não for mais necessária."
+        ],
+        "video" : "private-ai-knowledge-base.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "Não. O SourceShelf prepara e organiza conhecimento para aplicativos de IA compatíveis. Você permanece livre para escolher o modelo local ou baseado em nuvem que você usa.",
+          "question" : "O SourceShelf inclui um modelo de IA?"
+        },
+        {
+          "answer" : "Não. O SourceShelf realiza seu próprio trabalho de captura, conversão, OCR, organização e exportação localmente no seu Mac.",
+          "question" : "O SourceShelf carrega meus documentos?"
+        },
+        {
+          "answer" : "Sim, quando o modelo é usado através de um cliente de IA compatível. O SourceShelf fornece resultados de pesquisa focados e passagens de fonte limitadas para que o cliente não precise carregar todos os documentos de uma vez.",
+          "question" : "Um modelo local menor pode usar um pacote SourceShelf?"
+        },
+        {
+          "answer" : "Não. O acesso MCP do SourceShelf é apenas lendo e limitado à instantânea imutável do pacote que você autoriza.",
+          "question" : "Um cliente de IA pode editar ou excluir minhas fontes?"
+        }
+      ],
+      "hero" : {
+        "description" : "O SourceShelf captura páginas da web, converte documentos em Markdown estruturado e permite que você crie pacotes de conhecimento focados para aplicativos de IA compatíveis. Tudo é preparado localmente e você decide exatamente o que a IA pode ler.",
+        "eyebrow" : "Base de conhecimento privada de IA para Mac",
+        "title" : "Transforme seu Mac em uma base de conhecimento privada de IA"
+      },
+      "id" : "private-ai-knowledge-base",
+      "layout" : "pillar",
+      "meta" : {
+        "description" : "Transforme documentos, páginas da web e pesquisas em uma base de conhecimento de IA privada no seu Mac. Crie pacotes focados e compartilhe apenas o que você escolher com aplicativos de IA compatíveis.",
+        "socialDescription" : "Capture, converta, organize e conecte o conhecimento selecionado com processamento local e acesso de IA somente leitura.",
+        "socialTitle" : "Transforme seu Mac em uma base de conhecimento privada de IA",
+        "title" : "Base de conhecimento privada de IA para Mac | SourceShelf"
+      },
+      "related" : [
+        "pdf-to-markdown",
+        "local-ai-packs",
+        "mcp-knowledge-base"
+      ],
+      "route" : "/private-ai-knowledge-base-mac/",
+      "screenshots" : [
+        {
+          "alt" : "SourceShelf Packa o espaço de trabalho mostrando pacotes de conhecimento salvos, fontes ordenadas e uma prévia da fonte.",
+          "caption" : "Reúna fontes selecionadas em um pacote organizado e reutilizável.",
+          "image" : "01-private-ai-source-packs"
+        },
+        {
+          "alt" : "SourceShelf Tela de acesso local de IA mostrando um pacote selecionado compartilhado como uma captura de tela somente de leitura.",
+          "caption" : "Autorize um pacote salvo para acesso local somente de leitura.",
+          "image" : "02-local-ai-access"
+        },
+        {
+          "alt" : "Resultados de comparação do SourceShelf identificando fontes de pacotes de conhecimento alteradas e ausentes.",
+          "caption" : "Revise as alterações antes de atualizar uma exportação ou instantâneo compartilhado.",
+          "image" : "07-refresh-and-compare"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "Reúna conhecimento disperso",
+          "id" : "bring-knowledge-together",
+          "links" : [
+            {
+              "label" : "Veja como funciona a conversão local de PDF",
+              "page" : "pdf-to-markdown"
+            },
+            {
+              "label" : "Explore a captura da página da web do Safari",
+              "page" : "safari-markdown"
+            }
+          ],
+          "paragraphs" : [
+            "Informações úteis raramente vivem em um único lugar. Elas são espalhadas por relatórios, PDFs, decks de slides, planilhas, páginas digitalizadas, notas e guias do navegador. O SourceShelf reúne esses materiais em uma Biblioteca local pesquisável, preservando a origem de cada fonte.",
+            "Salve um artigo útil do Safari, converta uma pasta de documentos de projeto ou use OCR local em um PDF digitalizado. O SourceShelf transforma o resultado em um Markdown estruturado que permanece acessível fora do aplicativo."
+          ]
+        },
+        {
+          "heading" : "Crie pacotes focados para trabalho real",
+          "id" : "focused-packs",
+          "links" : [
+            {
+              "label" : "Crie pacotes de referência de IA focados",
+              "page" : "local-ai-packs"
+            },
+            {
+              "label" : "Construa um arquivo de pesquisa local durável",
+              "page" : "research-archive"
+            }
+          ],
+          "paragraphs" : [
+            "Crie um pacote de conhecimento ordenado para um projeto de pesquisa, curso, cliente, investigação ou tarefa recorrente. Inclua apenas as fontes que importam e organize-as na ordem que faça sentido.",
+            "Um pacote focado fornece um assistente de IA compatível com material relevante sem expor o resto da sua Biblioteca ou anexar repetidamente os mesmos arquivos."
+          ]
+        },
+        {
+          "heading" : "Use a IA que você escolher",
+          "id" : "choose-ai",
+          "links" : [
+            {
+              "label" : "Entender o acesso de conhecimento MCP somente leitura",
+              "page" : "mcp-knowledge-base"
+            }
+          ],
+          "paragraphs" : [
+            "SourceShelf não é outro chatbot de IA e não restringe seu conhecimento a um único modelo. Um cliente de IA compatível em seu Mac pode se conectar a um pacote salvo através do acesso Model Context Protocol somente leitura.",
+            "O cliente pode usar um modelo executando localmente no seu Mac ou um modelo baseado em nuvem. O próprio SourceShelf não carrega o pacote ou chama um serviço de IA."
+          ]
+        },
+        {
+          "heading" : "Somente o pacote que você aprovar",
+          "id" : "approved-pack",
+          "kind" : "callout",
+          "paragraphs" : [
+            "Cada autorização de IA local cria uma instantânea imutável contendo apenas o pacote salvo que você selecionou. Os clientes de IA podem pesquisar essa instantânea e ler passagens limitadas, mas não podem alterar suas fontes ou navegar por arquivos arbitrários.",
+            "Os caminhos de arquivos originais, marcadores de segurança, locais das pastas de saída e itens da Biblioteca não selecionados não estão incluídos. Pare de compartilhar o pacote a qualquer momento para invalidar a conexão."
+          ]
+        },
+        {
+          "heading" : "Arquivos abertos, não um cofre fechado",
+          "id" : "open-files",
+          "paragraphs" : [
+            "As fontes geradas por SourceShelf são arquivos Markdown comuns. Abaixo-os em seu editor preferido, faça alterações e volte para SourceShelf quando estiver pronto.",
+            "Atualizar e Comparar mostra o que foi adicionado, alterado, removido ou deixado inalterado antes de você atualizar uma exportação ou instantâneo compartilhado de IA."
+          ]
+        }
+      ],
+      "trust" : [
+        "Processamento local",
+        "Acesso de IA apenas de leitura",
+        "Markdown Portátil",
+        "Sem análises"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Salve uma página da web ou converta documentos, pastas, imagens e PDFs digitalizados.",
+            "title" : "captura"
+          },
+          {
+            "description" : "Pesquise em sua Biblioteca e crie um pacote de conhecimento focado e organizado.",
+            "title" : "vigário"
+          },
+          {
+            "description" : "Exporte um pacote de referência portátil ou compartilhe o pacote salvo apenas lendo com um cliente de IA compatível.",
+            "title" : "conectar"
+          }
+        ]
+      }
+    },
+    {
+      "campaignKey" : "pdfToMarkdown",
+      "closing" : {
+        "description" : "Converta localmente, revise o resultado e decida onde a fonte final pertence.",
+        "heading" : "Transforme os PDFs que você já tem em Markdown portátil."
+      },
+      "demo" : {
+        "captions" : "pdf-to-markdown-mac.vtt",
+        "poster" : "pdf-to-markdown-mac-poster.webp",
+        "previewImage" : "04-convert-files-for-ai",
+        "title" : "Uma conversão local de PDF do início ao fim",
+        "transcript" : [
+          "Arraste um PDF de texto ou um PDF digitalizado para a tela de conversão SourceShelf.",
+          "O SourceShelf extrai texto selecionável ou usa o reconhecimento de documentos locais da Apple quando o texto utilizável não estiver disponível.",
+          "Inspecione o resultado renderizado e a fonte Markdown, depois corrija layouts complexos ou OCR de baixa qualidade quando necessário.",
+          "Abra o arquivo normal Markdown em outro editor ou adicione-o a um pacote de conhecimento salvo."
+        ],
+        "video" : "pdf-to-markdown-mac.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "Não. O SourceShelf realiza extração de PDF e OCR localmente.",
+          "question" : "A conversão de PDF requer uma conexão com a internet?"
+        },
+        {
+          "answer" : "Sim. O SourceShelf pode usar o OCR local da Apple quando um PDF não tem texto selecionável.",
+          "question" : "Ele pode converter PDFs digitalizados?"
+        },
+        {
+          "answer" : "Não. OCR e reconstrução de documentos podem exigir correção, particularmente com cópias de baixa qualidade ou layouts complexos de várias colunas. O SourceShelf preserva a estrutura útil quando a extração permite.",
+          "question" : "Todos os layouts complexos serão reproduzidos perfeitamente?"
+        },
+        {
+          "answer" : "Sim. O resultado é um arquivo Markdown normal que abre no seu editor configurado.",
+          "question" : "Posso editar o Markdown depois disso?"
+        }
+      ],
+      "hero" : {
+        "description" : "Coloque um texto em PDF ou um documento digitalizado. O SourceShelf extrai conteúdo legível, usa o OCR local da Apple quando necessário e cria um arquivo Markdown que você pode inspecionar, editar, arquivar ou adicionar a um pacote de conhecimento de IA.",
+        "eyebrow" : "Conversão local de PDF",
+        "title" : "Converta PDFs para o útil Markdown - totalmente no seu Mac"
+      },
+      "id" : "pdf-to-markdown",
+      "layout" : "document",
+      "meta" : {
+        "description" : "Converta PDFs de texto e documentos digitalizados em Markdown estruturado no seu Mac. Use OCR local, insira o resultado e mantenha o controle completo de seus arquivos.",
+        "socialDescription" : "Extraia texto ou use o OCR local da Apple, depois insira, edite, arquive ou adicione o Markdown a um pacote focado.",
+        "socialTitle" : "Converta PDFs para o útil Markdown no seu Mac",
+        "title" : "Converter PDF para Markdown no Mac | SourceShelf"
+      },
+      "related" : [
+        "private-ai-knowledge-base",
+        "local-ai-packs",
+        "research-archive"
+      ],
+      "route" : "/pdf-to-markdown-mac/",
+      "screenshots" : [
+        {
+          "alt" : "Um documento PDF pronto para conversão local de Markdown em SourceShelf.",
+          "caption" : "Converta PDFs individuais ou processe arquivos suportados em lotes.",
+          "image" : "04-convert-files-for-ai"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "Texto PDFs e PDFs digitalizados",
+          "id" : "text-and-scanned",
+          "paragraphs" : [
+            "O SourceShelf lida com PDFs que já contêm texto selecionável e PDFs apenas de imagens que exigem OCR. Quando nenhum texto utilizável estiver disponível, ele usa a tecnologia de reconhecimento de documentos local da Apple em seu Mac.",
+            "O documento não precisa ser enviado para um conversor online ou serviço OCR externo."
+          ]
+        },
+        {
+          "heading" : "Estrutura útil, não apenas um lixo de texto",
+          "id" : "useful-structure",
+          "kind" : "callout",
+          "paragraphs" : [
+            "SourceShelf constrói uma representação semântica do documento antes de renderizar Markdown. Onde a fonte permite, o resultado retém elementos úteis, como cabeçalhos, parágrafos, listas, tabelas, código, citações, legendas, imagens e limites de página.",
+            "Layout complexos e cópias imperfeitas ainda podem exigir correção, mas o resultado é projetado para ser legível, inspecível e portátil."
+          ]
+        },
+        {
+          "heading" : "Seu Markdown permanece seu",
+          "id" : "markdown-yours",
+          "links" : [
+            {
+              "label" : "Mantenha os documentos convertidos em um arquivo de pesquisa local",
+              "page" : "research-archive"
+            }
+          ],
+          "paragraphs" : [
+            "O Markdown gerado é escrito na pasta de saída que você escolher. Abra-o no editor Markdown de sua preferência, revele-o no Finder ou use-o com outras ferramentas.",
+            "SourceShelf detecta edições externas e regenera seu cache semântico local sem sobrepor as alterações que você fez."
+          ]
+        },
+        {
+          "heading" : "Do documento ao contexto de IA",
+          "id" : "ai-context",
+          "links" : [
+            {
+              "label" : "Veja o fluxo de trabalho completo da base de conhecimento privada",
+              "page" : "private-ai-knowledge-base"
+            },
+            {
+              "label" : "Transforme os documentos selecionados em um pacote de referência de IA",
+              "page" : "local-ai-packs"
+            }
+          ],
+          "paragraphs" : [
+            "Adicione relatórios, documentos, manuais e cópias digitalizadas convertidos a um pacote SourceShelf focado. Você pode então exportar o pacote como contexto de IA portátil ou permitir que um cliente de IA compatível o pesquise através do acesso MCP somente leitura."
+          ]
+        }
+      ],
+      "trust" : [
+        "OCR local",
+        "Sem uploads",
+        "Arquivos Markdown normais",
+        "Amigável para lotes"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Arraste um PDF para o SourceShelf ou selecione vários arquivos e pastas.",
+            "title" : "Arraste um PDF"
+          },
+          {
+            "description" : "SourceShelf extrai texto selecionável ou executa OCR local quando necessário.",
+            "title" : "Converter localmente"
+          },
+          {
+            "description" : "Inspecione o resultado, edite-o externamente ou adicione-o a um pacote de conhecimento salvo.",
+            "title" : "Revisar e usar"
+          }
+        ]
+      }
+    },
+    {
+      "campaignKey" : "safariMarkdownCapture",
+      "closing" : {
+        "description" : "Capture apenas o que importa e mantenha-o como um Markdown local e inspecível.",
+        "heading" : "Mantenha pesquisas úteis na web depois que a guia fechar."
+      },
+      "demo" : {
+        "captions" : "save-webpages-safari.vtt",
+        "poster" : "save-webpages-safari-poster.webp",
+        "previewImage" : "05-capture-from-safari",
+        "title" : "De uma página do Safari para uma fonte local reutilizável",
+        "transcript" : [
+          "Abra a extensão SourceShelf Safari e escolha a página completa, o artigo principal, o texto selecionado, a área visível ou o modo Destaques de Pesquisa.",
+          "Para destacar os destaques da pesquisa, cole vários trechos em uma ordem deliberada e adicione uma nota opcional explicando por que eles são importantes.",
+          "Revise a captura quando a receita solicitar, em seguida salve o Markdown local com proveniência de origem e ativos aplicáveis.",
+          "Encontre a captura na Biblioteca e combine-a com documentos relacionados em um pacote focado."
+        ],
+        "video" : "save-webpages-safari.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "Não. Você pode capturar a página inteira, o conteúdo principal detectado, o texto selecionado, uma área visível ou vários destaques de pesquisa.",
+          "question" : "O SourceShelf salva apenas páginas da web completas?"
+        },
+        {
+          "answer" : "Sim. Uma receita pode colocar capturas em uma fila de revisão local para que você possa editar o Markdown, destino, notas e campos personalizados primeiro.",
+          "question" : "Posso revisar uma captura antes de salvá-la?"
+        },
+        {
+          "answer" : "Não. As capturas do Safari são processadas e salvas localmente.",
+          "question" : "O SourceShelf carrega páginas capturadas?"
+        },
+        {
+          "answer" : "Sim. Os arquivos capturados e convertidos pelo Safari coexistem na Biblioteca e podem ser adicionados ao mesmo pacote salvo.",
+          "question" : "As capturas podem ser combinadas com PDFs e documentos do Office?"
+        }
+      ],
+      "hero" : {
+        "description" : "Capture uma página inteira, o artigo principal, texto selecionado, uma área visível ou um conjunto de destaques ordenados com uma nota de pesquisa. O SourceShelf transforma o resultado em Markdown local com uma proveniência de origem clara.",
+        "eyebrow" : "Captura da web do Safari",
+        "title" : "Salve a parte de uma página da web que você realmente precisa"
+      },
+      "id" : "safari-markdown",
+      "layout" : "capture",
+      "meta" : {
+        "description" : "Capture páginas da web completas, artigos, seleções, destaques e áreas visíveis do Safari. Salve-os localmente como Markdown e adicione-os aos seus pacotes de pesquisa ou IA.",
+        "socialDescription" : "Capture páginas completas, artigos, seleções, áreas ou destaques ordenados do Safari e mantenha-os como Markdown locais.",
+        "socialTitle" : "Salve a parte de uma página da web que você realmente precisa",
+        "title" : "Salve páginas da web como Markdown no Safari | SourceShelf"
+      },
+      "related" : [
+        "private-ai-knowledge-base",
+        "research-archive",
+        "local-ai-packs"
+      ],
+      "route" : "/save-webpages-as-markdown-safari/",
+      "screenshots" : [
+        {
+          "alt" : "A extensão SourceShelf Safari oferece captura de página inteira, conteúdo principal, texto selecionado e área selecionada.",
+          "caption" : "Escolha o modo de captura que corresponda ao material que você precisa.",
+          "image" : "05-capture-from-safari"
+        },
+        {
+          "alt" : "Uma captura do Safari salva localmente organizada na Biblioteca SourceShelf.",
+          "caption" : "Pesquise e reutilize pesquisas da web capturadas ao lado de arquivos convertidos.",
+          "image" : "06-organize-research"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "Capture mais do que um marcador",
+          "id" : "more-than-bookmark",
+          "paragraphs" : [
+            "Uma marcação de página aponta para uma página que pode se mover, mudar ou desaparecer posteriormente. O SourceShelf salva o material de que você precisa como uma fonte local que você pode pesquisar, inspecionar, editar e incluir em um pacote de conhecimento.",
+            "Escolha toda a página, o conteúdo principal detectado, o texto selecionado ou uma área visível selecionada."
+          ]
+        },
+        {
+          "heading" : "Colete destaques enquanto você pesquisa",
+          "id" : "research-highlights",
+          "kind" : "callout",
+          "paragraphs" : [
+            "O Destaques da Pesquisa permite que você colecione vários trechos de uma página em uma ordem deliberada e adicione uma nota opcional explicando por que eles são importantes.",
+            "O Markdown resultante mantém o conteúdo capturado junto com seu URL de origem e detalhes da captura."
+          ]
+        },
+        {
+          "heading" : "Crie receitas de captura repetíveis",
+          "id" : "capture-recipes",
+          "paragraphs" : [
+            "As receitas podem escolher um nome de arquivo e pasta de destino, definir um modo de captura padrão, controlar o comportamento da imagem e do link, adicionar metadados personalizados, solicitar revisão antes de salvar e aplicar regras a sites específicos.",
+            "A Captura Rápida permite que receitas frequentemente usadas sejam executadas com menos interrupções enquanto você navega."
+          ]
+        },
+        {
+          "heading" : "Mova da pesquisa na web para um contexto pronto para IA",
+          "id" : "web-to-context",
+          "links" : [
+            {
+              "label" : "Construa uma base de conhecimento de IA privada a partir de fontes capturadas",
+              "page" : "private-ai-knowledge-base"
+            },
+            {
+              "label" : "Preserve pesquisas na web em um arquivo local",
+              "page" : "research-archive"
+            },
+            {
+              "label" : "Pacote selecionado de capturas para um fluxo de trabalho de IA",
+              "page" : "local-ai-packs"
+            }
+          ],
+          "paragraphs" : [
+            "As páginas da web capturadas aparecem na mesma Biblioteca SourceShelf que os arquivos convertidos. Combine um artigo com relatórios, notas, planilhas ou material digitalizado em um pacote organizado.",
+            "Exporte o pacote ou torne-o disponível apenas para leitura para um cliente de IA compatível sem dar ao cliente acesso ao seu histórico de navegação ou fontes de biblioteca não relacionadas."
+          ]
+        }
+      ],
+      "trust" : [
+        "Extensão do Safari",
+        "Captura local",
+        "Receitas flexíveis",
+        "Sem conta na nuvem"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Selecione a página completa, o artigo principal, a seleção de texto, a área ou os destaques.",
+            "title" : "Escolha o que importa"
+          },
+          {
+            "description" : "SourceShelf cria um Markdown local com origem e ativos arquivados, quando aplicável.",
+            "title" : "Salve-o localmente"
+          },
+          {
+            "description" : "Combine a captura com documentos relacionados e use-a como um contexto de IA ou pesquisa focado.",
+            "title" : "Adicione-o a um pacote"
+          }
+        ]
+      }
+    },
+    {
+      "campaignKey" : "localAIReferencePacks",
+      "closing" : {
+        "description" : "Mantenha a fonte Markdown portátil e escolha se exportar ou conectar cada pacote salvo.",
+        "heading" : "Prepare um contexto focado sem vincular ele a um único modelo"
+      },
+      "demo" : {
+        "captions" : "local-ai-reference-packs.vtt",
+        "poster" : "local-ai-reference-packs-poster.webp",
+        "previewImage" : "08-export-workflows",
+        "title" : "Construa, exporte e mantenha um pacote de referência focado",
+        "transcript" : [
+          "Selecione os documentos e capturas de página da web que pertencem a uma tarefa, em seguida, organize-os em uma ordem útil.",
+          "Revise o tamanho do pacote e escolha um Pacote de Referência de IA Portátil, Pacote de Contexto Markdown, coleção llms.txt ou pacote OKF.",
+          "Alternativamente, autorize o Acesso Local à IA para que um cliente compatível possa pesquisar e ler uma captura de tela de um pacote salvo.",
+          "Use Atualizar e Comparar mais tarde para entender as mudanças na fonte e no pedido antes de publicar deliberadamente uma atualização."
+        ],
+        "video" : "local-ai-reference-packs.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "Não. Ele prepara e serve material de origem selecionado para clientes de IA compatíveis. Você escolhe o modelo e o cliente.",
+          "question" : "O SourceShelf executa um modelo de IA local?"
+        },
+        {
+          "answer" : "Não. Ele pode criar blocos de recuperação estruturados, mas não empacota incorporações específicas do modelo.",
+          "question" : "O SourceShelf cria incorporações?"
+        },
+        {
+          "answer" : "Uma exportação cria um arquivo ou pasta portátil. O Acesso Local à IA permite que um cliente compatível pesquise e leia uma instantânea de pacote salvo autorizado em seu Mac.",
+          "question" : "Qual é a diferença entre exportação e Acesso Local de IA?"
+        },
+        {
+          "answer" : "Não. O cliente recebe acesso apenas à instantânea do pacote salvo que você autoriza explicitamente.",
+          "question" : "Um cliente de IA pode ver o resto da minha Biblioteca?"
+        }
+      ],
+      "hero" : {
+        "description" : "Escolha as fontes que importam, organize-as em um pacote claro e exporte o contexto de IA portátil - ou deixe um cliente de IA compatível pesquisar o pacote através de uma conexão local de leitura somente.",
+        "eyebrow" : "Contexto focado para IA",
+        "title" : "Dê ao IA um pacote de referência focado, não uma pasta não estruturada"
+      },
+      "id" : "local-ai-packs",
+      "layout" : "formats",
+      "meta" : {
+        "description" : "Crie pacotes de referência focados e portáteis para modelos locais de IA. Combine fontes selecionadas, inclua blocos prontos para recuperação ou compartilhe um pacote apenas lendo através do MCP.",
+        "socialDescription" : "Selecione e organize as fontes que importam, em seguida, exporte o contexto portátil ou compartilhe o pacote salvo apenas para leitura.",
+        "socialTitle" : "Dê ao IA um pacote de referência focado",
+        "title" : "Crie pacotes de referência de IA para modelos locais | SourceShelf"
+      },
+      "related" : [
+        "private-ai-knowledge-base",
+        "mcp-knowledge-base",
+        "research-archive"
+      ],
+      "route" : "/local-ai-reference-packs/",
+      "screenshots" : [
+        {
+          "alt" : "Um pacote de referência de IA SourceShelf focado contendo documentos selecionados e capturas de páginas da web.",
+          "caption" : "Escolha e encomende apenas as fontes relevantes para a tarefa.",
+          "image" : "01-private-ai-source-packs"
+        },
+        {
+          "alt" : "Opções de exportação SourceShelf para pacotes de referência de IA, Markdown, llms.txt e fluxos de trabalho OKF.",
+          "caption" : "Escolha um formato portátil que se adapte ao próximo fluxo de trabalho.",
+          "image" : "08-export-workflows"
+        },
+        {
+          "alt" : "SourceShelf publicando um pacote de referência de IA salvo através do Acesso Local de IA somente leitura.",
+          "caption" : "Conecte um pacote salvo diretamente sem expor o resto da Biblioteca.",
+          "image" : "02-local-ai-access"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "Ajude modelos menores a encontrar o material certo",
+          "id" : "smaller-models",
+          "kind" : "callout",
+          "paragraphs" : [
+            "Um modelo local geralmente tem menos contexto disponível do que um modelo hospedado grande. Em vez de entregar todos os arquivos de um projeto, o SourceShelf permite que você crie um pacote focado contendo apenas as fontes relevantes para a tarefa.",
+            "Clientes compatíveis podem pesquisar o pacote e solicitar passagens limitadas, ajudando o modelo a usar seu contexto disponível no material que importa. Isso pode ajudar, mas não garante uma resposta melhor ou mais precisa."
+          ]
+        },
+        {
+          "heading" : "Uma coleção de fontes, vários fluxos de trabalho",
+          "id" : "several-workflows",
+          "paragraphs" : [
+            "Use um ZIP do AI Reference Pack para espaços de trabalho de projetos e chats de IA, um Markdown Context Pack para contexto de arquivo portátil, uma Pasta de Coleção llms.txt para uma coleção local aberta ou um pacote OKF para catálogos e agentes baseados em padrões."
+          ]
+        },
+        {
+          "heading" : "Formatos avançados",
+          "id" : "advanced-formats",
+          "items" : [
+            "Pacote de Referência de IA ZIP: um pacote estruturado para espaços de trabalho de projetos e tarefas assistidas por IA.",
+            "Markdown Pacote de contexto: um arquivo Markdown portátil contendo o material de origem selecionado.",
+            "Pastinha de Coleção llms.txt: uma coleção local aberta organizada em torno das convenções llms.txt.",
+            "Pacote OKF: um catálogo baseado em padrões e pacote de fontes para ferramentas e agentes compatíveis."
+          ],
+          "kind" : "details",
+          "summary" : "Compare os formatos portáteis"
+        },
+        {
+          "heading" : "Pronto para recuperação sem bloqueio do modelo",
+          "id" : "retrieval-ready",
+          "paragraphs" : [
+            "Os Pacotes de Referência de IA podem incluir blocos conscientes da estrutura com IDs estáveis, ancestralidade de cabeçalho, proveniência, hashes e referências de ativos.",
+            "SourceShelf não cria índices proprietários ou incorporações específicas do modelo. O Markdown original permanece utilizável com outras ferramentas e fluxos de trabalho futuros."
+          ]
+        },
+        {
+          "heading" : "Exporte um pacote ou conecte-o diretamente",
+          "id" : "export-or-connect",
+          "links" : [
+            {
+              "label" : "Saiba como funciona o acesso MCP em escopo de pacote",
+              "page" : "mcp-knowledge-base"
+            }
+          ],
+          "paragraphs" : [
+            "Exporte quando precisar de um artefato portátil. Use o Acesso Local de IA quando um cliente compatível deve pesquisar e ler um pacote salvo diretamente.",
+            "O Acesso Local de IA cria uma instantânea somente de leitura em vez de expor arquivos originais ao vivo. O SourceShelf atualiza uma instantânea compartilhada apenas quando um resultado de Confiança e Segurança novo estiver disponível e a atualização for permitida."
+          ]
+        },
+        {
+          "heading" : "Saiba quando seu contexto mudou",
+          "id" : "context-changed",
+          "links" : [
+            {
+              "label" : "Veja o fluxo de trabalho completo da base de conhecimento privada",
+              "page" : "private-ai-knowledge-base"
+            },
+            {
+              "label" : "Manter um arquivo de pesquisa local reutilizável",
+              "page" : "research-archive"
+            }
+          ],
+          "paragraphs" : [
+            "Após uma exportação, o Refresh & Compare registra uma linha de base local e relata novas, alteradas, ausentes, inalteradas e removidas fontes, juntamente com as alterações de ordenação.",
+            "Isso facilita a compreensão de se um pacote de referência de IA ainda representa o estado atual de sua pesquisa."
+          ]
+        }
+      ],
+      "trust" : [
+        "Independente do modelo",
+        "Fragmentos de recuperação opcionais",
+        "Formatos portáteis",
+        "Compartilhamento apenas de leitura"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Escolha os documentos e capturas que se relacionam a um tópico ou tarefa.",
+            "title" : "selecionar"
+          },
+          {
+            "description" : "Ordenar as fontes e inspecionar o tamanho estimado do contexto.",
+            "title" : "arranjar"
+          },
+          {
+            "description" : "Crie um pacote portátil ou autorize acesso somente de leitura para um cliente de IA compatível.",
+            "title" : "Exportar ou conectar"
+          },
+          {
+            "description" : "Compare o pacote mais tarde e publique ou exporte deliberadamente as alterações.",
+            "title" : "refrescar"
+          }
+        ]
+      }
+    },
+    {
+      "campaignKey" : "researchArchive",
+      "closing" : {
+        "description" : "Preserve fontes úteis, sua proveniência e a liberdade de usá-las com outras ferramentas.",
+        "heading" : "Mantenha um arquivo de pesquisa que seja portátil."
+      },
+      "demo" : {
+        "captions" : "research-archive-mac.vtt",
+        "poster" : "research-archive-mac-poster.webp",
+        "previewImage" : "06-organize-research",
+        "title" : "Capturar, encontrar, curar e manter pesquisas",
+        "transcript" : [
+          "Capture páginas da web úteis e converta relatórios, apresentações, planilhas, notas, imagens e cópias digitalizadas em Markdown local.",
+          "Pesquise e filtre a Biblioteca, insira a proveniência de uma fonte e visualize seu conteúdo local.",
+          "Organize fontes relacionadas em pacotes salvos ordenados sem movê-las para um formato de arquivo proprietário.",
+          "Edite o Markdown com o aplicativo de sua preferência e use Atualizar e Comparar para revisar as alterações deliberadamente."
+        ],
+        "video" : "research-archive-mac.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "O SourceShelf se concentra na captura, conversão, organização e embalagem de conteúdo de origem. Atualmente, ele não fornece gerenciamento formal de citação ou bibliografia.",
+          "question" : "O SourceShelf substitui um gerenciador de referência?"
+        },
+        {
+          "answer" : "Eles são escritos para a pasta de saída local selecionada pelo usuário.",
+          "question" : "Onde as fontes geradas são armazenadas?"
+        },
+        {
+          "answer" : "Sim. As fontes geradas são arquivos Markdown normais e abrem no editor configurado no seu Mac.",
+          "question" : "Posso abrir o SourceShelf Markdown em outro aplicativo?"
+        },
+        {
+          "answer" : "Não. As fontes da biblioteca permanecem até que o usuário as remova explicitamente.",
+          "question" : "O SourceShelf exclui automaticamente pesquisas antigas?"
+        }
+      ],
+      "hero" : {
+        "description" : "Capture pesquisas na web, converta arquivos comuns, mantenha os resultados como Markdown portáteis e organize o material relacionado em pacotes salvos sem entregar seu arquivo a um serviço de nuvem.",
+        "eyebrow" : "Arquivo de pesquisa local",
+        "title" : "Construa um arquivo de pesquisa que você ainda possa usar anos depois"
+      },
+      "id" : "research-archive",
+      "layout" : "archive",
+      "meta" : {
+        "description" : "Capture páginas da web, converta documentos, preserve a proveniência e organize pesquisas como pacotes Markdown portáteis e focados - tudo localmente no seu Mac.",
+        "socialDescription" : "Capture pesquisas na web, converta documentos, preserve a proveniência e mantenha os resultados como pacotes Markdown portáteis e salvos.",
+        "socialTitle" : "Crie um arquivo de pesquisa local no seu Mac",
+        "title" : "Construa um Arquivo de Pesquisa Local no Mac | SourceShelf"
+      },
+      "related" : [
+        "private-ai-knowledge-base",
+        "safari-markdown",
+        "pdf-to-markdown"
+      ],
+      "route" : "/research-archive-mac/",
+      "screenshots" : [
+        {
+          "alt" : "SourceShelf Biblioteca de pesquisa local com pesquisa, fontes salvas e um espaço de trabalho de inspeção.",
+          "caption" : "Pesquise e insira fontes capturadas e convertidas em uma Biblioteca local.",
+          "image" : "06-organize-research"
+        },
+        {
+          "alt" : "O pacote SourceShelf organiza a navegação de materiais selecionados para vários projetos de pesquisa.",
+          "caption" : "Reutilize a mesma fonte em pacotes ordenados para diferentes projetos.",
+          "image" : "01-private-ai-source-packs"
+        },
+        {
+          "alt" : "SourceShelf detectando fontes de pesquisa alteradas e ausentes através de Atualizar e Comparar.",
+          "caption" : "Entenda as alterações antes de atualizar uma exportação ou instantâneo compartilhado.",
+          "image" : "07-refresh-and-compare"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "Capture uma vez, mantenha o que importa",
+          "id" : "capture-once",
+          "links" : [
+            {
+              "label" : "Capture pesquisas diretamente do Safari",
+              "page" : "safari-markdown"
+            },
+            {
+              "label" : "Converta PDFs e cópias digitalizadas em Markdown local",
+              "page" : "pdf-to-markdown"
+            }
+          ],
+          "paragraphs" : [
+            "Salve uma página da web enquanto ela estiver útil. Converte relatórios, apresentações, planilhas, imagens, notas e documentos digitalizados. O SourceShelf mantém a fonte resultante em sua Biblioteca até que você a remova explicitamente.",
+            "As fontes geradas mantêm a proveniência útil, como o nome do arquivo original ou URL, tipo de fonte e data de captura ou conversão."
+          ]
+        },
+        {
+          "heading" : "Encontre fontes sem lembrar os nomes dos arquivos",
+          "id" : "find-sources",
+          "paragraphs" : [
+            "Pesquise e filtre a Biblioteca por texto, data, fonte, tipo, status, associação ao pacote salvo e outros campos disponíveis. Marque fontes importantes e insira o conteúdo renderizado sem abrir várias aplicações.",
+            "O SourceShelf apenas pré-visualiza conteúdo local e não carrega ativos remotos enquanto renderiza uma fonte."
+          ]
+        },
+        {
+          "heading" : "Organize por projeto, não por localização de armazenamento",
+          "id" : "organize-by-project",
+          "kind" : "callout",
+          "paragraphs" : [
+            "Crie um pacote salvo ordenado para um papel, investigação, cliente, curso ou tópico de longa duração. A mesma fonte pode suportar pacotes diferentes sem ser duplicado em um banco de dados proprietário.",
+            "As referências de fontes ausentes permanecem visíveis para que o usuário possa resolvê-las ou removê-las deliberadamente."
+          ]
+        },
+        {
+          "heading" : "Use suas ferramentas de escrita preferidas",
+          "id" : "writing-tools",
+          "paragraphs" : [
+            "SourceShelf não é um editor completo do Markdown. Abra uma fonte gerada no aplicativo Markdown configurado no seu Mac, faça as alterações lá e volte para o SourceShelf.",
+            "O Refresh & Compare detecta o conteúdo atualizado antes de você exportar ou atualizar o acesso à IA."
+          ]
+        },
+        {
+          "heading" : "Mantenha a propriedade do arquivo",
+          "id" : "ownership",
+          "links" : [
+            {
+              "label" : "Use fontes de arquivo selecionadas como uma base de conhecimento privada de IA",
+              "page" : "private-ai-knowledge-base"
+            }
+          ],
+          "paragraphs" : [
+            "O SourceShelf não corta silenciosamente as entradas mais antigas da Biblioteca ou as carrega para uma conta online. Os pacotes gerados pelo Markdown e exportados permanecem arquivos comuns que podem ser salvos, movidos, inspecionados e usados com outros softwares."
+          ]
+        }
+      ],
+      "trust" : [
+        "Fontes portáteis",
+        "Proveniência visível",
+        "Pesquisa local",
+        "Sem exclusão silenciosa"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Colete páginas da web e formatos de documentos comuns em uma Biblioteca local.",
+            "title" : "Capturar e converter"
+          },
+          {
+            "description" : "Encontre uma fonte, verifique sua proveniência e visualize seu conteúdo.",
+            "title" : "Pesquisar e inspecionar"
+          },
+          {
+            "description" : "Agrupe o material relacionado em coleções ordenadas para pesquisa ou uso de IA.",
+            "title" : "Pacotes de curadoria"
+          },
+          {
+            "description" : "Edite as fontes externamente e use Atualizar e Comparar para entender as alterações.",
+            "title" : "Manter deliberadamente"
+          }
+        ]
+      }
+    },
+    {
+      "campaignKey" : "mcpKnowledgeBase",
+      "closing" : {
+        "description" : "Autorize um instantâneo somente de leitura, use-o com um cliente compatível e revogue o acesso sempre que você quiser.",
+        "heading" : "Conecte um pacote sem expor todo o seu Mac"
+      },
+      "demo" : {
+        "captions" : "mcp-knowledge-base-mac.vtt",
+        "poster" : "mcp-knowledge-base-mac-poster.webp",
+        "previewImage" : "02-local-ai-access",
+        "title" : "Autorizar, pesquisar e revogar um pacote selecionado",
+        "transcript" : [
+          "Salve um pacote focado, reveja os últimos resultados de Confiança e Segurança e autorize-o para Acesso Local de IA.",
+          "Copie a configuração local para um cliente de IA de desktop compatível sem expor os caminhos do sistema de arquivos pessoal.",
+          "O cliente pesquisa a instantânea autorizada e lê apenas recursos de texto limitados e listados como permitidos desse pacote.",
+          "Pare a partilha individual ou desative o Acesso Local à IA para invalidar as configurações copiadas imediatamente."
+        ],
+        "video" : "mcp-knowledge-base-mac.mp4"
+      },
+      "faq" : [
+        {
+          "answer" : "Model Context Protocol é uma maneira padrão de aplicativos compatíveis solicitarem contexto e ferramentas de outro aplicativo. SourceShelf o usa para acesso local, somente leitura a um pacote de conhecimento autorizado.",
+          "question" : "O que significa MCP?"
+        },
+        {
+          "answer" : "Não. SourceShelf expõe apenas a instantânea imutável do pacote salvo que você autoriza.",
+          "question" : "O MCP dá acesso de IA ao meu Mac inteiro?"
+        },
+        {
+          "answer" : "Não. O SourceShelf não fornece ferramentas de gravação, exclusão ou arquivos arbitrários do MCP.",
+          "question" : "A IA pode alterar meus documentos?"
+        },
+        {
+          "answer" : "Potencialmente, quando seu aplicativo desktop suportar a conexão local MCP necessária. Os termos de privacidade e tratamento de dados do próprio cliente de terceiros ainda se aplicam.",
+          "question" : "Um cliente de IA baseado em nuvem pode usar a conexão?"
+        },
+        {
+          "answer" : "Pare a partilha de pacotes individuais ou desative o Acesso Local à IA no SourceShelf. O auxiliar recarrega as informações de autorização para cada solicitação, então o acesso revogado para de funcionar imediatamente.",
+          "question" : "Como eu revogo o acesso?"
+        }
+      ],
+      "hero" : {
+        "description" : "MCP é uma conexão padrão entre aplicativos. SourceShelf usa isso para publicar um pacote de conhecimento salvo como uma instantânea local somente de leitura que um cliente de IA compatível pode pesquisar e ler.",
+        "eyebrow" : "Acesso de conhecimento MCP apenas de leitura",
+        "title" : "Deixe aplicativos de IA compatíveis pesquisarem um pacote - não todo o seu Mac"
+      },
+      "id" : "mcp-knowledge-base",
+      "layout" : "boundary",
+      "meta" : {
+        "description" : "Conecte documentos e pesquisas selecionados e pesquisa a aplicativos de IA compatíveis através do MCP somente de leitura. O SourceShelf compartilha um pacote autorizado - não todo o seu Mac.",
+        "socialDescription" : "Autorize um pacote salvo como uma instantânea local, somente de leitura, que um cliente de IA compatível pode pesquisar e ler.",
+        "socialTitle" : "Deixe aplicativos de IA compatíveis pesquisarem um pacote - não todo o seu Mac",
+        "title" : "Base de conhecimento MCP para Mac | SourceShelf"
+      },
+      "related" : [
+        "private-ai-knowledge-base",
+        "local-ai-packs",
+        "research-archive"
+      ],
+      "route" : "/mcp-knowledge-base-mac/",
+      "screenshots" : [
+        {
+          "alt" : "Um pacote salvo do SourceShelf autorizado para acesso local de IA somente leitura em um Mac.",
+          "caption" : "Compartilhe uma instantânea de pacote salvo através de uma conexão local, somente leitura.",
+          "image" : "02-local-ai-access"
+        },
+        {
+          "alt" : "Os resultados de Confiança e Segurança do SourceShelf são exibidos antes que um pacote seja autorizado para acesso local à IA.",
+          "caption" : "Revise os controles de aconselhamento conservadores antes de publicar uma instantânea.",
+          "image" : "03-review-before-sharing"
+        },
+        {
+          "alt" : "Configurações de privacidade do SourceShelf explicando o processamento local e o acesso controlado à IA.",
+          "caption" : "Desative o acesso ou pare uma partilha individual sempre que necessário.",
+          "image" : "09-private-by-design"
+        }
+      ],
+      "sections" : [
+        {
+          "heading" : "MCP sem o jargão",
+          "id" : "without-jargon",
+          "paragraphs" : [
+            "Um aplicativo de IA compatível às vezes precisa de uma maneira de solicitar informações de outro aplicativo. O Model Context Protocol fornece essa conexão.",
+            "Com o SourceShelf, você escolhe um pacote salvo e o autoriza para Acesso Local de IA. O cliente de IA pode então pedir ao SourceShelf para encontrar passagens relevantes e ler recursos de texto aprovados desse pacote."
+          ]
+        },
+        {
+          "heading" : "Um limite de pacote que você pode entender",
+          "id" : "pack-boundary",
+          "kind" : "callout",
+          "paragraphs" : [
+            "SourceShelf não expõe a Biblioteca ao vivo nem fornece ao cliente uma ferramenta geral de sistema de arquivos. Ele cria uma cópia imutável do pacote selecionado sob um identificador de autorização aleatório.",
+            "A captura de tela contém Markdown copiado, imagens locais referenciadas, um catálogo, soma de verificação e uma lista de permissões. Exclui caminhos originais, caminhos de pastas de saída, marcadores de segurança e todas as fontes da Biblioteca fora do pacote."
+          ]
+        },
+        {
+          "heading" : "Pesquise primeiro, leia apenas o que é necessário",
+          "id" : "search-first",
+          "paragraphs" : [
+            "Um cliente compatível primeiro pede ao SourceShelf para encontrar passagens relevantes dentro do pacote autorizado. Ele pode então ler uma fonte de texto aprovada em páginas limitadas em vez de carregar todos os documentos de uma vez."
+          ]
+        },
+        {
+          "heading" : "Detalhes avançados do MCP",
+          "id" : "advanced-mcp",
+          "items" : [
+            "search_pack encontra passagens relevantes conscientes da estrutura dentro do pacote autorizado.",
+            "read_pack_resource lê uma fonte de texto listada como permitida em páginas limitadas.",
+            "O assistente não fornece prompts, assinaturas, ferramentas de escrita, caminhos arbitrários, recuperação remota ou ouvinte de rede.",
+            "O cliente de IA compatível inicia o auxiliar localmente e o SourceShelf recarrega as informações de autorização para cada solicitação."
+          ],
+          "kind" : "details",
+          "summary" : "Veja as ferramentas de leitura exclusiva exatas e o limite de conexão"
+        },
+        {
+          "heading" : "Sem acesso de escrita e sem servidor de rede",
+          "id" : "no-write-access",
+          "paragraphs" : [
+            "O auxiliar SourceShelf MCP não pode editar fontes, excluir arquivos, recuperar conteúdo remoto, navegar por caminhos arbitrários ou ouvir por conexões de rede. Ele se comunica localmente através de um comando iniciado pelo cliente de IA compatível.",
+            "Parar uma partilha ou desativar o MCP invalida a configuração copiada imediatamente."
+          ]
+        },
+        {
+          "heading" : "Modelos locais ou baseados em nuvem continuam sendo sua escolha.",
+          "id" : "model-choice",
+          "links" : [
+            {
+              "label" : "Veja como o conhecimento selecionado se torna uma base de conhecimento privada de IA",
+              "page" : "private-ai-knowledge-base"
+            },
+            {
+              "label" : "Construa o pacote focado antes de conectá-lo",
+              "page" : "local-ai-packs"
+            },
+            {
+              "label" : "Mantenha as fontes subjacentes em um arquivo local",
+              "page" : "research-archive"
+            }
+          ],
+          "paragraphs" : [
+            "MCP conecta o cliente de IA de desktop ao SourceShelf. O cliente pode usar um modelo executado no Mac ou um modelo baseado em nuvem.",
+            "O SourceShelf controla a conexão de conhecimento local, mas não controla a política de privacidade ou o tratamento de dados do cliente de IA de terceiros que você escolher."
+          ]
+        }
+      ],
+      "trust" : [
+        "Autorização explícita",
+        "Acesso em escopo de pacote",
+        "Sem ferramentas de escrita",
+        "Revogável a qualquer momento"
+      ],
+      "workflow" : {
+        "steps" : [
+          {
+            "description" : "Crie e salve uma coleção focada de fontes legíveis.",
+            "title" : "Economize um pacote"
+          },
+          {
+            "description" : "Revise os resultados de Confiança e Segurança e publique uma captura de tela somente de leitura.",
+            "title" : "Autorizar acesso local à IA"
+          },
+          {
+            "description" : "Copie a configuração ou o comando local para o cliente.",
+            "title" : "Configurar um cliente compatível"
+          },
+          {
+            "description" : "Deixe o cliente pesquisar o pacote selecionado e pare de compartilhar sempre que o acesso não for mais necessário.",
+            "title" : "Pesquisar e revogar"
+          }
+        ]
+      }
+    }
+  ],
+  "shared" : {
+    "advanced" : "Detalhes avançados",
+    "close" : "fechar",
+    "closeLabel" : "Fechar imagem em tela cheia",
+    "demoEyebrow" : "Demonstração do produto",
+    "demoNotice" : "Um vídeo específico para cada página está em produção. Esta prévia usa a interface atual do SourceShelf e a transcrição planejada abaixo descreve o fluxo de trabalho exato que a demonstração final mostrará.",
+    "demoPlanned" : "Demonstração planejada",
+    "faqEyebrow" : "Perguntas comuns",
+    "faqTitle" : "O que saber antes de começar",
+    "fit" : "Adequado para tela",
+    "home" : "casa",
+    "relatedEyebrow" : "Casos de uso relacionados",
+    "relatedTitle" : "Continue explorando SourceShelf",
+    "screenshotViewer" : "Visualizador de captura de tela",
+    "seeHow" : "Veja como funciona",
+    "sourceShelfUseCases" : "Casos de uso do SourceShelf",
+    "transcriptTitle" : "Transcrição da demonstração planejada",
+    "trustLabel" : "Princípios de confiança SourceShelf",
+    "viewFullScreen" : "Ver imagem em tela cheia",
+    "viewLarger" : "Ver maior",
+    "viewOnAppStore" : "Ver na App Store",
+    "viewOnAppStoreLabel" : "Veja SourceShelf na Mac App Store",
+    "waysToUse" : "Maneiras de usar SourceShelf",
+    "waysToUseIntro" : "Comece com o fluxo de trabalho que corresponde ao conhecimento que você deseja capturar, organizar ou conectar.",
+    "workflowEyebrow" : "Como funciona",
+    "workflowTitle" : "Um fluxo de trabalho claro da fonte ao contexto útil",
+    "zoom" : "Ver resolução completa"
+  }
+}

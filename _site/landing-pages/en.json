@@ -1,0 +1,723 @@
+{
+  "code": "en",
+  "nativeName": "English",
+  "shared": {
+    "home": "Home",
+    "waysToUse": "Ways to use SourceShelf",
+    "waysToUseIntro": "Start with the workflow that matches the knowledge you want to capture, organize, or connect.",
+    "viewOnAppStore": "View on the App Store",
+    "viewOnAppStoreLabel": "View SourceShelf on the Mac App Store",
+    "seeHow": "See how it works",
+    "workflowEyebrow": "How it works",
+    "workflowTitle": "A clear workflow from source to useful context",
+    "faqEyebrow": "Common questions",
+    "faqTitle": "What to know before you begin",
+    "relatedEyebrow": "Related use cases",
+    "relatedTitle": "Keep exploring SourceShelf",
+    "demoEyebrow": "Product demonstration",
+    "demoPlanned": "Demonstration planned",
+    "demoNotice": "A page-specific video is in production. This preview uses the current SourceShelf interface and the planned transcript below describes the exact workflow the finished demonstration will show.",
+    "transcriptTitle": "Planned demonstration transcript",
+    "screenshotViewer": "Screenshot viewer",
+    "viewLarger": "View larger",
+    "viewFullScreen": "View full-screen image",
+    "close": "Close",
+    "closeLabel": "Close full-screen image",
+    "zoom": "View full resolution",
+    "fit": "Fit to screen",
+    "trustLabel": "SourceShelf trust principles",
+    "advanced": "Advanced details",
+    "sourceShelfUseCases": "SourceShelf use cases"
+  },
+  "pages": [
+    {
+      "id": "private-ai-knowledge-base",
+      "route": "/private-ai-knowledge-base-mac/",
+      "campaignKey": "privateAIKnowledgeBase",
+      "layout": "pillar",
+      "meta": {
+        "title": "Private AI Knowledge Base for Mac | SourceShelf",
+        "description": "Turn documents, webpages, and research into a private AI knowledge base on your Mac. Build focused packs and share only what you choose with compatible AI apps.",
+        "socialTitle": "Turn your Mac into a private AI knowledge base",
+        "socialDescription": "Capture, convert, organize, and connect selected knowledge with local processing and read-only AI access."
+      },
+      "hero": {
+        "eyebrow": "Private AI knowledge base for Mac",
+        "title": "Turn your Mac into a private AI knowledge base",
+        "description": "SourceShelf captures webpages, converts documents into structured Markdown, and lets you build focused knowledge packs for compatible AI apps. Everything is prepared locally, and you decide exactly what AI can read."
+      },
+      "trust": ["Local processing", "Read-only AI access", "Portable Markdown", "No analytics"],
+      "screenshots": [
+        {
+          "image": "01-private-ai-source-packs",
+          "alt": "SourceShelf Packs workspace showing saved knowledge packs, ordered sources, and a source preview.",
+          "caption": "Bring selected sources together in an ordered, reusable pack."
+        },
+        {
+          "image": "02-local-ai-access",
+          "alt": "SourceShelf Local AI Access screen showing a selected pack shared as a read-only snapshot.",
+          "caption": "Authorize one saved pack for read-only local access."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "alt": "SourceShelf comparison results identifying changed and missing knowledge-pack sources.",
+          "caption": "Review changes before refreshing an export or shared snapshot."
+        }
+      ],
+      "demo": {
+        "title": "From scattered sources to selected AI context",
+        "previewImage": "01-private-ai-source-packs",
+        "video": "private-ai-knowledge-base.mp4",
+        "poster": "private-ai-knowledge-base-poster.webp",
+        "captions": "private-ai-knowledge-base.vtt",
+        "transcript": [
+          "Begin by saving a useful webpage or converting documents and scans into local Markdown.",
+          "Search the SourceShelf Library, choose the sources that matter, and arrange them into an ordered saved pack.",
+          "Export the pack as portable context or authorize an immutable, read-only snapshot for a compatible AI client.",
+          "Use Refresh & Compare later to review changes, and revoke Local AI Access whenever the share is no longer needed."
+        ]
+      },
+      "sections": [
+        {
+          "id": "bring-knowledge-together",
+          "heading": "Bring scattered knowledge together",
+          "paragraphs": [
+            "Useful information rarely lives in one place. It is spread across reports, PDFs, slide decks, spreadsheets, scanned pages, notes, and browser tabs. SourceShelf brings those materials into a searchable local Library while preserving where each source came from.",
+            "Save a useful article from Safari, convert a folder of project documents, or use local OCR on a scanned PDF. SourceShelf turns the result into structured Markdown that remains accessible outside the app."
+          ],
+          "links": [
+            {"page": "pdf-to-markdown", "label": "See how local PDF conversion works"},
+            {"page": "safari-markdown", "label": "Explore Safari webpage capture"}
+          ]
+        },
+        {
+          "id": "focused-packs",
+          "heading": "Create focused packs for real work",
+          "paragraphs": [
+            "Build an ordered knowledge pack for a research project, course, client, investigation, or recurring task. Include only the sources that matter and arrange them in the order that makes sense.",
+            "A focused pack gives a compatible AI assistant relevant material without exposing the rest of your Library or repeatedly attaching the same files."
+          ],
+          "links": [
+            {"page": "local-ai-packs", "label": "Create focused AI reference packs"},
+            {"page": "research-archive", "label": "Build a durable local research archive"}
+          ]
+        },
+        {
+          "id": "choose-ai",
+          "heading": "Use the AI you choose",
+          "paragraphs": [
+            "SourceShelf is not another AI chatbot and does not lock your knowledge to one model. A compatible AI client on your Mac can connect to a saved pack through read-only Model Context Protocol access.",
+            "The client may use a model running locally on your Mac or a cloud-backed model. SourceShelf itself does not upload the pack or call an AI service."
+          ],
+          "links": [
+            {"page": "mcp-knowledge-base", "label": "Understand read-only MCP knowledge access"}
+          ]
+        },
+        {
+          "id": "approved-pack",
+          "heading": "Only the pack you approve",
+          "kind": "callout",
+          "paragraphs": [
+            "Each Local AI authorization creates an immutable snapshot containing only the saved pack you selected. AI clients can search that snapshot and read bounded passages, but they cannot change your sources or browse arbitrary files.",
+            "Original file paths, security bookmarks, output-folder locations, and unselected Library items are not included. Stop sharing the pack at any time to invalidate the connection."
+          ]
+        },
+        {
+          "id": "open-files",
+          "heading": "Open files, not a closed vault",
+          "paragraphs": [
+            "SourceShelf's generated sources are ordinary Markdown files. Open them in your preferred editor, make changes, and return to SourceShelf when you are ready.",
+            "Refresh & Compare shows what was added, changed, removed, or left unchanged before you update an export or shared AI snapshot."
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Capture", "description": "Save a webpage or convert documents, folders, images, and scanned PDFs."},
+          {"title": "Curate", "description": "Search your Library and create a focused, ordered knowledge pack."},
+          {"title": "Connect", "description": "Export a portable reference pack or share the saved pack read-only with a compatible AI client."}
+        ]
+      },
+      "faq": [
+        {"question": "Does SourceShelf include an AI model?", "answer": "No. SourceShelf prepares and organizes knowledge for compatible AI applications. You remain free to choose the local or cloud-backed model you use."},
+        {"question": "Does SourceShelf upload my documents?", "answer": "No. SourceShelf performs its own capture, conversion, OCR, organization, and export work locally on your Mac."},
+        {"question": "Can a smaller local model use a SourceShelf pack?", "answer": "Yes, when the model is used through a compatible AI client. SourceShelf provides focused search results and bounded source passages so the client does not need to load every document at once."},
+        {"question": "Can an AI client edit or delete my sources?", "answer": "No. SourceShelf's MCP access is read-only and limited to the immutable snapshot of the pack you authorize."}
+      ],
+      "related": ["pdf-to-markdown", "local-ai-packs", "mcp-knowledge-base"],
+      "closing": {
+        "heading": "Build a private knowledge base from the sources you trust",
+        "description": "Keep your knowledge local, portable, and deliberately scoped for the AI workflow you choose."
+      }
+    },
+    {
+      "id": "pdf-to-markdown",
+      "route": "/pdf-to-markdown-mac/",
+      "campaignKey": "pdfToMarkdown",
+      "layout": "document",
+      "meta": {
+        "title": "Convert PDF to Markdown on Mac | SourceShelf",
+        "description": "Convert text PDFs and scanned documents into structured Markdown on your Mac. Use local OCR, inspect the result, and keep complete control of your files.",
+        "socialTitle": "Convert PDFs to useful Markdown on your Mac",
+        "socialDescription": "Extract text or use local Apple OCR, then inspect, edit, archive, or add the Markdown to a focused pack."
+      },
+      "hero": {
+        "eyebrow": "Local PDF conversion",
+        "title": "Convert PDFs to useful Markdown—entirely on your Mac",
+        "description": "Drop in a text PDF or a scanned document. SourceShelf extracts readable content, uses local Apple OCR when needed, and creates a Markdown file you can inspect, edit, archive, or add to an AI knowledge pack."
+      },
+      "trust": ["Local OCR", "No uploads", "Normal Markdown files", "Batch-friendly"],
+      "screenshots": [
+        {
+          "image": "04-convert-files-for-ai",
+          "alt": "A PDF document ready for local Markdown conversion in SourceShelf.",
+          "caption": "Convert individual PDFs or process supported files in batches."
+        }
+      ],
+      "demo": {
+        "title": "A local PDF conversion from start to finish",
+        "previewImage": "04-convert-files-for-ai",
+        "video": "pdf-to-markdown-mac.mp4",
+        "poster": "pdf-to-markdown-mac-poster.webp",
+        "captions": "pdf-to-markdown-mac.vtt",
+        "transcript": [
+          "Drop a text PDF or scanned PDF onto the SourceShelf Convert screen.",
+          "SourceShelf extracts selectable text or uses Apple's local document recognition when usable text is unavailable.",
+          "Inspect the rendered result and Markdown source, then correct complex layouts or low-quality OCR when needed.",
+          "Open the normal Markdown file in another editor or add it to a saved knowledge pack."
+        ]
+      },
+      "sections": [
+        {
+          "id": "text-and-scanned",
+          "heading": "Text PDFs and scanned PDFs",
+          "paragraphs": [
+            "SourceShelf handles PDFs that already contain selectable text and image-only PDFs that require OCR. When no usable text is available, it uses Apple's local document-recognition technology on your Mac.",
+            "The document does not need to be sent to an online converter or external OCR service."
+          ]
+        },
+        {
+          "id": "useful-structure",
+          "heading": "Useful structure, not just a text dump",
+          "kind": "callout",
+          "paragraphs": [
+            "SourceShelf builds a semantic representation of the document before rendering Markdown. Where the source allows it, the result retains useful elements such as headings, paragraphs, lists, tables, code, quotations, captions, images, and page boundaries.",
+            "Complex layouts and imperfect scans can still require correction, but the result is designed to be readable, inspectable, and portable."
+          ]
+        },
+        {
+          "id": "markdown-yours",
+          "heading": "Your Markdown remains yours",
+          "paragraphs": [
+            "Generated Markdown is written to the output folder you choose. Open it in your preferred Markdown editor, reveal it in Finder, or use it with other tools.",
+            "SourceShelf detects external edits and regenerates its local semantic cache without overwriting the changes you made."
+          ],
+          "links": [
+            {"page": "research-archive", "label": "Keep converted documents in a local research archive"}
+          ]
+        },
+        {
+          "id": "ai-context",
+          "heading": "From document to AI context",
+          "paragraphs": [
+            "Add converted reports, papers, manuals, and scans to a focused SourceShelf pack. You can then export the pack as portable AI context or allow a compatible AI client to search it through read-only MCP access."
+          ],
+          "links": [
+            {"page": "private-ai-knowledge-base", "label": "See the complete private knowledge-base workflow"},
+            {"page": "local-ai-packs", "label": "Turn selected documents into an AI reference pack"}
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Drop in a PDF", "description": "Drag a PDF onto SourceShelf or select multiple files and folders."},
+          {"title": "Convert locally", "description": "SourceShelf extracts selectable text or runs local OCR when required."},
+          {"title": "Review and use", "description": "Inspect the result, edit it externally, or add it to a saved knowledge pack."}
+        ]
+      },
+      "faq": [
+        {"question": "Does PDF conversion require an internet connection?", "answer": "No. SourceShelf performs PDF extraction and OCR locally."},
+        {"question": "Can it convert scanned PDFs?", "answer": "Yes. SourceShelf can use local Apple OCR when a PDF has no selectable text."},
+        {"question": "Will every complex layout be reproduced perfectly?", "answer": "No. OCR and document reconstruction can require correction, particularly with low-quality scans or complex multi-column layouts. SourceShelf preserves useful structure where extraction allows it."},
+        {"question": "Can I edit the Markdown afterward?", "answer": "Yes. The result is a normal Markdown file that opens in your configured editor."}
+      ],
+      "related": ["private-ai-knowledge-base", "local-ai-packs", "research-archive"],
+      "closing": {
+        "heading": "Turn the PDFs you already have into portable Markdown",
+        "description": "Convert locally, review the result, and decide where the finished source belongs."
+      }
+    },
+    {
+      "id": "safari-markdown",
+      "route": "/save-webpages-as-markdown-safari/",
+      "campaignKey": "safariMarkdownCapture",
+      "layout": "capture",
+      "meta": {
+        "title": "Save Webpages as Markdown in Safari | SourceShelf",
+        "description": "Capture full webpages, articles, selections, highlights, and visible areas from Safari. Save them locally as Markdown and add them to your research or AI packs.",
+        "socialTitle": "Save the part of a webpage you actually need",
+        "socialDescription": "Capture full pages, articles, selections, areas, or ordered highlights from Safari and keep them as local Markdown."
+      },
+      "hero": {
+        "eyebrow": "Safari web capture",
+        "title": "Save the part of a webpage you actually need",
+        "description": "Capture a full page, the main article, selected text, a visible area, or a set of ordered highlights with a research note. SourceShelf turns the result into local Markdown with clear source provenance."
+      },
+      "trust": ["Safari extension", "Local capture", "Flexible recipes", "No cloud account"],
+      "screenshots": [
+        {
+          "image": "05-capture-from-safari",
+          "alt": "SourceShelf Safari extension offering full-page, main-content, selected-text, and selected-area capture.",
+          "caption": "Choose the capture mode that matches the material you need."
+        },
+        {
+          "image": "06-organize-research",
+          "alt": "A locally saved Safari capture organized in the SourceShelf Library.",
+          "caption": "Search and reuse captured web research alongside converted files."
+        }
+      ],
+      "demo": {
+        "title": "From a Safari page to a reusable local source",
+        "previewImage": "05-capture-from-safari",
+        "video": "save-webpages-safari.mp4",
+        "poster": "save-webpages-safari-poster.webp",
+        "captions": "save-webpages-safari.vtt",
+        "transcript": [
+          "Open the SourceShelf Safari extension and choose the full page, main article, selected text, visible area, or Research Highlights mode.",
+          "For research highlights, collect several passages in a deliberate order and add an optional note explaining why they matter.",
+          "Review the capture when the recipe requests it, then save local Markdown with source provenance and applicable assets.",
+          "Find the capture in the Library and combine it with related documents in a focused pack."
+        ]
+      },
+      "sections": [
+        {
+          "id": "more-than-bookmark",
+          "heading": "Capture more than a bookmark",
+          "paragraphs": [
+            "A bookmark points to a page that may later move, change, or disappear. SourceShelf saves the material you need as a local source you can search, inspect, edit, and include in a knowledge pack.",
+            "Choose the entire page, detected main content, selected text, or a selected visible area."
+          ]
+        },
+        {
+          "id": "research-highlights",
+          "heading": "Collect highlights as you research",
+          "kind": "callout",
+          "paragraphs": [
+            "Research Highlights lets you collect multiple passages from one page in a deliberate order and add an optional note explaining why they matter.",
+            "The resulting Markdown keeps the captured content together with its source URL and capture details."
+          ]
+        },
+        {
+          "id": "capture-recipes",
+          "heading": "Create repeatable capture recipes",
+          "paragraphs": [
+            "Recipes can choose a filename and destination folder, set a default capture mode, control image and link behavior, add custom metadata, request review before saving, and apply rules to particular websites.",
+            "Quick Capture lets frequently used recipes run with less interruption while you browse."
+          ]
+        },
+        {
+          "id": "web-to-context",
+          "heading": "Move from web research to AI-ready context",
+          "paragraphs": [
+            "Captured webpages appear in the same SourceShelf Library as converted files. Combine an article with reports, notes, spreadsheets, or scanned material in one ordered pack.",
+            "Export the pack or make it available read-only to a compatible AI client without giving the client access to your browsing history or unrelated Library sources."
+          ],
+          "links": [
+            {"page": "private-ai-knowledge-base", "label": "Build a private AI knowledge base from captured sources"},
+            {"page": "research-archive", "label": "Preserve web research in a local archive"},
+            {"page": "local-ai-packs", "label": "Package selected captures for an AI workflow"}
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Choose what matters", "description": "Select the full page, main article, text selection, area, or highlights."},
+          {"title": "Save it locally", "description": "SourceShelf creates local Markdown with provenance and archived assets where applicable."},
+          {"title": "Add it to a pack", "description": "Combine the capture with related documents and use it as focused AI or research context."}
+        ]
+      },
+      "faq": [
+        {"question": "Does SourceShelf save only full webpages?", "answer": "No. You can capture the full page, detected main content, selected text, a visible area, or multiple research highlights."},
+        {"question": "Can I review a capture before saving it?", "answer": "Yes. A recipe can place captures in a local review queue so you can edit the Markdown, destination, notes, and custom fields first."},
+        {"question": "Does SourceShelf upload captured pages?", "answer": "No. Safari captures are processed and saved locally."},
+        {"question": "Can captures be combined with PDFs and Office documents?", "answer": "Yes. Safari captures and converted files coexist in the Library and can be added to the same saved pack."}
+      ],
+      "related": ["private-ai-knowledge-base", "research-archive", "local-ai-packs"],
+      "closing": {
+        "heading": "Keep useful web research after the tab closes",
+        "description": "Capture only what matters and keep it as local, inspectable Markdown."
+      }
+    },
+    {
+      "id": "local-ai-packs",
+      "route": "/local-ai-reference-packs/",
+      "campaignKey": "localAIReferencePacks",
+      "layout": "formats",
+      "meta": {
+        "title": "Create AI Reference Packs for Local Models | SourceShelf",
+        "description": "Create focused, portable reference packs for local AI models. Combine selected sources, include retrieval-ready chunks, or share a pack read-only through MCP.",
+        "socialTitle": "Give AI a focused reference pack",
+        "socialDescription": "Select and arrange the sources that matter, then export portable context or share the saved pack read-only."
+      },
+      "hero": {
+        "eyebrow": "Focused context for AI",
+        "title": "Give AI a focused reference pack, not an unstructured folder",
+        "description": "Choose the sources that matter, arrange them into a clear pack, and export portable AI context—or let a compatible AI client search the pack through a read-only local connection."
+      },
+      "trust": ["Model-independent", "Optional retrieval chunks", "Portable formats", "Read-only sharing"],
+      "screenshots": [
+        {
+          "image": "01-private-ai-source-packs",
+          "alt": "A focused SourceShelf AI reference pack containing selected documents and webpage captures.",
+          "caption": "Choose and order only the sources relevant to the task."
+        },
+        {
+          "image": "08-export-workflows",
+          "alt": "SourceShelf export choices for AI Reference Pack, Markdown, llms.txt, and OKF workflows.",
+          "caption": "Choose a portable format that fits the next workflow."
+        },
+        {
+          "image": "02-local-ai-access",
+          "alt": "SourceShelf publishing a saved AI reference pack through read-only Local AI Access.",
+          "caption": "Connect a saved pack directly without exposing the rest of the Library."
+        }
+      ],
+      "demo": {
+        "title": "Build, export, and maintain a focused reference pack",
+        "previewImage": "08-export-workflows",
+        "video": "local-ai-reference-packs.mp4",
+        "poster": "local-ai-reference-packs-poster.webp",
+        "captions": "local-ai-reference-packs.vtt",
+        "transcript": [
+          "Select the documents and webpage captures that belong to one task, then arrange them in a useful order.",
+          "Review the pack size and choose a portable AI Reference Pack, Markdown Context Pack, llms.txt collection, or OKF bundle.",
+          "Alternatively, authorize Local AI Access so a compatible client can search and read a saved-pack snapshot.",
+          "Use Refresh & Compare later to understand source and ordering changes before deliberately publishing an update."
+        ]
+      },
+      "sections": [
+        {
+          "id": "smaller-models",
+          "heading": "Help smaller models find the right material",
+          "kind": "callout",
+          "paragraphs": [
+            "A local model often has less available context than a large hosted model. Instead of handing it every file in a project, SourceShelf lets you create a focused pack containing only the sources relevant to the task.",
+            "Compatible clients can search the pack and request bounded passages, helping the model use its available context on the material that matters. This can help, but it does not guarantee a better or more accurate answer."
+          ]
+        },
+        {
+          "id": "several-workflows",
+          "heading": "One source collection, several workflows",
+          "paragraphs": [
+            "Use an AI Reference Pack ZIP for project workspaces and AI chats, a Markdown Context Pack for portable one-file context, an llms.txt Collection Folder for an open local collection, or an OKF bundle for standards-based catalogs and agents."
+          ]
+        },
+        {
+          "id": "advanced-formats",
+          "heading": "Advanced formats",
+          "kind": "details",
+          "summary": "Compare the portable formats",
+          "items": [
+            "AI Reference Pack ZIP: a structured bundle for project workspaces and AI-assisted tasks.",
+            "Markdown Context Pack: one portable Markdown file containing the selected source material.",
+            "llms.txt Collection Folder: an open local collection organized around llms.txt conventions.",
+            "OKF bundle: a standards-based catalog and source package for compatible tools and agents."
+          ]
+        },
+        {
+          "id": "retrieval-ready",
+          "heading": "Retrieval-ready without model lock-in",
+          "paragraphs": [
+            "AI Reference Packs can include structure-aware chunks with stable IDs, heading ancestry, provenance, hashes, and asset references.",
+            "SourceShelf does not create proprietary indexes or model-specific embeddings. The original Markdown remains usable with other tools and future workflows."
+          ]
+        },
+        {
+          "id": "export-or-connect",
+          "heading": "Export a pack or connect it directly",
+          "paragraphs": [
+            "Export when you need a portable artifact. Use Local AI Access when a compatible client should search and read a saved pack directly.",
+            "Local AI Access creates a read-only snapshot rather than exposing live original files. SourceShelf refreshes a shared snapshot only when a fresh Trust & Safety result is available and the update is allowed."
+          ],
+          "links": [
+            {"page": "mcp-knowledge-base", "label": "Learn how pack-scoped MCP access works"}
+          ]
+        },
+        {
+          "id": "context-changed",
+          "heading": "Know when your context changed",
+          "paragraphs": [
+            "After an export, Refresh & Compare records a local baseline and reports new, changed, missing, unchanged, and removed sources along with ordering changes.",
+            "This makes it easier to understand whether an AI reference pack still represents the current state of your research."
+          ],
+          "links": [
+            {"page": "private-ai-knowledge-base", "label": "See the full private knowledge-base workflow"},
+            {"page": "research-archive", "label": "Maintain a reusable local research archive"}
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Select", "description": "Choose the documents and captures that relate to one topic or task."},
+          {"title": "Arrange", "description": "Order the sources and inspect the estimated context size."},
+          {"title": "Export or connect", "description": "Create a portable pack or authorize read-only access for a compatible AI client."},
+          {"title": "Refresh", "description": "Compare the pack later and deliberately publish or export the changes."}
+        ]
+      },
+      "faq": [
+        {"question": "Does SourceShelf run a local AI model?", "answer": "No. It prepares and serves selected source material to compatible AI clients. You choose the model and client."},
+        {"question": "Does SourceShelf create embeddings?", "answer": "No. It can create structured retrieval chunks, but it does not bundle model-specific embeddings."},
+        {"question": "What is the difference between export and Local AI Access?", "answer": "An export creates a portable file or folder. Local AI Access lets a compatible client search and read an authorized saved-pack snapshot on your Mac."},
+        {"question": "Can an AI client see the rest of my Library?", "answer": "No. The client receives access only to the snapshot of the saved pack you explicitly authorize."}
+      ],
+      "related": ["private-ai-knowledge-base", "mcp-knowledge-base", "research-archive"],
+      "closing": {
+        "heading": "Prepare focused context without locking it to one model",
+        "description": "Keep the source Markdown portable and choose whether to export or connect each saved pack."
+      }
+    },
+    {
+      "id": "research-archive",
+      "route": "/research-archive-mac/",
+      "campaignKey": "researchArchive",
+      "layout": "archive",
+      "meta": {
+        "title": "Build a Local Research Archive on Mac | SourceShelf",
+        "description": "Capture webpages, convert documents, preserve provenance, and organize research as portable Markdown and focused packs—all locally on your Mac.",
+        "socialTitle": "Build a local research archive on your Mac",
+        "socialDescription": "Capture web research, convert documents, preserve provenance, and keep the results as portable Markdown and saved packs."
+      },
+      "hero": {
+        "eyebrow": "Local research archive",
+        "title": "Build a research archive you can still use years from now",
+        "description": "Capture web research, convert common files, keep the results as portable Markdown, and organize related material into saved packs without handing your archive to a cloud service."
+      },
+      "trust": ["Portable sources", "Visible provenance", "Local search", "No silent deletion"],
+      "screenshots": [
+        {
+          "image": "06-organize-research",
+          "alt": "SourceShelf local research Library with search, saved sources, and an inspection workspace.",
+          "caption": "Search and inspect captured and converted sources in one local Library."
+        },
+        {
+          "image": "01-private-ai-source-packs",
+          "alt": "SourceShelf pack navigation organizing selected material for several research projects.",
+          "caption": "Reuse the same source in ordered packs for different projects."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "alt": "SourceShelf detecting changed and missing research sources through Refresh & Compare.",
+          "caption": "Understand changes before updating an export or shared snapshot."
+        }
+      ],
+      "demo": {
+        "title": "Capture, find, curate, and maintain research",
+        "previewImage": "06-organize-research",
+        "video": "research-archive-mac.mp4",
+        "poster": "research-archive-mac-poster.webp",
+        "captions": "research-archive-mac.vtt",
+        "transcript": [
+          "Capture useful webpages and convert reports, presentations, spreadsheets, notes, images, and scans into local Markdown.",
+          "Search and filter the Library, inspect a source's provenance, and preview its local content.",
+          "Arrange related sources into ordered saved packs without moving them into a proprietary archive format.",
+          "Edit Markdown with your preferred application and use Refresh & Compare to review changes deliberately."
+        ]
+      },
+      "sections": [
+        {
+          "id": "capture-once",
+          "heading": "Capture once, keep what matters",
+          "paragraphs": [
+            "Save a webpage while it is useful. Convert reports, slides, spreadsheets, images, notes, and scanned documents. SourceShelf keeps the resulting source in your Library until you explicitly remove it.",
+            "Generated sources retain useful provenance such as the original filename or URL, source type, and capture or conversion date."
+          ],
+          "links": [
+            {"page": "safari-markdown", "label": "Capture research directly from Safari"},
+            {"page": "pdf-to-markdown", "label": "Convert PDFs and scans into local Markdown"}
+          ]
+        },
+        {
+          "id": "find-sources",
+          "heading": "Find sources without remembering filenames",
+          "paragraphs": [
+            "Search and filter the Library by text, date, source, type, status, saved-pack membership, and other available fields. Star important sources and inspect the rendered content without opening several applications.",
+            "SourceShelf previews only local content and does not fetch remote assets while rendering a source."
+          ]
+        },
+        {
+          "id": "organize-by-project",
+          "heading": "Organize by project, not storage location",
+          "kind": "callout",
+          "paragraphs": [
+            "Create an ordered saved pack for a paper, investigation, client, course, or long-running topic. The same source can support different packs without being duplicated into a proprietary database.",
+            "Missing source references remain visible so the user can resolve or remove them deliberately."
+          ]
+        },
+        {
+          "id": "writing-tools",
+          "heading": "Use your preferred writing tools",
+          "paragraphs": [
+            "SourceShelf is not a full Markdown editor. Open a generated source in the Markdown application configured on your Mac, make the changes there, and return to SourceShelf.",
+            "Refresh & Compare detects the updated content before you export or refresh AI access."
+          ]
+        },
+        {
+          "id": "ownership",
+          "heading": "Keep ownership of the archive",
+          "paragraphs": [
+            "SourceShelf does not silently prune older Library entries or upload them to an online account. Generated Markdown and exported packs remain ordinary files that can be backed up, moved, inspected, and used with other software."
+          ],
+          "links": [
+            {"page": "private-ai-knowledge-base", "label": "Use selected archive sources as a private AI knowledge base"}
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Capture and convert", "description": "Collect webpages and common document formats in one local Library."},
+          {"title": "Search and inspect", "description": "Find a source, check its provenance, and preview its content."},
+          {"title": "Curate packs", "description": "Group related material into ordered collections for research or AI use."},
+          {"title": "Maintain deliberately", "description": "Edit sources externally and use Refresh & Compare to understand changes."}
+        ]
+      },
+      "faq": [
+        {"question": "Does SourceShelf replace a reference manager?", "answer": "SourceShelf focuses on capturing, converting, organizing, and packaging source content. It does not currently provide formal citation-style or bibliography management."},
+        {"question": "Where are generated sources stored?", "answer": "They are written to the local output folder selected by the user."},
+        {"question": "Can I open SourceShelf Markdown in another app?", "answer": "Yes. Generated sources are normal Markdown files and open in the editor configured on your Mac."},
+        {"question": "Does SourceShelf automatically delete old research?", "answer": "No. Library sources remain until the user explicitly removes them."}
+      ],
+      "related": ["private-ai-knowledge-base", "safari-markdown", "pdf-to-markdown"],
+      "closing": {
+        "heading": "Keep a research archive that stays portable",
+        "description": "Preserve useful sources, their provenance, and the freedom to use them with other tools."
+      }
+    },
+    {
+      "id": "mcp-knowledge-base",
+      "route": "/mcp-knowledge-base-mac/",
+      "campaignKey": "mcpKnowledgeBase",
+      "layout": "boundary",
+      "meta": {
+        "title": "MCP Knowledge Base for Mac | SourceShelf",
+        "description": "Connect selected documents and research to compatible AI apps through read-only MCP. SourceShelf shares one authorized pack—not your entire Mac.",
+        "socialTitle": "Let compatible AI apps search a pack—not your whole Mac",
+        "socialDescription": "Authorize one saved pack as a local, read-only snapshot that a compatible AI client can search and read."
+      },
+      "hero": {
+        "eyebrow": "Read-only MCP knowledge access",
+        "title": "Let compatible AI apps search a pack—not your whole Mac",
+        "description": "MCP is a standard connection between applications. SourceShelf uses it to publish one saved knowledge pack as a read-only local snapshot that a compatible AI client can search and read."
+      },
+      "trust": ["Explicit authorization", "Pack-scoped access", "No write tools", "Revocable at any time"],
+      "screenshots": [
+        {
+          "image": "02-local-ai-access",
+          "alt": "A SourceShelf saved pack authorized for read-only Local AI Access on a Mac.",
+          "caption": "Share one saved-pack snapshot through a local, read-only connection."
+        },
+        {
+          "image": "03-review-before-sharing",
+          "alt": "SourceShelf Trust & Safety results shown before a pack is authorized for local AI access.",
+          "caption": "Review conservative advisory checks before publishing a snapshot."
+        },
+        {
+          "image": "09-private-by-design",
+          "alt": "SourceShelf privacy settings explaining local processing and controlled AI access.",
+          "caption": "Disable access or stop an individual share whenever needed."
+        }
+      ],
+      "demo": {
+        "title": "Authorize, search, and revoke one selected pack",
+        "previewImage": "02-local-ai-access",
+        "video": "mcp-knowledge-base-mac.mp4",
+        "poster": "mcp-knowledge-base-mac-poster.webp",
+        "captions": "mcp-knowledge-base-mac.vtt",
+        "transcript": [
+          "Save a focused pack, review the latest Trust & Safety results, and authorize it for Local AI Access.",
+          "Copy the local configuration into a compatible desktop AI client without exposing personal filesystem paths.",
+          "The client searches the authorized snapshot and reads only bounded, allowlisted text resources from that pack.",
+          "Stop the individual share or disable Local AI Access to invalidate copied configurations immediately."
+        ]
+      },
+      "sections": [
+        {
+          "id": "without-jargon",
+          "heading": "MCP without the jargon",
+          "paragraphs": [
+            "A compatible AI application sometimes needs a way to request information from another application. Model Context Protocol provides that connection.",
+            "With SourceShelf, you choose a saved pack and authorize it for Local AI Access. The AI client can then ask SourceShelf to find relevant passages and read approved text resources from that pack."
+          ]
+        },
+        {
+          "id": "pack-boundary",
+          "heading": "A pack boundary you can understand",
+          "kind": "callout",
+          "paragraphs": [
+            "SourceShelf does not expose the live Library or give the client a general filesystem tool. It creates an immutable copy of the selected pack under a random authorization identifier.",
+            "The snapshot contains copied Markdown, referenced local images, a catalog, checksums, and an allowlist. It excludes original paths, output-folder paths, security bookmarks, and every Library source outside the pack."
+          ]
+        },
+        {
+          "id": "search-first",
+          "heading": "Search first, read only what is needed",
+          "paragraphs": [
+            "A compatible client first asks SourceShelf to find relevant passages inside the authorized pack. It can then read an approved text source in bounded pages rather than loading every document at once."
+          ]
+        },
+        {
+          "id": "advanced-mcp",
+          "heading": "Advanced MCP details",
+          "kind": "details",
+          "summary": "See the exact read-only tools and connection boundary",
+          "items": [
+            "search_pack finds relevant structure-aware passages inside the authorized pack.",
+            "read_pack_resource reads an allowlisted text source in bounded pages.",
+            "The helper provides no prompts, subscriptions, write tools, arbitrary paths, remote fetching, or network listener.",
+            "The compatible AI client launches the helper locally and SourceShelf reloads authorization information for every request."
+          ]
+        },
+        {
+          "id": "no-write-access",
+          "heading": "No write access and no network server",
+          "paragraphs": [
+            "The SourceShelf MCP helper cannot edit sources, delete files, fetch remote content, browse arbitrary paths, or listen for network connections. It communicates locally through a command launched by the compatible AI client.",
+            "Stopping a share or disabling MCP invalidates the copied configuration immediately."
+          ]
+        },
+        {
+          "id": "model-choice",
+          "heading": "Local or cloud-backed models remain your choice",
+          "paragraphs": [
+            "MCP connects the desktop AI client to SourceShelf. The client may use a model running on the Mac or a cloud-backed model.",
+            "SourceShelf controls the local knowledge connection but does not control the privacy policy or data handling of the third-party AI client you choose."
+          ],
+          "links": [
+            {"page": "private-ai-knowledge-base", "label": "See how selected knowledge becomes a private AI knowledge base"},
+            {"page": "local-ai-packs", "label": "Build the focused pack before connecting it"},
+            {"page": "research-archive", "label": "Keep the underlying sources in a local archive"}
+          ]
+        }
+      ],
+      "workflow": {
+        "steps": [
+          {"title": "Save a pack", "description": "Create and save a focused collection of readable sources."},
+          {"title": "Authorize Local AI Access", "description": "Review Trust & Safety results and publish a read-only snapshot."},
+          {"title": "Configure a compatible client", "description": "Copy the configuration or local command into the client."},
+          {"title": "Search and revoke", "description": "Let the client search the selected pack, and stop sharing whenever access is no longer needed."}
+        ]
+      },
+      "faq": [
+        {"question": "What does MCP mean?", "answer": "Model Context Protocol is a standard way for compatible applications to request context and tools from another application. SourceShelf uses it for local, read-only access to an authorized knowledge pack."},
+        {"question": "Does MCP give an AI access to my whole Mac?", "answer": "No. SourceShelf exposes only the immutable snapshot of the saved pack you authorize."},
+        {"question": "Can the AI change my documents?", "answer": "No. SourceShelf provides no MCP write, delete, or arbitrary-file tools."},
+        {"question": "Can a cloud-backed AI client use the connection?", "answer": "Potentially, when its desktop application supports the required local MCP connection. The third-party client's own privacy and data-handling terms still apply."},
+        {"question": "How do I revoke access?", "answer": "Stop the individual pack share or disable Local AI Access in SourceShelf. The helper reloads authorization information for every request, so revoked access stops working immediately."}
+      ],
+      "related": ["private-ai-knowledge-base", "local-ai-packs", "research-archive"],
+      "closing": {
+        "heading": "Connect one pack without exposing your whole Mac",
+        "description": "Authorize a read-only snapshot, use it with a compatible client, and revoke access whenever you choose."
+      }
+    }
+  ]
+}

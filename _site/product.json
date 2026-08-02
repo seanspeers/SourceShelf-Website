@@ -1,0 +1,31 @@
+{
+  "canonicalOrigin": "https://sourceshelf.app",
+  "appStore": {
+    "default": "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12",
+    "campaigns": {
+      "privateAIKnowledgeBase": null,
+      "pdfToMarkdown": null,
+      "safariMarkdownCapture": null,
+      "localAIReferencePacks": null,
+      "researchArchive": null,
+      "mcpKnowledgeBase": null
+    },
+    "badges": {
+      "en": {"path": "/assets/app-store-badges/en.svg", "width": 156.10054, "height": 40},
+      "fr": {"path": "/assets/app-store-badges/fr.svg", "width": 156.10054, "height": 40},
+      "es-419": {"path": "/assets/app-store-badges/es-419.svg", "width": 156.10054, "height": 40},
+      "pt-BR": {"path": "/assets/app-store-badges/pt-BR.svg", "width": 156.10054, "height": 40},
+      "ja": {"path": "/assets/app-store-badges/ja.svg", "width": 140.18325, "height": 40}
+    }
+  },
+  "software": {
+    "name": "SourceShelf",
+    "version": "1.0.1",
+    "operatingSystem": "macOS 14.0 or later",
+    "applicationCategory": "ProductivityApplication",
+    "offer": {
+      "price": 12.99,
+      "priceCurrency": "CAD"
+    }
+  }
+}

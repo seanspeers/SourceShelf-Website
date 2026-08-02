@@ -8,11 +8,15 @@ const siteRoot = path.resolve(toolsDirectory, "..");
 const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
-const canonicalOrigin = "https://sourceshelf.app";
-const appStoreUrl = "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12";
 const buildDate = "2026-08-02";
-const assetVersion = "20260802-2";
+const assetVersion = "20260802-3";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
+
+const productConfig = JSON.parse(
+  await readFile(path.join(siteSourceRoot, "product.json"), "utf8")
+);
+const canonicalOrigin = productConfig.canonicalOrigin;
+const appStoreUrl = productConfig.appStore.default;
 
 const baseNavigation = JSON.parse(
   await readFile(path.join(sourceRoot, "navigation.json"), "utf8")
@@ -26,6 +30,12 @@ const editorialOverrides = JSON.parse(
 const homepageContent = JSON.parse(
   await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8")
 );
+const landingContent = new Map(await Promise.all(localeCodes.map(async (code) => {
+  const content = JSON.parse(
+    await readFile(path.join(siteSourceRoot, "landing-pages", `${code}.json`), "utf8")
+  );
+  return [code, content];
+})));
 const locales = await Promise.all(localeCodes.map(async (code) => {
   const catalog = JSON.parse(
     await readFile(path.join(siteSourceRoot, "locales", `${code}.json`), "utf8")
@@ -54,6 +64,18 @@ const locales = await Promise.all(localeCodes.map(async (code) => {
 }));
 const localeByCode = new Map(locales.map((locale) => [locale.code, locale]));
 const allPages = locales.flatMap((locale) => locale.pages);
+const landingPages = locales.flatMap((locale) => {
+  const content = landingContent.get(locale.code);
+  return content.pages.map((page) => ({
+    ...page,
+    locale,
+    logicalRoute: page.route,
+    route: localizedRoute(locale, page.route)
+  }));
+});
+const landingPageByLocaleAndId = new Map(
+  landingPages.map((page) => [`${page.locale.code}:${page.id}`, page])
+);
 
 const pageBySource = new Map(allPages.map((page) => [page.source, page]));
 const imageMap = new Map();
@@ -566,16 +588,26 @@ function renderHeader(locale, currentSection) {
 }
 
 function renderFooter(locale) {
+  const landing = landingContent.get(locale.code);
+  const useCaseLinks = landing.pages.map((page) => (
+    `<li><a href="${localizedRoute(locale, page.route)}">${escapeHtml(page.hero.eyebrow)}</a></li>`
+  )).join("");
   return `<footer class="site-footer">
     <div class="footer-inner">
-      <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
-      <div class="footer-links">
-        <a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a>
-        <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
-        <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
-        <a href="${localizedRoute(locale, "/support.html")}">${escapeHtml(translate(locale, "Support"))}</a>
-        <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a>
+          <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
+          <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
+          <a href="${localizedRoute(locale, "/support.html")}">${escapeHtml(translate(locale, "Support"))}</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
       </div>
+      <nav class="footer-use-cases" aria-label="${escapeHtml(landing.shared.sourceShelfUseCases)}">
+        <h2>${escapeHtml(landing.shared.waysToUse)}</h2>
+        <ul>${useCaseLinks}</ul>
+      </nav>
     </div>
   </footer>`;
 }
@@ -606,6 +638,23 @@ function renderHomepageFeatureCard(locale, item, lightbox) {
       <p>${escapeHtml(item.description)}</p>
     </div>
   </article>`;
+}
+
+function renderHomepageUseCases(locale) {
+  const landing = landingContent.get(locale.code);
+  const cards = landing.pages.map((page) => `<article class="home-use-case-card">
+    <p class="eyebrow">${escapeHtml(page.hero.eyebrow)}</p>
+    <h3><a href="${localizedRoute(locale, page.route)}">${escapeHtml(page.hero.title)}</a></h3>
+    <p>${escapeHtml(page.meta.socialDescription)}</p>
+  </article>`).join("\n");
+  return `<section id="ways-to-use" class="section home-use-cases-section" aria-labelledby="ways-to-use-title">
+    <div class="section-heading home-section-heading">
+      <p class="eyebrow">${escapeHtml(landing.shared.sourceShelfUseCases)}</p>
+      <h2 id="ways-to-use-title">${escapeHtml(landing.shared.waysToUse)}</h2>
+      <p>${escapeHtml(landing.shared.waysToUseIntro)}</p>
+    </div>
+    <div class="home-use-cases-grid">${cards}</div>
+  </section>`;
 }
 
 function renderHomepageMain(locale, content) {
@@ -714,6 +763,8 @@ function renderHomepageMain(locale, content) {
       </div>
     </section>
 
+    ${renderHomepageUseCases(locale)}
+
     <section class="section home-closing-section" aria-labelledby="closing-title">
       <div>
         <h2 id="closing-title">${escapeHtml(content.closing.title)}</h2>
@@ -740,6 +791,297 @@ function renderHomepageMain(locale, content) {
       </div>
     </div>
   </dialog>`;
+}
+
+function appStoreURLFor(page) {
+  return productConfig.appStore.campaigns[page.campaignKey] || productConfig.appStore.default;
+}
+
+function renderAppStoreBadge(locale, page) {
+  const content = landingContent.get(locale.code);
+  const badge = productConfig.appStore.badges[locale.code];
+  return `<a class="app-store-badge-link" href="${escapeHtml(appStoreURLFor(page))}">
+    <img src="${escapeHtml(badge.path)}" alt="${escapeHtml(content.shared.viewOnAppStoreLabel)}" width="${badge.width}" height="${badge.height}">
+  </a>`;
+}
+
+function landingLightboxLabels(content) {
+  return {
+    open: content.shared.viewLarger,
+    openLabel: content.shared.viewFullScreen,
+    close: content.shared.close,
+    closeLabel: content.shared.closeLabel,
+    zoom: content.shared.zoom,
+    fit: content.shared.fit,
+    dialogLabel: content.shared.screenshotViewer
+  };
+}
+
+function renderLandingScreenshot(locale, item, content, { hero = false } = {}) {
+  return renderHomepageImage(locale, {
+    image: item.image,
+    alt: item.alt,
+    title: item.caption
+  }, landingLightboxLabels(content), { hero });
+}
+
+function renderLandingBreadcrumbs(locale, page, content) {
+  return `<nav class="landing-breadcrumbs" aria-label="${escapeHtml(translate(locale, "Breadcrumb"))}">
+    <ol>
+      <li><a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a></li>
+      <li><a href="${localizedRoute(locale, "/")}#ways-to-use">${escapeHtml(content.shared.waysToUse)}</a></li>
+      <li aria-current="page">${escapeHtml(page.hero.eyebrow)}</li>
+    </ol>
+  </nav>`;
+}
+
+function renderLandingDemo(locale, page, content) {
+  const previewPath = `/assets/home/${locale.code}/${page.demo.previewImage}-1440.webp`;
+  const transcript = page.demo.transcript.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
+  const mediaRoot = "/assets/landing-pages";
+  const preview = page.demo.available === true
+    ? `<figure class="landing-demo-preview landing-demo-video">
+        <video controls preload="none" poster="${mediaRoot}/${escapeHtml(page.demo.poster)}" aria-label="${escapeHtml(page.demo.title)}">
+          <source src="${mediaRoot}/${escapeHtml(page.demo.video)}" type="video/mp4">
+          <track kind="captions" src="${mediaRoot}/${escapeHtml(page.demo.captions)}" srclang="${locale.code}" label="${escapeHtml(content.nativeName)}" default>
+        </video>
+      </figure>`
+    : `<figure class="landing-demo-preview">
+        <img src="${previewPath}" alt="" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><strong>${escapeHtml(content.shared.demoPlanned)}</strong><span>${escapeHtml(content.shared.demoNotice)}</span></figcaption>
+      </figure>`;
+  return `<section class="section landing-demo" aria-labelledby="demo-title-${page.id}">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">${escapeHtml(content.shared.demoEyebrow)}</p>
+      <h2 id="demo-title-${page.id}">${escapeHtml(page.demo.title)}</h2>
+    </div>
+    <div class="landing-demo-grid">
+      ${preview}
+      <div id="demo-transcript-${page.id}" class="landing-transcript">
+        <h3>${escapeHtml(content.shared.transcriptTitle)}</h3>
+        ${transcript}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderLandingSection(locale, section, pagesById) {
+  const paragraphs = (section.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
+  const links = (section.links || []).length
+    ? `<ul class="landing-inline-links">${section.links.map((link) => {
+      const target = pagesById.get(link.page);
+      if (!target) throw new Error(`Landing-page link target is missing: ${link.page}`);
+      return `<li><a href="${target.route}">${escapeHtml(link.label)} <span aria-hidden="true">→</span></a></li>`;
+    }).join("")}</ul>`
+    : "";
+  if (section.kind === "details") {
+    const items = (section.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    return `<section id="${escapeHtml(section.id)}" class="landing-content-section landing-content-details" aria-labelledby="heading-${escapeHtml(section.id)}">
+      <h2 id="heading-${escapeHtml(section.id)}">${escapeHtml(section.heading)}</h2>
+      ${paragraphs}
+      <details>
+        <summary>${escapeHtml(section.summary)}</summary>
+        <ul>${items}</ul>
+      </details>
+      ${links}
+    </section>`;
+  }
+  const modifier = section.kind === "callout" ? " landing-content-callout" : "";
+  return `<section id="${escapeHtml(section.id)}" class="landing-content-section${modifier}" aria-labelledby="heading-${escapeHtml(section.id)}">
+    <h2 id="heading-${escapeHtml(section.id)}">${escapeHtml(section.heading)}</h2>
+    ${paragraphs}
+    ${links}
+  </section>`;
+}
+
+function renderLandingGallery(locale, page, content) {
+  if (page.screenshots.length < 2) return "";
+  const figures = page.screenshots.slice(1).map((screenshot) => `<figure class="landing-gallery-item">
+    <div class="home-screenshot-frame">${renderLandingScreenshot(locale, screenshot, content)}</div>
+    <figcaption>${escapeHtml(screenshot.caption)}</figcaption>
+  </figure>`).join("\n");
+  return `<section class="section landing-gallery" aria-label="${escapeHtml(page.hero.eyebrow)}">${figures}</section>`;
+}
+
+function renderLandingWorkflow(page, content) {
+  const steps = page.workflow.steps.map((step, index) => `<li>
+    <span class="landing-step-number" aria-hidden="true">${index + 1}</span>
+    <div><h3>${escapeHtml(step.title)}</h3><p>${escapeHtml(step.description)}</p></div>
+  </li>`).join("\n");
+  return `<section id="how-it-works" class="section landing-workflow" aria-labelledby="workflow-title-${page.id}">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">${escapeHtml(content.shared.workflowEyebrow)}</p>
+      <h2 id="workflow-title-${page.id}">${escapeHtml(content.shared.workflowTitle)}</h2>
+    </div>
+    <ol class="landing-workflow-list">${steps}</ol>
+  </section>`;
+}
+
+function renderLandingFAQ(page, content) {
+  const entries = page.faq.map((entry) => `<article class="landing-faq-item">
+    <h3>${escapeHtml(entry.question)}</h3>
+    <p>${escapeHtml(entry.answer)}</p>
+  </article>`).join("\n");
+  return `<section class="section landing-faq" aria-labelledby="faq-title-${page.id}">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">${escapeHtml(content.shared.faqEyebrow)}</p>
+      <h2 id="faq-title-${page.id}">${escapeHtml(content.shared.faqTitle)}</h2>
+    </div>
+    <div class="landing-faq-list">${entries}</div>
+  </section>`;
+}
+
+function renderLandingRelated(page, content, pagesById) {
+  const cards = page.related.map((pageId) => {
+    const target = pagesById.get(pageId);
+    if (!target) throw new Error(`Related landing page is missing: ${pageId}`);
+    return `<article class="landing-related-card">
+      <p class="eyebrow">${escapeHtml(target.hero.eyebrow)}</p>
+      <h3><a href="${target.route}">${escapeHtml(target.hero.title)}</a></h3>
+      <p>${escapeHtml(target.meta.socialDescription)}</p>
+    </article>`;
+  }).join("\n");
+  return `<section class="section landing-related" aria-labelledby="related-title-${page.id}">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">${escapeHtml(content.shared.relatedEyebrow)}</p>
+      <h2 id="related-title-${page.id}">${escapeHtml(content.shared.relatedTitle)}</h2>
+    </div>
+    <div class="landing-related-grid">${cards}</div>
+  </section>`;
+}
+
+function renderLandingDialog(content) {
+  const labels = landingLightboxLabels(content);
+  return `<dialog id="homepage-lightbox" class="home-lightbox" data-home-lightbox aria-label="${escapeHtml(labels.dialogLabel)}" aria-describedby="homepage-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="homepage-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="${escapeHtml(labels.zoom)}" data-fit-label="${escapeHtml(labels.fit)}" aria-pressed="false">${escapeHtml(labels.zoom)}</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="${escapeHtml(labels.closeLabel)}">${escapeHtml(labels.close)}</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="2880" height="1800" decoding="async">
+      </div>
+    </div>
+  </dialog>`;
+}
+
+function structuredDataForLanding(page) {
+  const software = productConfig.software;
+  const canonicalURL = `${canonicalOrigin}${page.route}`;
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: software.name,
+      applicationCategory: software.applicationCategory,
+      operatingSystem: software.operatingSystem,
+      softwareVersion: software.version,
+      url: canonicalOrigin,
+      downloadUrl: appStoreURLFor(page),
+      offers: {
+        "@type": "Offer",
+        price: software.offer.price,
+        priceCurrency: software.offer.priceCurrency,
+        url: appStoreURLFor(page)
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {"@type": "ListItem", position: 1, name: translate(page.locale, "Home"), item: `${canonicalOrigin}${localizedRoute(page.locale, "/")}`},
+        {"@type": "ListItem", position: 2, name: landingContent.get(page.locale.code).shared.waysToUse, item: `${canonicalOrigin}${localizedRoute(page.locale, "/")}#ways-to-use`},
+        {"@type": "ListItem", position: 3, name: page.hero.eyebrow, item: canonicalURL}
+      ]
+    }
+  ];
+}
+
+function renderLandingPage(page) {
+  const { locale } = page;
+  const content = landingContent.get(locale.code);
+  const pagesById = new Map(content.pages.map((candidate) => [candidate.id, {
+    ...candidate,
+    route: localizedRoute(locale, candidate.route)
+  }]));
+  const canonicalURL = `${canonicalOrigin}${page.route}`;
+  const socialImage = `${canonicalOrigin}/assets/home/${locale.code}/01-private-ai-source-packs-social.jpg`;
+  const sections = page.sections.map((section) => renderLandingSection(locale, section, pagesById)).join("\n");
+  const structuredData = structuredDataForLanding(page).map((value) => (
+    `<script type="application/ld+json">${JSON.stringify(value).replaceAll("<", "\\u003c")}</script>`
+  )).join("\n  ");
+
+  return `<!DOCTYPE html>
+<html lang="${locale.code}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${escapeHtml(page.meta.description)}">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="${canonicalURL}">
+${renderAlternateLinks(page.logicalRoute)}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(page.meta.socialTitle)}">
+  <meta property="og:description" content="${escapeHtml(page.meta.socialDescription)}">
+  <meta property="og:url" content="${canonicalURL}">
+  <meta property="og:image" content="${socialImage}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(page.meta.socialTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(page.meta.socialDescription)}">
+  <meta name="twitter:image" content="${socialImage}">
+  <title>${escapeHtml(page.meta.title)}</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
+  ${structuredData}
+</head>
+<body>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, "use-cases")}
+  <main id="main" class="main landing-main landing-layout-${escapeHtml(page.layout)}">
+    <div class="landing-page-shell">
+      ${renderLandingBreadcrumbs(locale, page, content)}
+      <section class="section hero landing-hero" aria-labelledby="landing-title-${page.id}">
+        <div class="hero-copy">
+          <p class="eyebrow">${escapeHtml(page.hero.eyebrow)}</p>
+          <h1 id="landing-title-${page.id}">${escapeHtml(page.hero.title)}</h1>
+          <p class="subheading">${escapeHtml(page.hero.description)}</p>
+          <div class="landing-actions">
+            ${renderAppStoreBadge(locale, page)}
+            <a class="button button-secondary" href="#how-it-works">${escapeHtml(content.shared.seeHow)}</a>
+          </div>
+        </div>
+        <div class="hero-visual landing-hero-visual">
+          <div class="home-screenshot-frame home-hero-frame">${renderLandingScreenshot(locale, page.screenshots[0], content, { hero: true })}</div>
+          <p class="landing-hero-caption">${escapeHtml(page.screenshots[0].caption)}</p>
+        </div>
+      </section>
+      <ul class="landing-trust-strip" aria-label="${escapeHtml(content.shared.trustLabel)}">
+        ${page.trust.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+      ${renderLandingDemo(locale, page, content)}
+      <div class="section landing-content-grid">${sections}</div>
+      ${renderLandingGallery(locale, page, content)}
+      ${renderLandingWorkflow(page, content)}
+      ${renderLandingFAQ(page, content)}
+      ${renderLandingRelated(page, content, pagesById)}
+      <section class="section landing-closing" aria-labelledby="closing-title-${page.id}">
+        <div><h2 id="closing-title-${page.id}">${escapeHtml(page.closing.heading)}</h2><p>${escapeHtml(page.closing.description)}</p></div>
+        ${renderAppStoreBadge(locale, page)}
+      </section>
+    </div>
+  </main>
+  ${renderLandingDialog(content)}
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
+</body>
+</html>
+`.replace(/[ \t]+$/gm, "");
 }
 
 function headBootstrap(locale) {
@@ -962,15 +1304,31 @@ async function buildGeneralPages() {
   }
 }
 
+async function buildLandingPages() {
+  for (const page of landingPages) {
+    const outputDirectory = path.join(siteRoot, page.route.slice(1));
+    await mkdir(outputDirectory, { recursive: true });
+    await writeFile(path.join(outputDirectory, "index.html"), renderLandingPage(page));
+  }
+}
+
 async function writeSitemap() {
   const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
-  const routes = [...generalRoutes, ...allPages.map((page) => page.route)];
+  const routes = [...generalRoutes, ...landingPages.map((page) => page.route), ...allPages.map((page) => page.route)];
   const entries = routes.map((route) => `  <url>\n    <loc>${canonicalOrigin}${route}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
 }
 
 async function build() {
+  const preservedDocumentationFiles = ["SEO_MEDIA_CAPTURE_PLAN.md", "SEO_TRANSLATION_REVIEW.md"];
+  const preservedDocumentation = new Map(await Promise.all(preservedDocumentationFiles.map(async (file) => {
+    try {
+      return [file, await readFile(path.join(outputRoot, file), "utf8")];
+    } catch {
+      return [file, null];
+    }
+  })));
   if (pageBySource.size !== allPages.length) {
     throw new Error("Documentation navigation contains duplicate source paths");
   }
@@ -978,12 +1336,42 @@ async function build() {
   if (routes.size !== allPages.length) {
     throw new Error("Documentation navigation contains duplicate routes");
   }
+  const englishLanding = landingContent.get("en");
+  const expectedLandingIDs = englishLanding.pages.map((page) => page.id);
+  const expectedLandingRoutes = englishLanding.pages.map((page) => page.route);
+  for (const locale of locales) {
+    const content = landingContent.get(locale.code);
+    if (!content || content.code !== locale.code || content.pages.length !== expectedLandingIDs.length) {
+      throw new Error(`Landing-page content is incomplete for ${locale.code}`);
+    }
+    if (JSON.stringify(content.pages.map((page) => page.id)) !== JSON.stringify(expectedLandingIDs)) {
+      throw new Error(`Landing-page IDs do not match English for ${locale.code}`);
+    }
+    if (JSON.stringify(content.pages.map((page) => page.route)) !== JSON.stringify(expectedLandingRoutes)) {
+      throw new Error(`Landing-page routes do not match English for ${locale.code}`);
+    }
+    for (const page of content.pages) {
+      if (!(page.campaignKey in productConfig.appStore.campaigns)) {
+        throw new Error(`Unknown App Store campaign key on ${locale.code}:${page.id}`);
+      }
+    }
+  }
+  const uniqueLandingRoutes = new Set(landingPages.map((page) => page.route));
+  if (uniqueLandingRoutes.size !== landingPages.length) {
+    throw new Error("Landing-page content contains duplicate localized routes");
+  }
 
   for (const locale of locales.filter((candidate) => candidate.code !== "en")) {
     await rm(path.join(siteRoot, locale.code), { recursive: true, force: true });
   }
+  for (const page of englishLanding.pages) {
+    await rm(path.join(siteRoot, page.route.slice(1)), { recursive: true, force: true });
+  }
   await rm(outputRoot, { recursive: true, force: true });
   await mkdir(outputRoot, { recursive: true });
+  for (const [file, source] of preservedDocumentation) {
+    if (source) await writeFile(path.join(outputRoot, file), source);
+  }
   await optimizeImages();
 
   for (const page of allPages) {
@@ -993,6 +1381,7 @@ async function build() {
   }
 
   await buildGeneralPages();
+  await buildLandingPages();
 
   for (const page of allPages) {
     const outputDirectory = path.join(siteRoot, page.route.slice(1));
@@ -1001,7 +1390,7 @@ async function build() {
   }
 
   await writeSitemap();
-  console.log(`Generated ${generalPages.length * locales.length} general pages, ${allPages.length} documentation pages, and ${imageMap.size * 2} image variants.`);
+  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, and ${imageMap.size * 2} image variants.`);
 }
 
 await build();

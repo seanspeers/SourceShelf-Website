@@ -6,10 +6,16 @@ const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(toolsDirectory, "..");
 const sourceRoot = path.join(siteRoot, "_docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
-const canonicalOrigin = "https://sourceshelf.app";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 const navigation = JSON.parse(await readFile(path.join(sourceRoot, "navigation.json"), "utf8"));
 const homepageContent = JSON.parse(await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8"));
+const productConfig = JSON.parse(await readFile(path.join(siteSourceRoot, "product.json"), "utf8"));
+const canonicalOrigin = productConfig.canonicalOrigin;
+const landingContent = new Map(await Promise.all(localeCodes.map(async (locale) => [
+  locale,
+  JSON.parse(await readFile(path.join(siteSourceRoot, "landing-pages", `${locale}.json`), "utf8"))
+])));
+const landingRoutes = landingContent.get("en").pages.map((page) => page.route);
 const homepageScreenshotNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
@@ -45,9 +51,14 @@ function logicalRouteFor(route, locale) {
 
 const expectedPages = new Map();
 for (const locale of localeCodes) {
-  for (const logicalRoute of ["/", "/privacy.html", "/support.html", ...navigation.pages.map((page) => page.route)]) {
+  for (const logicalRoute of ["/", "/privacy.html", "/support.html", ...landingRoutes, ...navigation.pages.map((page) => page.route)]) {
     const route = localizedRoute(locale, logicalRoute);
-    expectedPages.set(route, { locale, logicalRoute, isDocs: logicalRoute.startsWith("/docs/") });
+    expectedPages.set(route, {
+      locale,
+      logicalRoute,
+      isDocs: logicalRoute.startsWith("/docs/"),
+      isLanding: landingRoutes.includes(logicalRoute)
+    });
   }
 }
 
@@ -131,6 +142,8 @@ const idCache = new Map();
 const errors = [];
 let checkedReferences = 0;
 let checkedImages = 0;
+const landingTitles = new Set();
+const landingDescriptions = new Set();
 
 async function idsFor(file) {
   if (!idCache.has(file)) {
@@ -161,7 +174,7 @@ for (const htmlFile of htmlFiles) {
     errors.push(`Unexpected public HTML file: ${publicPath}`);
     continue;
   }
-  const { locale, logicalRoute, isDocs } = expected;
+  const { locale, logicalRoute, isDocs, isLanding } = expected;
 
   if (/PRIVACY\.md|\.markdownlint|assets\/README\.md/.test(html)) {
     errors.push(`${publicPath} contains a repository-only or Markdown source link`);
@@ -242,6 +255,13 @@ for (const htmlFile of htmlFiles) {
   if (!/<title>[^<]+<\/title>/.test(html)) {
     errors.push(`${publicPath} is missing a page title`);
   }
+  if ((html.match(/class="footer-use-cases"/g) || []).length !== 1) {
+    errors.push(`${publicPath} must contain one grouped use-case footer`);
+  }
+  const footerUseCases = html.match(/<nav class="footer-use-cases"[\s\S]*?<\/nav>/)?.[0] || "";
+  if ((footerUseCases.match(/<a href=/g) || []).length !== 6) {
+    errors.push(`${publicPath} must link all six use cases from its grouped footer`);
+  }
 
   if (logicalRoute === "/") {
     const homepage = homepageContent[locale];
@@ -304,6 +324,9 @@ for (const htmlFile of htmlFiles) {
     if (!html.includes('href="#how-it-works"') || !html.includes('id="how-it-works"')) {
       errors.push(`${publicPath} is missing the how-it-works anchor contract`);
     }
+    if (!html.includes('id="ways-to-use"') || (html.match(/class="home-use-case-card"/g) || []).length !== 6) {
+      errors.push(`${publicPath} must contain the six-card Ways to use SourceShelf section`);
+    }
     if ((html.match(/<dialog\b[^>]*\bdata-home-lightbox\b/g) || []).length !== 1) {
       errors.push(`${publicPath} must contain one shared homepage screenshot dialog`);
     }
@@ -322,6 +345,105 @@ for (const htmlFile of htmlFiles) {
       await access(path.join(siteRoot, `assets/home/${locale}/01-private-ai-source-packs-social.jpg`));
     } catch {
       errors.push(`${publicPath} references a missing localized social image`);
+    }
+  }
+
+  if (isLanding) {
+    const localeContent = landingContent.get(locale);
+    const page = localeContent.pages.find((candidate) => candidate.route === logicalRoute);
+    if (!page) {
+      errors.push(`${publicPath} has no localized landing-page source`);
+      continue;
+    }
+
+    const title = html.match(/<title>([^<]+)<\/title>/)?.[1] || "";
+    const description = html.match(/<meta name="description" content="([^"]+)">/)?.[1] || "";
+    const titleKey = `${locale}:${title}`;
+    const descriptionKey = `${locale}:${description}`;
+    if (landingTitles.has(titleKey)) errors.push(`${publicPath} duplicates a localized landing-page title`);
+    if (landingDescriptions.has(descriptionKey)) errors.push(`${publicPath} duplicates a localized landing-page description`);
+    landingTitles.add(titleKey);
+    landingDescriptions.add(descriptionKey);
+
+    if (!html.includes('<meta name="robots" content="index,follow">')) {
+      errors.push(`${publicPath} must explicitly allow indexing and following`);
+    }
+    if (!html.includes('class="landing-breadcrumbs"') || !html.includes('class="landing-trust-strip"')) {
+      errors.push(`${publicPath} is missing visible breadcrumbs or its trust strip`);
+    }
+    if (!html.includes('class="section landing-demo"') || !html.includes('class="landing-transcript"')) {
+      errors.push(`${publicPath} is missing its reserved demonstration and visible transcript`);
+    }
+    if (html.includes("<video") || html.includes("VideoObject") || html.includes(page.demo.video) || html.includes(page.demo.poster) || html.includes(page.demo.captions)) {
+      errors.push(`${publicPath} references unavailable video media or VideoObject data`);
+    }
+    if (!html.includes('id="how-it-works"') || !html.includes('class="landing-workflow-list"')) {
+      errors.push(`${publicPath} is missing its static workflow`);
+    }
+    if ((html.match(/class="landing-faq-item"/g) || []).length !== page.faq.length) {
+      errors.push(`${publicPath} does not render every localized FAQ entry`);
+    }
+    if ((html.match(/class="landing-related-card"/g) || []).length !== page.related.length) {
+      errors.push(`${publicPath} does not render the configured related pages`);
+    }
+
+    const landingImages = [...html.matchAll(/<img\b[^>]*\bclass="homepage-screenshot"[^>]*>/g)].map((match) => match[0]);
+    if (landingImages.length !== page.screenshots.length) {
+      errors.push(`${publicPath} renders ${landingImages.length} meaningful screenshots instead of ${page.screenshots.length}`);
+    }
+    const landingAltTexts = new Set();
+    for (const image of landingImages) {
+      checkedImages += 1;
+      const alt = image.match(/\balt="([^"]*)"/)?.[1] || "";
+      if (!alt.trim()) errors.push(`${publicPath} contains a meaningful landing-page screenshot without alt text`);
+      if (landingAltTexts.has(alt)) errors.push(`${publicPath} repeats a meaningful screenshot alt text`);
+      landingAltTexts.add(alt);
+      if (!image.includes('width="1440"') || !image.includes('height="900"') || !image.includes("srcset=") || !image.includes("sizes=")) {
+        errors.push(`${publicPath} contains a landing-page screenshot without responsive intrinsic dimensions`);
+      }
+    }
+    if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
+      errors.push(`${publicPath} must prioritize only its hero screenshot`);
+    }
+    if ((html.match(/class="homepage-screenshot"[^>]*loading="lazy"/g) || []).length !== Math.max(0, page.screenshots.length - 1)) {
+      errors.push(`${publicPath} must lazy-load every non-hero meaningful screenshot`);
+    }
+
+    const expectedAppStoreURL = productConfig.appStore.campaigns[page.campaignKey] || productConfig.appStore.default;
+    if ((html.match(new RegExp(`class="app-store-badge-link" href="${expectedAppStoreURL.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}"`, "g")) || []).length !== 2) {
+      errors.push(`${publicPath} does not use the configured App Store campaign fallback for both primary CTAs`);
+    }
+    const badge = productConfig.appStore.badges[locale];
+    if (!html.includes(`src="${badge.path}"`) || !html.includes(`width="${badge.width}"`) || !html.includes(`height="${badge.height}"`)) {
+      errors.push(`${publicPath} does not use the correct localized official App Store badge`);
+    }
+
+    const jsonLD = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => {
+      try {
+        return JSON.parse(match[1]);
+      } catch {
+        errors.push(`${publicPath} contains invalid JSON-LD`);
+        return null;
+      }
+    }).filter(Boolean);
+    const software = jsonLD.filter((value) => value["@type"] === "SoftwareApplication");
+    const breadcrumbs = jsonLD.filter((value) => value["@type"] === "BreadcrumbList");
+    if (software.length !== 1 || breadcrumbs.length !== 1) {
+      errors.push(`${publicPath} must contain one SoftwareApplication and one BreadcrumbList object`);
+    }
+    if (jsonLD.some((value) => ["FAQPage", "VideoObject"].includes(value["@type"]))) {
+      errors.push(`${publicPath} contains unsupported FAQ or video structured data`);
+    }
+    if (software[0]) {
+      if (software[0].softwareVersion !== productConfig.software.version || software[0].operatingSystem !== productConfig.software.operatingSystem) {
+        errors.push(`${publicPath} structured product metadata is out of sync with product.json`);
+      }
+      if (software[0].aggregateRating || software[0].review || software[0].offers?.aggregateRating) {
+        errors.push(`${publicPath} structured data contains an invented rating or review`);
+      }
+      if (software[0].offers?.price !== productConfig.software.offer.price || software[0].offers?.priceCurrency !== productConfig.software.offer.priceCurrency) {
+        errors.push(`${publicPath} structured offer data is out of sync with product.json`);
+      }
     }
   }
 
@@ -378,6 +500,65 @@ for (const locale of localeCodes.slice(1)) {
   }
 }
 
+function contentShape(value) {
+  if (Array.isArray(value)) return value.map(contentShape);
+  if (value && typeof value === "object") {
+    return Object.fromEntries(Object.keys(value).sort().map((key) => [key, contentShape(value[key])]));
+  }
+  return typeof value;
+}
+
+function collectPublicStrings(value, pathParts = []) {
+  const preservedKeys = new Set(["id", "route", "campaignKey", "layout", "kind", "image", "previewImage", "video", "poster", "captions", "page", "related", "code"]);
+  if (Array.isArray(value)) return value.flatMap((item, index) => collectPublicStrings(item, [...pathParts, index]));
+  if (value && typeof value === "object") {
+    return Object.keys(value).sort().flatMap((key) => (
+      preservedKeys.has(key) ? [] : collectPublicStrings(value[key], [...pathParts, key])
+    ));
+  }
+  return typeof value === "string" ? [{path: pathParts.join("."), value}] : [];
+}
+
+const englishLandingContent = landingContent.get("en");
+const englishLandingShape = JSON.stringify(contentShape(englishLandingContent.pages));
+const englishPublicStrings = new Map(collectPublicStrings(englishLandingContent).map((entry) => [entry.path, entry.value]));
+for (const locale of localeCodes) {
+  const content = landingContent.get(locale);
+  if (content.code !== locale || content.pages.length !== 6) {
+    errors.push(`${locale} landing-page source has an incorrect locale code or page count`);
+  }
+  if (JSON.stringify(contentShape(content.pages)) !== englishLandingShape) {
+    errors.push(`${locale} landing-page source does not match the complete English schema`);
+  }
+  if (locale !== "en") {
+    for (const entry of collectPublicStrings(content)) {
+      const english = englishPublicStrings.get(entry.path);
+      if (english && english.length >= 45 && entry.value === english) {
+        errors.push(`${locale} landing-page source silently falls back to English at ${entry.path}`);
+      }
+    }
+  }
+}
+
+for (const [locale, badge] of Object.entries(productConfig.appStore.badges)) {
+  try {
+    const svg = await readFile(path.join(siteRoot, badge.path.slice(1)), "utf8");
+    if (!svg.includes("<svg") || !svg.includes(`height="${badge.height}"`)) {
+      errors.push(`${locale} App Store badge is not the expected official SVG asset`);
+    }
+  } catch {
+    errors.push(`Missing localized App Store badge for ${locale}`);
+  }
+}
+
+for (const file of ["SEO_MEDIA_CAPTURE_PLAN.md", "SEO_TRANSLATION_REVIEW.md"]) {
+  try {
+    await access(path.join(siteRoot, "docs", file));
+  } catch {
+    errors.push(`Missing generated SEO documentation file: docs/${file}`);
+  }
+}
+
 const generatedImages = allFiles.filter((file) => (
   file.startsWith(path.join(siteRoot, "docs", "assets", "images")) && file.endsWith(".webp")
 ));
@@ -428,5 +609,5 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Checked ${htmlFiles.length} HTML files, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
 }

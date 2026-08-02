@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="読み取り専用MCPを介して、選択したドキュメントとリサーチを互換性のあるAIアプリに接続します。SourceShelfは、Mac全体ではなく、1つの承認済みパッケージを共有します。">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/ja/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/mcp-knowledge-base-mac/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/mcp-knowledge-base-mac/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="互換性のあるAIアプリが、Mac全体ではなく、パックを検索するようにします。">
+  <meta property="og:description" content="保存したパックの1つをローカル、読み取り専用のスナップショットとして認証し、互換性のあるAIクライアントが検索して読み取ることができます。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/mcp-knowledge-base-mac/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/home/ja/01-private-ai-source-packs-social.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="互換性のあるAIアプリが、Mac全体ではなく、パックを検索するようにします。">
+  <meta name="twitter:description" content="保存したパックの1つをローカル、読み取り専用のスナップショットとして認証し、互換性のあるAIクライアントが検索して読み取ることができます。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/home/ja/01-private-ai-source-packs-social.jpg">
+  <title>MCP Mac用の知識ベース | SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260802-3">
+  <script src="/locale.js?v=20260802-3"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SourceShelf","applicationCategory":"ProductivityApplication","operatingSystem":"macOS 14.0 or later","softwareVersion":"1.0.1","url":"https://sourceshelf.app","downloadUrl":"https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12","offers":{"@type":"Offer","price":12.99,"priceCurrency":"CAD","url":"https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://sourceshelf.app/ja/"},{"@type":"ListItem","position":2,"name":"SourceShelfの使用方法","item":"https://sourceshelf.app/ja/#ways-to-use"},{"@type":"ListItem","position":3,"name":"読み取り専用MCP知識アクセス","item":"https://sourceshelf.app/ja/mcp-knowledge-base-mac/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main landing-main landing-layout-boundary">
+    <div class="landing-page-shell">
+      <nav class="landing-breadcrumbs" aria-label="パンくずリスト">
+    <ol>
+      <li><a href="/ja/">ホーム</a></li>
+      <li><a href="/ja/#ways-to-use">SourceShelfの使用方法</a></li>
+      <li aria-current="page">読み取り専用MCP知識アクセス</li>
+    </ol>
+  </nav>
+      <section class="section hero landing-hero" aria-labelledby="landing-title-mcp-knowledge-base">
+        <div class="hero-copy">
+          <p class="eyebrow">読み取り専用MCP知識アクセス</p>
+          <h1 id="landing-title-mcp-knowledge-base">互換性のあるAIアプリが、Mac全体ではなく、パックを検索するようにします。</h1>
+          <p class="subheading">MCPは、アプリケーション間の標準接続です。SourceShelfは、それを使用して、保存された知識パックを読み取り専用ローカルスナップショットとして公開し、互換性のあるAIクライアントが検索して読み取ることができます。</p>
+          <div class="landing-actions">
+            <a class="app-store-badge-link" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">
+    <img src="/assets/app-store-badges/ja.svg" alt="Mac App StoreでSourceShelfを表示する" width="140.18325" height="40">
+  </a>
+            <a class="button button-secondary" href="#how-it-works">それがどのように機能するかをご覧ください</a>
+          </div>
+        </div>
+        <div class="hero-visual landing-hero-visual">
+          <div class="home-screenshot-frame home-hero-frame"><a class="home-screenshot-trigger" href="/assets/home/ja/02-local-ai-access-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelfが保存されたパックは、Macで読み取り専用ローカルAIアクセスを許可されています。" data-lightbox-caption="ローカル、読み取り専用接続を介して保存済みパックのスナップショットを共有します。" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="フルスクリーン画像を表示する: ローカル、読み取り専用接続を介して保存済みパックのスナップショットを共有します。">
+    <img class="homepage-screenshot" src="/assets/home/ja/02-local-ai-access-1440.webp" srcset="/assets/home/ja/02-local-ai-access-960.webp 960w, /assets/home/ja/02-local-ai-access-1440.webp 1440w" sizes="(max-width: 920px) calc(100vw - 24px), 680px" alt="SourceShelfが保存されたパックは、Macで読み取り専用ローカルAIアクセスを許可されています。" width="1440" height="900" loading="eager" fetchpriority="high" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+  </a></div>
+          <p class="landing-hero-caption">ローカル、読み取り専用接続を介して保存済みパックのスナップショットを共有します。</p>
+        </div>
+      </section>
+      <ul class="landing-trust-strip" aria-label="SourceShelfの信頼原則">
+        <li>明示的な承認</li><li>パッケージ範囲のアクセス</li><li>書き込みツールなし</li><li>いつでも取り消すことができます</li>
+      </ul>
+      <section class="section landing-demo" aria-labelledby="demo-title-mcp-knowledge-base">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">製品デモ</p>
+      <h2 id="demo-title-mcp-knowledge-base">選択したパックの認証、検索、および取り消し</h2>
+    </div>
+    <div class="landing-demo-grid">
+      <figure class="landing-demo-preview">
+        <img src="/assets/home/ja/02-local-ai-access-1440.webp" alt="" width="1440" height="900" loading="lazy" decoding="async">
+        <figcaption><strong>デモが予定されている</strong><span>ページ固有のビデオが制作中です。このプレビューは現在のSourceShelfインターフェースを使用しており、以下の予定のトランスクリプトは、完成したデモが示す正確なワークフローを説明しています。</span></figcaption>
+      </figure>
+      <div id="demo-transcript-mcp-knowledge-base" class="landing-transcript">
+        <h3>予定されているデモのトランスクリプト</h3>
+        <p>焦点を当てたパッケージを保存し、最新の信頼性と安全性の結果を確認し、ローカルAIアクセスを承認します。</p>
+<p>ローカル構成をコピーして、パーソナルファイルシステムパスを露呈せずに互換性のあるデスクトップAIクライアントに保存します。</p>
+<p>クライアントは承認されたスナップショットを検索し、そのパックから制限された、許可されたテキストリソースのみを読み込みます。</p>
+<p>個々の共有を停止するか、ローカルAIアクセスを無効にして、コピーされた構成をすぐに無効にします。</p>
+      </div>
+    </div>
+  </section>
+      <div class="section landing-content-grid"><section id="without-jargon" class="landing-content-section" aria-labelledby="heading-without-jargon">
+    <h2 id="heading-without-jargon">専門用語を使わないMCP</h2>
+    <p>互換性のあるAIアプリケーションは、時々他のアプリケーションから情報を要求する方法が必要です。Model Context Protocolはその接続を提供します。</p>
+<p>SourceShelfを使用すると、保存したパックを選択し、ローカルAIアクセスを許可できます。その後、AIクライアントはSourceShelfに関連する文章を探し、そのパックから承認されたテキストリソースを読み取るように依頼できます。</p>
+
+  </section>
+<section id="pack-boundary" class="landing-content-section landing-content-callout" aria-labelledby="heading-pack-boundary">
+    <h2 id="heading-pack-boundary">理解できるパック境界</h2>
+    <p>SourceShelfは、ライブライブラリを公開したり、クライアントに一般的なファイルシステムツールを提供したりしません。選択したパックの不変のコピーをランダムな認証識別子の下に作成します。</p>
+<p>スナップショットには、コピーされたMarkdown、参照されたローカルイメージ、カタログ、チェックサム、および許可リストが含まれています。元のパス、出力フォルダパス、セキュリティブックマーク、およびパッケージ外のすべてのライブラリソースは除外されます。</p>
+
+  </section>
+<section id="search-first" class="landing-content-section" aria-labelledby="heading-search-first">
+    <h2 id="heading-search-first">まず検索し、必要なものだけを読んでください。</h2>
+    <p>互換性のあるクライアントは最初にSourceShelfに、承認済みのパッケージ内の関連する文章を探すように要求します。その後、すべてのドキュメントを一括読み込むのではなく、制限されたページで承認済みのテキストソースを読み取ることができます。</p>
+
+  </section>
+<section id="advanced-mcp" class="landing-content-section landing-content-details" aria-labelledby="heading-advanced-mcp">
+      <h2 id="heading-advanced-mcp">高度なMCPの詳細</h2>
+
+      <details>
+        <summary>正確な読み取り専用ツールと接続境界を確認してください</summary>
+        <ul><li>search_packは、承認されたパッケージ内の関連する構造認識パッセージを見つけます。</li><li>read_pack_resourceは、境界付きページで許可されたテキストソースを読み込みます。</li><li>このヘルパーは、プロンプト、サブスクリプション、書き込みツール、任意のパス、リモート取得、またはネットワークリスナーを提供しません。</li><li>互換性のあるAIクライアントはローカルでヘルパーを起動し、SourceShelfはすべてのリクエストに対して認証情報を再読み込みします。</li></ul>
+      </details>
+
+    </section>
+<section id="no-write-access" class="landing-content-section" aria-labelledby="heading-no-write-access">
+    <h2 id="heading-no-write-access">書き込みアクセス権がなく、ネットワークサーバーもありません。</h2>
+    <p>SourceShelf MCPヘルパーは、ソースを編集したり、ファイルを削除したり、リモートコンテンツを取得したり、任意のパスをブラウズしたり、ネットワーク接続を監視したりすることはできません。 互換性のあるAIクライアントによって起動されたコマンドを介してローカルで通信します。</p>
+<p>共有を停止したり、MCPを無効にしたりすると、コピーされた構成はすぐに無効になります。</p>
+
+  </section>
+<section id="model-choice" class="landing-content-section" aria-labelledby="heading-model-choice">
+    <h2 id="heading-model-choice">ローカルまたはクラウドベースのモデルは、あなたの選択のままです。</h2>
+    <p>MCPは、デスクトップのAIクライアントとSourceShelfを接続します。クライアントは、Mac上で実行されているモデルまたはクラウドベースのモデルを使用できます。</p>
+<p>SourceShelfはローカル知識接続を制御しますが、選択したサードパーティのAIクライアントのプライバシーポリシーやデータ処理は制御しません。</p>
+    <ul class="landing-inline-links"><li><a href="/ja/private-ai-knowledge-base-mac/">選択された知識がプライベートなAI知識ベースになる方法をご覧ください <span aria-hidden="true">→</span></a></li><li><a href="/ja/local-ai-reference-packs/">接続する前に、ターゲットパックを作成します。 <span aria-hidden="true">→</span></a></li><li><a href="/ja/research-archive-mac/">基本的なソースをローカルアーカイブに保存する <span aria-hidden="true">→</span></a></li></ul>
+  </section></div>
+      <section class="section landing-gallery" aria-label="読み取り専用MCP知識アクセス"><figure class="landing-gallery-item">
+    <div class="home-screenshot-frame"><a class="home-screenshot-trigger" href="/assets/home/ja/03-review-before-sharing-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelf 信頼性と安全性の結果は、ローカル AI アクセスが許可される前に表示されます。" data-lightbox-caption="スナップショットを公開する前に、保守的なアドバイザリーチェックを確認してください。" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="フルスクリーン画像を表示する: スナップショットを公開する前に、保守的なアドバイザリーチェックを確認してください。">
+    <img class="homepage-screenshot" src="/assets/home/ja/03-review-before-sharing-1440.webp" srcset="/assets/home/ja/03-review-before-sharing-960.webp 960w, /assets/home/ja/03-review-before-sharing-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="SourceShelf 信頼性と安全性の結果は、ローカル AI アクセスが許可される前に表示されます。" width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+  </a></div>
+    <figcaption>スナップショットを公開する前に、保守的なアドバイザリーチェックを確認してください。</figcaption>
+  </figure>
+<figure class="landing-gallery-item">
+    <div class="home-screenshot-frame"><a class="home-screenshot-trigger" href="/assets/home/ja/09-private-by-design-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelfプライバシー設定は、ローカル処理と制御されたAIアクセスの説明です。" data-lightbox-caption="必要に応じてアクセスを無効にするか、個々の共有を停止します。" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="フルスクリーン画像を表示する: 必要に応じてアクセスを無効にするか、個々の共有を停止します。">
+    <img class="homepage-screenshot" src="/assets/home/ja/09-private-by-design-1440.webp" srcset="/assets/home/ja/09-private-by-design-960.webp 960w, /assets/home/ja/09-private-by-design-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="SourceShelfプライバシー設定は、ローカル処理と制御されたAIアクセスの説明です。" width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+  </a></div>
+    <figcaption>必要に応じてアクセスを無効にするか、個々の共有を停止します。</figcaption>
+  </figure></section>
+      <section id="how-it-works" class="section landing-workflow" aria-labelledby="workflow-title-mcp-knowledge-base">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">仕組み</p>
+      <h2 id="workflow-title-mcp-knowledge-base">ソースから有用なコンテキストへの明確なワークフロー</h2>
+    </div>
+    <ol class="landing-workflow-list"><li>
+    <span class="landing-step-number" aria-hidden="true">1</span>
+    <div><h3>パックを保存する</h3><p>読みやすいソースの焦点を絞ったコレクションを作成して保存します。</p></div>
+  </li>
+<li>
+    <span class="landing-step-number" aria-hidden="true">2</span>
+    <div><h3>ローカルAIへのアクセスを承認する</h3><p>信頼性と安全性の結果を確認し、読み取り専用のスナップショットをパブリッシュします。</p></div>
+  </li>
+<li>
+    <span class="landing-step-number" aria-hidden="true">3</span>
+    <div><h3>互換性のあるクライアントを設定する</h3><p>構成またはローカルコマンドをクライアントにコピーします。</p></div>
+  </li>
+<li>
+    <span class="landing-step-number" aria-hidden="true">4</span>
+    <div><h3>検索と取り消し</h3><p>クライアントに選択したパッケージを検索してもらい、アクセスが不要になったら共有を停止します。</p></div>
+  </li></ol>
+  </section>
+      <section class="section landing-faq" aria-labelledby="faq-title-mcp-knowledge-base">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">よくある質問</p>
+      <h2 id="faq-title-mcp-knowledge-base">始める前に知っておくべきこと</h2>
+    </div>
+    <div class="landing-faq-list"><article class="landing-faq-item">
+    <h3>MCPは何を意味しますか？</h3>
+    <p>Model Context Protocolは、互換性のあるアプリケーションが他のアプリケーションからコンテキストとツールを要求するための標準方法です。SourceShelfは、認証済みの知識パックへのローカル、読み取り専用アクセスをするためにそれを使用します。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>MCPは、私のMac全体にAIへのアクセスを許可しますか？</h3>
+    <p>いいえ。SourceShelfは、あなたが承認した保存されたパックの不変のスナップショットのみを露出します。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>AIは私の書類を変更できますか？</h3>
+    <p>いいえ。SourceShelfにはMCPの書き込み、削除、または任意のファイルのツールは提供されていません。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>クラウドベースのAIクライアントは接続を使用できますか？</h3>
+    <p>潜在的には、そのデスクトップアプリケーションが必要なローカルMCP接続をサポートする場合。サードパーティクライアント自身のプライバシーとデータ処理条件は引き続き適用されます。</p>
+  </article>
+<article class="landing-faq-item">
+    <h3>アクセスを取り消すにはどうすればよいですか？</h3>
+    <p>個々のパッケージ共有を停止するか、SourceShelfでローカルAIアクセスを無効にします。ヘルパーはすべてのリクエストに対して認証情報を再読み込みするため、取り消されたアクセスはすぐに機能しなくなります。</p>
+  </article></div>
+  </section>
+      <section class="section landing-related" aria-labelledby="related-title-mcp-knowledge-base">
+    <div class="section-heading landing-section-heading">
+      <p class="eyebrow">関連するユースケース</p>
+      <h2 id="related-title-mcp-knowledge-base">SourceShelfを探索し続けましょう</h2>
+    </div>
+    <div class="landing-related-grid"><article class="landing-related-card">
+      <p class="eyebrow">Mac用のプライベートAI知識ベース</p>
+      <h3><a href="/ja/private-ai-knowledge-base-mac/">MacをプライベートなAI知識ベースに変える</a></h3>
+      <p>選択した知識をキャプチャ、変換、整理、およびローカル処理と読み取り専用AIアクセスに接続します。</p>
+    </article>
+<article class="landing-related-card">
+      <p class="eyebrow">AIのための集中的なコンテキスト</p>
+      <h3><a href="/ja/local-ai-reference-packs/">AIに無構造のフォルダではなく、焦点を当てたリファレンスパックを提供します。</a></h3>
+      <p>重要なソースを選択して並べ替えた後、ポータブルなコンテキストをエクスポートするか、保存したパックを読み取り専用で共有します。</p>
+    </article>
+<article class="landing-related-card">
+      <p class="eyebrow">ローカル研究アーカイブ</p>
+      <h3><a href="/ja/research-archive-mac/">数年後でもまだ使用できる研究アーカイブを構築する</a></h3>
+      <p>ウェブリサーチをキャプチャし、ドキュメントを変換し、原産地を保存し、結果をポータブルなMarkdownと保存パックとして保存します。</p>
+    </article></div>
+  </section>
+      <section class="section landing-closing" aria-labelledby="closing-title-mcp-knowledge-base">
+        <div><h2 id="closing-title-mcp-knowledge-base">Mac全体を露出させずに1パックずつ接続できます。</h2><p>読み取り専用のスナップショットを承認し、互換性のあるクライアントで使用し、いつでもアクセスを取り消すことができます。</p></div>
+        <a class="app-store-badge-link" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">
+    <img src="/assets/app-store-badges/ja.svg" alt="Mac App StoreでSourceShelfを表示する" width="140.18325" height="40">
+  </a>
+      </section>
+    </div>
+  </main>
+  <dialog id="homepage-lightbox" class="home-lightbox" data-home-lightbox aria-label="スクリーンショットビューア" aria-describedby="homepage-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="homepage-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="フル解像度を表示する" data-fit-label="画面にフィットする" aria-pressed="false">フル解像度を表示する</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="フルスクリーン画像を閉じる">閉じる</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="2880" height="1800" decoding="async">
+      </div>
+    </div>
+  </dialog>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/ja/">ホーム</a>
+          <a href="/ja/privacy.html">プライバシー</a>
+          <a href="/ja/docs/">ドキュメント</a>
+          <a href="/ja/support.html">サポート</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelfのユースケース">
+        <h2>SourceShelfの使用方法</h2>
+        <ul><li><a href="/ja/private-ai-knowledge-base-mac/">Mac用のプライベートAI知識ベース</a></li><li><a href="/ja/pdf-to-markdown-mac/">ローカルPDF変換</a></li><li><a href="/ja/save-webpages-as-markdown-safari/">Safariウェブキャプチャ</a></li><li><a href="/ja/local-ai-reference-packs/">AIのための集中的なコンテキスト</a></li><li><a href="/ja/research-archive-mac/">ローカル研究アーカイブ</a></li><li><a href="/ja/mcp-knowledge-base-mac/">読み取り専用MCP知識アクセス</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260802-3"></script>
+</body>
+</html>
