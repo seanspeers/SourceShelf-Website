@@ -1,0 +1,533 @@
+{
+  "en": {
+    "meta": {
+      "title": "SourceShelf — Private AI Knowledge Base for Mac",
+      "description": "Turn your Mac into a private AI knowledge base. Capture research, organize sources, and connect selected knowledge to compatible AI assistants with local-first workflows.",
+      "socialTitle": "Give your AI the right sources at the right time",
+      "socialDescription": "Build a private knowledge library on your Mac, then connect selected sources to compatible AI assistants without giving up control of your files."
+    },
+    "hero": {
+      "eyebrow": "Private AI knowledge base for Mac",
+      "title": "Give your AI the right sources at the right time.",
+      "tagline": "Turn your Mac into a private AI knowledge base.",
+      "description": "Capture research, organize sources, and connect your documents directly to AI assistants with local-first workflows.",
+      "download": "Download on the Mac App Store",
+      "seeHow": "See how it works",
+      "alt": "SourceShelf pack builder showing an ordered set of research files selected for use by an AI assistant."
+    },
+    "proof": ["Local processing", "Read-only AI access", "No SourceShelf cloud", "No telemetry"],
+    "capture": {
+      "eyebrow": "Build your knowledge library",
+      "title": "Bring scattered research together.",
+      "intro": "Capture webpages, files, and existing knowledge collections, then organize everything in a searchable local library.",
+      "items": [
+        {
+          "image": "04-convert-files-for-ai",
+          "title": "Make files ready for AI",
+          "description": "Convert PDFs, Office files, scans, websites, Markdown, text, and more — locally on your Mac.",
+          "alt": "SourceShelf conversion screen ready to process documents and folders into AI-friendly formats."
+        },
+        {
+          "image": "05-capture-from-safari",
+          "title": "Save research from Safari",
+          "description": "Capture full pages, main content, selections, and page areas directly from Safari.",
+          "alt": "SourceShelf Safari extension offering page, main-content, selection, and area capture modes."
+        },
+        {
+          "image": "06-organize-research",
+          "title": "Keep research organized",
+          "description": "Build ordered packs you can save and reuse, with previews, filters, and source tracking.",
+          "alt": "SourceShelf searchable library containing organized research sources."
+        }
+      ]
+    },
+    "review": {
+      "eyebrow": "Keep knowledge trustworthy",
+      "title": "Know what changed. Review what you share.",
+      "intro": "Focused context works best when it is current and intentional. SourceShelf helps you inspect a pack before it reaches your assistant.",
+      "items": [
+        {
+          "image": "03-review-before-sharing",
+          "title": "Review before you share",
+          "description": "Spot missing files, stale pages, and risky instructions before sharing a pack.",
+          "alt": "SourceShelf Trust and Safety review showing the readiness of a selected knowledge pack."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "title": "See exactly what changed",
+          "description": "Find new, changed, missing, and unchanged sources before refreshing your AI context.",
+          "alt": "SourceShelf Refresh and Compare report classifying changed and missing sources."
+        }
+      ]
+    },
+    "connect": {
+      "eyebrow": "Connect your AI",
+      "title": "Give compatible assistants focused, reusable context.",
+      "intro": "Use a controlled, read-only snapshot through Model Context Protocol, or export a portable pack for another workflow. Your original files stay private.",
+      "guide": "See Local AI Access setup guides",
+      "items": [
+        {
+          "image": "02-local-ai-access",
+          "title": "Use your pack in your AI app",
+          "description": "Connect to compatible AI apps without repeatedly uploading the same ZIP.",
+          "alt": "SourceShelf Local AI Access window publishing a read-only knowledge-pack snapshot."
+        },
+        {
+          "image": "08-export-workflows",
+          "title": "Export for any workflow",
+          "description": "Create an AI bundle, one Markdown file, a portable llms.txt collection, or an OKF-compatible pack.",
+          "alt": "SourceShelf export options for AI bundles, Markdown, llms.txt, and other workflows."
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Your knowledge remains yours",
+      "title": "Private by design.",
+      "description": "SourceShelf performs conversions locally, uses Apple’s built-in OCR technology, never uploads your documents, and requires no cloud account.",
+      "imageTitle": "Local processing. No SourceShelf cloud. No telemetry.",
+      "privacyLink": "Read the privacy details",
+      "alt": "SourceShelf privacy settings explaining local, read-only AI sharing and private processing."
+    },
+    "overview": {
+      "eyebrow": "Made for knowledge work",
+      "title": "Your sources, prepared for the way you use AI.",
+      "formatsTitle": "Bring the formats you already use.",
+      "formatsDescription": "Webpages, PDFs and scans, Word, PowerPoint, Excel, HTML, Markdown, text, and existing llms.txt collections.",
+      "formatsLink": "See supported formats",
+      "audienceTitle": "Useful wherever knowledge matters.",
+      "audienceDescription": "For researchers, developers, students and academics, privacy-conscious professionals, and anyone building a personal AI knowledge base.",
+      "docsLink": "Explore the documentation"
+    },
+    "closing": {
+      "title": "Build the knowledge base your AI has been missing.",
+      "description": "Choose the right sources, keep control of the originals, and reuse focused context across compatible assistants.",
+      "download": "Download on the Mac App Store",
+      "learn": "Explore SourceShelf documentation"
+    }
+  },
+  "fr": {
+    "meta": {
+      "title": "SourceShelf — Base de connaissances privée pour l’IA sur Mac",
+      "description": "Transformez votre Mac en base de connaissances privée pour l’IA. Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA, en local.",
+      "socialTitle": "Fournissez à l’IA les bonnes sources au bon moment",
+      "socialDescription": "Créez une bibliothèque de connaissances privée sur votre Mac, puis reliez les sources sélectionnées aux assistants IA compatibles sans perdre le contrôle de vos fichiers."
+    },
+    "hero": {
+      "eyebrow": "Base de connaissances privée pour l’IA sur Mac",
+      "title": "Fournissez à l’IA les bonnes sources au bon moment.",
+      "tagline": "Transformez votre Mac en base de connaissances privée pour l’IA.",
+      "description": "Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA grâce à des flux de travail locaux.",
+      "download": "Télécharger dans le Mac App Store",
+      "seeHow": "Voir comment ça fonctionne",
+      "alt": "Créateur de packs SourceShelf montrant un ensemble ordonné de fichiers de recherche sélectionnés pour une utilisation par un assistant IA."
+    },
+    "proof": ["Traitement local", "Accès IA en lecture seule", "Aucun nuage SourceShelf", "Aucune télémétrie"],
+    "capture": {
+      "eyebrow": "Créez votre bibliothèque de connaissances",
+      "title": "Rassemblez vos recherches dispersées.",
+      "intro": "Capturez des pages Web, des fichiers et des collections existantes, puis organisez le tout dans une bibliothèque locale consultable.",
+      "items": [
+        {
+          "image": "04-convert-files-for-ai",
+          "title": "Préparez vos fichiers pour l’IA",
+          "description": "Convertissez PDF, fichiers Office, scans, sites Web, Markdown, texte et plus encore, localement sur votre Mac.",
+          "alt": "Écran de conversion SourceShelf prêt à transformer des documents et des dossiers en formats adaptés à l’IA."
+        },
+        {
+          "image": "05-capture-from-safari",
+          "title": "Capturez depuis Safari",
+          "description": "Capturez des pages entières, le contenu principal, des sélections et des zones directement dans Safari.",
+          "alt": "Extension Safari SourceShelf proposant la capture de page, de contenu principal, de sélection et de zone."
+        },
+        {
+          "image": "06-organize-research",
+          "title": "Organisez vos recherches",
+          "description": "Créez des packs ordonnés à sauvegarder et à réutiliser, avec aperçus, filtres et suivi des sources.",
+          "alt": "Bibliothèque SourceShelf consultable contenant des sources de recherche organisées."
+        }
+      ]
+    },
+    "review": {
+      "eyebrow": "Gardez des connaissances fiables",
+      "title": "Voyez ce qui a changé. Vérifiez ce que vous partagez.",
+      "intro": "Un contexte ciblé est plus utile lorsqu’il est actuel et intentionnel. SourceShelf vous aide à inspecter un pack avant qu’il atteigne votre assistant.",
+      "items": [
+        {
+          "image": "03-review-before-sharing",
+          "title": "Vérifiez avant de partager",
+          "description": "Repérez les fichiers manquants, les pages périmées et les instructions risquées avant le partage.",
+          "alt": "Vérification Confiance et sécurité de SourceShelf montrant l’état de préparation d’un pack de connaissances."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "title": "Voyez ce qui a changé",
+          "description": "Repérez les sources nouvelles, modifiées, manquantes et inchangées avant d’actualiser le contexte de votre IA.",
+          "alt": "Rapport Actualiser et comparer de SourceShelf classant les sources modifiées et manquantes."
+        }
+      ]
+    },
+    "connect": {
+      "eyebrow": "Connectez votre IA",
+      "title": "Fournissez un contexte ciblé et réutilisable aux assistants compatibles.",
+      "intro": "Utilisez un instantané contrôlé et en lecture seule avec le Model Context Protocol, ou exportez un pack portable pour un autre flux de travail. Vos fichiers originaux restent privés.",
+      "guide": "Voir les guides de configuration de l’accès local à l’IA",
+      "items": [
+        {
+          "image": "02-local-ai-access",
+          "title": "Votre pack dans votre app d’IA",
+          "description": "Connectez des apps compatibles sans téléverser le même ZIP chaque fois.",
+          "alt": "Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de pack en lecture seule."
+        },
+        {
+          "image": "08-export-workflows",
+          "title": "Exportez à votre façon",
+          "description": "Créez un bundle IA, un fichier Markdown, une collection llms.txt portable ou un pack compatible avec OKF.",
+          "alt": "Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail."
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Vos connaissances restent les vôtres",
+      "title": "Confidentialité dès la conception.",
+      "description": "SourceShelf effectue les conversions localement, utilise la technologie OCR intégrée d’Apple, ne téléverse jamais vos documents et n’exige aucun compte infonuagique.",
+      "imageTitle": "Traitement local. Aucun nuage SourceShelf. Aucune télémétrie.",
+      "privacyLink": "Lire les détails sur la confidentialité",
+      "alt": "Réglages de confidentialité SourceShelf expliquant le partage IA local en lecture seule et le traitement privé."
+    },
+    "overview": {
+      "eyebrow": "Conçu pour le travail intellectuel",
+      "title": "Vos sources, préparées pour votre façon d’utiliser l’IA.",
+      "formatsTitle": "Utilisez les formats que vous connaissez déjà.",
+      "formatsDescription": "Pages Web, PDF et scans, Word, PowerPoint, Excel, HTML, Markdown, texte et collections llms.txt existantes.",
+      "formatsLink": "Voir les formats pris en charge",
+      "audienceTitle": "Utile partout où les connaissances comptent.",
+      "audienceDescription": "Pour les chercheurs, les développeurs, les étudiants et universitaires, les professionnels soucieux de la confidentialité et toute personne qui crée sa base de connaissances pour l’IA.",
+      "docsLink": "Explorer la documentation"
+    },
+    "closing": {
+      "title": "Créez la base de connaissances qui manquait à votre IA.",
+      "description": "Choisissez les bonnes sources, gardez le contrôle des originaux et réutilisez un contexte ciblé avec les assistants compatibles.",
+      "download": "Télécharger dans le Mac App Store",
+      "learn": "Explorer la documentation SourceShelf"
+    }
+  },
+  "es-419": {
+    "meta": {
+      "title": "SourceShelf — Base privada de conocimiento para IA en Mac",
+      "description": "Convierte tu Mac en una base privada de conocimiento para IA. Captura y organiza fuentes, y conecta tus documentos con asistentes de IA mediante flujos locales.",
+      "socialTitle": "Dale a la IA las fuentes adecuadas en el momento justo",
+      "socialDescription": "Crea una biblioteca privada de conocimiento en tu Mac y conecta las fuentes que elijas con asistentes de IA compatibles sin perder el control de tus archivos."
+    },
+    "hero": {
+      "eyebrow": "Base privada de conocimiento para IA en Mac",
+      "title": "Dale a la IA las fuentes adecuadas en el momento justo.",
+      "tagline": "Convierte tu Mac en una base privada de conocimiento para IA.",
+      "description": "Captura y organiza fuentes, y conecta tus documentos directamente con asistentes de IA mediante flujos locales.",
+      "download": "Descargar en la Mac App Store",
+      "seeHow": "Mira cómo funciona",
+      "alt": "Creador de paquetes de SourceShelf con un conjunto ordenado de archivos de investigación elegidos para un asistente de IA."
+    },
+    "proof": ["Procesamiento local", "Acceso de IA de solo lectura", "Sin nube SourceShelf", "Sin telemetría"],
+    "capture": {
+      "eyebrow": "Crea tu biblioteca de conocimiento",
+      "title": "Reúne toda tu investigación.",
+      "intro": "Captura páginas web, archivos y colecciones existentes, y organiza todo en una biblioteca local que puedes buscar.",
+      "items": [
+        {
+          "image": "04-convert-files-for-ai",
+          "title": "Prepara archivos para la IA",
+          "description": "Convierte archivos PDF y Office, escaneos, sitios web, Markdown, texto y más, de forma local en tu Mac.",
+          "alt": "Pantalla de conversión de SourceShelf lista para transformar documentos y carpetas en formatos para IA."
+        },
+        {
+          "image": "05-capture-from-safari",
+          "title": "Investiga desde Safari",
+          "description": "Captura páginas completas, contenido principal, selecciones y áreas directamente desde Safari.",
+          "alt": "Extensión de Safari de SourceShelf con opciones para capturar páginas, contenido principal, selecciones y áreas."
+        },
+        {
+          "image": "06-organize-research",
+          "title": "Organiza tu investigación",
+          "description": "Crea paquetes ordenados que puedes guardar y reutilizar, con vistas previas, filtros y seguimiento de fuentes.",
+          "alt": "Biblioteca de SourceShelf con fuentes de investigación organizadas y disponibles para búsqueda."
+        }
+      ]
+    },
+    "review": {
+      "eyebrow": "Mantén confiable tu conocimiento",
+      "title": "Mira qué cambió. Revisa lo que compartes.",
+      "intro": "El contexto específico funciona mejor cuando está actualizado y es intencional. SourceShelf te ayuda a revisar un paquete antes de que llegue a tu asistente.",
+      "items": [
+        {
+          "image": "03-review-before-sharing",
+          "title": "Revisa antes de compartir",
+          "description": "Detecta archivos faltantes, páginas desactualizadas e instrucciones riesgosas antes de compartir.",
+          "alt": "Revisión de confianza y seguridad de SourceShelf con el estado de un paquete de conocimiento."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "title": "Mira qué cambió",
+          "description": "Encuentra fuentes nuevas, modificadas, faltantes y sin cambios antes de actualizar el contexto de tu IA.",
+          "alt": "Informe Actualizar y comparar de SourceShelf que clasifica fuentes modificadas y faltantes."
+        }
+      ]
+    },
+    "connect": {
+      "eyebrow": "Conecta tu IA",
+      "title": "Dales a los asistentes compatibles un contexto específico y reutilizable.",
+      "intro": "Usa una instantánea controlada y de solo lectura mediante el Model Context Protocol, o exporta un paquete portátil para otro flujo de trabajo. Tus archivos originales permanecen privados.",
+      "guide": "Ver las guías de configuración de acceso local para IA",
+      "items": [
+        {
+          "image": "02-local-ai-access",
+          "title": "Usa tu paquete en tu app de IA",
+          "description": "Conéctate a apps compatibles sin volver a cargar el mismo ZIP.",
+          "alt": "Ventana Acceso local para IA de SourceShelf que publica una instantánea de solo lectura."
+        },
+        {
+          "image": "08-export-workflows",
+          "title": "Exporta a tu manera",
+          "description": "Crea un paquete para IA, un archivo Markdown, una colección llms.txt portátil o un paquete compatible con OKF.",
+          "alt": "Opciones de exportación de SourceShelf para paquetes de IA, Markdown, llms.txt y otros flujos de trabajo."
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Tu conocimiento sigue siendo tuyo",
+      "title": "Privacidad desde el diseño.",
+      "description": "SourceShelf realiza las conversiones localmente, usa la tecnología OCR integrada de Apple, nunca carga tus documentos y no requiere cuentas en la nube.",
+      "imageTitle": "Procesamiento local. Sin nube SourceShelf. Sin telemetría.",
+      "privacyLink": "Leer los detalles de privacidad",
+      "alt": "Configuración de privacidad de SourceShelf que explica el uso local y de solo lectura con IA."
+    },
+    "overview": {
+      "eyebrow": "Hecho para el trabajo con conocimiento",
+      "title": "Tus fuentes, preparadas para tu forma de usar la IA.",
+      "formatsTitle": "Usa los formatos que ya conoces.",
+      "formatsDescription": "Páginas web, archivos PDF y escaneos, Word, PowerPoint, Excel, HTML, Markdown, texto y colecciones llms.txt existentes.",
+      "formatsLink": "Ver formatos compatibles",
+      "audienceTitle": "Útil donde sea que importe el conocimiento.",
+      "audienceDescription": "Para investigadores, desarrolladores, estudiantes y académicos, profesionales que valoran la privacidad y cualquier persona que cree su propia base de conocimiento para IA.",
+      "docsLink": "Explorar la documentación"
+    },
+    "closing": {
+      "title": "Crea la base de conocimiento que le faltaba a tu IA.",
+      "description": "Elige las fuentes adecuadas, conserva el control de los originales y reutiliza contexto específico con asistentes compatibles.",
+      "download": "Descargar en la Mac App Store",
+      "learn": "Explorar la documentación de SourceShelf"
+    }
+  },
+  "pt-BR": {
+    "meta": {
+      "title": "SourceShelf — Base de conhecimento privada para IA no Mac",
+      "description": "Transforme seu Mac em uma base de conhecimento privada para IA. Capture pesquisas, organize fontes e conecte seus documentos a assistentes de IA com fluxos locais.",
+      "socialTitle": "Forneça à IA as fontes certas no momento certo",
+      "socialDescription": "Crie uma biblioteca de conhecimento privada no Mac e conecte as fontes selecionadas a assistentes de IA compatíveis sem perder o controle dos seus arquivos."
+    },
+    "hero": {
+      "eyebrow": "Base de conhecimento privada para IA no Mac",
+      "title": "Forneça à IA as fontes certas no momento certo.",
+      "tagline": "Transforme seu Mac em uma base de conhecimento privada para IA.",
+      "description": "Capture pesquisas, organize fontes e conecte seus documentos diretamente a assistentes de IA com fluxos locais.",
+      "download": "Baixar na Mac App Store",
+      "seeHow": "Veja como funciona",
+      "alt": "Criador de pacotes do SourceShelf com um conjunto ordenado de arquivos de pesquisa selecionados para um assistente de IA."
+    },
+    "proof": ["Processamento local", "Acesso de IA somente leitura", "Sem nuvem SourceShelf", "Sem telemetria"],
+    "capture": {
+      "eyebrow": "Crie sua biblioteca de conhecimento",
+      "title": "Reúna pesquisas que estavam dispersas.",
+      "intro": "Capture páginas da web, arquivos e coleções existentes e organize tudo em uma biblioteca local pesquisável.",
+      "items": [
+        {
+          "image": "04-convert-files-for-ai",
+          "title": "Prepare os arquivos para IA",
+          "description": "Converta PDFs, arquivos Office, digitalizações, sites, Markdown, texto e muito mais, localmente no Mac.",
+          "alt": "Tela de conversão do SourceShelf pronta para transformar documentos e pastas em formatos para IA."
+        },
+        {
+          "image": "05-capture-from-safari",
+          "title": "Salve pesquisas do Safari",
+          "description": "Capture páginas inteiras, conteúdo principal, seleções e áreas diretamente no Safari.",
+          "alt": "Extensão do Safari do SourceShelf com modos para capturar página, conteúdo principal, seleção e área."
+        },
+        {
+          "image": "06-organize-research",
+          "title": "Mantenha a pesquisa organizada",
+          "description": "Crie pacotes ordenados que você pode salvar e reutilizar, com visualizações, filtros e rastreamento de fontes.",
+          "alt": "Biblioteca pesquisável do SourceShelf contendo fontes de pesquisa organizadas."
+        }
+      ]
+    },
+    "review": {
+      "eyebrow": "Mantenha o conhecimento confiável",
+      "title": "Veja o que mudou. Revise o que você compartilha.",
+      "intro": "O contexto específico funciona melhor quando está atualizado e é intencional. O SourceShelf ajuda você a inspecionar um pacote antes que ele chegue ao seu assistente.",
+      "items": [
+        {
+          "image": "03-review-before-sharing",
+          "title": "Revise antes de compartilhar",
+          "description": "Identifique arquivos ausentes, páginas desatualizadas e instruções arriscadas antes de compartilhar.",
+          "alt": "Revisão de confiança e segurança do SourceShelf mostrando o estado de um pacote de conhecimento."
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "title": "Veja exatamente o que mudou",
+          "description": "Encontre fontes novas, alteradas, ausentes e inalteradas antes de atualizar o contexto da sua IA.",
+          "alt": "Relatório Atualizar e comparar do SourceShelf classificando fontes alteradas e ausentes."
+        }
+      ]
+    },
+    "connect": {
+      "eyebrow": "Conecte sua IA",
+      "title": "Forneça contexto específico e reutilizável a assistentes compatíveis.",
+      "intro": "Use um instantâneo controlado e somente leitura pelo Model Context Protocol ou exporte um pacote portátil para outro fluxo de trabalho. Seus arquivos originais permanecem privados.",
+      "guide": "Ver guias de configuração do acesso local de IA",
+      "items": [
+        {
+          "image": "02-local-ai-access",
+          "title": "Use seu pacote com IA",
+          "description": "Conecte-se a apps compatíveis sem reenviar o mesmo ZIP.",
+          "alt": "Janela Acesso local de IA do SourceShelf publicando um instantâneo de pacote somente leitura."
+        },
+        {
+          "image": "08-export-workflows",
+          "title": "Exporte do seu jeito",
+          "description": "Crie um pacote para IA, um arquivo Markdown, uma coleção llms.txt portátil ou um pacote compatível com OKF.",
+          "alt": "Opções de exportação do SourceShelf para pacotes de IA, Markdown, llms.txt e outros fluxos de trabalho."
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "Seu conhecimento continua sendo seu",
+      "title": "Privacidade desde o início.",
+      "description": "O SourceShelf faz as conversões localmente, usa a tecnologia OCR integrada da Apple, nunca envia seus documentos e não exige contas na nuvem.",
+      "imageTitle": "Processamento local. Sem nuvem SourceShelf. Sem telemetria.",
+      "privacyLink": "Ler os detalhes de privacidade",
+      "alt": "Configurações de privacidade do SourceShelf explicando o compartilhamento local e somente leitura com IA."
+    },
+    "overview": {
+      "eyebrow": "Feito para o trabalho com conhecimento",
+      "title": "Suas fontes, preparadas para a maneira como você usa IA.",
+      "formatsTitle": "Use os formatos que você já conhece.",
+      "formatsDescription": "Páginas da web, PDFs e digitalizações, Word, PowerPoint, Excel, HTML, Markdown, texto e coleções llms.txt existentes.",
+      "formatsLink": "Ver formatos compatíveis",
+      "audienceTitle": "Útil sempre que o conhecimento importa.",
+      "audienceDescription": "Para pesquisadores, desenvolvedores, estudantes e acadêmicos, profissionais que valorizam a privacidade e qualquer pessoa que crie sua própria base de conhecimento para IA.",
+      "docsLink": "Explorar a documentação"
+    },
+    "closing": {
+      "title": "Crie a base de conhecimento que faltava para sua IA.",
+      "description": "Escolha as fontes certas, mantenha o controle dos originais e reutilize contexto específico com assistentes compatíveis.",
+      "download": "Baixar na Mac App Store",
+      "learn": "Explorar a documentação do SourceShelf"
+    }
+  },
+  "ja": {
+    "meta": {
+      "title": "SourceShelf — MacのプライベートAIナレッジベース",
+      "description": "MacをプライベートなAIナレッジベースに。調査資料を収集・整理し、ローカル優先のワークフローで書類をAIアシスタントへ直接接続できます。",
+      "socialTitle": "AIへ、必要な知識を",
+      "socialDescription": "Mac上にプライベートな知識ライブラリを作成し、ファイルの管理権を保ったまま選択した資料を対応AIアシスタントへ接続できます。"
+    },
+    "hero": {
+      "eyebrow": "MacのプライベートAIナレッジベース",
+      "title": "AIへ、必要な知識を。",
+      "titleLines": ["AIへ、", "必要な知識を。"],
+      "tagline": "MacをプライベートなAIナレッジベースに。",
+      "description": "調査資料を収集・整理し、ローカル優先のワークフローで書類をAIアシスタントへ直接接続できます。",
+      "download": "Mac App Storeからダウンロード",
+      "seeHow": "使い方を見る",
+      "alt": "AIアシスタントで使用する調査ファイルを順番に選択したSourceShelfのパック作成画面。"
+    },
+    "proof": ["ローカル処理", "読み取り専用AIアクセス", "SourceShelfクラウドなし", "テレメトリなし"],
+    "capture": {
+      "eyebrow": "自分だけの知識ライブラリを作成",
+      "title": "散らばった調査資料をひとつに。",
+      "intro": "Webページ、ファイル、既存の知識コレクションを収集し、検索可能なローカルライブラリですべてを整理できます。",
+      "items": [
+        {
+          "image": "04-convert-files-for-ai",
+          "title": "ファイルをAI向けに変換",
+          "description": "PDF、Office、スキャン、Webサイト、Markdown、テキストなどをMac上でローカルに変換します。",
+          "alt": "書類やフォルダをAI向けの形式に変換するSourceShelfの変換画面。"
+        },
+        {
+          "image": "05-capture-from-safari",
+          "title": "Safariからリサーチを保存",
+          "description": "ページ全体、メインコンテンツ、選択テキスト、指定範囲をSafariから直接キャプチャできます。",
+          "alt": "ページ、メインコンテンツ、選択テキスト、指定範囲のキャプチャ方法を選べるSourceShelfのSafari拡張機能。"
+        },
+        {
+          "image": "06-organize-research",
+          "title": "リサーチをわかりやすく整理",
+          "description": "プレビュー、フィルタ、ソース追跡を備えた、保存・再利用できる順序付きパックを作成します。",
+          "alt": "整理された調査資料を表示するSourceShelfの検索可能なライブラリ。"
+        }
+      ]
+    },
+    "review": {
+      "eyebrow": "知識を信頼できる状態に",
+      "title": "変更点を確認し、共有内容を見直せます。",
+      "intro": "絞り込まれたコンテキストは、最新かつ意図的なときに最も役立ちます。SourceShelfなら、アシスタントへ渡す前にパックを確認できます。",
+      "items": [
+        {
+          "image": "03-review-before-sharing",
+          "title": "共有前にしっかり確認",
+          "description": "ファイルの欠落、古いページ、危険な指示を共有前に検出します。",
+          "alt": "選択したナレッジパックの準備状況を示すSourceShelfの信頼性と安全性レビュー。"
+        },
+        {
+          "image": "07-refresh-and-compare",
+          "title": "変更点を一目で確認",
+          "description": "AIコンテキストを更新する前に、新規、変更、欠落、変更なしの資料を分類します。",
+          "alt": "変更または欠落したソースを分類するSourceShelfの更新と比較レポート。"
+        }
+      ]
+    },
+    "connect": {
+      "eyebrow": "AIを接続",
+      "title": "対応アシスタントへ、的確で再利用できるコンテキストを。",
+      "intro": "Model Context Protocolによる管理された読み取り専用スナップショットを使うか、別のワークフロー向けに持ち運べるパックを書き出せます。元のファイルは非公開のままです。",
+      "guide": "ローカルAIアクセスの設定ガイドを見る",
+      "items": [
+        {
+          "image": "02-local-ai-access",
+          "title": "AIアプリでパックを活用",
+          "description": "同じZIPを繰り返し送らず、対応AIアプリに接続できます。",
+          "alt": "読み取り専用のナレッジパックスナップショットを公開するSourceShelfのローカルAIアクセス画面。"
+        },
+        {
+          "image": "08-export-workflows",
+          "title": "自在にエクスポート",
+          "description": "AIバンドル、1つのMarkdown、持ち運べるllms.txtコレクション、OKF互換パックを作成できます。",
+          "alt": "AIバンドル、Markdown、llms.txtなどを作成するSourceShelfの書き出しオプション。"
+        }
+      ]
+    },
+    "privacy": {
+      "eyebrow": "知識の所有権はあなたに",
+      "title": "プライバシーを重視した設計。",
+      "description": "SourceShelfは変換をローカルで実行し、Apple内蔵のOCR技術を使用します。書類をアップロードせず、クラウドアカウントも必要ありません。",
+      "imageTitle": "ローカル処理。SourceShelfクラウドもテレメトリもなし。",
+      "privacyLink": "プライバシーの詳細を読む",
+      "alt": "ローカルで読み取り専用のAI共有とプライベート処理を説明するSourceShelfのプライバシー設定。"
+    },
+    "overview": {
+      "eyebrow": "知識を扱うすべての人へ",
+      "title": "あなたのAI活用に合わせて、ソースを準備。",
+      "formatsTitle": "いつものファイル形式をそのまま使えます。",
+      "formatsDescription": "Webページ、PDFとスキャン、Word、PowerPoint、Excel、HTML、Markdown、テキスト、既存のllms.txtコレクションに対応します。",
+      "formatsLink": "対応形式を見る",
+      "audienceTitle": "知識が重要なあらゆる場面で役立ちます。",
+      "audienceDescription": "個人アーカイブを作る研究者、ローカルAIを扱う開発者、学生や研究者、プライバシーを重視する専門家、自分専用のAIナレッジベースを作りたい方に最適です。",
+      "docsLink": "ドキュメントを見る"
+    },
+    "closing": {
+      "title": "AIに必要だったナレッジベースを作りましょう。",
+      "description": "適切なソースを選び、元のファイルの管理権を保ち、対応アシスタントで的確なコンテキストを再利用できます。",
+      "download": "Mac App Storeからダウンロード",
+      "learn": "SourceShelfのドキュメントを見る"
+    }
+  }
+}

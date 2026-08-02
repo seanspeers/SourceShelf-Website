@@ -9,6 +9,18 @@ const siteSourceRoot = path.join(siteRoot, "_site");
 const canonicalOrigin = "https://sourceshelf.app";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 const navigation = JSON.parse(await readFile(path.join(sourceRoot, "navigation.json"), "utf8"));
+const homepageContent = JSON.parse(await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8"));
+const homepageScreenshotNames = [
+  "01-private-ai-source-packs",
+  "02-local-ai-access",
+  "03-review-before-sharing",
+  "04-convert-files-for-ai",
+  "05-capture-from-safari",
+  "06-organize-research",
+  "07-refresh-and-compare",
+  "08-export-workflows",
+  "09-private-by-design"
+];
 
 function prefixFor(locale) {
   return locale === "en" ? "" : `/${locale}`;
@@ -231,6 +243,59 @@ for (const htmlFile of htmlFiles) {
     errors.push(`${publicPath} is missing a page title`);
   }
 
+  if (logicalRoute === "/") {
+    const homepage = homepageContent[locale];
+    if (!homepage) {
+      errors.push(`${publicPath} is missing localized homepage content`);
+    }
+    const homepageImages = [...html.matchAll(/<img\b[^>]*\bclass="homepage-screenshot"[^>]*>/g)].map((match) => match[0]);
+    if (homepageImages.length !== homepageScreenshotNames.length) {
+      errors.push(`${publicPath} must contain exactly nine homepage screenshots`);
+    }
+    const usedScreenshotNames = new Set();
+    for (const image of homepageImages) {
+      checkedImages += 1;
+      const source = image.match(/\bsrc="([^"]+)"/)?.[1] || "";
+      const expectedPrefix = `/assets/home/${locale}/`;
+      if (!source.startsWith(expectedPrefix)) {
+        errors.push(`${publicPath} loads a homepage screenshot from the wrong locale: ${source}`);
+      }
+      const screenshotName = source.match(/\/([^/]+)-1440\.webp$/)?.[1];
+      if (screenshotName) usedScreenshotNames.add(screenshotName);
+      const alt = image.match(/\balt="([^"]*)"/)?.[1] || "";
+      if (!alt.trim()) errors.push(`${publicPath} contains a homepage screenshot without alt text`);
+      if (!image.includes('width="1440"') || !image.includes('height="900"')) {
+        errors.push(`${publicPath} contains a homepage screenshot without the expected dimensions`);
+      }
+      if (!image.includes("srcset=") || !image.includes("sizes=")) {
+        errors.push(`${publicPath} contains a homepage screenshot without responsive image attributes`);
+      }
+    }
+    for (const screenshotName of homepageScreenshotNames) {
+      if (!usedScreenshotNames.has(screenshotName)) {
+        errors.push(`${publicPath} is missing homepage screenshot ${screenshotName}`);
+      }
+    }
+    if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
+      errors.push(`${publicPath} must eagerly prioritize only the hero screenshot`);
+    }
+    if ((html.match(/class="homepage-screenshot"[^>]*loading="lazy"/g) || []).length !== 8) {
+      errors.push(`${publicPath} must lazy-load the eight non-hero screenshots`);
+    }
+    if (!html.includes('href="#how-it-works"') || !html.includes('id="how-it-works"')) {
+      errors.push(`${publicPath} is missing the how-it-works anchor contract`);
+    }
+    const expectedSocialImage = `${canonicalOrigin}/assets/home/${locale}/01-private-ai-source-packs-social.jpg`;
+    if (!html.includes(`property="og:image" content="${expectedSocialImage}"`) || !html.includes(`name="twitter:image" content="${expectedSocialImage}"`)) {
+      errors.push(`${publicPath} has incorrect localized social imagery`);
+    }
+    try {
+      await access(path.join(siteRoot, `assets/home/${locale}/01-private-ai-source-packs-social.jpg`));
+    } catch {
+      errors.push(`${publicPath} references a missing localized social image`);
+    }
+  }
+
   if (isDocs) {
     const articleBody = html.match(/<div class="docs-article-body">([\s\S]*?)<\/div>\s*<nav class="docs-pagination"/)?.[1] || "";
     for (const heading of articleBody.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)) {
@@ -291,6 +356,31 @@ if (generatedImages.length !== 18) {
   errors.push(`Expected 18 optimized documentation images, found ${generatedImages.length}`);
 }
 
+for (const locale of localeCodes) {
+  const homepage = homepageContent[locale];
+  if (!homepage) {
+    errors.push(`Homepage content is missing for ${locale}`);
+    continue;
+  }
+  if (homepage.proof.length !== 4 || homepage.capture.items.length !== 3 || homepage.review.items.length !== 2 || homepage.connect.items.length !== 2) {
+    errors.push(`${locale} homepage content does not match the shared section structure`);
+  }
+  for (const screenshotName of homepageScreenshotNames) {
+    for (const width of [960, 1440]) {
+      try {
+        await access(path.join(siteRoot, `assets/home/${locale}/${screenshotName}-${width}.webp`));
+      } catch {
+        errors.push(`Missing optimized homepage image: ${locale}/${screenshotName}-${width}.webp`);
+      }
+    }
+  }
+}
+
+const homepageAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "home")));
+if (homepageAssets.length !== 95) {
+  errors.push(`Expected 95 localized homepage assets, found ${homepageAssets.length}`);
+}
+
 const sitemap = await readFile(path.join(siteRoot, "sitemap.xml"), "utf8");
 for (const route of expectedPages.keys()) {
   if (!sitemap.includes(`<loc>${canonicalOrigin}${route}</loc>`)) {
@@ -305,5 +395,5 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Checked ${htmlFiles.length} HTML files, ${checkedReferences} local references, ${checkedImages} documentation images, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Checked ${htmlFiles.length} HTML files, ${checkedReferences} local references, ${checkedImages} accessible images, 95 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
 }

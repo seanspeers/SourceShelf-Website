@@ -9,8 +9,9 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const canonicalOrigin = "https://sourceshelf.app";
+const appStoreUrl = "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12";
 const buildDate = "2026-08-01";
-const assetVersion = "20260801-2";
+const assetVersion = "20260801-3";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const baseNavigation = JSON.parse(
@@ -21,6 +22,9 @@ const translationOverrides = JSON.parse(
 );
 const editorialOverrides = JSON.parse(
   await readFile(path.join(siteSourceRoot, "editorial-overrides.json"), "utf8")
+);
+const homepageContent = JSON.parse(
+  await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8")
 );
 const locales = await Promise.all(localeCodes.map(async (code) => {
   const catalog = JSON.parse(
@@ -551,7 +555,7 @@ function renderHeader(locale, currentSection) {
         ${link("privacy", "/privacy.html", "Privacy")}
         ${link("docs", "/docs/", "Documentation")}
         ${link("support", "/support.html", "Support")}
-        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="${escapeHtml(translate(locale, "Download SourceShelf on the Mac App Store"))}">${escapeHtml(translate(locale, "Download"))}</a>
+        <a class="nav-download" href="${appStoreUrl}" aria-label="${escapeHtml(translate(locale, "Download SourceShelf on the Mac App Store"))}">${escapeHtml(translate(locale, "Download"))}</a>
         ${renderLanguageSelector(locale)}
         <button class="theme-toggle" type="button" data-theme-toggle data-light-label="${escapeHtml(translate(locale, "Switch to light mode"))}" data-dark-label="${escapeHtml(translate(locale, "Switch to dark mode"))}" aria-label="${escapeHtml(translate(locale, "Toggle dark mode"))}" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -574,6 +578,146 @@ function renderFooter(locale) {
       </div>
     </div>
   </footer>`;
+}
+
+function renderHomepageImage(locale, item, { hero = false } = {}) {
+  const basePath = `/assets/home/${locale.code}/${item.image}`;
+  const loading = hero
+    ? 'loading="eager" fetchpriority="high"'
+    : 'loading="lazy"';
+  const sizes = hero
+    ? "(max-width: 920px) calc(100vw - 24px), 680px"
+    : "(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px";
+  return `<img class="homepage-screenshot" src="${basePath}-1440.webp" srcset="${basePath}-960.webp 960w, ${basePath}-1440.webp 1440w" sizes="${sizes}" alt="${escapeHtml(item.alt)}" width="1440" height="900" ${loading} decoding="async">`;
+}
+
+function renderHomepageFeatureCard(locale, item) {
+  return `<article class="home-feature-card">
+    <div class="home-screenshot-frame">
+      ${renderHomepageImage(locale, item)}
+    </div>
+    <div class="home-feature-copy">
+      <h3>${escapeHtml(item.title)}</h3>
+      <p>${escapeHtml(item.description)}</p>
+    </div>
+  </article>`;
+}
+
+function renderHomepageMain(locale, content) {
+  const localized = (route) => localizedRoute(locale, route);
+  const heroTitle = Array.isArray(content.hero.titleLines)
+    ? content.hero.titleLines.map((line) => `<span class="home-title-line">${escapeHtml(line)}</span>`).join("")
+    : escapeHtml(content.hero.title);
+  const heroImage = {
+    image: "01-private-ai-source-packs",
+    alt: content.hero.alt
+  };
+  const proofItems = content.proof.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+  const captureCards = content.capture.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
+  const reviewCards = content.review.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
+  const connectCards = content.connect.items.map((item) => renderHomepageFeatureCard(locale, item)).join("\n");
+
+  return `<main id="main" class="main home-main">
+    <section class="section hero home-hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <img class="hero-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="96" height="96">
+        <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
+        <h1 id="hero-title">${heroTitle}</h1>
+        <p class="home-hero-tagline">${escapeHtml(content.hero.tagline)}</p>
+        <p class="subheading">${escapeHtml(content.hero.description)}</p>
+        <div class="actions">
+          <a class="button button-primary" href="${appStoreUrl}">${escapeHtml(content.hero.download)}</a>
+          <a class="button button-secondary" href="#how-it-works">${escapeHtml(content.hero.seeHow)}</a>
+        </div>
+        <ul class="home-proof-list" aria-label="${escapeHtml(content.hero.eyebrow)}">${proofItems}</ul>
+      </div>
+      <div class="hero-visual home-hero-visual">
+        <div class="home-screenshot-frame home-hero-frame">
+          ${renderHomepageImage(locale, heroImage, { hero: true })}
+        </div>
+      </div>
+    </section>
+
+    <section id="how-it-works" class="section home-story-section" aria-labelledby="capture-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">${escapeHtml(content.capture.eyebrow)}</p>
+        <h2 id="capture-title">${escapeHtml(content.capture.title)}</h2>
+        <p>${escapeHtml(content.capture.intro)}</p>
+      </div>
+      <div class="home-feature-grid home-feature-grid-three">
+        ${captureCards}
+      </div>
+    </section>
+
+    <section class="section home-story-section home-story-section-tinted" aria-labelledby="review-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">${escapeHtml(content.review.eyebrow)}</p>
+        <h2 id="review-title">${escapeHtml(content.review.title)}</h2>
+        <p>${escapeHtml(content.review.intro)}</p>
+      </div>
+      <div class="home-feature-grid home-feature-grid-two">
+        ${reviewCards}
+      </div>
+    </section>
+
+    <section class="section home-story-section" aria-labelledby="connect-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">${escapeHtml(content.connect.eyebrow)}</p>
+        <h2 id="connect-title">${escapeHtml(content.connect.title)}</h2>
+        <p>${escapeHtml(content.connect.intro)}</p>
+        <a class="text-link" href="${localized("/docs/mcp/local-ai-access/")}">${escapeHtml(content.connect.guide)} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-feature-grid home-feature-grid-two">
+        ${connectCards}
+      </div>
+    </section>
+
+    <section class="section home-privacy-section" aria-labelledby="privacy-title">
+      <div class="home-privacy-copy">
+        <p class="eyebrow">${escapeHtml(content.privacy.eyebrow)}</p>
+        <h2 id="privacy-title">${escapeHtml(content.privacy.title)}</h2>
+        <p>${escapeHtml(content.privacy.description)}</p>
+        <strong>${escapeHtml(content.privacy.imageTitle)}</strong>
+        <a class="text-link" href="${localized("/privacy.html")}">${escapeHtml(content.privacy.privacyLink)} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-screenshot-frame">
+        ${renderHomepageImage(locale, {
+          image: "09-private-by-design",
+          alt: content.privacy.alt
+        })}
+      </div>
+    </section>
+
+    <section class="section home-overview-section" aria-labelledby="overview-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">${escapeHtml(content.overview.eyebrow)}</p>
+        <h2 id="overview-title">${escapeHtml(content.overview.title)}</h2>
+      </div>
+      <div class="home-overview-grid">
+        <article class="home-overview-card">
+          <h3>${escapeHtml(content.overview.formatsTitle)}</h3>
+          <p>${escapeHtml(content.overview.formatsDescription)}</p>
+          <a class="text-link" href="${localized("/docs/reference/supported-formats/")}">${escapeHtml(content.overview.formatsLink)} <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="home-overview-card">
+          <h3>${escapeHtml(content.overview.audienceTitle)}</h3>
+          <p>${escapeHtml(content.overview.audienceDescription)}</p>
+          <a class="text-link" href="${localized("/docs/")}">${escapeHtml(content.overview.docsLink)} <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section home-closing-section" aria-labelledby="closing-title">
+      <div>
+        <h2 id="closing-title">${escapeHtml(content.closing.title)}</h2>
+        <p>${escapeHtml(content.closing.description)}</p>
+      </div>
+      <div class="actions">
+        <a class="button button-primary" href="${appStoreUrl}">${escapeHtml(content.closing.download)}</a>
+        <a class="button button-secondary" href="${localized("/docs/")}">${escapeHtml(content.closing.learn)}</a>
+      </div>
+    </section>
+  </main>`;
 }
 
 function headBootstrap(locale) {
@@ -727,17 +871,25 @@ function localizeMainHtml(locale, html) {
 }
 
 function renderGeneralPage(definition, locale, template) {
-  const title = extractMatch(/<title>([^<]+)<\/title>/, template, "page title");
-  const description = extractMatch(/<meta name="description" content="([^"]+)">/, template, "page description");
-  const socialTitle = extractMatch(/<meta property="og:title" content="([^"]+)">/, template, "social title");
-  const socialDescription = extractMatch(/<meta property="og:description" content="([^"]+)">/, template, "social description");
+  const homepage = definition.section === "home" ? homepageContent[locale.code] : null;
+  if (definition.section === "home" && !homepage) {
+    throw new Error(`Homepage content is missing for ${locale.code}`);
+  }
+  const title = homepage?.meta.title || extractMatch(/<title>([^<]+)<\/title>/, template, "page title");
+  const description = homepage?.meta.description || extractMatch(/<meta name="description" content="([^"]+)">/, template, "page description");
+  const socialTitle = homepage?.meta.socialTitle || extractMatch(/<meta property="og:title" content="([^"]+)">/, template, "social title");
+  const socialDescription = homepage?.meta.socialDescription || extractMatch(/<meta property="og:description" content="([^"]+)">/, template, "social description");
   const main = extractMatch(/(<main\b[\s\S]*?<\/main>)/, template, "main content");
   const route = localizedRoute(locale, definition.logicalRoute);
   const canonicalUrl = `${canonicalOrigin}${route}`;
-  const localizedTitle = translate(locale, title);
-  const localizedDescription = translate(locale, description);
-  const localizedSocialTitle = translate(locale, socialTitle);
-  const localizedSocialDescription = translate(locale, socialDescription);
+  const localizedTitle = homepage ? title : translate(locale, title);
+  const localizedDescription = homepage ? description : translate(locale, description);
+  const localizedSocialTitle = homepage ? socialTitle : translate(locale, socialTitle);
+  const localizedSocialDescription = homepage ? socialDescription : translate(locale, socialDescription);
+  const socialImage = homepage
+    ? `${canonicalOrigin}/assets/home/${locale.code}/01-private-ai-source-packs-social.jpg`
+    : `${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png`;
+  const renderedMain = homepage ? renderHomepageMain(locale, homepage) : localizeMainHtml(locale, main);
 
   const html = `<!DOCTYPE html>
 <html lang="${locale.code}">
@@ -752,11 +904,11 @@ ${renderAlternateLinks(definition.logicalRoute)}
   <meta property="og:title" content="${escapeHtml(localizedSocialTitle)}">
   <meta property="og:description" content="${escapeHtml(localizedSocialDescription)}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta property="og:image" content="${socialImage}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(localizedSocialTitle)}">
   <meta name="twitter:description" content="${escapeHtml(localizedSocialDescription)}">
-  <meta name="twitter:image" content="${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:image" content="${socialImage}">
   <title>${escapeHtml(localizedTitle)}</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
@@ -767,7 +919,7 @@ ${renderAlternateLinks(definition.logicalRoute)}
   <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
   ${renderHeader(locale, definition.section)}
 
-  ${localizeMainHtml(locale, main)}
+  ${renderedMain}
 
   ${renderFooter(locale)}
   <script src="/script.js?v=${assetVersion}"></script>
