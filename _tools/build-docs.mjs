@@ -8,8 +8,9 @@ const siteRoot = path.resolve(toolsDirectory, "..");
 const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
-const buildDate = "2026-08-02";
-const assetVersion = "20260802-3";
+const blogSourceRoot = path.join(siteRoot, "_blog");
+const buildDate = "2026-08-03";
+const assetVersion = "20260803-2";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -29,6 +30,9 @@ const editorialOverrides = JSON.parse(
 );
 const homepageContent = JSON.parse(
   await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8")
+);
+const blogManifest = JSON.parse(
+  await readFile(path.join(blogSourceRoot, "posts.json"), "utf8")
 );
 const landingContent = new Map(await Promise.all(localeCodes.map(async (code) => {
   const content = JSON.parse(
@@ -76,6 +80,15 @@ const landingPages = locales.flatMap((locale) => {
 const landingPageByLocaleAndId = new Map(
   landingPages.map((page) => [`${page.locale.code}:${page.id}`, page])
 );
+const blogPages = locales.flatMap((locale) => blogManifest.posts.map((post) => ({
+  ...post,
+  locale,
+  content: post.locales[locale.code],
+  source: locale.code === "en" ? post.source : `locales/${locale.code}/${post.source}`,
+  logicalSource: post.source,
+  logicalRoute: post.route,
+  route: localizedRoute(locale, post.route)
+})));
 
 const pageBySource = new Map(allPages.map((page) => [page.source, page]));
 const imageMap = new Map();
@@ -254,6 +267,19 @@ function renderImage(line, page) {
     throw new Error(`Remote documentation images are not supported: ${destination}`);
   }
 
+  const homepageImage = destination.match(/^\/assets\/home\/([^/]+)\/(.+)-1440\.webp$/);
+  if (homepageImage) {
+    if (!page.content || homepageImage[1] !== page.locale.code) {
+      throw new Error(`Localized blog image does not match ${page.locale.code} in ${page.source}: ${destination}`);
+    }
+    const base = `/assets/home/${homepageImage[1]}/${homepageImage[2]}`;
+    return [
+      '<figure class="docs-figure blog-product-figure">',
+      `  <a href="${base}-2880.webp"><img src="${base}-1440.webp" srcset="${base}-960.webp 960w, ${base}-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="${escapeHtml(alt)}" width="1440" height="900" loading="lazy" decoding="async"></a>`,
+      "</figure>"
+    ].join("\n");
+  }
+
   const sourcePath = normalizeSourcePath(
     path.posix.join(path.posix.dirname(page.source), destination)
   );
@@ -421,6 +447,8 @@ function renderMarkdown(markdown, page) {
   const splitIndex = firstSection === -1 ? 1 : firstSection;
   return {
     title: blocks[0].text,
+    titleHtml: blocks[0].html,
+    introHtml: blocks.slice(1, splitIndex).map((block) => block.html).join("\n"),
     leadHtml: blocks.slice(0, splitIndex).map((block) => block.html).join("\n"),
     bodyHtml: blocks.slice(splitIndex).map((block) => block.html).join("\n"),
     description: blocks.find((block) => block.type === "paragraph")?.text || blocks[0].text,
@@ -485,6 +513,75 @@ async function optimizeImages() {
       small: variants[0],
       large: variants[1]
     });
+  }
+}
+
+function renderBlogHeroSvg(page) {
+  const labels = page.content.diagram;
+  const text = (value) => escapeHtml(value);
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">${text(page.rendered.title)}</title>
+  <desc id="description">${text(page.content.heroAlt)}</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061528"/>
+      <stop offset="0.58" stop-color="#08244d"/>
+      <stop offset="1" stop-color="#0a5d78"/>
+    </linearGradient>
+    <linearGradient id="source" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#15375f"/>
+      <stop offset="1" stop-color="#0c2b50"/>
+    </linearGradient>
+    <linearGradient id="pack" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#31d4dc"/>
+      <stop offset="1" stop-color="#72edf2"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020b17" flood-opacity="0.42"/>
+    </filter>
+    <style>
+      .label { font-family: Helvetica, sans-serif; font-weight: 700; text-anchor: middle; }
+      .detail { font-family: Helvetica, sans-serif; font-weight: 500; text-anchor: middle; }
+    </style>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="110" cy="84" r="220" fill="#31d4dc" opacity="0.08"/>
+  <circle cx="1090" cy="560" r="270" fill="#2ea9ff" opacity="0.10"/>
+  <g filter="url(#shadow)">
+    <rect x="105" y="56" width="990" height="112" rx="28" fill="url(#source)" stroke="#89b8d7" stroke-opacity="0.35"/>
+    <rect x="374" y="237" width="452" height="112" rx="32" fill="url(#pack)"/>
+    <rect x="54" y="446" width="510" height="136" rx="30" fill="#0c213c" stroke="#31d4dc" stroke-opacity="0.66"/>
+    <rect x="636" y="446" width="510" height="136" rx="30" fill="#0c213c" stroke="#6ab8ff" stroke-opacity="0.72"/>
+  </g>
+  <path d="M600 168 V214" stroke="#7beff4" stroke-width="7" stroke-linecap="round"/>
+  <path d="M600 349 V394 H309 V432 M600 394 H891 V432" fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M585 198 L600 216 L615 198" fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M294 416 L309 434 L324 416 M876 416 L891 434 L906 416" fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <text class="label" x="600" y="125" fill="#f6fbff" font-size="31">${text(labels.sources)}</text>
+  <text class="label" x="600" y="306" fill="#041121" font-size="35">${text(labels.pack)}</text>
+  <text class="label" x="309" y="507" fill="#f6fbff" font-size="31">${text(labels.okf)}</text>
+  <text class="detail" x="309" y="546" fill="#9fdce8" font-size="21">${text(labels.okfDetail)}</text>
+  <text class="label" x="891" y="507" fill="#f6fbff" font-size="29">${text(labels.context)}</text>
+  <text class="detail" x="891" y="546" fill="#a9d6ff" font-size="21">${text(labels.contextDetail)}</text>
+</svg>\n`;
+}
+
+async function buildBlogAssets() {
+  try {
+    execFileSync("sips", ["--help"], { stdio: "ignore" });
+  } catch {
+    throw new Error("The macOS sips utility is required to generate localized blog social images.");
+  }
+
+  const root = path.join(siteRoot, "assets", "blog");
+  await rm(root, { recursive: true, force: true });
+  for (const page of blogPages) {
+    const directory = path.join(root, page.locale.code);
+    await mkdir(directory, { recursive: true });
+    const svgFile = path.join(directory, `${page.heroAsset}.svg`);
+    const pngFile = path.join(directory, `${page.heroAsset}.png`);
+    await writeFile(svgFile, renderBlogHeroSvg(page));
+    execFileSync("sips", ["-s", "format", "png", svgFile, "--out", pngFile], { stdio: "pipe" });
   }
 }
 
@@ -574,6 +671,7 @@ function renderHeader(locale, currentSection) {
       </a>
       <div class="nav-links">
         ${link("home", "/", "Home")}
+        ${link("blog", "/blog/", "Blog")}
         ${link("privacy", "/privacy.html", "Privacy")}
         ${link("docs", "/docs/", "Documentation")}
         ${link("support", "/support.html", "Support")}
@@ -598,6 +696,7 @@ function renderFooter(locale) {
         <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
         <div class="footer-links">
           <a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a>
+          <a href="${localizedRoute(locale, "/blog/")}">${escapeHtml(translate(locale, "Blog"))}</a>
           <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
           <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
           <a href="${localizedRoute(locale, "/support.html")}">${escapeHtml(translate(locale, "Support"))}</a>
@@ -1175,6 +1274,252 @@ ${renderAlternateLinks(page.logicalRoute)}
   return html.replace(/[ \t]+$/gm, "");
 }
 
+function formatBlogDate(locale, value) {
+  return new Intl.DateTimeFormat(locale.code, {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "UTC"
+  }).format(new Date(`${value}T00:00:00Z`));
+}
+
+function renderBlogBreadcrumbs(locale, title) {
+  const blog = blogManifest.index[locale.code];
+  const items = [`<li><a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a></li>`];
+  if (title) {
+    items.push(`<li><a href="${localizedRoute(locale, "/blog/")}">${escapeHtml(blog.eyebrow)}</a></li>`);
+    items.push(`<li aria-current="page">${escapeHtml(title)}</li>`);
+  } else {
+    items.push(`<li aria-current="page">${escapeHtml(blog.eyebrow)}</li>`);
+  }
+  return `<nav class="breadcrumbs blog-breadcrumbs" aria-label="${escapeHtml(translate(locale, "Breadcrumb"))}"><ol>${items.join("")}</ol></nav>`;
+}
+
+function renderBlogAppStoreBadge(page) {
+  const badge = productConfig.appStore.badges[page.locale.code];
+  return `<a class="app-store-badge-link" href="${escapeHtml(appStoreUrl)}">
+    <img src="${escapeHtml(badge.path)}" alt="${escapeHtml(page.content.ctaButton)}" width="${badge.width}" height="${badge.height}">
+  </a>`;
+}
+
+function blogStructuredData(value) {
+  return `<script type="application/ld+json">${JSON.stringify(value).replaceAll("<", "\\u003c")}</script>`;
+}
+
+function renderBlogIndex(locale) {
+  const content = blogManifest.index[locale.code];
+  const pages = blogPages
+    .filter((page) => page.locale.code === locale.code)
+    .sort((left, right) => right.published.localeCompare(left.published));
+  const canonicalUrl = `${canonicalOrigin}${localizedRoute(locale, "/blog/")}`;
+  const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${pages[0].heroAsset}.png`;
+  const cards = pages.map((page) => `<article class="blog-card" aria-labelledby="blog-card-${escapeHtml(page.id)}">
+    <a class="blog-card-image" href="${page.route}" tabindex="-1" aria-hidden="true">
+      <img src="/assets/blog/${locale.code}/${page.heroAsset}.svg" alt="" width="1200" height="630" loading="lazy" decoding="async">
+    </a>
+    <div class="blog-card-copy">
+      <p class="eyebrow">${escapeHtml(page.content.articleLabel)}</p>
+      <h2 id="blog-card-${escapeHtml(page.id)}"><a href="${page.route}">${escapeHtml(page.rendered.title)}</a></h2>
+      <p>${escapeHtml(page.content.excerpt)}</p>
+      <div class="blog-card-meta"><span>${escapeHtml(content.published)}</span> <time datetime="${page.published}">${escapeHtml(formatBlogDate(locale, page.published))}</time></div>
+      <a class="text-link" href="${page.route}">${escapeHtml(content.readArticle)} <span aria-hidden="true">→</span></a>
+    </div>
+  </article>`).join("\n");
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      name: content.eyebrow,
+      headline: content.heading,
+      description: content.description,
+      url: canonicalUrl,
+      inLanguage: locale.code,
+      publisher: { "@type": "Organization", name: "SourceShelf", url: canonicalOrigin },
+      blogPost: pages.map((page) => ({
+        "@type": "BlogPosting",
+        headline: page.rendered.title,
+        description: page.content.excerpt,
+        url: `${canonicalOrigin}${page.route}`,
+        datePublished: page.published,
+        dateModified: page.modified,
+        image: `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`
+      }))
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: `${canonicalOrigin}${localizedRoute(locale, "/")}` },
+        { "@type": "ListItem", position: 2, name: content.eyebrow, item: canonicalUrl }
+      ]
+    }
+  ].map(blogStructuredData).join("\n  ");
+
+  return `<!DOCTYPE html>
+<html lang="${locale.code}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${escapeHtml(content.description)}">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="${canonicalUrl}">
+${renderAlternateLinks("/blog/")}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(content.title)}">
+  <meta property="og:description" content="${escapeHtml(content.description)}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${socialImage}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(content.title)}">
+  <meta name="twitter:description" content="${escapeHtml(content.description)}">
+  <meta name="twitter:image" content="${socialImage}">
+  <title>${escapeHtml(content.title)}</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
+  ${structuredData}
+</head>
+<body>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, "blog")}
+  <main id="main" class="main blog-main">
+    <div class="blog-page">
+      ${renderBlogBreadcrumbs(locale)}
+      <header class="blog-index-header">
+        <p class="eyebrow">${escapeHtml(content.eyebrow)}</p>
+        <h1>${escapeHtml(content.heading)}</h1>
+        <p>${escapeHtml(content.intro)}</p>
+      </header>
+      <section class="blog-list" aria-labelledby="blog-latest-title">
+        <h2 id="blog-latest-title" class="visually-hidden">${escapeHtml(content.latest)}</h2>
+        ${cards}
+      </section>
+    </div>
+  </main>
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
+</body>
+</html>
+`.replace(/[ \t]+$/gm, "");
+}
+
+function renderBlogArticle(page) {
+  const { locale, content, rendered } = page;
+  const canonicalUrl = `${canonicalOrigin}${page.route}`;
+  const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
+  const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.svg`;
+  const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
+  const desktopToc = `<aside class="docs-toc blog-toc" aria-label="${escapeHtml(translate(locale, "Page contents"))}">${renderToc(rendered.headings, "docs-toc-list", "Table of contents", locale)}</aside>`;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: rendered.title,
+      description: content.metaDescription,
+      image: socialImage,
+      mainEntityOfPage: canonicalUrl,
+      url: canonicalUrl,
+      datePublished: page.published,
+      dateModified: page.modified,
+      inLanguage: locale.code,
+      articleSection: content.articleLabel,
+      author: { "@type": "Organization", name: page.author, url: canonicalOrigin },
+      publisher: {
+        "@type": "Organization",
+        name: "SourceShelf",
+        url: canonicalOrigin,
+        logo: { "@type": "ImageObject", url: `${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png` }
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: `${canonicalOrigin}${localizedRoute(locale, "/")}` },
+        { "@type": "ListItem", position: 2, name: blogManifest.index[locale.code].eyebrow, item: `${canonicalOrigin}${localizedRoute(locale, "/blog/")}` },
+        { "@type": "ListItem", position: 3, name: rendered.title, item: canonicalUrl }
+      ]
+    }
+  ].map(blogStructuredData).join("\n  ");
+
+  return `<!DOCTYPE html>
+<html lang="${locale.code}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${escapeHtml(content.metaDescription)}">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="${canonicalUrl}">
+${renderAlternateLinks(page.logicalRoute)}
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="${escapeHtml(content.seoTitle)}">
+  <meta property="og:description" content="${escapeHtml(content.metaDescription)}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${socialImage}">
+  <meta property="article:published_time" content="${page.published}">
+  <meta property="article:modified_time" content="${page.modified}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(content.seoTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(content.metaDescription)}">
+  <meta name="twitter:image" content="${socialImage}">
+  <title>${escapeHtml(content.seoTitle)}</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
+  ${structuredData}
+</head>
+<body>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, "blog")}
+  <main id="main" class="main blog-main">
+    <div class="blog-page blog-article-page">
+      ${renderBlogBreadcrumbs(locale, rendered.title)}
+      <article class="blog-article">
+        <header class="blog-article-header">
+          <p class="eyebrow">${escapeHtml(content.articleLabel)}</p>
+          ${rendered.titleHtml}
+          <p class="blog-article-excerpt">${escapeHtml(content.excerpt)}</p>
+          <div class="blog-article-meta">
+            <span>${escapeHtml(content.publishedLabel)} <time datetime="${page.published}">${escapeHtml(formatBlogDate(locale, page.published))}</time></span>
+            <span>${escapeHtml(content.byLabel)} ${escapeHtml(page.author)}</span>
+            <span class="blog-verified">${escapeHtml(content.verifiedLabel)}</span>
+          </div>
+          <figure class="blog-hero-figure">
+            <img src="${heroImage}" alt="${escapeHtml(content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+          </figure>
+        </header>
+        ${mobileToc}
+        <div class="blog-article-layout">
+          <div class="docs-article blog-copy">
+            <div class="docs-article-body">
+              ${rendered.introHtml}
+              ${rendered.bodyHtml}
+            </div>
+            <section class="blog-cta" aria-labelledby="blog-cta-${escapeHtml(page.id)}">
+              <div>
+                <p class="eyebrow">SourceShelf</p>
+                <h2 id="blog-cta-${escapeHtml(page.id)}">${escapeHtml(content.ctaTitle)}</h2>
+                <p>${escapeHtml(content.ctaDescription)}</p>
+              </div>
+              ${renderBlogAppStoreBadge(page)}
+            </section>
+          </div>
+          ${desktopToc}
+        </div>
+      </article>
+    </div>
+  </main>
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
+</body>
+</html>
+`.replace(/[ \t]+$/gm, "");
+}
+
 const generalPages = [
   { template: "index.html", logicalRoute: "/", section: "home" },
   { template: "privacy.html", logicalRoute: "/privacy.html", section: "privacy" },
@@ -1312,9 +1657,23 @@ async function buildLandingPages() {
   }
 }
 
+async function buildBlogPages() {
+  for (const locale of locales) {
+    const indexDirectory = path.join(siteRoot, localizedRoute(locale, "/blog/").slice(1));
+    await mkdir(indexDirectory, { recursive: true });
+    await writeFile(path.join(indexDirectory, "index.html"), renderBlogIndex(locale));
+  }
+  for (const page of blogPages) {
+    const outputDirectory = path.join(siteRoot, page.route.slice(1));
+    await mkdir(outputDirectory, { recursive: true });
+    await writeFile(path.join(outputDirectory, "index.html"), renderBlogArticle(page));
+  }
+}
+
 async function writeSitemap() {
   const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
-  const routes = [...generalRoutes, ...landingPages.map((page) => page.route), ...allPages.map((page) => page.route)];
+  const blogIndexRoutes = locales.map((locale) => localizedRoute(locale, "/blog/"));
+  const routes = [...generalRoutes, ...landingPages.map((page) => page.route), ...allPages.map((page) => page.route), ...blogIndexRoutes, ...blogPages.map((page) => page.route)];
   const entries = routes.map((route) => `  <url>\n    <loc>${canonicalOrigin}${route}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
@@ -1360,6 +1719,20 @@ async function build() {
   if (uniqueLandingRoutes.size !== landingPages.length) {
     throw new Error("Landing-page content contains duplicate localized routes");
   }
+  const blogIDs = new Set();
+  const blogRoutes = new Set();
+  for (const post of blogManifest.posts) {
+    if (blogIDs.has(post.id) || blogRoutes.has(post.route)) {
+      throw new Error(`Blog manifest contains a duplicate id or route: ${post.id}`);
+    }
+    blogIDs.add(post.id);
+    blogRoutes.add(post.route);
+    for (const locale of locales) {
+      if (!blogManifest.index[locale.code] || !post.locales[locale.code]) {
+        throw new Error(`Blog content is incomplete for ${locale.code}:${post.id}`);
+      }
+    }
+  }
 
   for (const locale of locales.filter((candidate) => candidate.code !== "en")) {
     await rm(path.join(siteRoot, locale.code), { recursive: true, force: true });
@@ -1367,6 +1740,7 @@ async function build() {
   for (const page of englishLanding.pages) {
     await rm(path.join(siteRoot, page.route.slice(1)), { recursive: true, force: true });
   }
+  await rm(path.join(siteRoot, "blog"), { recursive: true, force: true });
   await rm(outputRoot, { recursive: true, force: true });
   await mkdir(outputRoot, { recursive: true });
   for (const [file, source] of preservedDocumentation) {
@@ -1379,9 +1753,16 @@ async function build() {
     const markdown = await readFile(sourceFile, "utf8");
     page.rendered = renderMarkdown(markdown, page);
   }
+  for (const page of blogPages) {
+    const sourceFile = path.join(blogSourceRoot, page.source);
+    const markdown = await readFile(sourceFile, "utf8");
+    page.rendered = renderMarkdown(markdown, page);
+  }
+  await buildBlogAssets();
 
   await buildGeneralPages();
   await buildLandingPages();
+  await buildBlogPages();
 
   for (const page of allPages) {
     const outputDirectory = path.join(siteRoot, page.route.slice(1));
@@ -1390,7 +1771,7 @@ async function build() {
   }
 
   await writeSitemap();
-  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, and ${imageMap.size * 2} image variants.`);
+  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, ${locales.length} blog indexes, ${blogPages.length} blog articles, and ${imageMap.size * 2} documentation image variants.`);
 }
 
 await build();

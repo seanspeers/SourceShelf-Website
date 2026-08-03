@@ -18,6 +18,7 @@ private let sharedStrings = [
     "Skip to content",
     "Main navigation",
     "Home",
+    "Blog",
     "Privacy",
     "Documentation",
     "Support",

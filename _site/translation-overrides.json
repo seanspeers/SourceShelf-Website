@@ -1,6 +1,7 @@
 {
   "fr": {
     "Home": "Accueil",
+    "Blog": "Blog",
     "Privacy": "Confidentialité",
     "Documentation": "Documentation",
     "Support": "Assistance",
@@ -44,6 +45,7 @@
   },
   "es-419": {
     "Home": "Inicio",
+    "Blog": "Blog",
     "Privacy": "Privacidad",
     "Documentation": "Documentación",
     "Support": "Soporte",
@@ -86,6 +88,7 @@
   },
   "pt-BR": {
     "Home": "Início",
+    "Blog": "Blog",
     "Privacy": "Privacidade",
     "Documentation": "Documentação",
     "Support": "Suporte",
@@ -128,6 +131,7 @@
   },
   "ja": {
     "Home": "ホーム",
+    "Blog": "ブログ",
     "Privacy": "プライバシー",
     "Documentation": "ドキュメント",
     "Support": "サポート",

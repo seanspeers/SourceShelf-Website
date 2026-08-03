@@ -1,0 +1,172 @@
+{
+  "index": {
+    "en": {
+      "title": "SourceShelf Blog | Portable, Private AI Knowledge",
+      "description": "Guides to building portable, private AI knowledge with Markdown, Open Knowledge Format, SourceShelf, and local-first Mac workflows.",
+      "eyebrow": "SourceShelf Blog",
+      "heading": "Open knowledge for the AI tools you choose",
+      "intro": "Practical guides for capturing, organizing, verifying, and carrying your knowledge between AI workflows without giving up control of your sources.",
+      "latest": "Latest article",
+      "readArticle": "Read article",
+      "published": "Published"
+    },
+    "fr": {
+      "title": "Blog SourceShelf | Des connaissances IA portables et privées",
+      "description": "Des guides pour créer des connaissances IA portables et privées avec Markdown, Open Knowledge Format, SourceShelf et des flux de travail locaux sur Mac.",
+      "eyebrow": "Blog SourceShelf",
+      "heading": "Des connaissances ouvertes pour les outils d’IA de votre choix",
+      "intro": "Des guides pratiques pour capturer, organiser, vérifier et transférer vos connaissances entre différents flux de travail d’IA sans perdre le contrôle de vos sources.",
+      "latest": "Dernier article",
+      "readArticle": "Lire l’article",
+      "published": "Publié le"
+    },
+    "es-419": {
+      "title": "Blog de SourceShelf | Conocimiento privado y portátil para IA",
+      "description": "Guías para crear conocimiento privado y portátil para IA con Markdown, Open Knowledge Format, SourceShelf y flujos de trabajo locales en Mac.",
+      "eyebrow": "Blog de SourceShelf",
+      "heading": "Conocimiento abierto para las herramientas de IA que elijas",
+      "intro": "Guías prácticas para capturar, organizar, verificar y trasladar tu conocimiento entre flujos de trabajo de IA sin perder el control de tus fuentes.",
+      "latest": "Artículo más reciente",
+      "readArticle": "Leer el artículo",
+      "published": "Publicado el"
+    },
+    "pt-BR": {
+      "title": "Blog do SourceShelf | Conhecimento privado e portátil para IA",
+      "description": "Guias para criar conhecimento privado e portátil para IA com Markdown, Open Knowledge Format, SourceShelf e fluxos de trabalho locais no Mac.",
+      "eyebrow": "Blog do SourceShelf",
+      "heading": "Conhecimento aberto para as ferramentas de IA que você escolher",
+      "intro": "Guias práticos para capturar, organizar, verificar e transportar seu conhecimento entre fluxos de trabalho de IA sem abrir mão do controle das fontes.",
+      "latest": "Artigo mais recente",
+      "readArticle": "Ler o artigo",
+      "published": "Publicado em"
+    },
+    "ja": {
+      "title": "SourceShelfブログ | ポータブルでプライベートなAIナレッジ",
+      "description": "Markdown、Open Knowledge Format、SourceShelf、Macのローカルファーストなワークフローで、持ち運べるプライベートなAIナレッジを構築するためのガイドです。",
+      "eyebrow": "SourceShelfブログ",
+      "heading": "選んだAIツールで使えるオープンなナレッジ",
+      "intro": "ソースの管理権を手放さずに、ナレッジを収集、整理、検証し、複数のAIワークフローへ持ち運ぶための実践的なガイドです。",
+      "latest": "最新の記事",
+      "readArticle": "記事を読む",
+      "published": "公開日"
+    }
+  },
+  "posts": [
+    {
+      "id": "what-is-open-knowledge-format-okf",
+      "source": "what-is-open-knowledge-format-okf.md",
+      "route": "/blog/what-is-open-knowledge-format-okf/",
+      "published": "2026-08-03",
+      "modified": "2026-08-03",
+      "author": "SourceShelf",
+      "heroAsset": "okf-portable-ai-knowledge",
+      "locales": {
+        "en": {
+          "seoTitle": "What Is Open Knowledge Format (OKF)? | SourceShelf",
+          "metaDescription": "Learn how Open Knowledge Format packages Markdown, metadata, and provenance into portable AI knowledge—and how to use it with SourceShelf and ChatGPT Projects.",
+          "excerpt": "OKF turns a collection of Markdown files into a portable, structured knowledge bundle that both people and AI tools can understand.",
+          "articleLabel": "Open formats for AI knowledge",
+          "publishedLabel": "Published",
+          "byLabel": "By",
+          "verifiedLabel": "ChatGPT limits verified August 3, 2026",
+          "ctaTitle": "Create portable AI knowledge with SourceShelf",
+          "ctaDescription": "Capture webpages, convert documents, build focused packs, and export your knowledge as Markdown, OKF, llms.txt, or AI-ready reference bundles—all locally on your Mac.",
+          "ctaButton": "View SourceShelf on the Mac App Store",
+          "heroAlt": "PDFs, webpages, and Office files flow into a SourceShelf Pack, which branches into an open OKF Bundle ZIP and a practical ChatGPT Context Pack.",
+          "diagram": {
+            "sources": "PDFs + webpages + Office files",
+            "pack": "SourceShelf Pack",
+            "okf": "OKF Bundle ZIP",
+            "okfDetail": "Portable open master",
+            "context": "ChatGPT Context Pack",
+            "contextDetail": "Practical AI upload"
+          }
+        },
+        "fr": {
+          "seoTitle": "Qu’est-ce que l’Open Knowledge Format (OKF) ? | SourceShelf",
+          "metaDescription": "Découvrez comment l’Open Knowledge Format réunit Markdown, métadonnées et provenance dans des connaissances IA portables, utilisables avec SourceShelf et les projets ChatGPT.",
+          "excerpt": "OKF transforme une collection de fichiers Markdown en un ensemble de connaissances portable et structuré, compréhensible par les humains comme par les outils d’IA.",
+          "articleLabel": "Formats ouverts pour les connaissances IA",
+          "publishedLabel": "Publié le",
+          "byLabel": "Par",
+          "verifiedLabel": "Limites de ChatGPT vérifiées le 3 août 2026",
+          "ctaTitle": "Créez des connaissances IA portables avec SourceShelf",
+          "ctaDescription": "Capturez des pages web, convertissez des documents, créez des packs ciblés et exportez vos connaissances en Markdown, OKF, llms.txt ou dans des bundles prêts pour l’IA, entièrement en local sur votre Mac.",
+          "ctaButton": "Voir SourceShelf sur le Mac App Store",
+          "heroAlt": "Des PDF, pages web et fichiers Office sont réunis dans un pack SourceShelf, puis exportés en bundle OKF ZIP ouvert ou en pack de contexte pratique pour ChatGPT.",
+          "diagram": {
+            "sources": "PDF + pages web + fichiers Office",
+            "pack": "Pack SourceShelf",
+            "okf": "Bundle OKF ZIP",
+            "okfDetail": "Copie maîtresse ouverte et portable",
+            "context": "Pack de contexte ChatGPT",
+            "contextDetail": "Importation pratique pour l’IA"
+          }
+        },
+        "es-419": {
+          "seoTitle": "¿Qué es Open Knowledge Format (OKF)? | SourceShelf",
+          "metaDescription": "Descubre cómo Open Knowledge Format reúne Markdown, metadatos y procedencia en conocimiento portátil para IA, y cómo usarlo con SourceShelf y los Proyectos de ChatGPT.",
+          "excerpt": "OKF convierte una colección de archivos Markdown en un paquete de conocimiento portátil y estructurado que pueden entender tanto las personas como las herramientas de IA.",
+          "articleLabel": "Formatos abiertos para conocimiento de IA",
+          "publishedLabel": "Publicado el",
+          "byLabel": "Por",
+          "verifiedLabel": "Límites de ChatGPT verificados el 3 de agosto de 2026",
+          "ctaTitle": "Crea conocimiento portátil para IA con SourceShelf",
+          "ctaDescription": "Captura páginas web, convierte documentos, crea paquetes enfocados y exporta tu conocimiento como Markdown, OKF, llms.txt o paquetes listos para IA, todo de forma local en tu Mac.",
+          "ctaButton": "Ver SourceShelf en el Mac App Store",
+          "heroAlt": "Los PDF, las páginas web y los archivos de Office se reúnen en un paquete de SourceShelf y se exportan como un ZIP de OKF abierto o un paquete de contexto práctico para ChatGPT.",
+          "diagram": {
+            "sources": "PDF + páginas web + archivos de Office",
+            "pack": "Paquete de SourceShelf",
+            "okf": "ZIP de OKF",
+            "okfDetail": "Copia maestra abierta y portátil",
+            "context": "Paquete de contexto de ChatGPT",
+            "contextDetail": "Carga práctica para IA"
+          }
+        },
+        "pt-BR": {
+          "seoTitle": "O que é Open Knowledge Format (OKF)? | SourceShelf",
+          "metaDescription": "Saiba como o Open Knowledge Format reúne Markdown, metadados e proveniência em conhecimento portátil para IA e como usá-lo com SourceShelf e Projetos do ChatGPT.",
+          "excerpt": "O OKF transforma uma coleção de arquivos Markdown em um pacote de conhecimento portátil e estruturado que pessoas e ferramentas de IA conseguem entender.",
+          "articleLabel": "Formatos abertos para conhecimento de IA",
+          "publishedLabel": "Publicado em",
+          "byLabel": "Por",
+          "verifiedLabel": "Limites do ChatGPT verificados em 3 de agosto de 2026",
+          "ctaTitle": "Crie conhecimento portátil para IA com o SourceShelf",
+          "ctaDescription": "Capture páginas da web, converta documentos, monte pacotes focados e exporte seu conhecimento como Markdown, OKF, llms.txt ou pacotes prontos para IA, tudo localmente no Mac.",
+          "ctaButton": "Ver o SourceShelf na Mac App Store",
+          "heroAlt": "PDFs, páginas da web e arquivos do Office entram em um pacote do SourceShelf, que se divide em um ZIP de OKF aberto e um pacote de contexto prático para o ChatGPT.",
+          "diagram": {
+            "sources": "PDFs + páginas da web + arquivos do Office",
+            "pack": "Pacote do SourceShelf",
+            "okf": "ZIP de OKF",
+            "okfDetail": "Cópia principal aberta e portátil",
+            "context": "Pacote de contexto do ChatGPT",
+            "contextDetail": "Upload prático para IA"
+          }
+        },
+        "ja": {
+          "seoTitle": "Open Knowledge Format（OKF）とは？ | SourceShelf",
+          "metaDescription": "Open Knowledge FormatがMarkdown、メタデータ、出典情報をポータブルなAIナレッジにまとめる仕組みと、SourceShelfやChatGPTプロジェクトでの使い方を解説します。",
+          "excerpt": "OKFはMarkdownファイルの集まりを、人にもAIツールにも理解できる、構造化されたポータブルなナレッジバンドルに変えます。",
+          "articleLabel": "AIナレッジのためのオープン形式",
+          "publishedLabel": "公開日",
+          "byLabel": "著者",
+          "verifiedLabel": "ChatGPTの制限は2026年8月3日に確認済み",
+          "ctaTitle": "SourceShelfでポータブルなAIナレッジを作成",
+          "ctaDescription": "Webページを取り込み、文書を変換し、目的別のパックを作成して、Markdown、OKF、llms.txt、AI向けリファレンスバンドルとして書き出せます。すべてMac上でローカルに処理されます。",
+          "ctaButton": "Mac App StoreでSourceShelfを見る",
+          "heroAlt": "PDF、Webページ、OfficeファイルをSourceShelfパックにまとめ、オープンなOKF Bundle ZIPと実用的なChatGPT Context Packに分けて書き出す流れ。",
+          "diagram": {
+            "sources": "PDF + Webページ + Officeファイル",
+            "pack": "SourceShelfパック",
+            "okf": "OKF Bundle ZIP",
+            "okfDetail": "持ち運べるオープンなマスター",
+            "context": "ChatGPT Context Pack",
+            "contextDetail": "実用的なAIアップロード"
+          }
+        }
+      }
+    }
+  ]
+}

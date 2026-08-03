@@ -6,6 +6,7 @@ const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(toolsDirectory, "..");
 const sourceRoot = path.join(siteRoot, "_docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
+const blogSourceRoot = path.join(siteRoot, "_blog");
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 const navigation = JSON.parse(await readFile(path.join(sourceRoot, "navigation.json"), "utf8"));
 const homepageContent = JSON.parse(await readFile(path.join(siteSourceRoot, "homepage.json"), "utf8"));
@@ -16,6 +17,8 @@ const landingContent = new Map(await Promise.all(localeCodes.map(async (locale) 
   JSON.parse(await readFile(path.join(siteSourceRoot, "landing-pages", `${locale}.json`), "utf8"))
 ])));
 const landingRoutes = landingContent.get("en").pages.map((page) => page.route);
+const blogManifest = JSON.parse(await readFile(path.join(blogSourceRoot, "posts.json"), "utf8"));
+const blogRoutes = blogManifest.posts.map((post) => post.route);
 const homepageScreenshotNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
@@ -51,13 +54,15 @@ function logicalRouteFor(route, locale) {
 
 const expectedPages = new Map();
 for (const locale of localeCodes) {
-  for (const logicalRoute of ["/", "/privacy.html", "/support.html", ...landingRoutes, ...navigation.pages.map((page) => page.route)]) {
+  for (const logicalRoute of ["/", "/privacy.html", "/support.html", "/blog/", ...blogRoutes, ...landingRoutes, ...navigation.pages.map((page) => page.route)]) {
     const route = localizedRoute(locale, logicalRoute);
     expectedPages.set(route, {
       locale,
       logicalRoute,
       isDocs: logicalRoute.startsWith("/docs/"),
-      isLanding: landingRoutes.includes(logicalRoute)
+      isLanding: landingRoutes.includes(logicalRoute),
+      isBlogIndex: logicalRoute === "/blog/",
+      isBlogArticle: blogRoutes.includes(logicalRoute)
     });
   }
 }
@@ -65,7 +70,7 @@ for (const locale of localeCodes) {
 async function walk(directory) {
   const files = [];
   for (const entry of await readdir(directory, { withFileTypes: true })) {
-    if ([".git", ".cache", "_docs", "_site", "_tools"].includes(entry.name)) continue;
+    if ([".git", ".cache", "_blog", "_docs", "_site", "_tools"].includes(entry.name)) continue;
     const target = path.join(directory, entry.name);
     if (entry.isDirectory()) files.push(...await walk(target));
     else files.push(target);
@@ -174,7 +179,7 @@ for (const htmlFile of htmlFiles) {
     errors.push(`Unexpected public HTML file: ${publicPath}`);
     continue;
   }
-  const { locale, logicalRoute, isDocs, isLanding } = expected;
+  const { locale, logicalRoute, isDocs, isLanding, isBlogIndex, isBlogArticle } = expected;
 
   if (/PRIVACY\.md|\.markdownlint|assets\/README\.md/.test(html)) {
     errors.push(`${publicPath} contains a repository-only or Markdown source link`);
@@ -447,6 +452,104 @@ for (const htmlFile of htmlFiles) {
     }
   }
 
+  if (isBlogIndex || isBlogArticle) {
+    const localeContent = blogManifest.index[locale];
+    const post = isBlogArticle ? blogManifest.posts.find((candidate) => candidate.route === logicalRoute) : null;
+    if (!localeContent || (isBlogArticle && !post?.locales?.[locale])) {
+      errors.push(`${publicPath} has no complete localized blog source`);
+      continue;
+    }
+    if (!html.includes('<meta name="robots" content="index,follow">')) {
+      errors.push(`${publicPath} must explicitly allow blog indexing and following`);
+    }
+    if (!html.includes(`href="${localizedRoute(locale, "/blog/")}" aria-current="page"`)) {
+      errors.push(`${publicPath} does not mark Blog as the current navigation section`);
+    }
+    if (!html.includes('class="breadcrumbs blog-breadcrumbs"')) {
+      errors.push(`${publicPath} is missing visible blog breadcrumbs`);
+    }
+
+    const jsonLD = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => {
+      try {
+        return JSON.parse(match[1]);
+      } catch {
+        errors.push(`${publicPath} contains invalid blog JSON-LD`);
+        return null;
+      }
+    }).filter(Boolean);
+    const breadcrumbs = jsonLD.filter((value) => value["@type"] === "BreadcrumbList");
+    if (breadcrumbs.length !== 1) {
+      errors.push(`${publicPath} must contain one blog BreadcrumbList object`);
+    }
+
+    if (isBlogIndex) {
+      const blogs = jsonLD.filter((value) => value["@type"] === "Blog");
+      if (blogs.length !== 1 || blogs[0].inLanguage !== locale || blogs[0].blogPost?.length !== blogManifest.posts.length) {
+        errors.push(`${publicPath} must contain one complete localized Blog object`);
+      }
+      if ((html.match(/class="blog-card"/g) || []).length !== blogManifest.posts.length) {
+        errors.push(`${publicPath} does not render every configured blog post`);
+      }
+      if (!html.includes('property="og:type" content="website"')) {
+        errors.push(`${publicPath} must use website Open Graph metadata`);
+      }
+    }
+
+    if (isBlogArticle) {
+      const content = post.locales[locale];
+      const postings = jsonLD.filter((value) => value["@type"] === "BlogPosting");
+      if (postings.length !== 1) {
+        errors.push(`${publicPath} must contain one BlogPosting object`);
+      } else if (
+        postings[0].datePublished !== post.published ||
+        postings[0].dateModified !== post.modified ||
+        postings[0].author?.name !== "SourceShelf" ||
+        postings[0].publisher?.name !== "SourceShelf" ||
+        postings[0].inLanguage !== locale
+      ) {
+        errors.push(`${publicPath} contains incomplete BlogPosting dates, locale, author, or publisher data`);
+      }
+      if (!html.includes('property="og:type" content="article"') || !html.includes(`property="article:published_time" content="${post.published}"`)) {
+        errors.push(`${publicPath} is missing article Open Graph metadata`);
+      }
+      if (!html.includes(`class="blog-verified">${content.verifiedLabel}`)) {
+        errors.push(`${publicPath} is missing its localized verification date`);
+      }
+      if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
+        errors.push(`${publicPath} must prioritize only the blog hero image`);
+      }
+      const hero = html.match(/<img\b[^>]*\bsrc="\/assets\/blog\/[^>]+>/)?.[0] || "";
+      if (!hero.includes(`src="/assets/blog/${locale}/${post.heroAsset}.svg"`) || !/\balt="[^"]+"/.test(hero) || !hero.includes('width="1200"') || !hero.includes('height="630"')) {
+        errors.push(`${publicPath} has incomplete localized hero image markup`);
+      }
+      const productImage = html.match(/<img\b[^>]*\bsrc="\/assets\/home\/[^>]+08-export-workflows-1440\.webp[^>]*>/)?.[0] || "";
+      if (!productImage.includes(`/assets/home/${locale}/`) || !/\balt="[^"]+"/.test(productImage) || !productImage.includes("srcset=")) {
+        errors.push(`${publicPath} has incomplete localized SourceShelf workflow imagery`);
+      }
+      const badge = productConfig.appStore.badges[locale];
+      if (!html.includes(`class="app-store-badge-link" href="${productConfig.appStore.default}"`) || !html.includes(`src="${badge.path}"`)) {
+        errors.push(`${publicPath} does not use the configured localized App Store CTA`);
+      }
+      for (const url of [
+        "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+        "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
+        "https://help.openai.com/en/articles/8555545-uploading-images-and-files-in-chatgpt",
+        "https://help.openai.com/en/articles/8983675-what-types-of-files-are-supported"
+      ]) {
+        if (!html.includes(`href="${url}"`)) errors.push(`${publicPath} is missing official source link: ${url}`);
+      }
+      if (html.includes("```") || /!\[[^\]]*\]\([^)]+\)/.test(html)) {
+        errors.push(`${publicPath} contains unrendered blog Markdown`);
+      }
+      const articleBody = html.match(/<div class="docs-article-body">([\s\S]*?)<\/div>\s*<section class="blog-cta"/)?.[1] || "";
+      for (const heading of articleBody.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)) {
+        if (!heading[3].includes(`class="heading-anchor" href="#${heading[2]}"`)) {
+          errors.push(`${publicPath} has a blog heading without an anchor link: #${heading[2]}`);
+        }
+      }
+    }
+  }
+
   if (isDocs) {
     const articleBody = html.match(/<div class="docs-article-body">([\s\S]*?)<\/div>\s*<nav class="docs-pagination"/)?.[1] || "";
     for (const heading of articleBody.matchAll(/<h([23]) id="([^"]+)">([\s\S]*?)<\/h\1>/g)) {
@@ -487,6 +590,57 @@ for (const locale of localeCodes.slice(1)) {
       }
     } catch {
       errors.push(`${locale}/${page.source} is missing from the localized documentation source`);
+    }
+  }
+}
+
+const blogIDs = new Set();
+const configuredBlogRoutes = new Set();
+for (const post of blogManifest.posts) {
+  if (blogIDs.has(post.id) || configuredBlogRoutes.has(post.route)) {
+    errors.push(`Blog manifest contains a duplicate id or route: ${post.id}`);
+  }
+  blogIDs.add(post.id);
+  configuredBlogRoutes.add(post.route);
+  const englishFile = path.join(blogSourceRoot, post.source);
+  let english = "";
+  try {
+    english = await readFile(englishFile, "utf8");
+  } catch {
+    errors.push(`Missing English blog source: ${post.source}`);
+    continue;
+  }
+  for (const locale of localeCodes) {
+    if (!blogManifest.index[locale] || !post.locales?.[locale]) {
+      errors.push(`Blog manifest is incomplete for ${locale}:${post.id}`);
+      continue;
+    }
+    const localizedFile = locale === "en"
+      ? englishFile
+      : path.join(blogSourceRoot, "locales", locale, post.source);
+    try {
+      const localized = await readFile(localizedFile, "utf8");
+      const englishStructure = markdownStructure(english);
+      const localizedStructure = markdownStructure(localized);
+      for (const key of Object.keys(englishStructure)) {
+        if (englishStructure[key] !== localizedStructure[key]) {
+          errors.push(`${locale}/${post.source} has different blog ${key} structure from English`);
+        }
+      }
+      if (JSON.stringify(fencedBlocks(english)) !== JSON.stringify(fencedBlocks(localized))) {
+        errors.push(`${locale}/${post.source} changes a fenced blog code block`);
+      }
+      if (locale !== "en" && localized === english) {
+        errors.push(`${locale}/${post.source} silently falls back to English`);
+      }
+      if (/ZXQ(?:TERM|LINK|CODE)/i.test(localized)) {
+        errors.push(`${locale}/${post.source} contains an unresolved translation placeholder`);
+      }
+      if (!localized.includes(`/assets/home/${locale}/08-export-workflows-1440.webp`)) {
+        errors.push(`${locale}/${post.source} does not reference its localized SourceShelf workflow image`);
+      }
+    } catch {
+      errors.push(`${locale}/${post.source} is missing from the localized blog source`);
     }
   }
 }
@@ -595,6 +749,29 @@ if (homepageAssets.length !== 140) {
   errors.push(`Expected 140 localized homepage assets, found ${homepageAssets.length}`);
 }
 
+const blogAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "blog")));
+if (blogAssets.length !== blogManifest.posts.length * localeCodes.length * 2) {
+  errors.push(`Expected ${blogManifest.posts.length * localeCodes.length * 2} localized blog assets, found ${blogAssets.length}`);
+}
+for (const post of blogManifest.posts) {
+  for (const locale of localeCodes) {
+    const svgFile = path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.svg`);
+    const pngFile = path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.png`);
+    try {
+      const svg = await readFile(svgFile, "utf8");
+      const png = await readFile(pngFile);
+      if (!svg.includes('width="1200"') || !svg.includes('height="630"') || !svg.includes(post.locales[locale].heroAlt.replaceAll("&", "&amp;").replaceAll("'", "&#39;"))) {
+        errors.push(`${locale}/${post.heroAsset}.svg is missing localized intrinsic or accessible content`);
+      }
+      if (png.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {
+        errors.push(`${locale}/${post.heroAsset}.png is not a 1200x630 PNG`);
+      }
+    } catch {
+      errors.push(`Missing localized blog hero assets for ${locale}:${post.id}`);
+    }
+  }
+}
+
 const sitemap = await readFile(path.join(siteRoot, "sitemap.xml"), "utf8");
 for (const route of expectedPages.keys()) {
   if (!sitemap.includes(`<loc>${canonicalOrigin}${route}</loc>`)) {
@@ -609,5 +786,5 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
 }
