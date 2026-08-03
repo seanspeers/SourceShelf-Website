@@ -39,6 +39,17 @@ function localizedRoute(locale, logicalRoute) {
   return `${prefixFor(locale)}${logicalRoute}`;
 }
 
+function canonicalUrlForRoute(route) {
+  if (!route.startsWith("/")) throw new Error(`Canonical route is not root-relative: ${route}`);
+  if (route.includes("#") || route.includes("?") || route.includes("index.html")) {
+    throw new Error(`Canonical route contains a forbidden variant: ${route}`);
+  }
+  if (route !== "/" && !route.endsWith("/") && !route.endsWith(".html")) {
+    throw new Error(`Canonical route does not follow the trailing-slash or .html convention: ${route}`);
+  }
+  return `${canonicalOrigin}${route}`;
+}
+
 function localeForRoute(route) {
   for (const locale of localeCodes.slice(1)) {
     if (route === `/${locale}/` || route.startsWith(`/${locale}/`)) return locale;
@@ -66,6 +77,7 @@ for (const locale of localeCodes) {
     });
   }
 }
+const expectedCanonicalUrls = new Set([...expectedPages.keys()].map(canonicalUrlForRoute));
 
 async function walk(directory) {
   const files = [];
@@ -105,6 +117,44 @@ function splitReference(reference) {
 
 function isExternal(reference) {
   return /^(?:[a-z]+:)?\/\//i.test(reference) || /^(?:mailto|tel):/i.test(reference);
+}
+
+function attributeValue(tag, name) {
+  return tag.match(new RegExp(`\\b${name}="([^"]*)"`, "i"))?.[1] || "";
+}
+
+function inspectStructuredUrl(value, publicPath, errors) {
+  if (typeof value !== "string") return;
+  if (/^http:\/\/sourceshelf\.app(?:\/|$)/i.test(value)) {
+    errors.push(`${publicPath} contains a non-HTTPS SourceShelf structured-data URL: ${value}`);
+    return;
+  }
+  if (value === canonicalOrigin) {
+    errors.push(`${publicPath} contains a SourceShelf structured-data homepage URL without its canonical trailing slash`);
+    return;
+  }
+  if (!value.startsWith(`${canonicalOrigin}/`)) return;
+  const url = new URL(value);
+  if (url.hash || url.search || url.pathname.endsWith("/index.html")) {
+    errors.push(`${publicPath} contains a non-canonical structured-data URL: ${value}`);
+  }
+  if (!url.pathname.startsWith("/assets/") && !path.posix.extname(url.pathname) && !url.pathname.endsWith("/")) {
+    errors.push(`${publicPath} contains a structured-data directory URL without a trailing slash: ${value}`);
+  }
+}
+
+function auditStructuredUrls(value, publicPath, errors) {
+  if (!value || typeof value !== "object") return;
+  if (Array.isArray(value)) {
+    for (const item of value) auditStructuredUrls(item, publicPath, errors);
+    return;
+  }
+  for (const [key, nested] of Object.entries(value)) {
+    if (["url", "mainEntityOfPage", "item"].includes(key)) {
+      inspectStructuredUrl(nested, publicPath, errors);
+    }
+    auditStructuredUrls(nested, publicPath, errors);
+  }
 }
 
 async function resolveTarget(reference, sourceFile) {
@@ -185,6 +235,31 @@ for (const htmlFile of htmlFiles) {
     errors.push(`${publicPath} contains a repository-only or Markdown source link`);
   }
 
+  for (const match of html.matchAll(/\bhref="([^"]+)"/g)) {
+    const reference = match[1].replaceAll("&amp;", "&");
+    if (/^http:\/\/sourceshelf\.app(?:\/|$)/i.test(reference)) {
+      errors.push(`${publicPath} contains a non-HTTPS internal link: ${reference}`);
+    }
+    const sameOriginAbsolute = reference === canonicalOrigin || reference.startsWith(`${canonicalOrigin}/`);
+    if (!sameOriginAbsolute && isExternal(reference)) continue;
+    const referencePath = sameOriginAbsolute
+      ? new URL(reference).pathname
+      : splitReference(reference).path;
+    if (/(?:^|\/)index\.html$/i.test(referencePath)) {
+      errors.push(`${publicPath} contains an internal index.html link: ${reference}`);
+    }
+    if (referencePath && !referencePath.endsWith("/") && !path.posix.extname(referencePath)) {
+      const localReference = sameOriginAbsolute ? referencePath : reference;
+      const { target } = await resolveTarget(localReference, htmlFile);
+      if (target.endsWith(`${path.sep}index.html`)) {
+        try {
+          await access(target);
+          errors.push(`${publicPath} links to a directory without a trailing slash: ${reference}`);
+        } catch {}
+      }
+    }
+  }
+
   for (const match of html.matchAll(/\b(?:href|src)="([^"]+)"/g)) {
     const reference = match[1].replaceAll("&amp;", "&");
     if (isExternal(reference) || reference.startsWith("data:")) continue;
@@ -235,17 +310,60 @@ for (const htmlFile of htmlFiles) {
   if (!html.includes(`<html lang="${locale}">`)) {
     errors.push(`${publicPath} has an incorrect document language`);
   }
-  const expectedCanonical = `${canonicalOrigin}${route}`;
-  if (!html.includes(`<link rel="canonical" href="${expectedCanonical}">`)) {
-    errors.push(`${publicPath} has an incorrect canonical URL`);
+  if (/<meta\b[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html)) {
+    errors.push(`${publicPath} unexpectedly blocks indexing`);
+  }
+  const head = html.match(/<head\b[^>]*>[\s\S]*?<\/head>/i)?.[0] || "";
+  const canonicalTags = [...html.matchAll(/<link\b[^>]*\brel="canonical"[^>]*>/gi)].map((match) => match[0]);
+  const headCanonicalTags = [...head.matchAll(/<link\b[^>]*\brel="canonical"[^>]*>/gi)].map((match) => match[0]);
+  if (canonicalTags.length !== 1 || headCanonicalTags.length !== 1) {
+    errors.push(`${publicPath} must contain exactly one canonical link inside <head>`);
+  }
+  const expectedCanonical = canonicalUrlForRoute(route);
+  const canonicalHref = canonicalTags[0] ? attributeValue(canonicalTags[0], "href") : "";
+  if (!canonicalHref.startsWith(`${canonicalOrigin}/`)) {
+    errors.push(`${publicPath} canonical URL is not an absolute ${canonicalOrigin}/ URL`);
+  }
+  if (canonicalHref !== expectedCanonical) {
+    errors.push(`${publicPath} canonical URL must self-reference ${expectedCanonical}`);
+  }
+  if (route !== "/" && canonicalHref === canonicalUrlForRoute("/")) {
+    errors.push(`${publicPath} incorrectly canonicalizes a distinct page to the homepage`);
+  }
+  const ogUrlTags = [...html.matchAll(/<meta\b[^>]*\bproperty="og:url"[^>]*>/gi)].map((match) => match[0]);
+  if (ogUrlTags.length !== 1 || attributeValue(ogUrlTags[0] || "", "content") !== expectedCanonical) {
+    errors.push(`${publicPath} must contain exactly one og:url matching its canonical URL`);
+  }
+  const structuredData = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => {
+    try {
+      return JSON.parse(match[1]);
+    } catch {
+      errors.push(`${publicPath} contains invalid JSON-LD`);
+      return null;
+    }
+  }).filter(Boolean);
+  for (const value of structuredData) {
+    auditStructuredUrls(value, publicPath, errors);
+    if (["SoftwareApplication", "Blog", "BlogPosting"].includes(value["@type"]) && value.url !== expectedCanonical) {
+      errors.push(`${publicPath} ${value["@type"]} URL must match its canonical URL`);
+    }
+    if (value.mainEntityOfPage && value.mainEntityOfPage !== expectedCanonical) {
+      errors.push(`${publicPath} mainEntityOfPage must match its canonical URL`);
+    }
+    if (value["@type"] === "BreadcrumbList") {
+      const finalItem = value.itemListElement?.at(-1)?.item;
+      if (finalItem !== expectedCanonical) {
+        errors.push(`${publicPath} final breadcrumb URL must match its canonical URL`);
+      }
+    }
   }
   for (const alternateLocale of localeCodes) {
-    const alternateUrl = `${canonicalOrigin}${localizedRoute(alternateLocale, logicalRoute)}`;
+    const alternateUrl = canonicalUrlForRoute(localizedRoute(alternateLocale, logicalRoute));
     if (!html.includes(`<link rel="alternate" hreflang="${alternateLocale}" href="${alternateUrl}">`)) {
       errors.push(`${publicPath} is missing the ${alternateLocale} alternate URL`);
     }
   }
-  if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalOrigin}${logicalRoute}">`)) {
+  if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`)) {
     errors.push(`${publicPath} is missing the English x-default URL`);
   }
   if (!html.includes(`<option value="${locale}" lang="${locale}" selected>`)) {
@@ -773,13 +891,29 @@ for (const post of blogManifest.posts) {
 }
 
 const sitemap = await readFile(path.join(siteRoot, "sitemap.xml"), "utf8");
-for (const route of expectedPages.keys()) {
-  if (!sitemap.includes(`<loc>${canonicalOrigin}${route}</loc>`)) {
-    errors.push(`Sitemap is missing ${route}`);
+const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const uniqueSitemapUrls = new Set(sitemapUrls);
+if (uniqueSitemapUrls.size !== sitemapUrls.length) {
+  errors.push("sitemap.xml contains duplicate URL entries");
+}
+for (const url of sitemapUrls) {
+  if (!url.startsWith(`${canonicalOrigin}/`)) {
+    errors.push(`sitemap.xml contains a non-canonical or non-HTTPS URL: ${url}`);
+    continue;
+  }
+  const parsed = new URL(url);
+  if (parsed.hash || parsed.search || parsed.pathname.endsWith("/index.html")) {
+    errors.push(`sitemap.xml contains a fragment, query, or index.html URL: ${url}`);
+  }
+  if (!expectedCanonicalUrls.has(url)) {
+    errors.push(`sitemap.xml contains an unexpected or redirecting URL variant: ${url}`);
   }
 }
-if ((sitemap.match(/<url>/g) || []).length !== expectedPages.size) {
-  errors.push(`Expected ${expectedPages.size} sitemap entries`);
+for (const url of expectedCanonicalUrls) {
+  if (!uniqueSitemapUrls.has(url)) errors.push(`sitemap.xml is missing canonical URL: ${url}`);
+}
+if (sitemapUrls.length !== expectedCanonicalUrls.size || (sitemap.match(/<url>/g) || []).length !== expectedCanonicalUrls.size) {
+  errors.push(`Expected ${expectedCanonicalUrls.size} canonical sitemap entries`);
 }
 
 if (errors.length) {
@@ -787,4 +921,5 @@ if (errors.length) {
   process.exitCode = 1;
 } else {
   console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
 }

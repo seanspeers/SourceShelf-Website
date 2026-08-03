@@ -102,6 +102,19 @@ function localizedRoute(locale, logicalRoute) {
   return `${locale.prefix}${logicalRoute}`;
 }
 
+function canonicalUrlForRoute(route) {
+  if (!route.startsWith("/")) {
+    throw new Error(`Canonical routes must be root-relative: ${route}`);
+  }
+  if (route.includes("#") || route.includes("?") || route.includes("index.html")) {
+    throw new Error(`Canonical routes cannot contain fragments, queries, or index.html: ${route}`);
+  }
+  if (route !== "/" && !route.endsWith("/") && !route.endsWith(".html")) {
+    throw new Error(`Canonical routes must end in / or .html: ${route}`);
+  }
+  return `${canonicalOrigin}${route}`;
+}
+
 function escapeHtml(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -643,9 +656,9 @@ function renderPagination(page) {
 
 function renderAlternateLinks(logicalRoute) {
   const links = locales.map((locale) => (
-    `  <link rel="alternate" hreflang="${locale.code}" href="${canonicalOrigin}${localizedRoute(locale, logicalRoute)}">`
+    `  <link rel="alternate" hreflang="${locale.code}" href="${canonicalUrlForRoute(localizedRoute(locale, logicalRoute))}">`
   ));
-  links.push(`  <link rel="alternate" hreflang="x-default" href="${canonicalOrigin}${logicalRoute}">`);
+  links.push(`  <link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`);
   return links.join("\n");
 }
 
@@ -1069,7 +1082,8 @@ function renderLandingDialog(content) {
 
 function structuredDataForLanding(page) {
   const software = productConfig.software;
-  const canonicalURL = `${canonicalOrigin}${page.route}`;
+  const canonicalURL = canonicalUrlForRoute(page.route);
+  const localizedHomeURL = canonicalUrlForRoute(localizedRoute(page.locale, "/"));
   return [
     {
       "@context": "https://schema.org",
@@ -1078,7 +1092,7 @@ function structuredDataForLanding(page) {
       applicationCategory: software.applicationCategory,
       operatingSystem: software.operatingSystem,
       softwareVersion: software.version,
-      url: canonicalOrigin,
+      url: canonicalURL,
       downloadUrl: appStoreURLFor(page),
       offers: {
         "@type": "Offer",
@@ -1091,8 +1105,8 @@ function structuredDataForLanding(page) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        {"@type": "ListItem", position: 1, name: translate(page.locale, "Home"), item: `${canonicalOrigin}${localizedRoute(page.locale, "/")}`},
-        {"@type": "ListItem", position: 2, name: landingContent.get(page.locale.code).shared.waysToUse, item: `${canonicalOrigin}${localizedRoute(page.locale, "/")}#ways-to-use`},
+        {"@type": "ListItem", position: 1, name: translate(page.locale, "Home"), item: localizedHomeURL},
+        {"@type": "ListItem", position: 2, name: landingContent.get(page.locale.code).shared.waysToUse, item: localizedHomeURL},
         {"@type": "ListItem", position: 3, name: page.hero.eyebrow, item: canonicalURL}
       ]
     }
@@ -1106,7 +1120,7 @@ function renderLandingPage(page) {
     ...candidate,
     route: localizedRoute(locale, candidate.route)
   }]));
-  const canonicalURL = `${canonicalOrigin}${page.route}`;
+  const canonicalURL = canonicalUrlForRoute(page.route);
   const socialImage = `${canonicalOrigin}/assets/home/${locale.code}/01-private-ai-source-packs-social.jpg`;
   const sections = page.sections.map((section) => renderLandingSection(locale, section, pagesById)).join("\n");
   const structuredData = structuredDataForLanding(page).map((value) => (
@@ -1201,7 +1215,7 @@ function headBootstrap(locale) {
 function renderPage(page, rendered) {
   const { locale } = page;
   const title = `${rendered.title} | ${translate(locale, "SourceShelf Documentation")}`;
-  const canonicalUrl = `${canonicalOrigin}${page.route}`;
+  const canonicalUrl = canonicalUrlForRoute(page.route);
   const description = page.locale.code === "en" ? page.description : rendered.description;
   const navigationHtml = renderNavigation(page);
   const hasToc = rendered.sectionCount >= 3;
@@ -1311,7 +1325,8 @@ function renderBlogIndex(locale) {
   const pages = blogPages
     .filter((page) => page.locale.code === locale.code)
     .sort((left, right) => right.published.localeCompare(left.published));
-  const canonicalUrl = `${canonicalOrigin}${localizedRoute(locale, "/blog/")}`;
+  const canonicalUrl = canonicalUrlForRoute(localizedRoute(locale, "/blog/"));
+  const canonicalHomeUrl = canonicalUrlForRoute(localizedRoute(locale, "/"));
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${pages[0].heroAsset}.png`;
   const cards = pages.map((page) => `<article class="blog-card" aria-labelledby="blog-card-${escapeHtml(page.id)}">
     <a class="blog-card-image" href="${page.route}" tabindex="-1" aria-hidden="true">
@@ -1334,12 +1349,12 @@ function renderBlogIndex(locale) {
       description: content.description,
       url: canonicalUrl,
       inLanguage: locale.code,
-      publisher: { "@type": "Organization", name: "SourceShelf", url: canonicalOrigin },
+      publisher: { "@type": "Organization", name: "SourceShelf", url: canonicalUrlForRoute("/") },
       blogPost: pages.map((page) => ({
         "@type": "BlogPosting",
         headline: page.rendered.title,
         description: page.content.excerpt,
-        url: `${canonicalOrigin}${page.route}`,
+        url: canonicalUrlForRoute(page.route),
         datePublished: page.published,
         dateModified: page.modified,
         image: `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`
@@ -1349,7 +1364,7 @@ function renderBlogIndex(locale) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: `${canonicalOrigin}${localizedRoute(locale, "/")}` },
+        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: canonicalHomeUrl },
         { "@type": "ListItem", position: 2, name: content.eyebrow, item: canonicalUrl }
       ]
     }
@@ -1407,7 +1422,9 @@ ${renderAlternateLinks("/blog/")}
 
 function renderBlogArticle(page) {
   const { locale, content, rendered } = page;
-  const canonicalUrl = `${canonicalOrigin}${page.route}`;
+  const canonicalUrl = canonicalUrlForRoute(page.route);
+  const canonicalHomeUrl = canonicalUrlForRoute(localizedRoute(locale, "/"));
+  const canonicalBlogUrl = canonicalUrlForRoute(localizedRoute(locale, "/blog/"));
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
   const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.svg`;
   const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
@@ -1425,11 +1442,11 @@ function renderBlogArticle(page) {
       dateModified: page.modified,
       inLanguage: locale.code,
       articleSection: content.articleLabel,
-      author: { "@type": "Organization", name: page.author, url: canonicalOrigin },
+      author: { "@type": "Organization", name: page.author, url: canonicalUrlForRoute("/") },
       publisher: {
         "@type": "Organization",
         name: "SourceShelf",
-        url: canonicalOrigin,
+        url: canonicalUrlForRoute("/"),
         logo: { "@type": "ImageObject", url: `${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png` }
       }
     },
@@ -1437,8 +1454,8 @@ function renderBlogArticle(page) {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: `${canonicalOrigin}${localizedRoute(locale, "/")}` },
-        { "@type": "ListItem", position: 2, name: blogManifest.index[locale.code].eyebrow, item: `${canonicalOrigin}${localizedRoute(locale, "/blog/")}` },
+        { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: canonicalHomeUrl },
+        { "@type": "ListItem", position: 2, name: blogManifest.index[locale.code].eyebrow, item: canonicalBlogUrl },
         { "@type": "ListItem", position: 3, name: rendered.title, item: canonicalUrl }
       ]
     }
@@ -1590,7 +1607,7 @@ function renderGeneralPage(definition, locale, template) {
   const socialDescription = homepage?.meta.socialDescription || extractMatch(/<meta property="og:description" content="([^"]+)">/, template, "social description");
   const main = extractMatch(/(<main\b[\s\S]*?<\/main>)/, template, "main content");
   const route = localizedRoute(locale, definition.logicalRoute);
-  const canonicalUrl = `${canonicalOrigin}${route}`;
+  const canonicalUrl = canonicalUrlForRoute(route);
   const localizedTitle = homepage ? title : translate(locale, title);
   const localizedDescription = homepage ? description : translate(locale, description);
   const localizedSocialTitle = homepage ? socialTitle : translate(locale, socialTitle);
@@ -1673,8 +1690,14 @@ async function buildBlogPages() {
 async function writeSitemap() {
   const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
   const blogIndexRoutes = locales.map((locale) => localizedRoute(locale, "/blog/"));
-  const routes = [...generalRoutes, ...landingPages.map((page) => page.route), ...allPages.map((page) => page.route), ...blogIndexRoutes, ...blogPages.map((page) => page.route)];
-  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalOrigin}${route}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
+  const routes = [...new Set([
+    ...generalRoutes,
+    ...landingPages.map((page) => page.route),
+    ...allPages.map((page) => page.route),
+    ...blogIndexRoutes,
+    ...blogPages.map((page) => page.route)
+  ])].sort();
+  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalUrlForRoute(route)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
 }
