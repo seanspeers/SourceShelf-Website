@@ -9,8 +9,6 @@
         "heading" : "信頼できるソースからプライベートな知識ベースを構築します"
       },
       "demo" : {
-        "captions" : "private-ai-knowledge-base.vtt",
-        "poster" : "private-ai-knowledge-base-poster.webp",
         "previewImage" : "01-private-ai-source-packs",
         "title" : "散らばったソースから選択されたAIコンテキストまで",
         "transcript" : [
@@ -18,8 +16,7 @@
           "SourceShelfライブラリを検索し、重要なソースを選択し、それらを順序に従って保存されたパックに配置します。",
           "パッケージをポータブルコンテキストとしてエクスポートするか、互換性のあるAIクライアント用に不変で読み取り専用のスナップショットを承認します。",
           "変更を確認するには、後で「更新＆比較」を使用し、共有がもはや必要ない場合は、ローカルAIアクセスを取り消してください。"
-        ],
-        "video" : "private-ai-knowledge-base.mp4"
+        ]
       },
       "faq" : [
         {
@@ -174,8 +171,6 @@
         "heading" : "すでに持っているPDFをポータブルMarkdownに変換します"
       },
       "demo" : {
-        "captions" : "pdf-to-markdown-mac.vtt",
-        "poster" : "pdf-to-markdown-mac-poster.webp",
         "previewImage" : "04-convert-files-for-ai",
         "title" : "最初から最後までローカルPDF変換",
         "transcript" : [
@@ -183,8 +178,7 @@
           "SourceShelf は選択可能なテキストを抽出するか、使用可能なテキストが利用できない場合は、Apple のローカル文書認識を使用します。",
           "レンダリングされた結果とMarkdownソースを確認し、必要に応じて複雑なレイアウトや低品質のOCRを修正します。",
           "別のエディタで通常のMarkdownファイルを開いたり、保存した知識パックに追加したりします。"
-        ],
-        "video" : "pdf-to-markdown-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -310,8 +304,6 @@
         "heading" : "タブが閉じても役立つウェブリサーチを保存する"
       },
       "demo" : {
-        "captions" : "save-webpages-safari.vtt",
-        "poster" : "save-webpages-safari-poster.webp",
         "previewImage" : "05-capture-from-safari",
         "title" : "Safariページから再利用可能なローカルソースへ",
         "transcript" : [
@@ -319,8 +311,7 @@
           "研究ハイライトについては、意図的に順序を整えていくつかの文章を集め、なぜそれらの文章が重要なのかを説明するオプションのメモを追加します。",
           "レシピが要求するときにキャプチャを確認し、ソースの由来と適用可能な資産を含むローカルMarkdownを保存します。",
           "ライブラリでキャプチャを見つけて、関連するドキュメントと組み合わせた集中的なパックを作成します。"
-        ],
-        "video" : "save-webpages-safari.mp4"
+        ]
       },
       "faq" : [
         {
@@ -450,8 +441,6 @@
         "heading" : "1つのモデルにロックせずに焦点を絞ったコンテキストを作成する"
       },
       "demo" : {
-        "captions" : "local-ai-reference-packs.vtt",
-        "poster" : "local-ai-reference-packs-poster.webp",
         "previewImage" : "08-export-workflows",
         "title" : "焦点を当てたリファレンスパックを構築、エクスポート、および維持する",
         "transcript" : [
@@ -459,8 +448,7 @@
           "パッケージサイズを確認し、ポータブルAIリファレンスパック、Markdownコンテキストパック、llms.txtコレクション、またはOKFバンドルを選択してください。",
           "または、ローカルAIアクセスを承認して、互換性のあるクライアントが保存されたパッケージのスナップショットを検索して読み取ることができます。",
           "意図的に更新を公開する前に、ソースとオーダーの変更を理解するには、後で「更新」と「比較」を使用してください。"
-        ],
-        "video" : "local-ai-reference-packs.mp4"
+        ]
       },
       "faq" : [
         {
@@ -620,8 +608,6 @@
         "heading" : "持ち運び可能な研究アーカイブを保存する"
       },
       "demo" : {
-        "captions" : "research-archive-mac.vtt",
-        "poster" : "research-archive-mac-poster.webp",
         "previewImage" : "06-organize-research",
         "title" : "研究をキャプチャ、検索、キュレーション、および維持する",
         "transcript" : [
@@ -629,8 +615,7 @@
           "ライブラリを検索してフィルタリングし、ソースの原産地を確認し、ローカルコンテンツをプレビューします。",
           "関連するソースを、パブリックなアーカイブ形式に移行することなく、順序に従って保存パックに整理します。",
           "お好みのアプリケーションでMarkdownを編集し、「更新＆比較」を使用して意図的に変更を確認します。"
-        ],
-        "video" : "research-archive-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -778,8 +763,6 @@
         "heading" : "Mac全体を露出させずに1パックずつ接続できます。"
       },
       "demo" : {
-        "captions" : "mcp-knowledge-base-mac.vtt",
-        "poster" : "mcp-knowledge-base-mac-poster.webp",
         "previewImage" : "02-local-ai-access",
         "title" : "選択したパックの認証、検索、および取り消し",
         "transcript" : [
@@ -787,8 +770,7 @@
           "ローカル構成をコピーして、パーソナルファイルシステムパスを露呈せずに互換性のあるデスクトップAIクライアントに保存します。",
           "クライアントは承認されたスナップショットを検索し、そのパックから制限された、許可されたテキストリソースのみを読み込みます。",
           "個々の共有を停止するか、ローカルAIアクセスを無効にして、コピーされた構成をすぐに無効にします。"
-        ],
-        "video" : "mcp-knowledge-base-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -949,8 +931,7 @@
     "close" : "閉じる",
     "closeLabel" : "フルスクリーン画像を閉じる",
     "demoEyebrow" : "製品デモ",
-    "demoNotice" : "ページ固有のビデオが制作中です。このプレビューは現在のSourceShelfインターフェースを使用しており、以下の予定のトランスクリプトは、完成したデモが示す正確なワークフローを説明しています。",
-    "demoPlanned" : "デモが予定されている",
+    "playVideo" : "動画を再生",
     "faqEyebrow" : "よくある質問",
     "faqTitle" : "始める前に知っておくべきこと",
     "fit" : "画面にフィットする",
@@ -960,7 +941,9 @@
     "screenshotViewer" : "スクリーンショットビューア",
     "seeHow" : "それがどのように機能するかをご覧ください",
     "sourceShelfUseCases" : "SourceShelfのユースケース",
-    "transcriptTitle" : "予定されているデモのトランスクリプト",
+    "videoOverviewTitle" : "動画の内容",
+    "videoPrivacyNotice" : "「動画を再生」を選択するまでYouTubeは読み込まれません。再生するとYouTubeに接続し、Googleのプライバシーポリシーが適用されます。",
+    "watchOnYouTube" : "YouTubeで見る",
     "trustLabel" : "SourceShelfの信頼原則",
     "viewFullScreen" : "フルスクリーン画像を表示する",
     "viewLarger" : "拡大表示",

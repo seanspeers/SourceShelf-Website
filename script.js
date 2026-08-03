@@ -156,4 +156,25 @@
     });
   }
 
+  var youtubePlayers = document.querySelectorAll("[data-youtube-player]");
+  Array.prototype.forEach.call(youtubePlayers, function (player) {
+    var frame = player.querySelector("[data-youtube-frame]");
+    var loadButton = player.querySelector("[data-youtube-load]");
+    if (!frame || !loadButton) return;
+
+    loadButton.addEventListener("click", function () {
+      var embedUrl = loadButton.getAttribute("data-youtube-embed") || "";
+      if (!/^https:\/\/www\.youtube-nocookie\.com\/embed\/[A-Za-z0-9_-]{11}$/.test(embedUrl)) return;
+
+      var iframe = document.createElement("iframe");
+      iframe.src = embedUrl + "?autoplay=1&rel=0";
+      iframe.title = loadButton.getAttribute("data-youtube-title") || "YouTube video";
+      iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.setAttribute("allowfullscreen", "");
+      frame.replaceChildren(iframe);
+      player.classList.add("is-loaded");
+    });
+  });
+
 })();

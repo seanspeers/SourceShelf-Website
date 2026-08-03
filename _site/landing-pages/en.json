@@ -15,9 +15,10 @@
     "relatedEyebrow": "Related use cases",
     "relatedTitle": "Keep exploring SourceShelf",
     "demoEyebrow": "Product demonstration",
-    "demoPlanned": "Demonstration planned",
-    "demoNotice": "A page-specific video is in production. This preview uses the current SourceShelf interface and the planned transcript below describes the exact workflow the finished demonstration will show.",
-    "transcriptTitle": "Planned demonstration transcript",
+    "playVideo": "Play video",
+    "videoPrivacyNotice": "YouTube is not loaded until you select Play video. Playing connects to YouTube and is subject to Google's Privacy Policy.",
+    "watchOnYouTube": "Watch on YouTube",
+    "videoOverviewTitle": "What the video covers",
     "screenshotViewer": "Screenshot viewer",
     "viewLarger": "View larger",
     "viewFullScreen": "View full-screen image",
@@ -67,9 +68,6 @@
       "demo": {
         "title": "From scattered sources to selected AI context",
         "previewImage": "01-private-ai-source-packs",
-        "video": "private-ai-knowledge-base.mp4",
-        "poster": "private-ai-knowledge-base-poster.webp",
-        "captions": "private-ai-knowledge-base.vtt",
         "transcript": [
           "Begin by saving a useful webpage or converting documents and scans into local Markdown.",
           "Search the SourceShelf Library, choose the sources that matter, and arrange them into an ordered saved pack.",
@@ -177,9 +175,6 @@
       "demo": {
         "title": "A local PDF conversion from start to finish",
         "previewImage": "04-convert-files-for-ai",
-        "video": "pdf-to-markdown-mac.mp4",
-        "poster": "pdf-to-markdown-mac-poster.webp",
-        "captions": "pdf-to-markdown-mac.vtt",
         "transcript": [
           "Drop a text PDF or scanned PDF onto the SourceShelf Convert screen.",
           "SourceShelf extracts selectable text or uses Apple's local document recognition when usable text is unavailable.",
@@ -279,9 +274,6 @@
       "demo": {
         "title": "From a Safari page to a reusable local source",
         "previewImage": "05-capture-from-safari",
-        "video": "save-webpages-safari.mp4",
-        "poster": "save-webpages-safari-poster.webp",
-        "captions": "save-webpages-safari.vtt",
         "transcript": [
           "Open the SourceShelf Safari extension and choose the full page, main article, selected text, visible area, or Research Highlights mode.",
           "For research highlights, collect several passages in a deliberate order and add an optional note explaining why they matter.",
@@ -385,9 +377,6 @@
       "demo": {
         "title": "Build, export, and maintain a focused reference pack",
         "previewImage": "08-export-workflows",
-        "video": "local-ai-reference-packs.mp4",
-        "poster": "local-ai-reference-packs-poster.webp",
-        "captions": "local-ai-reference-packs.vtt",
         "transcript": [
           "Select the documents and webpage captures that belong to one task, then arrange them in a useful order.",
           "Review the pack size and choose a portable AI Reference Pack, Markdown Context Pack, llms.txt collection, or OKF bundle.",
@@ -513,9 +502,6 @@
       "demo": {
         "title": "Capture, find, curate, and maintain research",
         "previewImage": "06-organize-research",
-        "video": "research-archive-mac.mp4",
-        "poster": "research-archive-mac-poster.webp",
-        "captions": "research-archive-mac.vtt",
         "transcript": [
           "Capture useful webpages and convert reports, presentations, spreadsheets, notes, images, and scans into local Markdown.",
           "Search and filter the Library, inspect a source's provenance, and preview its local content.",
@@ -629,9 +615,6 @@
       "demo": {
         "title": "Authorize, search, and revoke one selected pack",
         "previewImage": "02-local-ai-access",
-        "video": "mcp-knowledge-base-mac.mp4",
-        "poster": "mcp-knowledge-base-mac-poster.webp",
-        "captions": "mcp-knowledge-base-mac.vtt",
         "transcript": [
           "Save a focused pack, review the latest Trust & Safety results, and authorize it for Local AI Access.",
           "Copy the local configuration into a compatible desktop AI client without exposing personal filesystem paths.",

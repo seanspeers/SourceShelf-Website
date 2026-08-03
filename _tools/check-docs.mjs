@@ -344,7 +344,7 @@ for (const htmlFile of htmlFiles) {
   }).filter(Boolean);
   for (const value of structuredData) {
     auditStructuredUrls(value, publicPath, errors);
-    if (["SoftwareApplication", "Blog", "BlogPosting"].includes(value["@type"]) && value.url !== expectedCanonical) {
+    if (["SoftwareApplication", "Blog", "BlogPosting", "VideoObject"].includes(value["@type"]) && value.url !== expectedCanonical) {
       errors.push(`${publicPath} ${value["@type"]} URL must match its canonical URL`);
     }
     if (value.mainEntityOfPage && value.mainEntityOfPage !== expectedCanonical) {
@@ -495,10 +495,31 @@ for (const htmlFile of htmlFiles) {
       errors.push(`${publicPath} is missing visible breadcrumbs or its trust strip`);
     }
     if (!html.includes('class="section landing-demo"') || !html.includes('class="landing-transcript"')) {
-      errors.push(`${publicPath} is missing its reserved demonstration and visible transcript`);
+      errors.push(`${publicPath} is missing its video demonstration and visible overview`);
     }
-    if (html.includes("<video") || html.includes("VideoObject") || html.includes(page.demo.video) || html.includes(page.demo.poster) || html.includes(page.demo.captions)) {
-      errors.push(`${publicPath} references unavailable video media or VideoObject data`);
+    const video = productConfig.youtubeVideos?.[page.id];
+    if (!video) {
+      errors.push(`${publicPath} has no configured YouTube video`);
+    } else {
+      const expectedWatchUrl = `https://youtu.be/${video.id}`;
+      const expectedEmbedUrl = `https://www.youtube-nocookie.com/embed/${video.id}`;
+      if (video.watchUrl !== expectedWatchUrl || video.embedUrl !== expectedEmbedUrl) {
+        errors.push(`${publicPath} has inconsistent YouTube video configuration`);
+      }
+      if (
+        !html.includes('class="landing-demo-preview landing-demo-youtube"') ||
+        !html.includes(`data-youtube-embed="${expectedEmbedUrl}"`) ||
+        !html.includes(`href="${expectedWatchUrl}"`) ||
+        !html.includes("data-youtube-load")
+      ) {
+        errors.push(`${publicPath} does not render its mapped privacy-enhanced YouTube controls`);
+      }
+      if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
+        errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the video`);
+      }
+    }
+    if (html.includes("<video") || /\.(?:mp4|vtt)|-poster\.webp/.test(html)) {
+      errors.push(`${publicPath} still references planned local video placeholder media`);
     }
     if (!html.includes('id="how-it-works"') || !html.includes('class="landing-workflow-list"')) {
       errors.push(`${publicPath} is missing its static workflow`);
@@ -551,11 +572,20 @@ for (const htmlFile of htmlFiles) {
     }).filter(Boolean);
     const software = jsonLD.filter((value) => value["@type"] === "SoftwareApplication");
     const breadcrumbs = jsonLD.filter((value) => value["@type"] === "BreadcrumbList");
-    if (software.length !== 1 || breadcrumbs.length !== 1) {
-      errors.push(`${publicPath} must contain one SoftwareApplication and one BreadcrumbList object`);
+    const videoObjects = jsonLD.filter((value) => value["@type"] === "VideoObject");
+    if (software.length !== 1 || breadcrumbs.length !== 1 || videoObjects.length !== 1) {
+      errors.push(`${publicPath} must contain one SoftwareApplication, one BreadcrumbList, and one VideoObject`);
     }
-    if (jsonLD.some((value) => ["FAQPage", "VideoObject"].includes(value["@type"]))) {
-      errors.push(`${publicPath} contains unsupported FAQ or video structured data`);
+    if (jsonLD.some((value) => value["@type"] === "FAQPage")) {
+      errors.push(`${publicPath} contains unsupported FAQ structured data`);
+    }
+    if (videoObjects[0] && (
+      videoObjects[0].url !== expectedCanonical ||
+      videoObjects[0].sameAs !== video?.watchUrl ||
+      videoObjects[0].embedUrl !== video?.embedUrl ||
+      videoObjects[0].inLanguage !== locale
+    )) {
+      errors.push(`${publicPath} VideoObject does not match its canonical page and mapped YouTube video`);
     }
     if (software[0]) {
       if (software[0].softwareVersion !== productConfig.software.version || software[0].operatingSystem !== productConfig.software.operatingSystem) {
@@ -781,7 +811,7 @@ function contentShape(value) {
 }
 
 function collectPublicStrings(value, pathParts = []) {
-  const preservedKeys = new Set(["id", "route", "campaignKey", "layout", "kind", "image", "previewImage", "video", "poster", "captions", "page", "related", "code"]);
+  const preservedKeys = new Set(["id", "route", "campaignKey", "layout", "kind", "image", "previewImage", "page", "related", "code"]);
   if (Array.isArray(value)) return value.flatMap((item, index) => collectPublicStrings(item, [...pathParts, index]));
   if (value && typeof value === "object") {
     return Object.keys(value).sort().flatMap((key) => (
@@ -794,6 +824,15 @@ function collectPublicStrings(value, pathParts = []) {
 const englishLandingContent = landingContent.get("en");
 const englishLandingShape = JSON.stringify(contentShape(englishLandingContent.pages));
 const englishPublicStrings = new Map(collectPublicStrings(englishLandingContent).map((entry) => [entry.path, entry.value]));
+const landingPageIds = englishLandingContent.pages.map((page) => page.id).sort();
+const configuredVideoIds = Object.keys(productConfig.youtubeVideos || {}).sort();
+if (JSON.stringify(configuredVideoIds) !== JSON.stringify(landingPageIds)) {
+  errors.push("YouTube video configuration must map every SEO landing page exactly once");
+}
+const uniqueYouTubeIds = new Set(Object.values(productConfig.youtubeVideos || {}).map((video) => video.id));
+if (uniqueYouTubeIds.size !== landingPageIds.length) {
+  errors.push("YouTube video configuration contains a duplicate video ID");
+}
 for (const locale of localeCodes) {
   const content = landingContent.get(locale);
   if (content.code !== locale || content.pages.length !== 6) {
@@ -922,4 +961,5 @@ if (errors.length) {
 } else {
   console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
   console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
+  console.log(`YouTube privacy audit passed: ${landingRoutes.length * localeCodes.length} localized click-to-load players, ${landingPageIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
 }

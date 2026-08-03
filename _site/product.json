@@ -1,5 +1,37 @@
 {
   "canonicalOrigin": "https://sourceshelf.app",
+  "youtubeVideos": {
+    "private-ai-knowledge-base": {
+      "id": "zWa9nG-IqrY",
+      "watchUrl": "https://youtu.be/zWa9nG-IqrY",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/zWa9nG-IqrY"
+    },
+    "pdf-to-markdown": {
+      "id": "D6GzX76cL4g",
+      "watchUrl": "https://youtu.be/D6GzX76cL4g",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/D6GzX76cL4g"
+    },
+    "safari-markdown": {
+      "id": "O3uGg2ERRwU",
+      "watchUrl": "https://youtu.be/O3uGg2ERRwU",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/O3uGg2ERRwU"
+    },
+    "local-ai-packs": {
+      "id": "FTzcdsM_eVg",
+      "watchUrl": "https://youtu.be/FTzcdsM_eVg",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/FTzcdsM_eVg"
+    },
+    "research-archive": {
+      "id": "K4yDtDu3anM",
+      "watchUrl": "https://youtu.be/K4yDtDu3anM",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/K4yDtDu3anM"
+    },
+    "mcp-knowledge-base": {
+      "id": "NUNN2mAP4O4",
+      "watchUrl": "https://youtu.be/NUNN2mAP4O4",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/NUNN2mAP4O4"
+    }
+  },
   "appStore": {
     "default": "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12",
     "campaigns": {

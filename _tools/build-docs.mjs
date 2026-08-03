@@ -10,7 +10,7 @@ const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
 const buildDate = "2026-08-03";
-const assetVersion = "20260803-2";
+const assetVersion = "20260803-3";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -909,6 +909,19 @@ function appStoreURLFor(page) {
   return productConfig.appStore.campaigns[page.campaignKey] || productConfig.appStore.default;
 }
 
+function youtubeVideoFor(page) {
+  const video = productConfig.youtubeVideos?.[page.id];
+  if (!video) throw new Error(`YouTube video configuration is missing for landing page: ${page.id}`);
+  if (
+    !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
+    video.watchUrl !== `https://youtu.be/${video.id}` ||
+    video.embedUrl !== `https://www.youtube-nocookie.com/embed/${video.id}`
+  ) {
+    throw new Error(`YouTube video configuration is invalid for landing page: ${page.id}`);
+  }
+  return video;
+}
+
 function renderAppStoreBadge(locale, page) {
   const content = landingContent.get(locale.code);
   const badge = productConfig.appStore.badges[locale.code];
@@ -950,18 +963,21 @@ function renderLandingBreadcrumbs(locale, page, content) {
 function renderLandingDemo(locale, page, content) {
   const previewPath = `/assets/home/${locale.code}/${page.demo.previewImage}-1440.webp`;
   const transcript = page.demo.transcript.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
-  const mediaRoot = "/assets/landing-pages";
-  const preview = page.demo.available === true
-    ? `<figure class="landing-demo-preview landing-demo-video">
-        <video controls preload="none" poster="${mediaRoot}/${escapeHtml(page.demo.poster)}" aria-label="${escapeHtml(page.demo.title)}">
-          <source src="${mediaRoot}/${escapeHtml(page.demo.video)}" type="video/mp4">
-          <track kind="captions" src="${mediaRoot}/${escapeHtml(page.demo.captions)}" srclang="${locale.code}" label="${escapeHtml(content.nativeName)}" default>
-        </video>
-      </figure>`
-    : `<figure class="landing-demo-preview">
+  const video = youtubeVideoFor(page);
+  const noticeId = `video-privacy-${page.id}`;
+  const preview = `<figure class="landing-demo-preview landing-demo-youtube" data-youtube-player>
+      <div class="landing-video-frame" data-youtube-frame>
         <img src="${previewPath}" alt="" width="1440" height="900" loading="lazy" decoding="async">
-        <figcaption><strong>${escapeHtml(content.shared.demoPlanned)}</strong><span>${escapeHtml(content.shared.demoNotice)}</span></figcaption>
-      </figure>`;
+        <button class="landing-video-play" type="button" data-youtube-load data-youtube-embed="${escapeHtml(video.embedUrl)}" data-youtube-title="${escapeHtml(page.demo.title)}" aria-describedby="${noticeId}" aria-label="${escapeHtml(`${content.shared.playVideo}: ${page.demo.title}`)}">
+          <span class="landing-video-play-icon" aria-hidden="true"></span>
+          <span>${escapeHtml(content.shared.playVideo)}</span>
+        </button>
+      </div>
+      <figcaption id="${noticeId}" class="landing-video-consent">
+        <span>${escapeHtml(content.shared.videoPrivacyNotice)}</span>
+        <a href="${escapeHtml(video.watchUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(content.shared.watchOnYouTube)} <span aria-hidden="true">↗</span></a>
+      </figcaption>
+    </figure>`;
   return `<section class="section landing-demo" aria-labelledby="demo-title-${page.id}">
     <div class="section-heading landing-section-heading">
       <p class="eyebrow">${escapeHtml(content.shared.demoEyebrow)}</p>
@@ -970,7 +986,7 @@ function renderLandingDemo(locale, page, content) {
     <div class="landing-demo-grid">
       ${preview}
       <div id="demo-transcript-${page.id}" class="landing-transcript">
-        <h3>${escapeHtml(content.shared.transcriptTitle)}</h3>
+        <h3>${escapeHtml(content.shared.videoOverviewTitle)}</h3>
         ${transcript}
       </div>
     </div>
@@ -1082,6 +1098,7 @@ function renderLandingDialog(content) {
 
 function structuredDataForLanding(page) {
   const software = productConfig.software;
+  const video = youtubeVideoFor(page);
   const canonicalURL = canonicalUrlForRoute(page.route);
   const localizedHomeURL = canonicalUrlForRoute(localizedRoute(page.locale, "/"));
   return [
@@ -1109,6 +1126,22 @@ function structuredDataForLanding(page) {
         {"@type": "ListItem", position: 2, name: landingContent.get(page.locale.code).shared.waysToUse, item: localizedHomeURL},
         {"@type": "ListItem", position: 3, name: page.hero.eyebrow, item: canonicalURL}
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: page.demo.title,
+      description: page.meta.description,
+      thumbnailUrl: `${canonicalOrigin}/assets/home/${page.locale.code}/${page.demo.previewImage}-1440.webp`,
+      embedUrl: video.embedUrl,
+      sameAs: video.watchUrl,
+      url: canonicalURL,
+      inLanguage: page.locale.code,
+      publisher: {
+        "@type": "Organization",
+        name: "SourceShelf",
+        url: canonicalUrlForRoute("/")
+      }
     }
   ];
 }

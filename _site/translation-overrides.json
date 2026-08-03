@@ -40,6 +40,7 @@
     "Pack Health": "État du pack",
     "Support | SourceShelf": "Assistance | SourceShelf",
     "SourceShelf stores only your theme and language preferences locally in your browser. These preferences are not used for tracking and are never sent to SourceShelf.": "SourceShelf stocke uniquement vos préférences de thème et de langue localement dans votre navigateur. Ces préférences ne sont pas utilisées à des fins de suivi et ne sont jamais envoyées à SourceShelf.",
+    "Optional YouTube videos use privacy-enhanced, click-to-load players. No YouTube player is loaded and no connection to YouTube is made until you choose to play a video. If you play or open a video, Google may process data under its privacy policy.": "Les vidéos YouTube facultatives utilisent des lecteurs à confidentialité renforcée qui ne se chargent qu’après un clic. Aucun lecteur YouTube n’est chargé et aucune connexion à YouTube n’est établie tant que vous ne choisissez pas de lire une vidéo. Si vous lisez ou ouvrez une vidéo, Google peut traiter des données conformément à sa politique de confidentialité.",
     "are not currently supported.": "ne sont pas pris en charge pour le moment.",
     "specification.": "spécification."
   },
@@ -83,6 +84,7 @@
     "AI Reference Packs": "Paquetes de referencia para IA",
     "Pack Health": "Estado del paquete",
     "SourceShelf stores only your theme and language preferences locally in your browser. These preferences are not used for tracking and are never sent to SourceShelf.": "SourceShelf solo almacena tus preferencias de tema e idioma localmente en tu navegador. Estas preferencias no se usan para rastrearte y nunca se envían a SourceShelf.",
+    "Optional YouTube videos use privacy-enhanced, click-to-load players. No YouTube player is loaded and no connection to YouTube is made until you choose to play a video. If you play or open a video, Google may process data under its privacy policy.": "Los videos opcionales de YouTube usan reproductores con privacidad mejorada que solo se cargan al hacer clic. No se carga ningún reproductor de YouTube ni se establece una conexión con YouTube hasta que eliges reproducir un video. Si reproduces o abres un video, Google puede procesar datos conforme a su política de privacidad.",
     "are not currently supported.": "no son compatibles actualmente.",
     "specification.": "especificación."
   },
@@ -126,6 +128,7 @@
     "AI Reference Packs": "Pacotes de referência para IA",
     "Pack Health": "Status do pacote",
     "SourceShelf stores only your theme and language preferences locally in your browser. These preferences are not used for tracking and are never sent to SourceShelf.": "O SourceShelf armazena somente suas preferências de tema e idioma localmente no navegador. Essas preferências não são usadas para rastreamento e nunca são enviadas ao SourceShelf.",
+    "Optional YouTube videos use privacy-enhanced, click-to-load players. No YouTube player is loaded and no connection to YouTube is made until you choose to play a video. If you play or open a video, Google may process data under its privacy policy.": "Os vídeos opcionais do YouTube usam players com privacidade aprimorada que só são carregados após um clique. Nenhum player do YouTube é carregado e nenhuma conexão com o YouTube é feita até que você escolha reproduzir um vídeo. Se você reproduzir ou abrir um vídeo, o Google poderá processar dados de acordo com a política de privacidade dele.",
     "are not currently supported.": "não são compatíveis atualmente.",
     "specification.": "especificação."
   },
@@ -169,6 +172,7 @@
     "AI Reference Packs": "AIリファレンスパック",
     "Pack Health": "パックの状態",
     "SourceShelf stores only your theme and language preferences locally in your browser. These preferences are not used for tracking and are never sent to SourceShelf.": "SourceShelfは、テーマと言語の設定のみをブラウザ内に保存します。これらの設定をトラッキングに使用したり、SourceShelfへ送信したりすることはありません。",
+    "Optional YouTube videos use privacy-enhanced, click-to-load players. No YouTube player is loaded and no connection to YouTube is made until you choose to play a video. If you play or open a video, Google may process data under its privacy policy.": "任意のYouTube動画には、クリックするまで読み込まれないプライバシー強化プレーヤーを使用しています。動画の再生を選択するまでYouTubeプレーヤーは読み込まれず、YouTubeへの接続も行われません。動画を再生または開くと、Googleがプライバシーポリシーに基づいてデータを処理する場合があります。",
     "are not currently supported.": "は現在サポートされていません。",
     "specification.": "仕様。"
   }

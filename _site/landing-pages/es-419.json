@@ -9,8 +9,6 @@
         "heading" : "Cree una base de conocimientos privada a partir de las fuentes en las que confía"
       },
       "demo" : {
-        "captions" : "private-ai-knowledge-base.vtt",
-        "poster" : "private-ai-knowledge-base-poster.webp",
         "previewImage" : "01-private-ai-source-packs",
         "title" : "Desde fuentes dispersas hasta un contexto seleccionado de IA",
         "transcript" : [
@@ -18,8 +16,7 @@
           "Busque en la Biblioteca SourceShelf, elija las fuentes que le importan y organizelas en un paquete guardado ordenado.",
           "Exporte el paquete como contexto portátil o autorice una instantánea inmutable y de solo lectura para un cliente de IA compatible.",
           "Utilice Actualizar y Comparar más tarde para revisar los cambios y revocar el Acceso Local de IA en cualquier momento en que la participación ya no sea necesaria."
-        ],
-        "video" : "private-ai-knowledge-base.mp4"
+        ]
       },
       "faq" : [
         {
@@ -174,8 +171,6 @@
         "heading" : "Convierte los PDF que ya tienes en Markdown portátiles."
       },
       "demo" : {
-        "captions" : "pdf-to-markdown-mac.vtt",
-        "poster" : "pdf-to-markdown-mac-poster.webp",
         "previewImage" : "04-convert-files-for-ai",
         "title" : "Una conversión local de PDF desde principio hasta fin",
         "transcript" : [
@@ -183,8 +178,7 @@
           "SourceShelf extrae texto seleccionable o utiliza el reconocimiento de documentos local de Apple cuando el texto disponible no está disponible.",
           "Inspeccione el resultado renderizado y la fuente Markdown, luego corrija diseños complejos o OCR de baja calidad cuando sea necesario.",
           "Abra el archivo Markdown normal en otro editor o agregelo a un paquete de conocimientos guardado."
-        ],
-        "video" : "pdf-to-markdown-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -310,8 +304,6 @@
         "heading" : "Mantenga la investigación web útil después de cerrar la pestaña"
       },
       "demo" : {
-        "captions" : "save-webpages-safari.vtt",
-        "poster" : "save-webpages-safari-poster.webp",
         "previewImage" : "05-capture-from-safari",
         "title" : "De una página de Safari a una fuente local reutilizable",
         "transcript" : [
@@ -319,8 +311,7 @@
           "Para destacar los puntos clave de la investigación, recopile varios pasajes en un orden deliberado y agregue una nota opcional que explique por qué son importantes.",
           "Revise la captura cuando la receta lo solicite, luego guarde el Markdown local con la proveniencia de la fuente y los activos aplicables.",
           "Encuentre la captura en la Biblioteca y combinela con documentos relacionados en un paquete enfocado."
-        ],
-        "video" : "save-webpages-safari.mp4"
+        ]
       },
       "faq" : [
         {
@@ -450,8 +441,6 @@
         "heading" : "Prepara un contexto enfocado sin atarlo a un solo modelo"
       },
       "demo" : {
-        "captions" : "local-ai-reference-packs.vtt",
-        "poster" : "local-ai-reference-packs-poster.webp",
         "previewImage" : "08-export-workflows",
         "title" : "Cree, exporte y mantenga un paquete de referencia enfocado",
         "transcript" : [
@@ -459,8 +448,7 @@
           "Revisa el tamaño del paquete y elige un Paquete de Referencia de IA portátil, el Paquete de Contenido Markdown, la colección llms.txt o el paquete OKF.",
           "Alternativamente, autorice el acceso local a la IA para que un cliente compatible pueda buscar y leer una instantánea de un paquete guardado.",
           "Utilice Actualizar y Comparar más tarde para comprender los cambios en la fuente y el pedido antes de publicar deliberadamente una actualización."
-        ],
-        "video" : "local-ai-reference-packs.mp4"
+        ]
       },
       "faq" : [
         {
@@ -620,8 +608,6 @@
         "heading" : "Mantenga un archivo de investigación que sea portátil"
       },
       "demo" : {
-        "captions" : "research-archive-mac.vtt",
-        "poster" : "research-archive-mac-poster.webp",
         "previewImage" : "06-organize-research",
         "title" : "Captura, encuentra, organiza y mantén la investigación",
         "transcript" : [
@@ -629,8 +615,7 @@
           "Busque y filtre la Biblioteca, inspeccione la procedencia de una fuente e vea una vista previa de su contenido local.",
           "Organice las fuentes relacionadas en paquetes guardados ordenados sin moverlas a un formato de archivo propietario.",
           "Edita Markdown con tu aplicación preferida y usa Actualizar y Comparar para revisar los cambios deliberadamente."
-        ],
-        "video" : "research-archive-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -778,8 +763,6 @@
         "heading" : "Conecta un paquete sin exponer todo tu Mac"
       },
       "demo" : {
-        "captions" : "mcp-knowledge-base-mac.vtt",
-        "poster" : "mcp-knowledge-base-mac-poster.webp",
         "previewImage" : "02-local-ai-access",
         "title" : "Autoriza, busca y revoca un paquete seleccionado",
         "transcript" : [
@@ -787,8 +770,7 @@
           "Copie la configuración local en un cliente de IA de escritorio compatible sin exponer las rutas del sistema de archivos personal.",
           "El cliente busca la instantánea autorizada y lee solo los recursos de texto restringidos y listados para permitir desde ese paquete.",
           "Detenga la participación individual o desactive el acceso local a la IA para invalidar las configuraciones copiadas inmediatamente."
-        ],
-        "video" : "mcp-knowledge-base-mac.mp4"
+        ]
       },
       "faq" : [
         {
@@ -949,8 +931,7 @@
     "close" : "fin",
     "closeLabel" : "Cerrar imagen en pantalla completa",
     "demoEyebrow" : "Demostración del producto",
-    "demoNotice" : "Se está produciendo un video específico para cada página. Esta vista previa utiliza la interfaz actual de SourceShelf y la transcripción planeada a continuación describe el flujo de trabajo exacto que mostrará la demostración finalizada.",
-    "demoPlanned" : "Demostración planeada",
+    "playVideo" : "Reproducir video",
     "faqEyebrow" : "Preguntas comunes",
     "faqTitle" : "Qué saber antes de comenzar",
     "fit" : "Ajustado a la pantalla",
@@ -960,7 +941,9 @@
     "screenshotViewer" : "Visualizador de capturas de pantalla",
     "seeHow" : "Mira cómo funciona",
     "sourceShelfUseCases" : "Casos de uso de SourceShelf",
-    "transcriptTitle" : "Transcripción de la demostración planeada",
+    "videoOverviewTitle" : "Contenido del video",
+    "videoPrivacyNotice" : "YouTube no se carga hasta que seleccionas «Reproducir video». Al reproducirlo, se establece una conexión con YouTube sujeta a la Política de Privacidad de Google.",
+    "watchOnYouTube" : "Ver en YouTube",
     "trustLabel" : "Principios de confianza de SourceShelf",
     "viewFullScreen" : "Ver imagen en pantalla completa",
     "viewLarger" : "Ver más grande",
