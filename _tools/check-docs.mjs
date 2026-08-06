@@ -645,7 +645,9 @@ for (const htmlFile of htmlFiles) {
 
     if (isBlogArticle) {
       const content = post.locales[locale];
+      const video = post.youtubeVideo;
       const postings = jsonLD.filter((value) => value["@type"] === "BlogPosting");
+      const videoObjects = jsonLD.filter((value) => value["@type"] === "VideoObject");
       if (postings.length !== 1) {
         errors.push(`${publicPath} must contain one BlogPosting object`);
       } else if (
@@ -669,6 +671,36 @@ for (const htmlFile of htmlFiles) {
       const hero = html.match(/<img\b[^>]*\bsrc="\/assets\/blog\/[^>]+>/)?.[0] || "";
       if (!hero.includes(`src="/assets/blog/${locale}/${post.heroAsset}.svg"`) || !/\balt="[^"]+"/.test(hero) || !hero.includes('width="1200"') || !hero.includes('height="630"')) {
         errors.push(`${publicPath} has incomplete localized hero image markup`);
+      }
+      const expectedWatchUrl = `https://youtu.be/${video?.id || ""}`;
+      const expectedEmbedUrl = `https://www.youtube-nocookie.com/embed/${video?.id || ""}`;
+      if (
+        !video ||
+        !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
+        video.watchUrl !== expectedWatchUrl ||
+        video.embedUrl !== expectedEmbedUrl
+      ) {
+        errors.push(`${publicPath} has invalid blog YouTube video configuration`);
+      } else if (
+        !html.includes('class="blog-hero-figure landing-demo-preview landing-demo-youtube blog-hero-video"') ||
+        !html.includes(`data-youtube-embed="${expectedEmbedUrl}"`) ||
+        !html.includes(`href="${expectedWatchUrl}"`) ||
+        !html.includes("data-youtube-load")
+      ) {
+        errors.push(`${publicPath} does not render its privacy-enhanced blog YouTube controls`);
+      }
+      if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
+        errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the blog video`);
+      }
+      if (videoObjects.length !== 1) {
+        errors.push(`${publicPath} must contain one blog VideoObject`);
+      } else if (
+        videoObjects[0].url !== expectedCanonical ||
+        videoObjects[0].sameAs !== video?.watchUrl ||
+        videoObjects[0].embedUrl !== video?.embedUrl ||
+        videoObjects[0].inLanguage !== locale
+      ) {
+        errors.push(`${publicPath} VideoObject does not match its canonical page and mapped YouTube video`);
       }
       const productImage = html.match(/<img\b[^>]*\bsrc="\/assets\/home\/[^>]+08-export-workflows-1440\.webp[^>]*>/)?.[0] || "";
       if (!productImage.includes(`/assets/home/${locale}/`) || !/\balt="[^"]+"/.test(productImage) || !productImage.includes("srcset=")) {
@@ -833,6 +865,11 @@ const uniqueYouTubeIds = new Set(Object.values(productConfig.youtubeVideos || {}
 if (uniqueYouTubeIds.size !== landingPageIds.length) {
   errors.push("YouTube video configuration contains a duplicate video ID");
 }
+const blogVideoIds = blogManifest.posts.map((post) => post.youtubeVideo?.id).filter(Boolean);
+const allYouTubeIds = [...uniqueYouTubeIds, ...blogVideoIds];
+if (new Set(allYouTubeIds).size !== allYouTubeIds.length) {
+  errors.push("YouTube video configuration reuses an ID across SEO pages and blog articles");
+}
 for (const locale of localeCodes) {
   const content = landingContent.get(locale);
   if (content.code !== locale || content.pages.length !== 6) {
@@ -961,5 +998,5 @@ if (errors.length) {
 } else {
   console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
   console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
-  console.log(`YouTube privacy audit passed: ${landingRoutes.length * localeCodes.length} localized click-to-load players, ${landingPageIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
+  console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogRoutes.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
 }

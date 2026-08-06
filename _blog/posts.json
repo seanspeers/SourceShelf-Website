@@ -57,9 +57,14 @@
       "source": "what-is-open-knowledge-format-okf.md",
       "route": "/blog/what-is-open-knowledge-format-okf/",
       "published": "2026-08-03",
-      "modified": "2026-08-03",
+      "modified": "2026-08-06",
       "author": "SourceShelf",
       "heroAsset": "okf-portable-ai-knowledge",
+      "youtubeVideo": {
+        "id": "pIFUmEfji2U",
+        "watchUrl": "https://youtu.be/pIFUmEfji2U",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/pIFUmEfji2U"
+      },
       "locales": {
         "en": {
           "seoTitle": "What Is Open Knowledge Format (OKF)? | SourceShelf",

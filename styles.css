@@ -1690,6 +1690,11 @@ body.home-lightbox-open {
   width: 100%;
 }
 
+.blog-hero-video .landing-video-frame > img {
+  object-fit: contain;
+  opacity: 0.86;
+}
+
 .blog-article-layout {
   display: grid;
   grid-template-columns: minmax(0, 800px) 220px;

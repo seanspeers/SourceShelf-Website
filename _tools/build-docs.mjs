@@ -9,8 +9,8 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
-const buildDate = "2026-08-03";
-const assetVersion = "20260803-3";
+const buildDate = "2026-08-06";
+const assetVersion = "20260806-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -909,17 +909,27 @@ function appStoreURLFor(page) {
   return productConfig.appStore.campaigns[page.campaignKey] || productConfig.appStore.default;
 }
 
-function youtubeVideoFor(page) {
-  const video = productConfig.youtubeVideos?.[page.id];
-  if (!video) throw new Error(`YouTube video configuration is missing for landing page: ${page.id}`);
+function validatedYoutubeVideo(video, context) {
+  if (!video) throw new Error(`YouTube video configuration is missing for ${context}`);
   if (
     !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
     video.watchUrl !== `https://youtu.be/${video.id}` ||
     video.embedUrl !== `https://www.youtube-nocookie.com/embed/${video.id}`
   ) {
-    throw new Error(`YouTube video configuration is invalid for landing page: ${page.id}`);
+    throw new Error(`YouTube video configuration is invalid for ${context}`);
   }
   return video;
+}
+
+function youtubeVideoFor(page) {
+  return validatedYoutubeVideo(
+    productConfig.youtubeVideos?.[page.id],
+    `landing page: ${page.id}`
+  );
+}
+
+function blogYoutubeVideoFor(page) {
+  return validatedYoutubeVideo(page.youtubeVideo, `blog post: ${page.id}`);
 }
 
 function renderAppStoreBadge(locale, page) {
@@ -1349,6 +1359,25 @@ function renderBlogAppStoreBadge(page) {
   </a>`;
 }
 
+function renderBlogHeroVideo(page, heroImage) {
+  const video = blogYoutubeVideoFor(page);
+  const shared = landingContent.get(page.locale.code).shared;
+  const noticeId = `video-privacy-${page.id}`;
+  return `<figure class="blog-hero-figure landing-demo-preview landing-demo-youtube blog-hero-video" data-youtube-player>
+    <div class="landing-video-frame" data-youtube-frame>
+      <img src="${heroImage}" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+      <button class="landing-video-play" type="button" data-youtube-load data-youtube-embed="${escapeHtml(video.embedUrl)}" data-youtube-title="${escapeHtml(page.rendered.title)}" aria-describedby="${noticeId}" aria-label="${escapeHtml(`${shared.playVideo}: ${page.rendered.title}`)}">
+        <span class="landing-video-play-icon" aria-hidden="true"></span>
+        <span>${escapeHtml(shared.playVideo)}</span>
+      </button>
+    </div>
+    <figcaption id="${noticeId}" class="landing-video-consent">
+      <span>${escapeHtml(shared.videoPrivacyNotice)}</span>
+      <a href="${escapeHtml(video.watchUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(shared.watchOnYouTube)} <span aria-hidden="true">↗</span></a>
+    </figcaption>
+  </figure>`;
+}
+
 function blogStructuredData(value) {
   return `<script type="application/ld+json">${JSON.stringify(value).replaceAll("<", "\\u003c")}</script>`;
 }
@@ -1460,6 +1489,7 @@ function renderBlogArticle(page) {
   const canonicalBlogUrl = canonicalUrlForRoute(localizedRoute(locale, "/blog/"));
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
   const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.svg`;
+  const video = blogYoutubeVideoFor(page);
   const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
   const desktopToc = `<aside class="docs-toc blog-toc" aria-label="${escapeHtml(translate(locale, "Page contents"))}">${renderToc(rendered.headings, "docs-toc-list", "Table of contents", locale)}</aside>`;
   const structuredData = [
@@ -1491,6 +1521,22 @@ function renderBlogArticle(page) {
         { "@type": "ListItem", position: 2, name: blogManifest.index[locale.code].eyebrow, item: canonicalBlogUrl },
         { "@type": "ListItem", position: 3, name: rendered.title, item: canonicalUrl }
       ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: rendered.title,
+      description: content.metaDescription,
+      thumbnailUrl: socialImage,
+      embedUrl: video.embedUrl,
+      sameAs: video.watchUrl,
+      url: canonicalUrl,
+      inLanguage: locale.code,
+      publisher: {
+        "@type": "Organization",
+        name: "SourceShelf",
+        url: canonicalUrlForRoute("/")
+      }
     }
   ].map(blogStructuredData).join("\n  ");
 
@@ -1538,9 +1584,7 @@ ${renderAlternateLinks(page.logicalRoute)}
             <span>${escapeHtml(content.byLabel)} ${escapeHtml(page.author)}</span>
             <span class="blog-verified">${escapeHtml(content.verifiedLabel)}</span>
           </div>
-          <figure class="blog-hero-figure">
-            <img src="${heroImage}" alt="${escapeHtml(content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
-          </figure>
+          ${renderBlogHeroVideo(page, heroImage)}
         </header>
         ${mobileToc}
         <div class="blog-article-layout">
@@ -1783,6 +1827,7 @@ async function build() {
     }
     blogIDs.add(post.id);
     blogRoutes.add(post.route);
+    blogYoutubeVideoFor(post);
     for (const locale of locales) {
       if (!blogManifest.index[locale.code] || !post.locales[locale.code]) {
         throw new Error(`Blog content is incomplete for ${locale.code}:${post.id}`);
