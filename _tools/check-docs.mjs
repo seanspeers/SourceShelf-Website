@@ -503,7 +503,12 @@ for (const htmlFile of htmlFiles) {
     } else {
       const expectedWatchUrl = `https://youtu.be/${video.id}`;
       const expectedEmbedUrl = `https://www.youtube-nocookie.com/embed/${video.id}`;
-      if (video.watchUrl !== expectedWatchUrl || video.embedUrl !== expectedEmbedUrl) {
+      if (
+        video.watchUrl !== expectedWatchUrl ||
+        video.embedUrl !== expectedEmbedUrl ||
+        !video.uploadDate ||
+        Number.isNaN(Date.parse(video.uploadDate))
+      ) {
         errors.push(`${publicPath} has inconsistent YouTube video configuration`);
       }
       if (
@@ -581,6 +586,7 @@ for (const htmlFile of htmlFiles) {
     }
     if (videoObjects[0] && (
       videoObjects[0].url !== expectedCanonical ||
+      videoObjects[0].uploadDate !== video?.uploadDate ||
       videoObjects[0].sameAs !== video?.watchUrl ||
       videoObjects[0].embedUrl !== video?.embedUrl ||
       videoObjects[0].inLanguage !== locale
@@ -678,16 +684,19 @@ for (const htmlFile of htmlFiles) {
         !video ||
         !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
         video.watchUrl !== expectedWatchUrl ||
-        video.embedUrl !== expectedEmbedUrl
+        video.embedUrl !== expectedEmbedUrl ||
+        !video.uploadDate ||
+        Number.isNaN(Date.parse(video.uploadDate))
       ) {
         errors.push(`${publicPath} has invalid blog YouTube video configuration`);
       } else if (
-        !html.includes('class="blog-hero-figure landing-demo-preview landing-demo-youtube blog-hero-video"') ||
+        !html.includes('class="blog-hero-figure"') ||
+        !html.includes('class="blog-inline-video landing-demo-preview landing-demo-youtube"') ||
         !html.includes(`data-youtube-embed="${expectedEmbedUrl}"`) ||
         !html.includes(`href="${expectedWatchUrl}"`) ||
         !html.includes("data-youtube-load")
       ) {
-        errors.push(`${publicPath} does not render its privacy-enhanced blog YouTube controls`);
+        errors.push(`${publicPath} does not render its static hero image and privacy-enhanced inline YouTube controls`);
       }
       if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
         errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the blog video`);
@@ -696,6 +705,7 @@ for (const htmlFile of htmlFiles) {
         errors.push(`${publicPath} must contain one blog VideoObject`);
       } else if (
         videoObjects[0].url !== expectedCanonical ||
+        videoObjects[0].uploadDate !== video?.uploadDate ||
         videoObjects[0].sameAs !== video?.watchUrl ||
         videoObjects[0].embedUrl !== video?.embedUrl ||
         videoObjects[0].inLanguage !== locale

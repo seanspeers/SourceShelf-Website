@@ -1143,6 +1143,7 @@ function structuredDataForLanding(page) {
       name: page.demo.title,
       description: page.meta.description,
       thumbnailUrl: `${canonicalOrigin}/assets/home/${page.locale.code}/${page.demo.previewImage}-1440.webp`,
+      uploadDate: video.uploadDate,
       embedUrl: video.embedUrl,
       sameAs: video.watchUrl,
       url: canonicalURL,
@@ -1359,13 +1360,19 @@ function renderBlogAppStoreBadge(page) {
   </a>`;
 }
 
-function renderBlogHeroVideo(page, heroImage) {
+function renderBlogHeroImage(page, heroImage) {
+  return `<figure class="blog-hero-figure">
+    <img src="${heroImage}" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+  </figure>`;
+}
+
+function renderBlogArticleVideo(page, heroImage) {
   const video = blogYoutubeVideoFor(page);
   const shared = landingContent.get(page.locale.code).shared;
   const noticeId = `video-privacy-${page.id}`;
-  return `<figure class="blog-hero-figure landing-demo-preview landing-demo-youtube blog-hero-video" data-youtube-player>
+  return `<figure class="blog-inline-video landing-demo-preview landing-demo-youtube" data-youtube-player>
     <div class="landing-video-frame" data-youtube-frame>
-      <img src="${heroImage}" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+      <img src="${heroImage}" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="lazy" decoding="async">
       <button class="landing-video-play" type="button" data-youtube-load data-youtube-embed="${escapeHtml(video.embedUrl)}" data-youtube-title="${escapeHtml(page.rendered.title)}" aria-describedby="${noticeId}" aria-label="${escapeHtml(`${shared.playVideo}: ${page.rendered.title}`)}">
         <span class="landing-video-play-icon" aria-hidden="true"></span>
         <span>${escapeHtml(shared.playVideo)}</span>
@@ -1376,6 +1383,15 @@ function renderBlogHeroVideo(page, heroImage) {
       <a href="${escapeHtml(video.watchUrl)}" target="_blank" rel="noopener noreferrer">${escapeHtml(shared.watchOnYouTube)} <span aria-hidden="true">↗</span></a>
     </figcaption>
   </figure>`;
+}
+
+function insertBlogVideoBeforeSecondSection(page, rendered, heroImage) {
+  const secondSection = rendered.headings.filter((heading) => heading.level === 2)[1];
+  if (!secondSection) {
+    throw new Error(`Blog post ${page.source} needs a second level-two heading for its video placement`);
+  }
+  const headingMarkup = `<h2 id="${secondSection.slug}">`;
+  return rendered.bodyHtml.replace(headingMarkup, `${renderBlogArticleVideo(page, heroImage)}\n${headingMarkup}`);
 }
 
 function blogStructuredData(value) {
@@ -1490,6 +1506,7 @@ function renderBlogArticle(page) {
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
   const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.svg`;
   const video = blogYoutubeVideoFor(page);
+  const bodyHtml = insertBlogVideoBeforeSecondSection(page, rendered, heroImage);
   const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
   const desktopToc = `<aside class="docs-toc blog-toc" aria-label="${escapeHtml(translate(locale, "Page contents"))}">${renderToc(rendered.headings, "docs-toc-list", "Table of contents", locale)}</aside>`;
   const structuredData = [
@@ -1528,6 +1545,7 @@ function renderBlogArticle(page) {
       name: rendered.title,
       description: content.metaDescription,
       thumbnailUrl: socialImage,
+      uploadDate: video.uploadDate,
       embedUrl: video.embedUrl,
       sameAs: video.watchUrl,
       url: canonicalUrl,
@@ -1584,14 +1602,14 @@ ${renderAlternateLinks(page.logicalRoute)}
             <span>${escapeHtml(content.byLabel)} ${escapeHtml(page.author)}</span>
             <span class="blog-verified">${escapeHtml(content.verifiedLabel)}</span>
           </div>
-          ${renderBlogHeroVideo(page, heroImage)}
+          ${renderBlogHeroImage(page, heroImage)}
         </header>
         ${mobileToc}
         <div class="blog-article-layout">
           <div class="docs-article blog-copy">
             <div class="docs-article-body">
               ${rendered.introHtml}
-              ${rendered.bodyHtml}
+              ${bodyHtml}
             </div>
             <section class="blog-cta" aria-labelledby="blog-cta-${escapeHtml(page.id)}">
               <div>
