@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description"><defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061528"/><stop offset="0.58" stop-color="#08244d"/><stop offset="1" stop-color="#0a5d78"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ea9ff"/><stop offset="1" stop-color="#54e5e7"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#020b17" flood-opacity="0.45"/></filter>
+    <style>.title{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:750;text-anchor:middle}.label{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:700;text-anchor:middle}.detail{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:500;text-anchor:middle}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500}</style>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="90" cy="70" r="220" fill="#31d4dc" opacity="0.08"/><circle cx="1115" cy="570" r="285" fill="#2ea9ff" opacity="0.10"/>
+  <title id="title">Helping AI understand your website</title><desc id="description">A website flows through an llms.txt Markdown guide to an AI assistant, with the message Helping AI understand your website.</desc><text class="title" x="600" y="92" fill="#f6fbff" font-size="40">Helping AI understand your website</text>
+    <g filter="url(#shadow)">
+      <rect x="80" y="218" width="280" height="188" rx="32" fill="#0d294a" stroke="#79b8df" stroke-opacity=".55"/>
+      <rect x="460" y="218" width="280" height="188" rx="32" fill="url(#accent)"/>
+      <rect x="840" y="218" width="280" height="188" rx="32" fill="#0d294a" stroke="#54e5e7" stroke-opacity=".68"/>
+    </g>
+    <g fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M375 312H435"/><path d="M418 296l18 16-18 16"/><path d="M755 312h60"/><path d="M798 296l18 16-18 16"/></g>
+    <g aria-hidden="true"><rect x="151" y="263" width="138" height="88" rx="13" fill="#07182d" stroke="#8bc8ea"/><circle cx="175" cy="283" r="5" fill="#54e5e7"/><path d="M168 306h105M168 326h74" stroke="#8bc8ea" stroke-width="7" stroke-linecap="round"/>
+    <path d="M533 257h96l38 38v78H533z" fill="#07182d" opacity=".9"/><path d="M629 257v39h38" fill="none" stroke="#bdfaff" stroke-width="5"/><path d="M557 322h84M557 343h60" stroke="#7beff4" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="980" cy="304" r="50" fill="#07182d" stroke="#8bc8ea"/><path d="M953 330c7-21 47-21 54 0M961 294a19 19 0 1038 0 19 19 0 00-38 0z" fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round"/></g>
+    <text class="label" x="220" y="455" fill="#f6fbff" font-size="27">Website</text><text class="label" x="600" y="455" fill="#f6fbff" font-size="29">llms.txt</text><text class="label" x="980" y="455" fill="#f6fbff" font-size="27">AI Assistant</text></svg>

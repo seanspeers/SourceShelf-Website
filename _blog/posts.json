@@ -57,9 +57,18 @@
       "source": "what-is-open-knowledge-format-okf.md",
       "route": "/blog/what-is-open-knowledge-format-okf/",
       "published": "2026-08-03",
-      "modified": "2026-08-06",
+      "modified": "2026-08-08",
       "author": "SourceShelf",
       "heroAsset": "okf-portable-ai-knowledge",
+      "mediaPlacementBeforeH2": 2,
+      "requiredExternalLinks": [
+        "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
+        "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
+        "https://help.openai.com/en/articles/8555545-uploading-images-and-files-in-chatgpt",
+        "https://help.openai.com/en/articles/8983675-what-types-of-files-are-supported"
+      ],
+      "requiredMarkdownImages": ["08-export-workflows-1440.webp"],
+      "requiredLogicalLinks": ["/blog/what-is-llms-txt/"],
       "youtubeVideo": {
         "id": "pIFUmEfji2U",
         "uploadDate": "2026-08-06T13:48:33-07:00",
@@ -170,6 +179,237 @@
             "okfDetail": "持ち運べるオープンなマスター",
             "context": "ChatGPT Context Pack",
             "contextDetail": "実用的なAIアップロード"
+          }
+        }
+      }
+    },
+    {
+      "id": "what-is-llms-txt",
+      "source": "what-is-llms-txt.md",
+      "route": "/blog/what-is-llms-txt/",
+      "published": "2026-08-08",
+      "modified": "2026-08-08",
+      "author": "SourceShelf",
+      "heroAsset": "llms-txt-hero",
+      "heroFormat": "webp",
+      "visualKind": "llms-txt",
+      "mediaPlacementBeforeH2": 8,
+      "ctaRoute": "/private-ai-knowledge-base-mac/",
+      "videoPlaceholder": {
+        "posterAsset": "sourceshelf-llms-workflow"
+      },
+      "articleGraphics": [
+        {"id": "llms-txt-markdown-example", "width": 1200, "height": 675},
+        {"id": "llms-txt-file-comparison", "width": 1200, "height": 675},
+        {"id": "sourceshelf-llms-workflow", "width": 1200, "height": 675},
+        {"id": "llms-txt-okf-relationship", "width": 1200, "height": 675}
+      ],
+      "articleScreenshots": [
+        {"id": "llms-import-source", "sourceAsset": "04-convert-files-for-ai", "width": 1440, "height": 900},
+        {"id": "llms-pack-created", "sourceAsset": "01-private-ai-source-packs", "width": 1440, "height": 900},
+        {"id": "llms-export", "sourceAsset": "08-export-workflows", "width": 1440, "height": 900},
+        {"id": "llms-ai-access", "sourceAsset": "02-local-ai-access", "width": 1440, "height": 900}
+      ],
+      "requiredExternalLinks": [
+        "https://llmstxt.org/",
+        "https://github.com/AnswerDotAI/llms-txt",
+        "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview"
+      ],
+      "requiredLogicalLinks": [
+        "/blog/what-is-open-knowledge-format-okf/",
+        "/private-ai-knowledge-base-mac/",
+        "/local-ai-reference-packs/"
+      ],
+      "locales": {
+        "en": {
+          "seoTitle": "What Is llms.txt? A Guide to AI-Readable Websites",
+          "metaDescription": "Learn what llms.txt is, why websites are creating AI-readable Markdown indexes, and how SourceShelf uses llms.txt collections for portable AI knowledge.",
+          "excerpt": "llms.txt is an emerging Markdown convention designed to help AI systems discover important website content. Learn what it does, what it does not do, and how SourceShelf uses it.",
+          "articleLabel": "AI-readable website knowledge",
+          "publishedLabel": "Published",
+          "byLabel": "By",
+          "ctaTitle": "Create your private AI knowledge base with SourceShelf",
+          "ctaDescription": "Capture, organize, and package selected knowledge locally, then use the format that fits your AI workflow.",
+          "ctaButton": "Learn More About SourceShelf",
+          "heroAlt": "A website flows through an llms.txt Markdown guide to an AI assistant, with the message Helping AI understand your website.",
+          "benefitCards": [
+            {"number": "1", "title": "Better content discovery", "description": "A compatible agent can quickly see what a website covers, which pages matter, and where authoritative information lives."},
+            {"number": "2", "title": "Cleaner AI context", "description": "Curated links, descriptions, and headings offer a cleaner starting point than inferring importance from navigation and page chrome."},
+            {"number": "3", "title": "Human-readable documentation", "description": "Because llms.txt is Markdown, people can read, edit, review, and version it with ordinary tools."},
+            {"number": "4", "title": "Future-ready knowledge sharing", "description": "A lightweight open convention can provide structured context without tying a website to one AI vendor."}
+          ],
+          "videoPlaceholder": {
+            "eyebrow": "Video guide",
+            "title": "How SourceShelf uses llms.txt",
+            "status": "Video in production",
+            "duration": "Target length: about 2 minutes",
+            "captions": "Captions will be included with the published video.",
+            "transcriptTitle": "Planned transcript",
+            "transcript": [
+              "The video will explain the llms.txt convention and its role as a curated Markdown guide.",
+              "It will demonstrate how SourceShelf imports safe local references without downloading remote URLs.",
+              "It will show how a saved pack can be exported as an llms.txt Collection Folder, AI Reference Pack, or OKF bundle."
+            ]
+          },
+          "graphics": {
+            "hero": {"tagline": "Helping AI understand your website", "website": "Website", "index": "llms.txt", "assistant": "AI Assistant"},
+            "comparison": {"title": "Three files, three different jobs", "robots": "Crawler preferences", "sitemap": "Website URLs", "llms": "AI-readable context"},
+            "markdown": {"title": "Human-readable by design", "file": "llms.txt"},
+            "workflow": {"title": "From website knowledge to selected AI context", "website": "Website", "index": "llms.txt", "sourceShelf": "SourceShelf", "pack": "Knowledge Pack", "tools": "AI Tools"},
+            "relationship": {"title": "Discovery, organization, preservation", "discover": "Discover", "organize": "Organize", "preserve": "Preserve"}
+          }
+        },
+        "fr": {
+          "seoTitle": "Qu’est-ce que llms.txt? Guide des sites lisibles par l’IA",
+          "metaDescription": "Découvrez ce qu’est llms.txt, pourquoi des sites créent des index Markdown lisibles par l’IA et comment SourceShelf utilise ces collections comme connaissances portables.",
+          "excerpt": "llms.txt est une convention Markdown émergente qui aide les systèmes d’IA à repérer le contenu important d’un site. Découvrez son utilité, ses limites et son usage dans SourceShelf.",
+          "articleLabel": "Connaissances de site lisibles par l’IA",
+          "publishedLabel": "Publié le",
+          "byLabel": "Par",
+          "ctaTitle": "Créez votre base de connaissances IA privée avec SourceShelf",
+          "ctaDescription": "Capturez, organisez et regroupez des connaissances choisies localement, puis utilisez le format adapté à votre flux de travail d’IA.",
+          "ctaButton": "En savoir plus sur SourceShelf",
+          "heroAlt": "Un site Web passe par un guide Markdown llms.txt vers un assistant IA, avec le message Aider l’IA à comprendre votre site Web.",
+          "benefitCards": [
+            {"number": "1", "title": "Meilleure découverte du contenu", "description": "Un agent compatible peut voir rapidement le sujet du site, les pages importantes et l’emplacement des renseignements faisant autorité."},
+            {"number": "2", "title": "Contexte d’IA plus clair", "description": "Des liens, descriptions et titres choisis offrent un point de départ plus clair que l’interprétation de la navigation et de l’interface."},
+            {"number": "3", "title": "Documentation lisible par tous", "description": "Comme llms.txt est du Markdown, on peut le lire, le modifier, le réviser et le versionner avec des outils courants."},
+            {"number": "4", "title": "Partage de connaissances durable", "description": "Une convention ouverte et légère peut fournir un contexte structuré sans lier le site à un seul fournisseur d’IA."}
+          ],
+          "videoPlaceholder": {
+            "eyebrow": "Guide vidéo",
+            "title": "Comment SourceShelf utilise llms.txt",
+            "status": "Vidéo en production",
+            "duration": "Durée visée : environ 2 minutes",
+            "captions": "Des sous-titres seront fournis avec la vidéo publiée.",
+            "transcriptTitle": "Transcription prévue",
+            "transcript": [
+              "La vidéo expliquera la convention llms.txt et son rôle de guide Markdown organisé.",
+              "Elle montrera comment SourceShelf importe des références locales sûres sans télécharger les URL distantes.",
+              "Elle présentera l’exportation d’un pack enregistré en dossier de collection llms.txt, en AI Reference Pack ou en bundle OKF."
+            ]
+          },
+          "graphics": {
+            "hero": {"tagline": "Aider l’IA à comprendre votre site Web", "website": "Site Web", "index": "llms.txt", "assistant": "Assistant IA"},
+            "comparison": {"title": "Trois fichiers, trois rôles différents", "robots": "Préférences des robots", "sitemap": "URL du site Web", "llms": "Contexte lisible par l’IA"},
+            "markdown": {"title": "Conçu pour être lisible", "file": "llms.txt"},
+            "workflow": {"title": "Des connaissances Web au contexte d’IA choisi", "website": "Site Web", "index": "llms.txt", "sourceShelf": "SourceShelf", "pack": "Pack de connaissances", "tools": "Outils d’IA"},
+            "relationship": {"title": "Découvrir, organiser, préserver", "discover": "Découvrir", "organize": "Organiser", "preserve": "Préserver"}
+          }
+        },
+        "es-419": {
+          "seoTitle": "¿Qué es llms.txt? Guía de sitios legibles para IA",
+          "metaDescription": "Conoce qué es llms.txt, por qué algunos sitios crean índices Markdown legibles para IA y cómo SourceShelf usa estas colecciones como conocimiento portátil.",
+          "excerpt": "llms.txt es una convención Markdown emergente que ayuda a los sistemas de IA a descubrir contenido web importante. Conoce qué hace, qué no hace y cómo lo usa SourceShelf.",
+          "articleLabel": "Conocimiento web legible para IA",
+          "publishedLabel": "Publicado el",
+          "byLabel": "Por",
+          "ctaTitle": "Crea tu base de conocimiento privada para IA con SourceShelf",
+          "ctaDescription": "Captura, organiza y empaqueta conocimiento seleccionado de forma local, y después usa el formato adecuado para tu flujo de trabajo de IA.",
+          "ctaButton": "Conoce más sobre SourceShelf",
+          "heroAlt": "Un sitio web pasa por una guía Markdown llms.txt hacia un asistente de IA, con el mensaje Ayuda a la IA a entender tu sitio web.",
+          "benefitCards": [
+            {"number": "1", "title": "Mejor descubrimiento de contenido", "description": "Un agente compatible puede identificar rápidamente el tema del sitio, las páginas importantes y dónde está la información autorizada."},
+            {"number": "2", "title": "Contexto de IA más limpio", "description": "Los enlaces, las descripciones y los encabezados seleccionados ofrecen un inicio más claro que deducir relevancia desde la navegación y la interfaz."},
+            {"number": "3", "title": "Documentación legible por personas", "description": "Como llms.txt es Markdown, se puede leer, editar, revisar y mantener bajo control de versiones con herramientas comunes."},
+            {"number": "4", "title": "Intercambio preparado para el futuro", "description": "Una convención abierta y ligera puede aportar contexto estructurado sin vincular un sitio a un solo proveedor de IA."}
+          ],
+          "videoPlaceholder": {
+            "eyebrow": "Guía en video",
+            "title": "Cómo usa SourceShelf llms.txt",
+            "status": "Video en producción",
+            "duration": "Duración prevista: aproximadamente 2 minutos",
+            "captions": "El video publicado incluirá subtítulos.",
+            "transcriptTitle": "Transcripción prevista",
+            "transcript": [
+              "El video explicará la convención llms.txt y su función como guía Markdown seleccionada.",
+              "Mostrará cómo SourceShelf importa referencias locales seguras sin descargar URL remotas.",
+              "También mostrará cómo exportar un paquete guardado como carpeta de colección llms.txt, AI Reference Pack o bundle OKF."
+            ]
+          },
+          "graphics": {
+            "hero": {"tagline": "Ayuda a la IA a entender tu sitio web", "website": "Sitio web", "index": "llms.txt", "assistant": "Asistente de IA"},
+            "comparison": {"title": "Tres archivos, tres funciones distintas", "robots": "Preferencias de rastreo", "sitemap": "URL del sitio web", "llms": "Contexto legible para IA"},
+            "markdown": {"title": "Diseñado para ser legible", "file": "llms.txt"},
+            "workflow": {"title": "Del conocimiento web al contexto de IA seleccionado", "website": "Sitio web", "index": "llms.txt", "sourceShelf": "SourceShelf", "pack": "Paquete de conocimiento", "tools": "Herramientas de IA"},
+            "relationship": {"title": "Descubrir, organizar, preservar", "discover": "Descubrir", "organize": "Organizar", "preserve": "Preservar"}
+          }
+        },
+        "pt-BR": {
+          "seoTitle": "O que é llms.txt? Guia de sites legíveis por IA",
+          "metaDescription": "Entenda o que é llms.txt, por que sites criam índices Markdown legíveis por IA e como o SourceShelf usa essas coleções como conhecimento portátil.",
+          "excerpt": "llms.txt é uma convenção Markdown emergente que ajuda sistemas de IA a encontrar conteúdo importante de sites. Veja o que ela faz, seus limites e como o SourceShelf a utiliza.",
+          "articleLabel": "Conhecimento de sites legível por IA",
+          "publishedLabel": "Publicado em",
+          "byLabel": "Por",
+          "ctaTitle": "Crie sua base de conhecimento privada para IA com o SourceShelf",
+          "ctaDescription": "Capture, organize e empacote conhecimento selecionado localmente e use o formato mais adequado ao seu fluxo de trabalho de IA.",
+          "ctaButton": "Saiba mais sobre o SourceShelf",
+          "heroAlt": "Um site passa por um guia Markdown llms.txt até um assistente de IA, com a mensagem Ajude a IA a entender seu site.",
+          "benefitCards": [
+            {"number": "1", "title": "Melhor descoberta de conteúdo", "description": "Um agente compatível pode identificar rapidamente o tema do site, as páginas importantes e onde estão as informações oficiais."},
+            {"number": "2", "title": "Contexto de IA mais limpo", "description": "Links, descrições e títulos selecionados oferecem um ponto de partida mais claro do que deduzir relevância pela navegação e pela interface."},
+            {"number": "3", "title": "Documentação legível por pessoas", "description": "Como llms.txt é Markdown, as pessoas podem ler, editar, revisar e versionar o arquivo com ferramentas comuns."},
+            {"number": "4", "title": "Compartilhamento preparado para o futuro", "description": "Uma convenção aberta e leve pode fornecer contexto estruturado sem vincular o site a um único fornecedor de IA."}
+          ],
+          "videoPlaceholder": {
+            "eyebrow": "Guia em vídeo",
+            "title": "Como o SourceShelf usa llms.txt",
+            "status": "Vídeo em produção",
+            "duration": "Duração prevista: cerca de 2 minutos",
+            "captions": "A versão publicada terá legendas.",
+            "transcriptTitle": "Transcrição planejada",
+            "transcript": [
+              "O vídeo explicará a convenção llms.txt e seu papel como guia Markdown selecionado.",
+              "Ele mostrará como o SourceShelf importa referências locais seguras sem baixar URLs remotas.",
+              "Também mostrará como exportar um pacote salvo como pasta de coleção llms.txt, AI Reference Pack ou bundle OKF."
+            ]
+          },
+          "graphics": {
+            "hero": {"tagline": "Ajude a IA a entender seu site", "website": "Site", "index": "llms.txt", "assistant": "Assistente de IA"},
+            "comparison": {"title": "Três arquivos, três funções diferentes", "robots": "Preferências de rastreamento", "sitemap": "URLs do site", "llms": "Contexto legível por IA"},
+            "markdown": {"title": "Criado para ser legível", "file": "llms.txt"},
+            "workflow": {"title": "Do conhecimento do site ao contexto de IA selecionado", "website": "Site", "index": "llms.txt", "sourceShelf": "SourceShelf", "pack": "Pacote de conhecimento", "tools": "Ferramentas de IA"},
+            "relationship": {"title": "Descobrir, organizar, preservar", "discover": "Descobrir", "organize": "Organizar", "preserve": "Preservar"}
+          }
+        },
+        "ja": {
+          "seoTitle": "llms.txtとは？AIが読みやすいWebサイトのガイド",
+          "metaDescription": "llms.txtの仕組み、WebサイトがAI向けMarkdown索引を作る理由、SourceShelfがポータブルなAIナレッジとして活用する方法を解説します。",
+          "excerpt": "llms.txtは、AIシステムがWebサイトの重要なコンテンツを見つけやすくする新しいMarkdown規約です。できること、できないこと、SourceShelfでの使い方を解説します。",
+          "articleLabel": "AIが読みやすいWebナレッジ",
+          "publishedLabel": "公開日",
+          "byLabel": "著者",
+          "ctaTitle": "SourceShelfでプライベートなAIナレッジベースを作成",
+          "ctaDescription": "選んだナレッジをローカルで取り込み、整理、パッケージ化し、AIワークフローに合う形式で利用できます。",
+          "ctaButton": "SourceShelfについて詳しく見る",
+          "heroAlt": "Webサイトからllms.txtのMarkdownガイドを経てAIアシスタントへつながる図。「AIがWebサイトを理解するために」というメッセージを表示。",
+          "benefitCards": [
+            {"number": "1", "title": "コンテンツを見つけやすくする", "description": "対応するエージェントは、サイトのテーマ、重要なページ、信頼できる情報の場所をすばやく把握できます。"},
+            {"number": "2", "title": "整理されたAIコンテキスト", "description": "選ばれたリンク、説明、見出しにより、ナビゲーションや画面要素から重要度を推測するより明確な出発点になります。"},
+            {"number": "3", "title": "人が読めるドキュメント", "description": "llms.txtはMarkdownなので、一般的なツールで読取、編集、レビュー、バージョン管理ができます。"},
+            {"number": "4", "title": "将来を見据えた共有", "description": "軽量なオープン規約により、特定のAIベンダーに依存せず構造化コンテキストを提供できます。"}
+          ],
+          "videoPlaceholder": {
+            "eyebrow": "動画ガイド",
+            "title": "SourceShelfでllms.txtを活用する方法",
+            "status": "動画を制作中",
+            "duration": "予定時間：約2分",
+            "captions": "公開時には字幕を用意します。",
+            "transcriptTitle": "予定している内容",
+            "transcript": [
+              "llms.txt規約と、整理されたMarkdownガイドとしての役割を説明します。",
+              "SourceShelfがリモートURLをダウンロードせず、安全なローカル参照を読み込む方法を紹介します。",
+              "保存済みパックをllms.txt Collection Folder、AI Reference Pack、OKFバンドルとして書き出す流れを示します。"
+            ]
+          },
+          "graphics": {
+            "hero": {"tagline": "AIがWebサイトを理解するために", "website": "Webサイト", "index": "llms.txt", "assistant": "AIアシスタント"},
+            "comparison": {"title": "3つのファイル、3つの役割", "robots": "クローラー設定", "sitemap": "WebサイトのURL", "llms": "AI向けコンテキスト"},
+            "markdown": {"title": "人が読める設計", "file": "llms.txt"},
+            "workflow": {"title": "Webナレッジから選択したAIコンテキストへ", "website": "Webサイト", "index": "llms.txt", "sourceShelf": "SourceShelf", "pack": "ナレッジパック", "tools": "AIツール"},
+            "relationship": {"title": "発見、整理、保存", "discover": "発見", "organize": "整理", "preserve": "保存"}
           }
         }
       }

@@ -668,65 +668,86 @@ for (const htmlFile of htmlFiles) {
       if (!html.includes('property="og:type" content="article"') || !html.includes(`property="article:published_time" content="${post.published}"`)) {
         errors.push(`${publicPath} is missing article Open Graph metadata`);
       }
-      if (!html.includes(`class="blog-verified">${content.verifiedLabel}`)) {
+      if (content.verifiedLabel && !html.includes('class="blog-verified"')) {
         errors.push(`${publicPath} is missing its localized verification date`);
+      }
+      if (!content.verifiedLabel && html.includes('class="blog-verified"')) {
+        errors.push(`${publicPath} renders a verification label that is not configured`);
       }
       if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
         errors.push(`${publicPath} must prioritize only the blog hero image`);
       }
       const hero = html.match(/<img\b[^>]*\bsrc="\/assets\/blog\/[^>]+>/)?.[0] || "";
-      if (!hero.includes(`src="/assets/blog/${locale}/${post.heroAsset}.svg"`) || !/\balt="[^"]+"/.test(hero) || !hero.includes('width="1200"') || !hero.includes('height="630"')) {
+      if (!hero.includes(`src="/assets/blog/${locale}/${post.heroAsset}.${post.heroFormat || "svg"}"`) || !/\balt="[^"]+"/.test(hero) || !hero.includes('width="1200"') || !hero.includes('height="630"')) {
         errors.push(`${publicPath} has incomplete localized hero image markup`);
       }
-      const expectedWatchUrl = `https://youtu.be/${video?.id || ""}`;
-      const expectedEmbedUrl = `https://www.youtube-nocookie.com/embed/${video?.id || ""}`;
-      if (
-        !video ||
-        !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
-        video.watchUrl !== expectedWatchUrl ||
-        video.embedUrl !== expectedEmbedUrl ||
-        !video.uploadDate ||
-        Number.isNaN(Date.parse(video.uploadDate))
-      ) {
-        errors.push(`${publicPath} has invalid blog YouTube video configuration`);
-      } else if (
-        !html.includes('class="blog-hero-figure"') ||
-        !html.includes('class="blog-inline-video landing-demo-preview landing-demo-youtube"') ||
-        !html.includes(`data-youtube-embed="${expectedEmbedUrl}"`) ||
-        !html.includes(`href="${expectedWatchUrl}"`) ||
-        !html.includes("data-youtube-load")
-      ) {
-        errors.push(`${publicPath} does not render its static hero image and privacy-enhanced inline YouTube controls`);
+      if (video) {
+        const expectedWatchUrl = `https://youtu.be/${video.id}`;
+        const expectedEmbedUrl = `https://www.youtube-nocookie.com/embed/${video.id}`;
+        if (
+          !/^[A-Za-z0-9_-]{11}$/.test(video.id) ||
+          video.watchUrl !== expectedWatchUrl ||
+          video.embedUrl !== expectedEmbedUrl ||
+          !video.uploadDate ||
+          Number.isNaN(Date.parse(video.uploadDate))
+        ) {
+          errors.push(`${publicPath} has invalid blog YouTube video configuration`);
+        } else if (
+          !html.includes('class="blog-hero-figure"') ||
+          !html.includes('class="blog-inline-video landing-demo-preview landing-demo-youtube"') ||
+          !html.includes(`data-youtube-embed="${expectedEmbedUrl}"`) ||
+          !html.includes(`href="${expectedWatchUrl}"`) ||
+          !html.includes("data-youtube-load")
+        ) {
+          errors.push(`${publicPath} does not render its static hero image and privacy-enhanced inline YouTube controls`);
+        }
+        if (videoObjects.length !== 1) {
+          errors.push(`${publicPath} must contain one blog VideoObject`);
+        } else if (
+          videoObjects[0].url !== expectedCanonical ||
+          videoObjects[0].uploadDate !== video.uploadDate ||
+          videoObjects[0].sameAs !== video.watchUrl ||
+          videoObjects[0].embedUrl !== video.embedUrl ||
+          videoObjects[0].inLanguage !== locale
+        ) {
+          errors.push(`${publicPath} VideoObject does not match its canonical page and mapped YouTube video`);
+        }
+      } else if (post.videoPlaceholder) {
+        const placeholder = content.videoPlaceholder;
+        const poster = `/assets/blog/${locale}/${post.videoPlaceholder.posterAsset}.webp`;
+        if (!placeholder || !html.includes('class="blog-video-placeholder"') || !html.includes(`src="${poster}"`) || !html.includes('class="blog-video-transcript"') || !html.includes(placeholder.status)) {
+          errors.push(`${publicPath} does not render its localized, metadata-free video placeholder`);
+        }
+        if (videoObjects.length !== 0 || html.includes("data-youtube-load")) {
+          errors.push(`${publicPath} gives an unpublished placeholder fake video metadata or controls`);
+        }
+      } else {
+        errors.push(`${publicPath} has neither a video nor a video placeholder`);
       }
       if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
         errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the blog video`);
       }
-      if (videoObjects.length !== 1) {
-        errors.push(`${publicPath} must contain one blog VideoObject`);
-      } else if (
-        videoObjects[0].url !== expectedCanonical ||
-        videoObjects[0].uploadDate !== video?.uploadDate ||
-        videoObjects[0].sameAs !== video?.watchUrl ||
-        videoObjects[0].embedUrl !== video?.embedUrl ||
-        videoObjects[0].inLanguage !== locale
-      ) {
-        errors.push(`${publicPath} VideoObject does not match its canonical page and mapped YouTube video`);
+      for (const asset of [...(post.articleGraphics || []), ...(post.articleScreenshots || [])]) {
+        const image = html.match(new RegExp(`<img\\b[^>]*\\bsrc="/assets/blog/${locale}/${asset.id}\\.webp"[^>]*>`))?.[0] || "";
+        if (!/\balt="[^"]+"/.test(image) || !image.includes("srcset=") || !image.includes(`width="${asset.width}"`) || !image.includes(`height="${asset.height}"`)) {
+          errors.push(`${publicPath} has incomplete localized article image markup for ${asset.id}`);
+        }
       }
-      const productImage = html.match(/<img\b[^>]*\bsrc="\/assets\/home\/[^>]+08-export-workflows-1440\.webp[^>]*>/)?.[0] || "";
-      if (!productImage.includes(`/assets/home/${locale}/`) || !/\balt="[^"]+"/.test(productImage) || !productImage.includes("srcset=")) {
-        errors.push(`${publicPath} has incomplete localized SourceShelf workflow imagery`);
+      if (post.ctaRoute) {
+        if (!html.includes(`class="button button-primary blog-cta-button" href="${localizedRoute(locale, post.ctaRoute)}"`)) {
+          errors.push(`${publicPath} does not use its configured localized internal CTA`);
+        }
+      } else {
+        const badge = productConfig.appStore.badges[locale];
+        if (!html.includes(`class="app-store-badge-link" href="${productConfig.appStore.default}"`) || !html.includes(`src="${badge.path}"`)) {
+          errors.push(`${publicPath} does not use the configured localized App Store CTA`);
+        }
       }
-      const badge = productConfig.appStore.badges[locale];
-      if (!html.includes(`class="app-store-badge-link" href="${productConfig.appStore.default}"`) || !html.includes(`src="${badge.path}"`)) {
-        errors.push(`${publicPath} does not use the configured localized App Store CTA`);
-      }
-      for (const url of [
-        "https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md",
-        "https://help.openai.com/en/articles/10169521-using-projects-in-chatgpt",
-        "https://help.openai.com/en/articles/8555545-uploading-images-and-files-in-chatgpt",
-        "https://help.openai.com/en/articles/8983675-what-types-of-files-are-supported"
-      ]) {
+      for (const url of post.requiredExternalLinks || []) {
         if (!html.includes(`href="${url}"`)) errors.push(`${publicPath} is missing official source link: ${url}`);
+      }
+      for (const route of post.requiredLogicalLinks || []) {
+        if (!html.includes(`href="${localizedRoute(locale, route)}"`)) errors.push(`${publicPath} is missing localized internal link: ${route}`);
       }
       if (html.includes("```") || /!\[[^\]]*\]\([^)]+\)/.test(html)) {
         errors.push(`${publicPath} contains unrendered blog Markdown`);
@@ -826,8 +847,18 @@ for (const post of blogManifest.posts) {
       if (/ZXQ(?:TERM|LINK|CODE)/i.test(localized)) {
         errors.push(`${locale}/${post.source} contains an unresolved translation placeholder`);
       }
-      if (!localized.includes(`/assets/home/${locale}/08-export-workflows-1440.webp`)) {
-        errors.push(`${locale}/${post.source} does not reference its localized SourceShelf workflow image`);
+      for (const image of post.requiredMarkdownImages || []) {
+        if (!localized.includes(`/assets/home/${locale}/${image}`)) {
+          errors.push(`${locale}/${post.source} does not reference its required localized SourceShelf image: ${image}`);
+        }
+      }
+      for (const asset of [...(post.articleGraphics || []), ...(post.articleScreenshots || [])]) {
+        if (!localized.includes(`/assets/blog/${locale}/${asset.id}.webp`)) {
+          errors.push(`${locale}/${post.source} does not reference localized blog image: ${asset.id}`);
+        }
+      }
+      if (english.includes("{{benefit-cards}}") !== localized.includes("{{benefit-cards}}")) {
+        errors.push(`${locale}/${post.source} changes the blog benefit-card component directive`);
       }
     } catch {
       errors.push(`${locale}/${post.source} is missing from the localized blog source`);
@@ -954,8 +985,12 @@ if (homepageAssets.length !== 140) {
 }
 
 const blogAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "blog")));
-if (blogAssets.length !== blogManifest.posts.length * localeCodes.length * 2) {
-  errors.push(`Expected ${blogManifest.posts.length * localeCodes.length * 2} localized blog assets, found ${blogAssets.length}`);
+const expectedBlogAssetsPerLocale = blogManifest.posts.reduce((count, post) => (
+  count + 2 + (post.heroFormat === "webp" ? 2 : 0) + (post.articleGraphics?.length || 0) * 3 + (post.articleScreenshots?.length || 0) * 2
+), 0);
+const expectedBlogAssetCount = expectedBlogAssetsPerLocale * localeCodes.length;
+if (blogAssets.length !== expectedBlogAssetCount) {
+  errors.push(`Expected ${expectedBlogAssetCount} localized blog assets, found ${blogAssets.length}`);
 }
 for (const post of blogManifest.posts) {
   for (const locale of localeCodes) {
@@ -970,8 +1005,24 @@ for (const post of blogManifest.posts) {
       if (png.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {
         errors.push(`${locale}/${post.heroAsset}.png is not a 1200x630 PNG`);
       }
+      if (post.heroFormat === "webp") {
+        await access(path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.webp`));
+        await access(path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}-800.webp`));
+      }
+      for (const asset of post.articleGraphics || []) {
+        const graphicSvg = await readFile(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.svg`), "utf8");
+        if (!graphicSvg.includes(`width="${asset.width}"`) || !graphicSvg.includes(`height="${asset.height}"`)) {
+          errors.push(`${locale}/${asset.id}.svg has incorrect intrinsic dimensions`);
+        }
+        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.webp`));
+        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-800.webp`));
+      }
+      for (const asset of post.articleScreenshots || []) {
+        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.webp`));
+        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-960.webp`));
+      }
     } catch {
-      errors.push(`Missing localized blog hero assets for ${locale}:${post.id}`);
+      errors.push(`Missing localized blog assets for ${locale}:${post.id}`);
     }
   }
 }
@@ -1008,5 +1059,5 @@ if (errors.length) {
 } else {
   console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
   console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
-  console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogRoutes.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
+  console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogVideoIds.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
 }

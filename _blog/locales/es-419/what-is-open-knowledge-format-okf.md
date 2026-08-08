@@ -264,6 +264,8 @@ Esa estructura puede facilitar que humanos y herramientas de IA compatibles loca
 
 SourceShelf convierte documentos, páginas web, escaneos, presentaciones, hojas de cálculo y notas en Markdown estructurado localmente.
 
+Si tu punto de partida es un sitio web, la [guía de llms.txt](what-is-llms-txt.md) explica cómo un índice Markdown seleccionado puede ayudar a las personas y a las herramientas de IA compatibles a encontrar sus páginas más útiles antes de organizar ese material en una colección portátil.
+
 Luego puede organizar fuentes seleccionadas en un paquete ordenado y exportar ese paquete en varias formas:
 
 - Paquete An OKF v0.2

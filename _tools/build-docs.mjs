@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { readFile, readdir, rm, mkdir, writeFile } from "node:fs/promises";
+import { copyFile, readFile, readdir, rm, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,8 +9,8 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
-const buildDate = "2026-08-06";
-const assetVersion = "20260806-1";
+const buildDate = "2026-08-08";
+const assetVersion = "20260808-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -90,7 +90,16 @@ const blogPages = locales.flatMap((locale) => blogManifest.posts.map((post) => (
   route: localizedRoute(locale, post.route)
 })));
 
-const pageBySource = new Map(allPages.map((page) => [page.source, page]));
+const pageBySource = new Map([...allPages, ...blogPages].map((page) => [page.source, page]));
+const logicalRoutes = new Set([
+  "/",
+  "/privacy.html",
+  "/support.html",
+  "/blog/",
+  ...allPages.map((page) => page.logicalRoute),
+  ...landingPages.map((page) => page.logicalRoute),
+  ...blogPages.map((page) => page.logicalRoute)
+]);
 const imageMap = new Map();
 
 function translate(locale, value) {
@@ -156,10 +165,16 @@ function resolveLink(destination, page) {
     destination.startsWith("http://") ||
     destination.startsWith("https://") ||
     destination.startsWith("mailto:") ||
-    destination.startsWith("#") ||
-    destination.startsWith("/")
+    destination.startsWith("#")
   ) {
     return destination;
+  }
+
+  if (destination.startsWith("/")) {
+    const suffixIndex = destination.search(/[?#]/);
+    const route = suffixIndex === -1 ? destination : destination.slice(0, suffixIndex);
+    const suffix = suffixIndex === -1 ? "" : destination.slice(suffixIndex);
+    return logicalRoutes.has(route) ? `${localizedRoute(page.locale, route)}${suffix}` : destination;
   }
 
   const hashIndex = destination.indexOf("#");
@@ -265,6 +280,7 @@ function startsBlock(lines, index) {
   if (/^[-*+]\s+/.test(line)) return true;
   if (/^\d+\.\s+/.test(line)) return true;
   if (isStandaloneImage(line)) return true;
+  if (line.trim() === "{{benefit-cards}}") return true;
   if (line.includes("|") && isTableDivider(lines[index + 1] || "")) return true;
   return false;
 }
@@ -293,6 +309,26 @@ function renderImage(line, page) {
     ].join("\n");
   }
 
+  const blogImage = destination.match(/^\/assets\/blog\/([^/]+)\/([^/]+)\.webp$/);
+  if (blogImage) {
+    if (!page.content || blogImage[1] !== page.locale.code) {
+      throw new Error(`Localized blog image does not match ${page.locale.code} in ${page.source}: ${destination}`);
+    }
+    const assetId = blogImage[2];
+    const graphic = page.articleGraphics?.find((asset) => asset.id === assetId);
+    const screenshot = page.articleScreenshots?.find((asset) => asset.id === assetId);
+    const asset = graphic || screenshot;
+    if (!asset) throw new Error(`Unknown blog image in ${page.source}: ${destination}`);
+    const base = `/assets/blog/${blogImage[1]}/${assetId}`;
+    const smallWidth = screenshot ? 960 : 800;
+    const cssClass = screenshot ? "docs-figure blog-article-figure blog-product-figure" : "docs-figure blog-article-figure";
+    return [
+      `<figure class="${cssClass}">`,
+      `  <a href="${base}.webp"><img src="${base}.webp" srcset="${base}-${smallWidth}.webp ${smallWidth}w, ${base}.webp ${asset.width}w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="${escapeHtml(alt)}" width="${asset.width}" height="${asset.height}" loading="lazy" decoding="async"></a>`,
+      "</figure>"
+    ].join("\n");
+  }
+
   const sourcePath = normalizeSourcePath(
     path.posix.join(path.posix.dirname(page.source), destination)
   );
@@ -304,6 +340,15 @@ function renderImage(line, page) {
     `  <img src="${image.large.url}" srcset="${image.small.url} ${image.small.width}w, ${image.large.url} ${image.large.width}w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="${escapeHtml(alt)}" width="${image.large.width}" height="${image.large.height}" loading="lazy" decoding="async">`,
     "</figure>"
   ].join("\n");
+}
+
+function renderBlogBenefitCards(page) {
+  const cards = page.content.benefitCards.map((card) => `<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">${escapeHtml(card.number)}</span>
+    <p class="blog-benefit-title">${escapeHtml(card.title)}</p>
+    <p>${escapeHtml(card.description)}</p>
+  </article>`).join("\n");
+  return `<section class="blog-benefit-grid" aria-label="${escapeHtml(page.rendered?.title || page.content.articleLabel)}">${cards}</section>`;
 }
 
 function renderMarkdown(markdown, page) {
@@ -323,6 +368,15 @@ function renderMarkdown(markdown, page) {
   while (index < lines.length) {
     const line = lines[index];
     if (!line.trim()) {
+      index += 1;
+      continue;
+    }
+
+    if (line.trim() === "{{benefit-cards}}") {
+      if (!page.content?.benefitCards?.length) {
+        throw new Error(`Blog benefit cards are missing for ${page.source}`);
+      }
+      blocks.push({ type: "component", html: renderBlogBenefitCards(page) });
       index += 1;
       continue;
     }
@@ -529,7 +583,7 @@ async function optimizeImages() {
   }
 }
 
-function renderBlogHeroSvg(page) {
+function renderOkfBlogHeroSvg(page) {
   const labels = page.content.diagram;
   const text = (value) => escapeHtml(value);
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
@@ -579,6 +633,67 @@ function renderBlogHeroSvg(page) {
 </svg>\n`;
 }
 
+function renderLlmsGraphicSvg(page, assetId) {
+  const labels = page.content.graphics;
+  const text = (value) => escapeHtml(value);
+  const title = assetId === page.heroAsset
+    ? labels.hero.tagline
+    : labels[assetId === "llms-txt-file-comparison" ? "comparison"
+      : assetId === "llms-txt-markdown-example" ? "markdown"
+      : assetId === "sourceshelf-llms-workflow" ? "workflow"
+      : "relationship"].title;
+  const height = assetId === page.heroAsset ? 630 : 675;
+  const shared = `<defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061528"/><stop offset="0.58" stop-color="#08244d"/><stop offset="1" stop-color="#0a5d78"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ea9ff"/><stop offset="1" stop-color="#54e5e7"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#020b17" flood-opacity="0.45"/></filter>
+    <style>.title{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:750;text-anchor:middle}.label{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:700;text-anchor:middle}.detail{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:500;text-anchor:middle}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:500}</style>
+  </defs>
+  <rect width="1200" height="${height}" fill="url(#background)"/>
+  <circle cx="90" cy="70" r="220" fill="#31d4dc" opacity="0.08"/><circle cx="1115" cy="${height - 60}" r="285" fill="#2ea9ff" opacity="0.10"/>
+  <title id="title">${text(title)}</title><desc id="description">${text(page.content.heroAlt)}</desc>`;
+  let body = "";
+
+  if (assetId === page.heroAsset) {
+    const hero = labels.hero;
+    body = `<text class="title" x="600" y="92" fill="#f6fbff" font-size="40">${text(hero.tagline)}</text>
+    <g filter="url(#shadow)">
+      <rect x="80" y="218" width="280" height="188" rx="32" fill="#0d294a" stroke="#79b8df" stroke-opacity=".55"/>
+      <rect x="460" y="218" width="280" height="188" rx="32" fill="url(#accent)"/>
+      <rect x="840" y="218" width="280" height="188" rx="32" fill="#0d294a" stroke="#54e5e7" stroke-opacity=".68"/>
+    </g>
+    <g fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M375 312H435"/><path d="M418 296l18 16-18 16"/><path d="M755 312h60"/><path d="M798 296l18 16-18 16"/></g>
+    <g aria-hidden="true"><rect x="151" y="263" width="138" height="88" rx="13" fill="#07182d" stroke="#8bc8ea"/><circle cx="175" cy="283" r="5" fill="#54e5e7"/><path d="M168 306h105M168 326h74" stroke="#8bc8ea" stroke-width="7" stroke-linecap="round"/>
+    <path d="M533 257h96l38 38v78H533z" fill="#07182d" opacity=".9"/><path d="M629 257v39h38" fill="none" stroke="#bdfaff" stroke-width="5"/><path d="M557 322h84M557 343h60" stroke="#7beff4" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="980" cy="304" r="50" fill="#07182d" stroke="#8bc8ea"/><path d="M953 330c7-21 47-21 54 0M961 294a19 19 0 1038 0 19 19 0 00-38 0z" fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round"/></g>
+    <text class="label" x="220" y="455" fill="#f6fbff" font-size="27">${text(hero.website)}</text><text class="label" x="600" y="455" fill="#f6fbff" font-size="29">${text(hero.index)}</text><text class="label" x="980" y="455" fill="#f6fbff" font-size="27">${text(hero.assistant)}</text>`;
+  } else if (assetId === "llms-txt-file-comparison") {
+    const item = labels.comparison;
+    const cards = [["robots.txt", item.robots, 70], ["sitemap.xml", item.sitemap, 425], ["llms.txt", item.llms, 780]];
+    body = `<text class="title" x="600" y="92" fill="#f6fbff" font-size="40">${text(item.title)}</text>${cards.map(([file, detail, x], index) => `<g filter="url(#shadow)"><rect x="${x}" y="166" width="350" height="365" rx="32" fill="${index === 2 ? "#0e3457" : "#0c2745"}" stroke="${index === 2 ? "#54e5e7" : "#6ca6cd"}" stroke-opacity=".7"/><rect x="${x + 95}" y="218" width="160" height="124" rx="14" fill="#07182d"/><path d="M${x + 205} 218v45h50" fill="none" stroke="#7beff4" stroke-width="5"/><path d="M${x + 122} 294h105M${x + 122} 317h74" stroke="#8bc8ea" stroke-width="7" stroke-linecap="round"/><text class="label" x="${x + 175}" y="405" fill="#f6fbff" font-size="30">${file}</text><text class="detail" x="${x + 175}" y="455" fill="#a8dcec" font-size="20">${text(detail)}</text></g>`).join("")}`;
+  } else if (assetId === "llms-txt-markdown-example") {
+    const item = labels.markdown;
+    body = `<text class="title" x="600" y="80" fill="#f6fbff" font-size="39">${text(item.title)}</text>
+    <g filter="url(#shadow)"><rect x="145" y="120" width="910" height="495" rx="28" fill="#07182d" stroke="#4cb7d3" stroke-opacity=".7"/><rect x="145" y="120" width="910" height="62" rx="28" fill="#102e4e"/><path d="M145 155h910" stroke="#102e4e" stroke-width="55"/><circle cx="185" cy="151" r="8" fill="#ff6b6b"/><circle cx="214" cy="151" r="8" fill="#ffd166"/><circle cx="243" cy="151" r="8" fill="#52db8c"/><text class="label" x="600" y="160" fill="#dff8ff" font-size="22">${text(item.file)}</text></g>
+    <g class="code" font-size="25"><text x="205" y="236" fill="#54e5e7"># SourceShelf</text><text x="205" y="292" fill="#d9e9f3">Private AI knowledge base.</text><text x="205" y="368" fill="#54e5e7">## Guides</text><text x="205" y="424" fill="#9dd8ff">- Getting Started</text><text x="205" y="476" fill="#9dd8ff">- AI Packs</text><text x="205" y="528" fill="#9dd8ff">- MCP Access</text></g>`;
+  } else if (assetId === "sourceshelf-llms-workflow") {
+    const item = labels.workflow;
+    const nodes = [[item.website, 30], [item.index, 265], [item.sourceShelf, 500], [item.pack, 735], [item.tools, 970]];
+    body = `<text class="title" x="600" y="90" fill="#f6fbff" font-size="37">${text(item.title)}</text><g fill="none" stroke="#7beff4" stroke-width="6" stroke-linecap="round"><path d="M230 325h35M465 325h35M700 325h35M935 325h35"/><path d="M248 312l17 13-17 13M483 312l17 13-17 13M718 312l17 13-17 13M953 312l17 13-17 13"/></g>${nodes.map(([label, x], index) => `<g filter="url(#shadow)"><rect x="${x}" y="240" width="200" height="170" rx="28" fill="${index === 2 ? "url(#accent)" : "#0c2949"}" stroke="#63cddd" stroke-opacity=".65"/><text class="label" x="${x + 100}" y="335" fill="${index === 2 ? "#041121" : "#f6fbff"}" font-size="${label.length > 16 ? 19 : 23}">${text(label)}</text></g>`).join("")}`;
+  } else {
+    const item = labels.relationship;
+    const cards = [[item.discover, "llms.txt", 85], [item.organize, "SourceShelf", 445], [item.preserve, "OKF", 805]];
+    body = `<text class="title" x="600" y="92" fill="#f6fbff" font-size="39">${text(item.title)}</text>${cards.map(([verb, format, x], index) => `<g filter="url(#shadow)"><rect x="${x}" y="180" width="310" height="335" rx="34" fill="${index === 1 ? "#0e3658" : "#0c2949"}" stroke="#60d9df" stroke-opacity=".7"/><circle cx="${x + 155}" cy="270" r="54" fill="${index === 1 ? "url(#accent)" : "#07182d"}"/><text class="label" x="${x + 155}" y="375" fill="#f6fbff" font-size="30">${text(verb)}</text><text class="detail" x="${x + 155}" y="426" fill="#9fe4ed" font-size="25">${format}</text></g>`).join("")}<g fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round"><path d="M405 348h30M765 348h30"/><path d="M420 334l16 14-16 14M780 334l16 14-16 14"/></g>`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${height}" viewBox="0 0 1200 ${height}" role="img" aria-labelledby="title description">${shared}${body}</svg>\n`;
+}
+
+function renderBlogGraphicSvg(page, assetId) {
+  return page.visualKind === "llms-txt"
+    ? renderLlmsGraphicSvg(page, assetId)
+    : renderOkfBlogHeroSvg(page);
+}
+
 async function buildBlogAssets() {
   try {
     execFileSync("sips", ["--help"], { stdio: "ignore" });
@@ -593,8 +708,26 @@ async function buildBlogAssets() {
     await mkdir(directory, { recursive: true });
     const svgFile = path.join(directory, `${page.heroAsset}.svg`);
     const pngFile = path.join(directory, `${page.heroAsset}.png`);
-    await writeFile(svgFile, renderBlogHeroSvg(page));
+    await writeFile(svgFile, renderBlogGraphicSvg(page, page.heroAsset));
     execFileSync("sips", ["-s", "format", "png", svgFile, "--out", pngFile], { stdio: "pipe" });
+    if (page.heroFormat === "webp") {
+      execFileSync("cwebp", ["-quiet", "-q", "92", "-m", "6", "-metadata", "none", pngFile, "-o", path.join(directory, `${page.heroAsset}.webp`)], { stdio: "pipe" });
+      execFileSync("cwebp", ["-quiet", "-q", "90", "-m", "6", "-metadata", "none", "-resize", "800", "420", pngFile, "-o", path.join(directory, `${page.heroAsset}-800.webp`)], { stdio: "pipe" });
+    }
+    for (const asset of page.articleGraphics || []) {
+      const assetSvg = path.join(directory, `${asset.id}.svg`);
+      const assetPng = path.join(directory, `${asset.id}.png`);
+      await writeFile(assetSvg, renderBlogGraphicSvg(page, asset.id));
+      execFileSync("sips", ["-s", "format", "png", assetSvg, "--out", assetPng], { stdio: "pipe" });
+      execFileSync("cwebp", ["-quiet", "-q", "92", "-m", "6", "-metadata", "none", assetPng, "-o", path.join(directory, `${asset.id}.webp`)], { stdio: "pipe" });
+      execFileSync("cwebp", ["-quiet", "-q", "90", "-m", "6", "-metadata", "none", "-resize", "800", "450", assetPng, "-o", path.join(directory, `${asset.id}-800.webp`)], { stdio: "pipe" });
+      await rm(assetPng, { force: true });
+    }
+    for (const asset of page.articleScreenshots || []) {
+      const sourceBase = path.join(siteRoot, "assets", "home", page.locale.code, asset.sourceAsset);
+      await copyFile(`${sourceBase}-1440.webp`, path.join(directory, `${asset.id}.webp`));
+      await copyFile(`${sourceBase}-960.webp`, path.join(directory, `${asset.id}-960.webp`));
+    }
   }
 }
 
@@ -1360,9 +1493,19 @@ function renderBlogAppStoreBadge(page) {
   </a>`;
 }
 
+function renderBlogCtaAction(page) {
+  if (page.ctaRoute) {
+    return `<a class="button button-primary blog-cta-button" href="${localizedRoute(page.locale, page.ctaRoute)}">${escapeHtml(page.content.ctaButton)}</a>`;
+  }
+  return renderBlogAppStoreBadge(page);
+}
+
 function renderBlogHeroImage(page, heroImage) {
+  const responsive = page.heroFormat === "webp"
+    ? ` srcset="${heroImage.replace(/\.webp$/, "-800.webp")} 800w, ${heroImage} 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px"`
+    : "";
   return `<figure class="blog-hero-figure">
-    <img src="${heroImage}" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    <img src="${heroImage}"${responsive} alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
   </figure>`;
 }
 
@@ -1385,13 +1528,45 @@ function renderBlogArticleVideo(page, heroImage) {
   </figure>`;
 }
 
-function insertBlogVideoBeforeSecondSection(page, rendered, heroImage) {
-  const secondSection = rendered.headings.filter((heading) => heading.level === 2)[1];
-  if (!secondSection) {
-    throw new Error(`Blog post ${page.source} needs a second level-two heading for its video placement`);
+function renderBlogVideoPlaceholder(page) {
+  const content = page.content.videoPlaceholder;
+  const poster = `/assets/blog/${page.locale.code}/${page.videoPlaceholder.posterAsset}.webp`;
+  const titleId = `video-placeholder-${page.id}`;
+  return `<section class="blog-video-placeholder" aria-labelledby="${titleId}">
+    <div class="section-heading blog-video-placeholder-heading">
+      <p class="eyebrow">${escapeHtml(content.eyebrow)}</p>
+      <p id="${titleId}" class="blog-video-title">${escapeHtml(content.title)}</p>
+    </div>
+    <figure class="blog-inline-video landing-demo-preview">
+      <div class="landing-video-frame">
+        <img src="${poster}" srcset="${poster.replace(/\.webp$/, "-800.webp")} 800w, ${poster} 1200w" sizes="(max-width: 900px) calc(100vw - 48px), 760px" alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="675" loading="lazy" decoding="async">
+        <span class="landing-video-play blog-video-status">
+          <span class="landing-video-play-icon" aria-hidden="true"></span>
+          <span>${escapeHtml(content.status)}</span>
+        </span>
+      </div>
+      <figcaption class="landing-video-consent blog-video-placeholder-meta"><span>${escapeHtml(content.duration)}</span><span>${escapeHtml(content.captions)}</span></figcaption>
+    </figure>
+    <details class="blog-video-transcript"><summary>${escapeHtml(content.transcriptTitle)}</summary>${content.transcript.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("")}</details>
+  </section>`;
+}
+
+function renderBlogArticleMedia(page, heroImage) {
+  if (page.youtubeVideo) return renderBlogArticleVideo(page, heroImage);
+  if (page.videoPlaceholder) return renderBlogVideoPlaceholder(page);
+  return "";
+}
+
+function insertBlogMediaBeforeSection(page, rendered, heroImage) {
+  const media = renderBlogArticleMedia(page, heroImage);
+  if (!media) return rendered.bodyHtml;
+  const sectionIndex = Math.max(1, page.mediaPlacementBeforeH2 || 2) - 1;
+  const targetSection = rendered.headings.filter((heading) => heading.level === 2)[sectionIndex];
+  if (!targetSection) {
+    throw new Error(`Blog post ${page.source} needs level-two heading ${sectionIndex + 1} for media placement`);
   }
-  const headingMarkup = `<h2 id="${secondSection.slug}">`;
-  return rendered.bodyHtml.replace(headingMarkup, `${renderBlogArticleVideo(page, heroImage)}\n${headingMarkup}`);
+  const headingMarkup = `<h2 id="${targetSection.slug}">`;
+  return rendered.bodyHtml.replace(headingMarkup, `${media}\n${headingMarkup}`);
 }
 
 function blogStructuredData(value) {
@@ -1408,7 +1583,7 @@ function renderBlogIndex(locale) {
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${pages[0].heroAsset}.png`;
   const cards = pages.map((page) => `<article class="blog-card" aria-labelledby="blog-card-${escapeHtml(page.id)}">
     <a class="blog-card-image" href="${page.route}" tabindex="-1" aria-hidden="true">
-      <img src="/assets/blog/${locale.code}/${page.heroAsset}.svg" alt="" width="1200" height="630" loading="lazy" decoding="async">
+      <img src="/assets/blog/${locale.code}/${page.heroAsset}.${page.heroFormat || "svg"}" alt="" width="1200" height="630" loading="lazy" decoding="async">
     </a>
     <div class="blog-card-copy">
       <p class="eyebrow">${escapeHtml(page.content.articleLabel)}</p>
@@ -1504,9 +1679,9 @@ function renderBlogArticle(page) {
   const canonicalHomeUrl = canonicalUrlForRoute(localizedRoute(locale, "/"));
   const canonicalBlogUrl = canonicalUrlForRoute(localizedRoute(locale, "/blog/"));
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
-  const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.svg`;
-  const video = blogYoutubeVideoFor(page);
-  const bodyHtml = insertBlogVideoBeforeSecondSection(page, rendered, heroImage);
+  const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.${page.heroFormat || "svg"}`;
+  const video = page.youtubeVideo ? blogYoutubeVideoFor(page) : null;
+  const bodyHtml = insertBlogMediaBeforeSection(page, rendered, heroImage);
   const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
   const desktopToc = `<aside class="docs-toc blog-toc" aria-label="${escapeHtml(translate(locale, "Page contents"))}">${renderToc(rendered.headings, "docs-toc-list", "Table of contents", locale)}</aside>`;
   const structuredData = [
@@ -1539,7 +1714,7 @@ function renderBlogArticle(page) {
         { "@type": "ListItem", position: 3, name: rendered.title, item: canonicalUrl }
       ]
     },
-    {
+    video ? {
       "@context": "https://schema.org",
       "@type": "VideoObject",
       name: rendered.title,
@@ -1555,8 +1730,8 @@ function renderBlogArticle(page) {
         name: "SourceShelf",
         url: canonicalUrlForRoute("/")
       }
-    }
-  ].map(blogStructuredData).join("\n  ");
+    } : null
+  ].filter(Boolean).map(blogStructuredData).join("\n  ");
 
   return `<!DOCTYPE html>
 <html lang="${locale.code}">
@@ -1600,7 +1775,7 @@ ${renderAlternateLinks(page.logicalRoute)}
           <div class="blog-article-meta">
             <span>${escapeHtml(content.publishedLabel)} <time datetime="${page.published}">${escapeHtml(formatBlogDate(locale, page.published))}</time></span>
             <span>${escapeHtml(content.byLabel)} ${escapeHtml(page.author)}</span>
-            <span class="blog-verified">${escapeHtml(content.verifiedLabel)}</span>
+            ${content.verifiedLabel ? `<span class="blog-verified">${escapeHtml(content.verifiedLabel)}</span>` : ""}
           </div>
           ${renderBlogHeroImage(page, heroImage)}
         </header>
@@ -1617,7 +1792,7 @@ ${renderAlternateLinks(page.logicalRoute)}
                 <h2 id="blog-cta-${escapeHtml(page.id)}">${escapeHtml(content.ctaTitle)}</h2>
                 <p>${escapeHtml(content.ctaDescription)}</p>
               </div>
-              ${renderBlogAppStoreBadge(page)}
+              ${renderBlogCtaAction(page)}
             </section>
           </div>
           ${desktopToc}
@@ -1806,8 +1981,8 @@ async function build() {
       return [file, null];
     }
   })));
-  if (pageBySource.size !== allPages.length) {
-    throw new Error("Documentation navigation contains duplicate source paths");
+  if (pageBySource.size !== allPages.length + blogPages.length) {
+    throw new Error("Documentation or blog content contains duplicate source paths");
   }
   const routes = new Set(allPages.map((page) => page.route));
   if (routes.size !== allPages.length) {
@@ -1845,7 +2020,13 @@ async function build() {
     }
     blogIDs.add(post.id);
     blogRoutes.add(post.route);
-    blogYoutubeVideoFor(post);
+    if (post.youtubeVideo) blogYoutubeVideoFor(post);
+    if (post.videoPlaceholder && !post.videoPlaceholder.posterAsset) {
+      throw new Error(`Blog video placeholder is missing a poster asset: ${post.id}`);
+    }
+    if (!post.youtubeVideo && !post.videoPlaceholder) {
+      throw new Error(`Blog post needs a video or an explicit video placeholder: ${post.id}`);
+    }
     for (const locale of locales) {
       if (!blogManifest.index[locale.code] || !post.locales[locale.code]) {
         throw new Error(`Blog content is incomplete for ${locale.code}:${post.id}`);

@@ -19,7 +19,7 @@
   <meta property="og:url" content="https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/">
   <meta property="og:image" content="https://sourceshelf.app/assets/blog/ja/okf-portable-ai-knowledge.png">
   <meta property="article:published_time" content="2026-08-03">
-  <meta property="article:modified_time" content="2026-08-06">
+  <meta property="article:modified_time" content="2026-08-08">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Open Knowledge Format（OKF）とは？ | SourceShelf">
   <meta name="twitter:description" content="Open Knowledge FormatがMarkdown、メタデータ、出典情報をポータブルなAIナレッジにまとめる仕組みと、SourceShelfやChatGPTプロジェクトでの使い方を解説します。">
@@ -27,8 +27,8 @@
   <title>Open Knowledge Format（OKF）とは？ | SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260806-1">
-  <script src="/locale.js?v=20260806-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260808-1">
+  <script src="/locale.js?v=20260808-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("ja");
     (function () {
@@ -40,7 +40,7 @@
       } catch (error) {}
     })();
   </script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Open Knowledge Formatとは？AIナレッジを持ち運べる場所","description":"Open Knowledge FormatがMarkdown、メタデータ、出典情報をポータブルなAIナレッジにまとめる仕組みと、SourceShelfやChatGPTプロジェクトでの使い方を解説します。","image":"https://sourceshelf.app/assets/blog/ja/okf-portable-ai-knowledge.png","mainEntityOfPage":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/","url":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/","datePublished":"2026-08-03","dateModified":"2026-08-06","inLanguage":"ja","articleSection":"AIナレッジのためのオープン形式","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Open Knowledge Formatとは？AIナレッジを持ち運べる場所","description":"Open Knowledge FormatがMarkdown、メタデータ、出典情報をポータブルなAIナレッジにまとめる仕組みと、SourceShelfやChatGPTプロジェクトでの使い方を解説します。","image":"https://sourceshelf.app/assets/blog/ja/okf-portable-ai-knowledge.png","mainEntityOfPage":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/","url":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/","datePublished":"2026-08-03","dateModified":"2026-08-08","inLanguage":"ja","articleSection":"AIナレッジのためのオープン形式","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://sourceshelf.app/ja/"},{"@type":"ListItem","position":2,"name":"SourceShelfブログ","item":"https://sourceshelf.app/ja/blog/"},{"@type":"ListItem","position":3,"name":"Open Knowledge Formatとは？AIナレッジを持ち運べる場所","item":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"Open Knowledge Formatとは？AIナレッジを持ち運べる場所","description":"Open Knowledge FormatがMarkdown、メタデータ、出典情報をポータブルなAIナレッジにまとめる仕組みと、SourceShelfやChatGPTプロジェクトでの使い方を解説します。","thumbnailUrl":"https://sourceshelf.app/assets/blog/ja/okf-portable-ai-knowledge.png","uploadDate":"2026-08-06T13:48:33-07:00","embedUrl":"https://www.youtube-nocookie.com/embed/pIFUmEfji2U","sameAs":"https://youtu.be/pIFUmEfji2U","url":"https://sourceshelf.app/ja/blog/what-is-open-knowledge-format-okf/","inLanguage":"ja","publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"}}</script>
 </head>
@@ -234,6 +234,7 @@ in lower-density neighbourhoods?</code></pre></div>
 <p>この構造により、人間と互換性のあるAIツールが関連知識を検索、検査、交換、および維持しやすくなります。ただし、注意深いソースの選択や検証は置き換えるものではありません。</p>
 <h2 id="okfとsourceshelfのバンドルを構築する">OKFとSourceShelfのバンドルを構築する <a class="heading-anchor" href="#okfとsourceshelfのバンドルを構築する" aria-label="セクションへのリンク: OKFとSourceShelfのバンドルを構築する"><span aria-hidden="true">#</span></a></h2>
 <p>SourceShelfは、ドキュメント、ウェブページ、スキャン、プレゼンテーション、スプレッドシート、メモを構造化されたローカルMarkdownに変換します。</p>
+<p>Webサイトから始める場合は、<a href="/ja/blog/what-is-llms-txt/">llms.txtのガイド</a>で、選択されたMarkdownインデックスが、コンテンツをポータブルなコレクションに整理する前に、人や対応するAIツールに重要なページを見つけやすくする仕組みを解説します。</p>
 <p>その後、選択したソースを順序付けられたパックに整理し、そのパックをいくつかの形式でエクスポートできます。</p>
 <ul><li>An OKFv0.2 バンドル</li><li>An AI Reference Pack</li><li>A Markdown Context Pack</li><li>An <code>llms.txt</code>コレクション</li><li>迅速なハンドオフのための統合されたMarkdown</li></ul>
 <p>目標は、あなたの研究をSourceShelfに固定することではありません。</p>
@@ -283,6 +284,6 @@ in lower-density neighbourhoods?</code></pre></div>
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260806-1"></script>
+  <script src="/script.js?v=20260808-1"></script>
 </body>
 </html>

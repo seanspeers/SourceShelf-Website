@@ -264,6 +264,8 @@ Cette structure peut faciliter la localisation, l'inspection, l'échange et la m
 
 SourceShelf transforme les documents, les pages Web, les scanners, les présentations, les feuilles de calcul et les notes en Markdown local structuré.
 
+Si votre point de départ est un site Web, le [guide sur llms.txt](what-is-llms-txt.md) explique comment un index Markdown sélectionné peut aider les personnes et les outils d’IA compatibles à repérer les pages les plus utiles avant d’organiser ce contenu dans une collection portable.
+
 Vous pouvez ensuite organiser les sources sélectionnées dans un paquet ordonné et exporter ce paquet sous plusieurs formes :
 
 - Un ensemble OKF v0.2

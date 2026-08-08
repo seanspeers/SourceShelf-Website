@@ -264,6 +264,8 @@ That structure can make it easier for humans and compatible AI tools to locate, 
 
 SourceShelf turns documents, webpages, scans, presentations, spreadsheets, and notes into structured local Markdown.
 
+If your starting point is a website, the [guide to llms.txt](what-is-llms-txt.md) explains how a curated Markdown index can help people and compatible AI tools discover its most useful pages before that material is organized into a portable collection.
+
 You can then organize selected sources into an ordered pack and export that pack in several forms:
 
 - An OKF v0.2 Bundle

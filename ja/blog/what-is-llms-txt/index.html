@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="llms.txtの仕組み、WebサイトがAI向けMarkdown索引を作る理由、SourceShelfがポータブルなAIナレッジとして活用する方法を解説します。">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/ja/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/blog/what-is-llms-txt/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="llms.txtとは？AIが読みやすいWebサイトのガイド">
+  <meta property="og:description" content="llms.txtの仕組み、WebサイトがAI向けMarkdown索引を作る理由、SourceShelfがポータブルなAIナレッジとして活用する方法を解説します。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/blog/what-is-llms-txt/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/blog/ja/llms-txt-hero.png">
+  <meta property="article:published_time" content="2026-08-08">
+  <meta property="article:modified_time" content="2026-08-08">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="llms.txtとは？AIが読みやすいWebサイトのガイド">
+  <meta name="twitter:description" content="llms.txtの仕組み、WebサイトがAI向けMarkdown索引を作る理由、SourceShelfがポータブルなAIナレッジとして活用する方法を解説します。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/blog/ja/llms-txt-hero.png">
+  <title>llms.txtとは？AIが読みやすいWebサイトのガイド</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260808-1">
+  <script src="/locale.js?v=20260808-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"llms.txtとは？AIが利用しやすいWebサイトとナレッジを作る","description":"llms.txtの仕組み、WebサイトがAI向けMarkdown索引を作る理由、SourceShelfがポータブルなAIナレッジとして活用する方法を解説します。","image":"https://sourceshelf.app/assets/blog/ja/llms-txt-hero.png","mainEntityOfPage":"https://sourceshelf.app/ja/blog/what-is-llms-txt/","url":"https://sourceshelf.app/ja/blog/what-is-llms-txt/","datePublished":"2026-08-08","dateModified":"2026-08-08","inLanguage":"ja","articleSection":"AIが読みやすいWebナレッジ","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://sourceshelf.app/ja/"},{"@type":"ListItem","position":2,"name":"SourceShelfブログ","item":"https://sourceshelf.app/ja/blog/"},{"@type":"ListItem","position":3,"name":"llms.txtとは？AIが利用しやすいWebサイトとナレッジを作る","item":"https://sourceshelf.app/ja/blog/what-is-llms-txt/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/blog/" aria-current="page">ブログ</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main blog-main">
+    <div class="blog-page blog-article-page">
+      <nav class="breadcrumbs blog-breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/blog/">SourceShelfブログ</a></li><li aria-current="page">llms.txtとは？AIが利用しやすいWebサイトとナレッジを作る</li></ol></nav>
+      <article class="blog-article">
+        <header class="blog-article-header">
+          <p class="eyebrow">AIが読みやすいWebナレッジ</p>
+          <h1 id="llms-txtとは-aiが利用しやすいwebサイトとナレッジを作る">llms.txtとは？AIが利用しやすいWebサイトとナレッジを作る</h1>
+          <p class="blog-article-excerpt">llms.txtは、AIシステムがWebサイトの重要なコンテンツを見つけやすくする新しいMarkdown規約です。できること、できないこと、SourceShelfでの使い方を解説します。</p>
+          <div class="blog-article-meta">
+            <span>公開日 <time datetime="2026-08-08">2026年8月8日</time></span>
+            <span>著者 SourceShelf</span>
+
+          </div>
+          <figure class="blog-hero-figure">
+    <img src="/assets/blog/ja/llms-txt-hero.webp" srcset="/assets/blog/ja/llms-txt-hero-800.webp 800w, /assets/blog/ja/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Webサイトからllms.txtのMarkdownガイドを経てAIアシスタントへつながる図。「AIがWebサイトを理解するために」というメッセージを表示。" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+        </header>
+        <details class="docs-toc-mobile blog-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#llms-txtを簡単に言うと">llms.txtを簡単に言うと</a></li><li class="toc-level-2"><a href="#llms-txtファイルの例">llms.txtファイルの例</a></li><li class="toc-level-2"><a href="#llms-txtが存在する理由">llms.txtが存在する理由</a></li><li class="toc-level-2"><a href="#llms-txtの利点">llms.txtの利点</a></li><li class="toc-level-2"><a href="#llms-txtができないこと">llms.txtができないこと</a></li><li class="toc-level-2"><a href="#llms-txt対robots-txt">llms.txt対robots.txt</a></li><li class="toc-level-2"><a href="#llms-txtを手動で作成する">llms.txtを手動で作成する</a></li><li class="toc-level-2"><a href="#sourceshelfがllms-txtを使用する方法">SourceShelfがllms.txtを使用する方法</a></li><li class="toc-level-3"><a href="#sourceshelfでllms-txtをインポートする">SourceShelfでllms.txtをインポートする</a></li><li class="toc-level-3"><a href="#sourceshelfを使用してllms-txtコレクションをエクスポートする">SourceShelfを使用してllms.txtコレクションをエクスポートする</a></li><li class="toc-level-3"><a href="#llms-txtからsourceshelfワークフローへの移行">llms.txtからSourceShelfワークフローへの移行</a></li><li class="toc-level-2"><a href="#okfとの関係">OKFとの関係</a></li><li class="toc-level-2"><a href="#aiが実際に使えるナレッジを作る">AIが実際に使えるナレッジを作る</a></li><li class="toc-level-2"><a href="#公式情報源">公式情報源</a></li></ol></nav></details>
+        <div class="blog-article-layout">
+          <div class="docs-article blog-copy">
+            <div class="docs-article-body">
+              <p>大規模な言語モデルは、人々が情報を見つける方法を変えています。</p>
+<p>人々はWebサイトを直接訪れるだけでなく、複数の情報源を必要とする質問をAIアシスタントに尋ねる機会が増えています。</p>
+<p>従来のWebサイトは、主に人間の訪問者と検索エンジン向けに設計されています。ナビゲーションメニュー、スクリプト、スタイル、広告、対話型の要素などが含まれます。これらは人には便利ですが、自動化ツールが最も重要なコンテンツを見分けにくくする場合があります。</p>
+<p><code>llms.txt</code>という新しい取り決めは、よりシンプルな考え方を提案しています。Webサイトの内容と、最も役立つ情報の場所をAIシステムが理解しやすいよう、小さなMarkdownファイルを用意するという考え方です。</p>
+<p><a href="https://llmstxt.org/">当初のllms.txt提案</a>では、推論時に言語モデルが利用しやすい情報を提供する方法として説明されています。現時点では広く採用されたWeb標準ではなく、提案段階のため、対応状況はツールごとに異なります。</p>
+              <h2 id="llms-txtを簡単に言うと">llms.txtを簡単に言うと <a class="heading-anchor" href="#llms-txtを簡単に言うと" aria-label="セクションへのリンク: llms.txtを簡単に言うと"><span aria-hidden="true">#</span></a></h2>
+<p><code>llms.txt</code>は、通常Webサイトのルートに置くMarkdownファイルです。</p>
+<div class="code-block"><pre><code class="language-text">https://example.com/llms.txt</code></pre></div>
+<p>それは提供することができます：</p>
+<ul><li>ウェブサイトの簡単な説明</li><li>重要なページとドキュメントへのリンク</li><li>重要なセクションに含まれる内容を説明する要約</li><li>コンテキストが限られているときにスキップできるオプションのセカンダリリンクのグループ</li></ul>
+<p><a href="https://github.com/AnswerDotAI/llms-txt">出版されたフォーマット</a>はH1タイトルのみを必要とします。また、ブロック引用の要約、説明的な散文、H2セクション、および短いメモを含むMarkdownリンクリストも含まれることができます。</p>
+<p>3つのルートレベルのファイルを同等なものとして扱うことなく、その意図を比較することは有用です。</p>
+<ul><li><code>robots.txt</code>：クローラーアクセス環境設定に関する説明</li><li><code>sitemap.xml</code>：ウェブサイトのURLとファイルのマップ</li><li><code>llms.txt</code>：AIシステムにとって重要なコンテンツのキュレーションガイド</li></ul>
+<h2 id="llms-txtファイルの例">llms.txtファイルの例 <a class="heading-anchor" href="#llms-txtファイルの例" aria-label="セクションへのリンク: llms.txtファイルの例"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/ja/llms-txt-markdown-example.webp"><img src="/assets/blog/ja/llms-txt-markdown-example.webp" srcset="/assets/blog/ja/llms-txt-markdown-example-800.webp 800w, /assets/blog/ja/llms-txt-markdown-example.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelfのllms.txtの例を表示するMarkdownエディタで、Getting Started、AI Packs、MCP Accessへのリンクが含まれています。" width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<div class="code-block"><pre><code class="language-markdown"># Example Documentation
+
+&gt; Example is a platform for managing research documents.
+
+## Documentation
+
+- [Getting Started](https://example.com/start)
+  Learn how to begin.
+
+- [API Reference](https://example.com/api)
+  Complete API documentation.
+
+## Guides
+
+- [Importing Data](https://example.com/import)
+  Learn supported formats.</code></pre></div>
+<p>Markdownは専用ビューアがなくても読めます。テキストエディタで編集やレビューができ、チームでバージョン管理もできます。また、ソフトウェアはWebページの画面要素を取り除かなくても、見出しやリンクの構造を理解できます。</p>
+<h2 id="llms-txtが存在する理由">llms.txtが存在する理由 <a class="heading-anchor" href="#llms-txtが存在する理由" aria-label="セクションへのリンク: llms.txtが存在する理由"><span aria-hidden="true">#</span></a></h2>
+<p>通常のWebページには、ナビゲーション、メニュー、スクリプト、関連リンク、広告、スタイル、対話型の操作項目などが含まれます。信頼できる説明やドキュメントは、そのページの一部に過ぎない場合があります。</p>
+<p>llms.txt提案は、キュレーションされたエントリーポイントを提供します。 リンクされたページを置き換えるものではありません。 それは読者にコレクションが何についてなのか、そして次にどこを見るべきかを示します。</p>
+<p>図書館のカタログを考えてみてください。カタログは図書館全体ではありません。適切な本を見つけるのに役立ちます。</p>
+<h2 id="llms-txtの利点">llms.txtの利点 <a class="heading-anchor" href="#llms-txtの利点" aria-label="セクションへのリンク: llms.txtの利点"><span aria-hidden="true">#</span></a></h2>
+<section class="blog-benefit-grid" aria-label="AIが読みやすいWebナレッジ"><article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">1</span>
+    <p class="blog-benefit-title">コンテンツを見つけやすくする</p>
+    <p>対応するエージェントは、サイトのテーマ、重要なページ、信頼できる情報の場所をすばやく把握できます。</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">2</span>
+    <p class="blog-benefit-title">整理されたAIコンテキスト</p>
+    <p>選ばれたリンク、説明、見出しにより、ナビゲーションや画面要素から重要度を推測するより明確な出発点になります。</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">3</span>
+    <p class="blog-benefit-title">人が読めるドキュメント</p>
+    <p>llms.txtはMarkdownなので、一般的なツールで読取、編集、レビュー、バージョン管理ができます。</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">4</span>
+    <p class="blog-benefit-title">将来を見据えた共有</p>
+    <p>軽量なオープン規約により、特定のAIベンダーに依存せず構造化コンテキストを提供できます。</p>
+  </article></section>
+<p>これらの利点は、そのファイルを読んで利用するツールがあってこそ得られるものです。<code>llms.txt</code>を公開しただけで、AIサービスがWebサイトを発見、取得、優先するわけではありません。</p>
+<h2 id="llms-txtができないこと">llms.txtができないこと <a class="heading-anchor" href="#llms-txtができないこと" aria-label="セクションへのリンク: llms.txtができないこと"><span aria-hidden="true">#</span></a></h2>
+<p><code>llms.txt</code>には、次のことはできません。</p>
+<ul><li>AIシステムにWebサイトを読ませる</li><li>AIの回答に必ず含まれるようにする</li><li>AI検索やランキングの向上を保証する</li><li>通常のSEOやアクセシブルなWebサイト構造を置き換える</li><li><code>robots.txt</code>、サイトマップ、適切な内部リンクを置き換える</li><li>スクレイピングを防いだり、アクセス許可を与えたりする</li><li>AIナレッジベースを自動的に作る</li></ul>
+<p>これは許可システムではなく、有用なヒントと構造化された参照情報です。Webサイト運営者は、引き続き適切なアクセス制御、ライセンス、クローラーポリシー、プライバシーに関する判断を行う必要があります。</p>
+<h2 id="llms-txt対robots-txt">llms.txt対robots.txt <a class="heading-anchor" href="#llms-txt対robots-txt" aria-label="セクションへのリンク: llms.txt対robots.txt"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/ja/llms-txt-file-comparison.webp"><img src="/assets/blog/ja/llms-txt-file-comparison.webp" srcset="/assets/blog/ja/llms-txt-file-comparison-800.webp 800w, /assets/blog/ja/llms-txt-file-comparison.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="robots.txtはクローラーのアクセス設定、sitemap.xmlはWebサイトのURL、llms.txtはAI向けに選択されたコンテキストを表すという3列の比較。" width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<section class="table-wrap" tabindex="0" aria-label="スクロール可能な表"><table><thead><tr><th scope="col">ファイル</th><th scope="col">目的</th></tr></thead><tbody><tr><td><code>robots.txt</code></td><td>クローラーへのアクセス設定を伝達</td></tr>
+<tr><td><code>sitemap.xml</code></td><td>ウェブサイトのURLとファイルのリスト</td></tr>
+<tr><td><code>llms.txt</code></td><td>厳選されたAIで読み取ることができる文脈を提供します</td></tr></tbody></table></section>
+<p>これらのファイルは、異なる問題を解決します。 Googleは、<a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro"><code>robots.txt</code></a>を、主にクローラートラフィックの管理のために、検索エンジンクローラーにアクセスできるURLを伝える方法として説明しています。 <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview">サイトマップ</a>は、サイトが重要なと見なすページやファイルを識別するファイルとして説明されています。</p>
+<p>llms.txt提案は、アクセス制御メカニズムでも完全なURLインベントリでもありません。編集層です。サイト所有者は、有用な資料のサブセットを選択し、簡潔なMarkdownで説明します。</p>
+<h2 id="llms-txtを手動で作成する">llms.txtを手動で作成する <a class="heading-anchor" href="#llms-txtを手動で作成する" aria-label="セクションへのリンク: llms.txtを手動で作成する"><span aria-hidden="true">#</span></a></h2>
+<p>基本的なワークフローはシンプルです。</p>
+<ol><li>ウェブサイトを最もよく説明するページを特定します。</li><li>明確なH1タイトルと簡単な要約を含むMarkdownファイルを作成します。</li><li>重要なリンクを説明的なH2ヘッダーの下にグループ化します。</li><li>リンクの目的が明らかでない場合は、1文のメモを追加します。</li><li>ファイルをウェブサイトのルートに置きます。</li></ol>
+<div class="code-block"><pre><code class="language-text">https://website.com/llms.txt</code></pre></div>
+<p>リストは重要な項目に絞ります。信頼できるコンテンツを厳選した短いガイドは、すべてのURLを含む2つ目のサイトマップより役立つことがあります。ドキュメントの場所やポリシーが変わったり、重要なページが追加されたりしたときは、ファイルを見直します。</p>
+<section class="blog-video-placeholder" aria-labelledby="video-placeholder-what-is-llms-txt">
+    <div class="section-heading blog-video-placeholder-heading">
+      <p class="eyebrow">動画ガイド</p>
+      <p id="video-placeholder-what-is-llms-txt" class="blog-video-title">SourceShelfでllms.txtを活用する方法</p>
+    </div>
+    <figure class="blog-inline-video landing-demo-preview">
+      <div class="landing-video-frame">
+        <img src="/assets/blog/ja/sourceshelf-llms-workflow.webp" srcset="/assets/blog/ja/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/ja/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 900px) calc(100vw - 48px), 760px" alt="Webサイトからllms.txtのMarkdownガイドを経てAIアシスタントへつながる図。「AIがWebサイトを理解するために」というメッセージを表示。" width="1200" height="675" loading="lazy" decoding="async">
+        <span class="landing-video-play blog-video-status">
+          <span class="landing-video-play-icon" aria-hidden="true"></span>
+          <span>動画を制作中</span>
+        </span>
+      </div>
+      <figcaption class="landing-video-consent blog-video-placeholder-meta"><span>予定時間：約2分</span><span>公開時には字幕を用意します。</span></figcaption>
+    </figure>
+    <details class="blog-video-transcript"><summary>予定している内容</summary><p>llms.txt規約と、整理されたMarkdownガイドとしての役割を説明します。</p><p>SourceShelfがリモートURLをダウンロードせず、安全なローカル参照を読み込む方法を紹介します。</p><p>保存済みパックをllms.txt Collection Folder、AI Reference Pack、OKFバンドルとして書き出す流れを示します。</p></details>
+  </section>
+<h2 id="sourceshelfがllms-txtを使用する方法">SourceShelfがllms.txtを使用する方法 <a class="heading-anchor" href="#sourceshelfがllms-txtを使用する方法" aria-label="セクションへのリンク: SourceShelfがllms.txtを使用する方法"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelfは<code>llms.txt</code>を、WebサイトとローカルなAIナレッジワークフローをつなぐ手段として扱います。</p>
+<p>多くのWebサイトには、ドキュメント、研究、ポリシー、製品情報、技術ガイドなどの価値あるナレッジがすでに含まれています。ローカルなllms.txtコレクションは、それらを順序立てて人が読みやすい形で示せます。SourceShelfはそのコレクションをライブラリにインポートし、Mac上に保持される保存済みパックを作成できます。</p>
+<p>このワークフローは意図的にオフラインです。SourceShelfはウェブサイトをクローリングしたり、インポートされたインデックスから任意のリモートURLを取得したりしません。</p>
+<h3 id="sourceshelfでllms-txtをインポートする">SourceShelfでllms.txtをインポートする <a class="heading-anchor" href="#sourceshelfでllms-txtをインポートする" aria-label="セクションへのリンク: SourceShelfでllms.txtをインポートする"><span aria-hidden="true">#</span></a></h3>
+<p>典型的なインポートは次のように機能します。</p>
+<ol><li><code>llms.txt</code>ファイルまたはそのファイルを含むフォルダを選択してください。</li><li>SourceShelfはローカルインデックスを読み取ります。</li><li>選択したフォルダの下の安全な参照ファイル<code>.md</code>、<code>.markdown</code>、<code>.txt</code>は解決され、ローカルにインポートされます。</li><li>インデックスは最初のライブラリアイテムになり、ローカルドキュメントはインデックス順に続きます。</li><li>SourceShelfは、インデックスタイトルから名付けられた保存済みパックを作成します。</li></ol>
+<p>リモートのHTTPまたはHTTPSリンクはダウンロードされません。SourceShelfはタイトル、説明、出典情報を「利用不可」の参照として保持します。これにより、Webサイトのコンテンツを自動的に転送することなく、インデックスに記載された参照を確認できます。</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/ja/llms-import-source.webp"><img src="/assets/blog/ja/llms-import-source.webp" srcset="/assets/blog/ja/llms-import-source-960.webp 960w, /assets/blog/ja/llms-import-source.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelf変換ビューで、llms.txtをインポートするアクションを使用すると、ローカルコレクションを選択できます。" width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/ja/llms-pack-created.webp"><img src="/assets/blog/ja/llms-pack-created.webp" srcset="/assets/blog/ja/llms-pack-created-960.webp 960w, /assets/blog/ja/llms-pack-created.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="ナレッジをローカルに整理した後、順序付けされたドキュメントとパックの操作項目を表示するSourceShelfの保存済みパック。" width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<h3 id="sourceshelfを使用してllms-txtコレクションをエクスポートする">SourceShelfを使用してllms.txtコレクションをエクスポートする <a class="heading-anchor" href="#sourceshelfを使用してllms-txtコレクションをエクスポートする" aria-label="セクションへのリンク: SourceShelfを使用してllms.txtコレクションをエクスポートする"><span aria-hidden="true">#</span></a></h3>
+<p>SourceShelfは、保存されたパックから<strong>llms.txtコレクションフォルダ</strong>を作成することもできます。</p>
+<div class="code-block"><pre><code class="language-text">my-research-pack/
+├── llms.txt
+├── documents/
+├── assets/
+├── sourceshelf-manifest.json
+└── checksums.sha256</code></pre></div>
+<p>フォルダには、順序付けされたドキュメント、参照されるアーカイブ済みアセット、出典情報を含むSourceShelfマニフェスト、整合性確認用の決定論的チェックサムが含まれます。有効な出典情報を持つ利用不可のWeb参照は、インデックスの「Optional」セクションに表示される場合がありますが、SourceShelfはそれらをダウンロードしません。</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/ja/llms-export.webp"><img src="/assets/blog/ja/llms-export.webp" srcset="/assets/blog/ja/llms-export-960.webp 960w, /assets/blog/ja/llms-export.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelfは、llms.txtコレクションフォルダ、AI Reference PackZIP、OKFバンドル ZIP を含むエクスポートオプションを提供します。" width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<p>これはポータブルなコレクション形式ですが、すべてのAI製品が直接インポートできることを保証するものではありません。読み取り可能なローカルナレッジとして保管したり、別のワークフローに合わせて変更したり、同じ保存済みパックを別の形式でエクスポートしたりできます。</p>
+<h3 id="llms-txtからsourceshelfワークフローへの移行">llms.txtからSourceShelfワークフローへの移行 <a class="heading-anchor" href="#llms-txtからsourceshelfワークフローへの移行" aria-label="セクションへのリンク: llms.txtからSourceShelfワークフローへの移行"><span aria-hidden="true">#</span></a></h3>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/ja/sourceshelf-llms-workflow.webp"><img src="/assets/blog/ja/sourceshelf-llms-workflow.webp" srcset="/assets/blog/ja/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/ja/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Webサイトからllms.txt、SourceShelf、ナレッジパックを経て、選択したAIツールにつながるワークフロー。" width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<p>コレクションが保存されたパックになったら、<a href="/ja/local-ai-reference-packs/">AI Reference Pack</a>をエクスポートしたり、Local AI Accessを使用して、不変で読み取り専用のスナップショットを互換性のあるクライアントと共有したりできます。選択したパックだけが公開されます。SourceShelfはライブラリの残りを共有しません。</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/ja/llms-ai-access.webp"><img src="/assets/blog/ja/llms-ai-access.webp" srcset="/assets/blog/ja/llms-ai-access-960.webp 960w, /assets/blog/ja/llms-ai-access.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelfLocal AI Accessは、選択した保存済みパックの現在の読み取り専用スナップショットを表示しています。" width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<p>既存のインデックスではなく、より幅広いドキュメントやWebページの組み合わせから始める場合は、<a href="/ja/private-ai-knowledge-base-mac/">プライベートAIナレッジベースのワークフロー</a>で、ローカルソースを取り込み、整理し、選択的に共有する方法を解説しています。</p>
+<h2 id="okfとの関係">OKFとの関係 <a class="heading-anchor" href="#okfとの関係" aria-label="セクションへのリンク: OKFとの関係"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/ja/llms-txt-okf-relationship.webp"><img src="/assets/blog/ja/llms-txt-okf-relationship.webp" srcset="/assets/blog/ja/llms-txt-okf-relationship-800.webp 800w, /assets/blog/ja/llms-txt-okf-relationship.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="3つの段階では、発見にはllms.txt、組織にはSourceShelf、保存にはOKFが表示されます。" width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<p><code>llms.txt</code>とOpen Knowledge Formatは異なる問題を解決します。</p>
+<ul><li><strong>llms.txt:</strong> ツールが厳選されたWebサイトのナレッジを発見し、その中をたどる手がかりになります</li><li><strong>OKF:</strong> 構造化されたナレッジを、Markdownの概念とメタデータからなるポータブルなコレクションにまとめます</li><li><strong>SourceShelf:</strong> これらの2つのステージ間のローカルソースを整理し、選択したワークフロー用にエクスポートできます。</li></ul>
+<p><a href="/ja/blog/what-is-open-knowledge-format-okf/">Open Knowledge Formatへのガイド</a>は、パッケージングの側面をより詳細に説明しています。どちらのフォーマットもモデルのコンテキストウィンドウを拡大したり、ツールがすべてのソースを使用することを保証するものではありません。</p>
+<h2 id="aiが実際に使えるナレッジを作る">AIが実際に使えるナレッジを作る <a class="heading-anchor" href="#aiが実際に使えるナレッジを作る" aria-label="セクションへのリンク: AIが実際に使えるナレッジを作る"><span aria-hidden="true">#</span></a></h2>
+<p>AIシステムにはコンテキストが必要です。そのコンテキストは、構造化され、ポータブルで、理解可能であり、作成者によって維持されている場合に最も役立ちます。</p>
+<p><code>llms.txt</code>は、AIシステムやエージェントがオンラインのナレッジを発見しやすくするための小さな一歩です。その価値は、丁寧な選定、正確な要約、安定したリンク、そしてこの取り決めに対応するツールによって生まれます。</p>
+<p>SourceShelfは、ナレッジをローカルで取り込み、整理し、パッケージ化することでこの考え方を広げます。それにより、選んだAIツールに移っても情報を役立てられます。</p>
+<h2 id="公式情報源">公式情報源 <a class="heading-anchor" href="#公式情報源" aria-label="セクションへのリンク: 公式情報源"><span aria-hidden="true">#</span></a></h2>
+<ul><li><a href="https://llmstxt.org/">llms.txtの提案と形式</a></li><li><a href="https://github.com/AnswerDotAI/llms-txt">Answer.AI llms.txt仕様リポジトリ</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Google Search Central：robots.txtの概要</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview">Google Search Central：サイトマップについて学ぶ</a></li></ul>
+            </div>
+            <section class="blog-cta" aria-labelledby="blog-cta-what-is-llms-txt">
+              <div>
+                <p class="eyebrow">SourceShelf</p>
+                <h2 id="blog-cta-what-is-llms-txt">SourceShelfでプライベートなAIナレッジベースを作成</h2>
+                <p>選んだナレッジをローカルで取り込み、整理、パッケージ化し、AIワークフローに合う形式で利用できます。</p>
+              </div>
+              <a class="button button-primary blog-cta-button" href="/ja/private-ai-knowledge-base-mac/">SourceShelfについて詳しく見る</a>
+            </section>
+          </div>
+          <aside class="docs-toc blog-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#llms-txtを簡単に言うと">llms.txtを簡単に言うと</a></li><li class="toc-level-2"><a href="#llms-txtファイルの例">llms.txtファイルの例</a></li><li class="toc-level-2"><a href="#llms-txtが存在する理由">llms.txtが存在する理由</a></li><li class="toc-level-2"><a href="#llms-txtの利点">llms.txtの利点</a></li><li class="toc-level-2"><a href="#llms-txtができないこと">llms.txtができないこと</a></li><li class="toc-level-2"><a href="#llms-txt対robots-txt">llms.txt対robots.txt</a></li><li class="toc-level-2"><a href="#llms-txtを手動で作成する">llms.txtを手動で作成する</a></li><li class="toc-level-2"><a href="#sourceshelfがllms-txtを使用する方法">SourceShelfがllms.txtを使用する方法</a></li><li class="toc-level-3"><a href="#sourceshelfでllms-txtをインポートする">SourceShelfでllms.txtをインポートする</a></li><li class="toc-level-3"><a href="#sourceshelfを使用してllms-txtコレクションをエクスポートする">SourceShelfを使用してllms.txtコレクションをエクスポートする</a></li><li class="toc-level-3"><a href="#llms-txtからsourceshelfワークフローへの移行">llms.txtからSourceShelfワークフローへの移行</a></li><li class="toc-level-2"><a href="#okfとの関係">OKFとの関係</a></li><li class="toc-level-2"><a href="#aiが実際に使えるナレッジを作る">AIが実際に使えるナレッジを作る</a></li><li class="toc-level-2"><a href="#公式情報源">公式情報源</a></li></ol></nav></aside>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/ja/">ホーム</a>
+          <a href="/ja/blog/">ブログ</a>
+          <a href="/ja/privacy.html">プライバシー</a>
+          <a href="/ja/docs/">ドキュメント</a>
+          <a href="/ja/support.html">サポート</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelfのユースケース">
+        <h2>SourceShelfの使用方法</h2>
+        <ul><li><a href="/ja/private-ai-knowledge-base-mac/">Mac用のプライベートAI知識ベース</a></li><li><a href="/ja/pdf-to-markdown-mac/">ローカルPDF変換</a></li><li><a href="/ja/save-webpages-as-markdown-safari/">Safariウェブキャプチャ</a></li><li><a href="/ja/local-ai-reference-packs/">AIのための集中的なコンテキスト</a></li><li><a href="/ja/research-archive-mac/">ローカル研究アーカイブ</a></li><li><a href="/ja/mcp-knowledge-base-mac/">読み取り専用MCP知識アクセス</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260808-1"></script>
+</body>
+</html>

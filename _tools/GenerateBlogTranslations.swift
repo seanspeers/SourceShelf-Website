@@ -28,6 +28,12 @@ private let protectedTerms = [
     "Safari",
     "YAML",
     "OKF",
+    "robots.txt",
+    "sitemap.xml",
+    "llms-full.txt",
+    "Local AI Access",
+    "AI Assistant",
+    "{{benefit-cards}}",
 ]
 
 private struct LinkToken {
@@ -48,14 +54,21 @@ private struct TranslatableLine {
 @available(macOS 26.4, *)
 private struct GenerateBlogTranslations {
     static func main() async throws {
-        guard CommandLine.arguments.count == 2 else {
-            fputs("Usage: GenerateBlogTranslations <site-root>\n", stderr)
+        guard CommandLine.arguments.count == 2 || CommandLine.arguments.count == 3 else {
+            fputs("Usage: GenerateBlogTranslations <site-root> [source-file]\n", stderr)
             exit(64)
         }
 
         let root = URL(fileURLWithPath: CommandLine.arguments[1], isDirectory: true).standardizedFileURL
         let blogRoot = root.appendingPathComponent("_blog", isDirectory: true)
-        let sourceURL = blogRoot.appendingPathComponent("what-is-open-knowledge-format-okf.md")
+        let sourceName = CommandLine.arguments.count == 3
+            ? CommandLine.arguments[2]
+            : "what-is-open-knowledge-format-okf.md"
+        guard !sourceName.contains("/") && sourceName.hasSuffix(".md") else {
+            fputs("source-file must be a Markdown filename in _blog\n", stderr)
+            exit(64)
+        }
+        let sourceURL = blogRoot.appendingPathComponent(sourceName)
         let source = try String(contentsOf: sourceURL, encoding: .utf8)
 
         for locale in blogLocales {
@@ -150,7 +163,9 @@ private struct GenerateBlogTranslations {
             }
 
             if let destination = line.imageDestination {
-                let localizedDestination = destination.replacingOccurrences(of: "/assets/home/en/", with: "/assets/home/\(locale.code)/")
+                let localizedDestination = destination
+                    .replacingOccurrences(of: "/assets/home/en/", with: "/assets/home/\(locale.code)/")
+                    .replacingOccurrences(of: "/assets/blog/en/", with: "/assets/blog/\(locale.code)/")
                 lines[line.index] = "![\(output)](\(localizedDestination))"
             } else {
                 lines[line.index] = line.prefix + output

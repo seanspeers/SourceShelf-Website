@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez ce qu’est llms.txt, pourquoi des sites créent des index Markdown lisibles par l’IA et comment SourceShelf utilise ces collections comme connaissances portables.">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/blog/what-is-llms-txt/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/blog/what-is-llms-txt/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Qu’est-ce que llms.txt? Guide des sites lisibles par l’IA">
+  <meta property="og:description" content="Découvrez ce qu’est llms.txt, pourquoi des sites créent des index Markdown lisibles par l’IA et comment SourceShelf utilise ces collections comme connaissances portables.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/blog/fr/llms-txt-hero.png">
+  <meta property="article:published_time" content="2026-08-08">
+  <meta property="article:modified_time" content="2026-08-08">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qu’est-ce que llms.txt? Guide des sites lisibles par l’IA">
+  <meta name="twitter:description" content="Découvrez ce qu’est llms.txt, pourquoi des sites créent des index Markdown lisibles par l’IA et comment SourceShelf utilise ces collections comme connaissances portables.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/blog/fr/llms-txt-hero.png">
+  <title>Qu’est-ce que llms.txt? Guide des sites lisibles par l’IA</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260808-1">
+  <script src="/locale.js?v=20260808-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Qu’est-ce que llms.txt? Créer des sites Web et des connaissances adaptés à l’IA","description":"Découvrez ce qu’est llms.txt, pourquoi des sites créent des index Markdown lisibles par l’IA et comment SourceShelf utilise ces collections comme connaissances portables.","image":"https://sourceshelf.app/assets/blog/fr/llms-txt-hero.png","mainEntityOfPage":"https://sourceshelf.app/fr/blog/what-is-llms-txt/","url":"https://sourceshelf.app/fr/blog/what-is-llms-txt/","datePublished":"2026-08-08","dateModified":"2026-08-08","inLanguage":"fr","articleSection":"Connaissances de site lisibles par l’IA","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://sourceshelf.app/fr/"},{"@type":"ListItem","position":2,"name":"Blog SourceShelf","item":"https://sourceshelf.app/fr/blog/"},{"@type":"ListItem","position":3,"name":"Qu’est-ce que llms.txt? Créer des sites Web et des connaissances adaptés à l’IA","item":"https://sourceshelf.app/fr/blog/what-is-llms-txt/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/blog/" aria-current="page">Blog</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main blog-main">
+    <div class="blog-page blog-article-page">
+      <nav class="breadcrumbs blog-breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/blog/">Blog SourceShelf</a></li><li aria-current="page">Qu’est-ce que llms.txt? Créer des sites Web et des connaissances adaptés à l’IA</li></ol></nav>
+      <article class="blog-article">
+        <header class="blog-article-header">
+          <p class="eyebrow">Connaissances de site lisibles par l’IA</p>
+          <h1 id="quest-ce-que-llms-txt-créer-des-sites-web-et-des-connaissances-adaptés-à-lia">Qu’est-ce que llms.txt? Créer des sites Web et des connaissances adaptés à l’IA</h1>
+          <p class="blog-article-excerpt">llms.txt est une convention Markdown émergente qui aide les systèmes d’IA à repérer le contenu important d’un site. Découvrez son utilité, ses limites et son usage dans SourceShelf.</p>
+          <div class="blog-article-meta">
+            <span>Publié le <time datetime="2026-08-08">8 août 2026</time></span>
+            <span>Par SourceShelf</span>
+
+          </div>
+          <figure class="blog-hero-figure">
+    <img src="/assets/blog/fr/llms-txt-hero.webp" srcset="/assets/blog/fr/llms-txt-hero-800.webp 800w, /assets/blog/fr/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Un site Web passe par un guide Markdown llms.txt vers un assistant IA, avec le message Aider l’IA à comprendre votre site Web." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+  </figure>
+        </header>
+        <details class="docs-toc-mobile blog-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#llms-txt-en-termes-simples">llms.txt en termes simples</a></li><li class="toc-level-2"><a href="#exemple-de-fichier-llms-txt">Exemple de fichier llms.txt</a></li><li class="toc-level-2"><a href="#pourquoi-llms-txt-existe-t-il">Pourquoi llms.txt existe-t-il ?</a></li><li class="toc-level-2"><a href="#avantages-de-llms-txt">Avantages de llms.txt</a></li><li class="toc-level-2"><a href="#ce-que-llms-txt-ne-fait-pas">Ce que llms.txt ne fait pas</a></li><li class="toc-level-2"><a href="#llms-txt-contre-robots-txt">llms.txt contre robots.txt</a></li><li class="toc-level-2"><a href="#création-de-llms-txt-manuellement">Création de llms.txt manuellement</a></li><li class="toc-level-2"><a href="#comment-sourceshelf-utilise-llms-txt">Comment SourceShelf utilise llms.txt</a></li><li class="toc-level-3"><a href="#importation-de-llms-txt-avec-sourceshelf">Importation de llms.txt avec SourceShelf</a></li><li class="toc-level-3"><a href="#exportation-des-collections-llms-txt-avec-sourceshelf">Exportation des collections llms.txt avec SourceShelf</a></li><li class="toc-level-3"><a href="#dun-flux-de-travail-llms-txt-à-un-flux-de-travail-sourceshelf">D&#39;un flux de travail llms.txt à un flux de travail SourceShelf</a></li><li class="toc-level-2"><a href="#relation-avec-okf">Relation avec OKF</a></li><li class="toc-level-2"><a href="#créer-des-connaissances-que-lia-peut-réellement-utiliser">Créer des connaissances que l’IA peut réellement utiliser</a></li><li class="toc-level-2"><a href="#sources-officielles">Sources officielles</a></li></ol></nav></details>
+        <div class="blog-article-layout">
+          <div class="docs-article blog-copy">
+            <div class="docs-article-body">
+              <p>Les grands modèles de langage changent la façon dont les gens trouvent des informations.</p>
+<p>Au lieu de visiter uniquement les sites Web directement, les gens posent de plus en plus de questions aux assistants IA qui nécessitent des informations provenant de nombreuses sources.</p>
+<p>Les sites Web traditionnels étaient conçus principalement pour les visiteurs humains et les moteurs de recherche. Ils contiennent des menus de navigation, des scripts, un style, des publicités et des éléments interactifs. Ces fonctionnalités peuvent être utiles pour une personne, mais elles rendent plus difficile pour un outil automatisé d&#39;identifier le matériel le plus important.</p>
+<p>Une convention émergente appelée <code>llms.txt</code> propose une idée plus simple : créer un petit fichier Markdown qui aide les systèmes d&#39;IA à comprendre ce qu&#39;un site Web contient et où se trouvent ses informations les plus utiles.</p>
+<p>La <a href="https://llmstxt.org/">proposition originale de llms.txt</a> le présente comme un moyen de fournir aux modèles de langage des informations adaptées à leur utilisation au moment de l’inférence. Il s’agit encore d’une proposition, et non d’une norme Web universellement adoptée; sa prise en charge varie donc selon les outils.</p>
+              <h2 id="llms-txt-en-termes-simples">llms.txt en termes simples <a class="heading-anchor" href="#llms-txt-en-termes-simples" aria-label="Lien vers la section: llms.txt en termes simples"><span aria-hidden="true">#</span></a></h2>
+<p>Un fichier <code>llms.txt</code> est un document Markdown normalement placé dans le répertoire racine d&#39;un site Web :</p>
+<div class="code-block"><pre><code class="language-text">https://example.com/llms.txt</code></pre></div>
+<p>Il peut fournir :</p>
+<ul><li>Une brève description du site Web</li><li>Liens vers des pages et des documents importants</li><li>Des résumés qui expliquent le contenu des sections importantes</li><li>Un groupe facultatif de liens secondaires qui peut être omis lorsque le contexte est limité</li></ul>
+<p>Le <a href="https://github.com/AnswerDotAI/llms-txt">format publié</a> exige seulement un titre H1. Il peut aussi comprendre un résumé sous forme de citation, un texte explicatif, des sections H2 et des listes de liens Markdown accompagnées de courtes notes.</p>
+<p>Il est utile de comparer l&#39;intention de trois fichiers de niveau racine sans les traiter comme équivalents :</p>
+<ul><li><code>robots.txt</code> : instructions sur les préférences d&#39;accès des robots de recherche.</li><li><code>sitemap.xml</code> : une carte des URL et des fichiers du site Web.</li><li><code>llms.txt</code> : un guide sélectionné des contenus importants pour les systèmes d&#39;IA.</li></ul>
+<h2 id="exemple-de-fichier-llms-txt">Exemple de fichier llms.txt <a class="heading-anchor" href="#exemple-de-fichier-llms-txt" aria-label="Lien vers la section: Exemple de fichier llms.txt"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/fr/llms-txt-markdown-example.webp"><img src="/assets/blog/fr/llms-txt-markdown-example.webp" srcset="/assets/blog/fr/llms-txt-markdown-example-800.webp 800w, /assets/blog/fr/llms-txt-markdown-example.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un éditeur Markdown montrant un exemple llms.txt pour SourceShelf avec des liens vers le démarrage, les packs d&#39;IA et l&#39;accès MCP." width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<div class="code-block"><pre><code class="language-markdown"># Example Documentation
+
+&gt; Example is a platform for managing research documents.
+
+## Documentation
+
+- [Getting Started](https://example.com/start)
+  Learn how to begin.
+
+- [API Reference](https://example.com/api)
+  Complete API documentation.
+
+## Guides
+
+- [Importing Data](https://example.com/import)
+  Learn supported formats.</code></pre></div>
+<p>Markdown est lisible sans un lecteur spécial. Une personne peut modifier et examiner le fichier dans un éditeur de texte, une équipe peut le garder dans un contrôle de version, et le logiciel peut interpréter ses titres et ses liens sans d&#39;abord supprimer l&#39;interface d&#39;une page Web.</p>
+<h2 id="pourquoi-llms-txt-existe-t-il">Pourquoi llms.txt existe-t-il ? <a class="heading-anchor" href="#pourquoi-llms-txt-existe-t-il" aria-label="Lien vers la section: Pourquoi llms.txt existe-t-il ?"><span aria-hidden="true">#</span></a></h2>
+<p>Une page Web normale peut inclure la navigation, les menus, les scripts, les liens connexes, les publicités, le style et les contrôles interactifs. L’explication ou la documentation faisant autorité peut n’occuper qu’une partie de cette page.</p>
+<p>La proposition llms.txt offre un point d&#39;entrée sélectionné. Elle ne remplace pas les pages liées ; elle indique au lecteur à quoi sert la collection et où chercher ensuite.</p>
+<p>Pensez à un catalogue de bibliothèque. Le catalogue n&#39;est pas toute la bibliothèque. Il vous aide à trouver les bons livres.</p>
+<h2 id="avantages-de-llms-txt">Avantages de llms.txt <a class="heading-anchor" href="#avantages-de-llms-txt" aria-label="Lien vers la section: Avantages de llms.txt"><span aria-hidden="true">#</span></a></h2>
+<section class="blog-benefit-grid" aria-label="Connaissances de site lisibles par l’IA"><article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">1</span>
+    <p class="blog-benefit-title">Meilleure découverte du contenu</p>
+    <p>Un agent compatible peut voir rapidement le sujet du site, les pages importantes et l’emplacement des renseignements faisant autorité.</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">2</span>
+    <p class="blog-benefit-title">Contexte d’IA plus clair</p>
+    <p>Des liens, descriptions et titres choisis offrent un point de départ plus clair que l’interprétation de la navigation et de l’interface.</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">3</span>
+    <p class="blog-benefit-title">Documentation lisible par tous</p>
+    <p>Comme llms.txt est du Markdown, on peut le lire, le modifier, le réviser et le versionner avec des outils courants.</p>
+  </article>
+<article class="blog-benefit-card">
+    <span class="blog-benefit-number" aria-hidden="true">4</span>
+    <p class="blog-benefit-title">Partage de connaissances durable</p>
+    <p>Une convention ouverte et légère peut fournir un contexte structuré sans lier le site à un seul fournisseur d’IA.</p>
+  </article></section>
+<p>Ces avantages dépendent d&#39;un outil qui choisit de lire et d&#39;utiliser le fichier. La publication de <code>llms.txt</code> ne provoque pas en soi qu&#39;un service d&#39;IA découvre, récupère ou priorise un site Web.</p>
+<h2 id="ce-que-llms-txt-ne-fait-pas">Ce que llms.txt ne fait pas <a class="heading-anchor" href="#ce-que-llms-txt-ne-fait-pas" aria-label="Lien vers la section: Ce que llms.txt ne fait pas"><span aria-hidden="true">#</span></a></h2>
+<p><code>llms.txt</code> ne permet pas de :</p>
+<ul><li>Forcer les systèmes d’IA à lire un site Web</li><li>Garantir l’inclusion dans les réponses générées par l’IA</li><li>Garantir une amélioration de la recherche ou du classement par IA</li><li>Remplacer le référencement naturel ou une structure de site accessible</li><li>Remplacer <code>robots.txt</code>, un plan de site ou de bons liens internes</li><li>Empêcher l’extraction automatisée ou accorder une autorisation d’accès</li><li>Créer automatiquement une base de connaissances IA</li></ul>
+<p>Il s&#39;agit d&#39;un conseil utile et d&#39;une référence structurée, et non d&#39;un système de permis. Les propriétaires de sites Web ont toujours besoin de contrôles d&#39;accès appropriés, de licences, de politiques de robots et de décisions de confidentialité.</p>
+<h2 id="llms-txt-contre-robots-txt">llms.txt contre robots.txt <a class="heading-anchor" href="#llms-txt-contre-robots-txt" aria-label="Lien vers la section: llms.txt contre robots.txt"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/fr/llms-txt-file-comparison.webp"><img src="/assets/blog/fr/llms-txt-file-comparison.webp" srcset="/assets/blog/fr/llms-txt-file-comparison-800.webp 800w, /assets/blog/fr/llms-txt-file-comparison.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Trois colonnes comparent robots.txt pour les préférences des robots, sitemap.xml pour les URL du site Web et llms.txt pour le contexte sélectionné et lisible par l’IA." width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<section class="table-wrap" tabindex="0" aria-label="Tableau défilant"><table><thead><tr><th scope="col">Fichier</th><th scope="col">Objectif</th></tr></thead><tbody><tr><td><code>robots.txt</code></td><td>Communique les préférences d&#39;accès des robots de recherche</td></tr>
+<tr><td><code>sitemap.xml</code></td><td>Liste les URL et les fichiers du site Web</td></tr>
+<tr><td><code>llms.txt</code></td><td>Fournit un contexte soigneusement sélectionné et lisible par l&#39;IA</td></tr></tbody></table></section>
+<p>Ces fichiers résolvent différents problèmes. Google décrit <a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro"><code>robots.txt</code></a> comme un moyen d’indiquer aux robots de recherche les URL auxquelles ils peuvent accéder, principalement pour gérer leur trafic. Il décrit un <a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview">plan de site</a> comme un fichier qui identifie les pages et les fichiers qu’un site considère importants.</p>
+<p>La proposition llms.txt n&#39;est ni un mécanisme de contrôle d&#39;accès ni un inventaire complet des URL. Il s&#39;agit d&#39;une couche éditoriale : le propriétaire d&#39;un site choisit un sous-ensemble utile de matériel et l&#39;explique de manière concise en Markdown.</p>
+<h2 id="création-de-llms-txt-manuellement">Création de llms.txt manuellement <a class="heading-anchor" href="#création-de-llms-txt-manuellement" aria-label="Lien vers la section: Création de llms.txt manuellement"><span aria-hidden="true">#</span></a></h2>
+<p>Un flux de travail de base est simple :</p>
+<ol><li>Identifiez les pages qui expliquent le mieux le site Web.</li><li>Créez un fichier Markdown avec un titre H1 clair et un bref résumé.</li><li>Groupez les liens importants sous des titres descriptifs H2.</li><li>Ajoutez des notes d&#39;une phrase lorsque le but d&#39;un lien n&#39;est pas évident.</li><li>Placez le fichier à la racine du site Web.</li></ol>
+<div class="code-block"><pre><code class="language-text">https://website.com/llms.txt</code></pre></div>
+<p>Gardez la liste sélective. Un guide plus court sur le contenu autoritaire est souvent plus utile qu&#39;une deuxième carte du site contenant toutes les URL. Réviser le fichier lorsque la documentation change, que les politiques évoluent ou que des pages importantes sont ajoutées.</p>
+<section class="blog-video-placeholder" aria-labelledby="video-placeholder-what-is-llms-txt">
+    <div class="section-heading blog-video-placeholder-heading">
+      <p class="eyebrow">Guide vidéo</p>
+      <p id="video-placeholder-what-is-llms-txt" class="blog-video-title">Comment SourceShelf utilise llms.txt</p>
+    </div>
+    <figure class="blog-inline-video landing-demo-preview">
+      <div class="landing-video-frame">
+        <img src="/assets/blog/fr/sourceshelf-llms-workflow.webp" srcset="/assets/blog/fr/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/fr/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 900px) calc(100vw - 48px), 760px" alt="Un site Web passe par un guide Markdown llms.txt vers un assistant IA, avec le message Aider l’IA à comprendre votre site Web." width="1200" height="675" loading="lazy" decoding="async">
+        <span class="landing-video-play blog-video-status">
+          <span class="landing-video-play-icon" aria-hidden="true"></span>
+          <span>Vidéo en production</span>
+        </span>
+      </div>
+      <figcaption class="landing-video-consent blog-video-placeholder-meta"><span>Durée visée : environ 2 minutes</span><span>Des sous-titres seront fournis avec la vidéo publiée.</span></figcaption>
+    </figure>
+    <details class="blog-video-transcript"><summary>Transcription prévue</summary><p>La vidéo expliquera la convention llms.txt et son rôle de guide Markdown organisé.</p><p>Elle montrera comment SourceShelf importe des références locales sûres sans télécharger les URL distantes.</p><p>Elle présentera l’exportation d’un pack enregistré en dossier de collection llms.txt, en AI Reference Pack ou en bundle OKF.</p></details>
+  </section>
+<h2 id="comment-sourceshelf-utilise-llms-txt">Comment SourceShelf utilise llms.txt <a class="heading-anchor" href="#comment-sourceshelf-utilise-llms-txt" aria-label="Lien vers la section: Comment SourceShelf utilise llms.txt"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf traite <code>llms.txt</code> comme un pont utile entre les sites Web et les flux de travail de connaissances locales de l&#39;IA.</p>
+<p>De nombreux sites Web contiennent déjà de la documentation, des recherches, des politiques, des renseignements sur les produits et de précieux guides techniques. Une collection llms.txt locale peut présenter ce contenu de façon ordonnée et lisible. SourceShelf peut importer cette collection dans sa bibliothèque et créer un pack enregistré qui reste sur votre Mac.</p>
+<p>Ce flux de travail est délibérément hors ligne. SourceShelf n’explore pas un site Web et ne récupère pas d’URL distantes arbitraires à partir d’un index importé.</p>
+<h3 id="importation-de-llms-txt-avec-sourceshelf">Importation de llms.txt avec SourceShelf <a class="heading-anchor" href="#importation-de-llms-txt-avec-sourceshelf" aria-label="Lien vers la section: Importation de llms.txt avec SourceShelf"><span aria-hidden="true">#</span></a></h3>
+<p>Une importation typique fonctionne comme suit :</p>
+<ol><li>Choisissez un fichier <code>llms.txt</code> ou un dossier contenant un tel fichier.</li><li>SourceShelf lit l’index local.</li><li>Les références sécurisées relatives <code>.md</code>, <code>.markdown</code> et <code>.txt</code> situées sous le dossier sélectionné sont résolues et importées localement.</li><li>L&#39;index devient le premier élément de la bibliothèque et les documents locaux suivent dans l&#39;ordre de l&#39;index.</li><li>SourceShelf crée un pack enregistré dont le nom reprend le titre de l’index.</li></ol>
+<p>Les liens HTTP ou HTTPS distants ne sont pas téléchargés. SourceShelf conserve leurs titres, descriptions et provenance comme des références indisponibles afin que vous puissiez voir ce que l&#39;index nomme sans transférer silencieusement le contenu du site Web.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/fr/llms-import-source.webp"><img src="/assets/blog/fr/llms-import-source.webp" srcset="/assets/blog/fr/llms-import-source-960.webp 960w, /assets/blog/fr/llms-import-source.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="La vue de conversion SourceShelf avec l&#39;action Import llms.txt disponible pour sélectionner une collection locale." width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/fr/llms-pack-created.webp"><img src="/assets/blog/fr/llms-pack-created.webp" srcset="/assets/blog/fr/llms-pack-created-960.webp 960w, /assets/blog/fr/llms-pack-created.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un pack enregistré dans SourceShelf montrant les documents ordonnés et les commandes du pack après l’organisation locale des connaissances." width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<h3 id="exportation-des-collections-llms-txt-avec-sourceshelf">Exportation des collections llms.txt avec SourceShelf <a class="heading-anchor" href="#exportation-des-collections-llms-txt-avec-sourceshelf" aria-label="Lien vers la section: Exportation des collections llms.txt avec SourceShelf"><span aria-hidden="true">#</span></a></h3>
+<p>SourceShelf peut également créer un <strong>dossier de collection llms.txt</strong> à partir d’un pack enregistré :</p>
+<div class="code-block"><pre><code class="language-text">my-research-pack/
+├── llms.txt
+├── documents/
+├── assets/
+├── sourceshelf-manifest.json
+└── checksums.sha256</code></pre></div>
+<p>Le dossier contient des documents ordonnés, les ressources archivées auxquelles ils font référence, un manifeste SourceShelf avec les renseignements de provenance et des sommes de contrôle déterministes pour vérifier l’intégrité. Les références Web indisponibles dont la provenance est valide peuvent apparaître dans la section facultative de l’index, mais SourceShelf ne les télécharge pas.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/fr/llms-export.webp"><img src="/assets/blog/fr/llms-export.webp" srcset="/assets/blog/fr/llms-export-960.webp 960w, /assets/blog/fr/llms-export.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Options d&#39;exportation SourceShelf, y compris le dossier de collection llms.txt, le ZIP AI Reference Pack et le ZIP OKF Bundle." width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<p>Il s’agit d’un format de collection portable, et non d’une promesse que chaque produit d’IA l’importera directement. Vous pouvez conserver le dossier comme une collection locale lisible, l’adapter à un autre flux de travail ou exporter le même pack enregistré dans un format différent.</p>
+<h3 id="dun-flux-de-travail-llms-txt-à-un-flux-de-travail-sourceshelf">D&#39;un flux de travail llms.txt à un flux de travail SourceShelf <a class="heading-anchor" href="#dun-flux-de-travail-llms-txt-à-un-flux-de-travail-sourceshelf" aria-label="Lien vers la section: D&#39;un flux de travail llms.txt à un flux de travail SourceShelf"><span aria-hidden="true">#</span></a></h3>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/fr/sourceshelf-llms-workflow.webp"><img src="/assets/blog/fr/sourceshelf-llms-workflow.webp" srcset="/assets/blog/fr/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/fr/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un flux de travail passe d&#39;un site Web et de llms.txt à SourceShelf, puis à un pack de connaissances et à des outils d&#39;IA sélectionnés." width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<p>Une fois la collection enregistrée sous forme de pack, vous pouvez exporter un <a href="/fr/local-ai-reference-packs/">AI Reference Pack</a> ou utiliser Local AI Access pour partager un instantané immuable et en lecture seule avec un client compatible. Seul le pack sélectionné est exposé; SourceShelf ne partage pas le reste de la bibliothèque.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/fr/llms-ai-access.webp"><img src="/assets/blog/fr/llms-ai-access.webp" srcset="/assets/blog/fr/llms-ai-access-960.webp 960w, /assets/blog/fr/llms-ai-access.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Local AI Access dans SourceShelf montrant l’instantané en lecture seule d’un pack enregistré sélectionné." width="1440" height="900" loading="lazy" decoding="async"></a>
+</figure>
+<p>Si vous commencez avec un mélange plus large de documents et de pages Web plutôt qu&#39;un index existant, le <a href="/fr/private-ai-knowledge-base-mac/">Flux de travail de base de connaissances privée en intelligence artificielle</a> explique comment capturer, organiser et partager sélectivement les sources locales.</p>
+<h2 id="relation-avec-okf">Relation avec OKF <a class="heading-anchor" href="#relation-avec-okf" aria-label="Lien vers la section: Relation avec OKF"><span aria-hidden="true">#</span></a></h2>
+<figure class="docs-figure blog-article-figure">
+  <a href="/assets/blog/fr/llms-txt-okf-relationship.webp"><img src="/assets/blog/fr/llms-txt-okf-relationship.webp" srcset="/assets/blog/fr/llms-txt-okf-relationship-800.webp 800w, /assets/blog/fr/llms-txt-okf-relationship.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Trois étapes montrent llms.txt pour la découverte, SourceShelf pour l&#39;organisation et OKF pour la préservation." width="1200" height="675" loading="lazy" decoding="async"></a>
+</figure>
+<p><code>llms.txt</code> et Open Knowledge Format résolvent différents problèmes.</p>
+<ul><li><strong>llms.txt:</strong> aide un outil à découvrir et à naviguer dans les connaissances de sites Web sélectionnées.</li><li><strong>OKF:</strong> regroupe les connaissances structurées dans une collection portable de concepts et de métadonnées Markdown.</li><li><strong>SourceShelf:</strong> peut organiser les sources locales entre ces deux étapes et les exporter pour un flux de travail choisi.</li></ul>
+<p>Le <a href="/fr/blog/what-is-open-knowledge-format-okf/">guide sur Open Knowledge Format</a> explique plus en détail l’aspect de la mise en paquet. Aucun de ces formats n’agrandit la fenêtre de contexte d’un modèle ni ne garantit qu’un outil utilisera toutes les sources.</p>
+<h2 id="créer-des-connaissances-que-lia-peut-réellement-utiliser">Créer des connaissances que l’IA peut réellement utiliser <a class="heading-anchor" href="#créer-des-connaissances-que-lia-peut-réellement-utiliser" aria-label="Lien vers la section: Créer des connaissances que l’IA peut réellement utiliser"><span aria-hidden="true">#</span></a></h2>
+<p>Les systèmes d&#39;IA ont besoin de contexte. Ce contexte est plus utile lorsqu&#39;il est structuré, portable, compréhensible et maintenu par les personnes qui l&#39;ont créé.</p>
+<p><code>llms.txt</code> est une petite étape vers la simplification de la découverte des connaissances en ligne pour les systèmes et les agents d&#39;IA. Sa valeur provient d&#39;une curation minutieuse, de résumés précis, de liens stables et d&#39;outils qui décident de soutenir la convention.</p>
+<p>SourceShelf prolonge cette idée en vous aidant à capturer, organiser et regrouper les connaissances localement, afin que vos informations restent utiles dans les outils d’IA que vous choisissez.</p>
+<h2 id="sources-officielles">Sources officielles <a class="heading-anchor" href="#sources-officielles" aria-label="Lien vers la section: Sources officielles"><span aria-hidden="true">#</span></a></h2>
+<ul><li><a href="https://llmstxt.org/">La proposition et le format llms.txt</a></li><li><a href="https://github.com/AnswerDotAI/llms-txt">Dépôt de la spécification llms.txt d’Answer.AI</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/robots/intro">Recherche centrale Google : Introduction à robots.txt</a></li><li><a href="https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview">Google Search Central : Apprenez-en davantage sur les cartes du site.</a></li></ul>
+            </div>
+            <section class="blog-cta" aria-labelledby="blog-cta-what-is-llms-txt">
+              <div>
+                <p class="eyebrow">SourceShelf</p>
+                <h2 id="blog-cta-what-is-llms-txt">Créez votre base de connaissances IA privée avec SourceShelf</h2>
+                <p>Capturez, organisez et regroupez des connaissances choisies localement, puis utilisez le format adapté à votre flux de travail d’IA.</p>
+              </div>
+              <a class="button button-primary blog-cta-button" href="/fr/private-ai-knowledge-base-mac/">En savoir plus sur SourceShelf</a>
+            </section>
+          </div>
+          <aside class="docs-toc blog-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#llms-txt-en-termes-simples">llms.txt en termes simples</a></li><li class="toc-level-2"><a href="#exemple-de-fichier-llms-txt">Exemple de fichier llms.txt</a></li><li class="toc-level-2"><a href="#pourquoi-llms-txt-existe-t-il">Pourquoi llms.txt existe-t-il ?</a></li><li class="toc-level-2"><a href="#avantages-de-llms-txt">Avantages de llms.txt</a></li><li class="toc-level-2"><a href="#ce-que-llms-txt-ne-fait-pas">Ce que llms.txt ne fait pas</a></li><li class="toc-level-2"><a href="#llms-txt-contre-robots-txt">llms.txt contre robots.txt</a></li><li class="toc-level-2"><a href="#création-de-llms-txt-manuellement">Création de llms.txt manuellement</a></li><li class="toc-level-2"><a href="#comment-sourceshelf-utilise-llms-txt">Comment SourceShelf utilise llms.txt</a></li><li class="toc-level-3"><a href="#importation-de-llms-txt-avec-sourceshelf">Importation de llms.txt avec SourceShelf</a></li><li class="toc-level-3"><a href="#exportation-des-collections-llms-txt-avec-sourceshelf">Exportation des collections llms.txt avec SourceShelf</a></li><li class="toc-level-3"><a href="#dun-flux-de-travail-llms-txt-à-un-flux-de-travail-sourceshelf">D&#39;un flux de travail llms.txt à un flux de travail SourceShelf</a></li><li class="toc-level-2"><a href="#relation-avec-okf">Relation avec OKF</a></li><li class="toc-level-2"><a href="#créer-des-connaissances-que-lia-peut-réellement-utiliser">Créer des connaissances que l’IA peut réellement utiliser</a></li><li class="toc-level-2"><a href="#sources-officielles">Sources officielles</a></li></ol></nav></aside>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/fr/">Accueil</a>
+          <a href="/fr/blog/">Blog</a>
+          <a href="/fr/privacy.html">Confidentialité</a>
+          <a href="/fr/docs/">Documentation</a>
+          <a href="/fr/support.html">Assistance</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="Cas d&#39;utilisation de SourceShelf">
+        <h2>Manières d&#39;utiliser SourceShelf</h2>
+        <ul><li><a href="/fr/private-ai-knowledge-base-mac/">Base de connaissances privée sur l&#39;IA pour Mac</a></li><li><a href="/fr/pdf-to-markdown-mac/">Conversion locale de PDF</a></li><li><a href="/fr/save-webpages-as-markdown-safari/">Capture web Safari</a></li><li><a href="/fr/local-ai-reference-packs/">Contexte axé sur l&#39;IA</a></li><li><a href="/fr/research-archive-mac/">Archives de recherche locale</a></li><li><a href="/fr/mcp-knowledge-base-mac/">Accès en lecture seule aux connaissances de MCP</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260808-1"></script>
+</body>
+</html>
