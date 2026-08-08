@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
-import { copyFile, readFile, readdir, rm, mkdir, writeFile } from "node:fs/promises";
+import { access, copyFile, readFile, readdir, rm, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { TextDecoder } from "node:util";
 import { fileURLToPath } from "node:url";
 
 const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
@@ -122,6 +123,99 @@ function canonicalUrlForRoute(route) {
     throw new Error(`Canonical routes must end in / or .html: ${route}`);
   }
   return `${canonicalOrigin}${route}`;
+}
+
+function publicFileForPathname(pathname) {
+  if (pathname === "/") return path.join(siteRoot, "index.html");
+  const target = path.join(siteRoot, pathname.slice(1));
+  return pathname.endsWith("/") ? path.join(target, "index.html") : target;
+}
+
+async function validateLlmsTxt() {
+  const llmsFile = path.join(siteRoot, "llms.txt");
+  const bytes = await readFile(llmsFile);
+  let source;
+  try {
+    source = new TextDecoder("utf-8", { fatal: true }).decode(bytes);
+  } catch {
+    throw new Error("llms.txt must be valid UTF-8");
+  }
+
+  if (bytes.includes(0)) throw new Error("llms.txt must not contain NUL bytes");
+  if (!source.endsWith("\n")) throw new Error("llms.txt must end with a newline");
+  if (bytes.length > 5_000) throw new Error("llms.txt must remain concise (5 KB or less)");
+  if (!source.startsWith("# SourceShelf\n\n> ")) {
+    throw new Error("llms.txt must start with the SourceShelf H1 and summary blockquote");
+  }
+
+  const headings = [...source.matchAll(/^(#{1,6})\s+(.+)$/gm)].map((match) => ({
+    level: match[1].length,
+    title: match[2].trim()
+  }));
+  const expectedHeadings = [
+    { level: 1, title: "SourceShelf" },
+    { level: 2, title: "Product" },
+    { level: 2, title: "Guides" },
+    { level: 2, title: "Technical Documentation" },
+    { level: 2, title: "Key Concepts" },
+    { level: 2, title: "Product Principles" }
+  ];
+  if (JSON.stringify(headings) !== JSON.stringify(expectedHeadings)) {
+    throw new Error("llms.txt headings must preserve the concise canonical structure");
+  }
+  if (/<\/?[A-Za-z][^>]*>|<script\b|\bjavascript:|\bon\w+\s*=/i.test(source)) {
+    throw new Error("llms.txt must not contain HTML or JavaScript");
+  }
+  if (/```|!\[[^\]]*\]\([^)]+\)|(?:utm_(?:source|medium|campaign|content|term)|gclid|fbclid)=/i.test(source)) {
+    throw new Error("llms.txt must not contain code blocks, images, or tracking parameters");
+  }
+
+  const links = [...source.matchAll(/^- \[([^\]]+)\]\(([^)]+)\)$/gm)].map((match) => ({
+    label: match[1],
+    href: match[2]
+  }));
+  if (links.length !== 9) throw new Error(`llms.txt must contain 9 curated links, found ${links.length}`);
+
+  for (const link of links) {
+    let url;
+    try {
+      url = new URL(link.href);
+    } catch {
+      throw new Error(`llms.txt contains an invalid URL for ${link.label}: ${link.href}`);
+    }
+    if (url.protocol !== "https:") {
+      throw new Error(`llms.txt links must use HTTPS: ${link.href}`);
+    }
+    if (url.origin !== canonicalOrigin) {
+      if (link.href !== appStoreUrl) {
+        throw new Error(`llms.txt contains an unsupported external URL: ${link.href}`);
+      }
+      continue;
+    }
+    if (url.search || url.pathname.endsWith("/index.html")) {
+      throw new Error(`llms.txt contains a non-canonical SourceShelf URL: ${link.href}`);
+    }
+    if (!logicalRoutes.has(url.pathname)) {
+      throw new Error(`llms.txt references an unknown generated route: ${link.href}`);
+    }
+
+    const target = publicFileForPathname(url.pathname);
+    try {
+      await access(target);
+    } catch {
+      throw new Error(`llms.txt references a missing generated file: ${link.href}`);
+    }
+    if (url.hash) {
+      const targetSource = await readFile(target, "utf8");
+      const fragment = decodeURIComponent(url.hash.slice(1));
+      const ids = new Set([...targetSource.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
+      if (!ids.has(fragment)) {
+        throw new Error(`llms.txt references a missing fragment: ${link.href}`);
+      }
+    }
+  }
+
+  return links.length;
 }
 
 function escapeHtml(value) {
@@ -2070,8 +2164,9 @@ async function build() {
     await writeFile(path.join(outputDirectory, "index.html"), renderPage(page, page.rendered));
   }
 
+  const llmsLinkCount = await validateLlmsTxt();
   await writeSitemap();
-  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, ${locales.length} blog indexes, ${blogPages.length} blog articles, and ${imageMap.size * 2} documentation image variants.`);
+  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, ${locales.length} blog indexes, ${blogPages.length} blog articles, and ${imageMap.size * 2} documentation image variants; validated ${llmsLinkCount} llms.txt links.`);
 }
 
 await build();

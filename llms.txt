@@ -1,0 +1,62 @@
+# SourceShelf
+
+> SourceShelf is a private AI knowledge base for Mac. Capture webpages, convert documents, organize sources into knowledge packs, and connect selected knowledge to compatible AI applications through local read-only workflows.
+
+SourceShelf processes content locally on your Mac and keeps generated knowledge in portable formats such as Markdown, OKF bundles, AI reference packs, and llms.txt collections.
+
+## Product
+
+- [SourceShelf Home](https://sourceshelf.app/)
+  Learn about the private AI knowledge base for Mac.
+
+- [Features](https://sourceshelf.app/#how-it-works)
+  Explore capture, conversion, knowledge packs, AI access, and export workflows.
+
+- [Download SourceShelf](https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12)
+  Download SourceShelf for macOS.
+
+## Guides
+
+- [Private AI Knowledge Base for Mac](https://sourceshelf.app/private-ai-knowledge-base-mac/)
+  Learn how SourceShelf helps organize documents, research, and web sources into focused AI knowledge packs.
+
+- [What Is Open Knowledge Format (OKF)?](https://sourceshelf.app/blog/what-is-open-knowledge-format-okf/)
+  Learn about portable structured knowledge bundles based on Markdown and metadata.
+
+- [What Is llms.txt?](https://sourceshelf.app/blog/what-is-llms-txt/)
+  Learn how llms.txt provides a simple Markdown-based index for AI-readable website knowledge.
+
+- [AI Reference Packs](https://sourceshelf.app/local-ai-reference-packs/)
+  Learn how SourceShelf creates focused context packs for AI workflows.
+
+## Technical Documentation
+
+- [SourceShelf User Guide](https://sourceshelf.app/docs/)
+  Learn about importing sources, creating packs, exports, and local AI access.
+
+- [Privacy](https://sourceshelf.app/privacy.html)
+  Learn how SourceShelf handles local processing and user data.
+
+## Key Concepts
+
+SourceShelf concepts:
+
+- Local-first document conversion
+- Safari webpage capture
+- Markdown knowledge management
+- AI reference packs
+- Retrieval-ready context
+- Open Knowledge Format (OKF)
+- llms.txt collections
+- Model Context Protocol (MCP)
+- Read-only AI knowledge access
+
+## Product Principles
+
+SourceShelf follows these principles:
+
+- User-owned files.
+- Local processing.
+- Portable formats.
+- Explicit AI permissions.
+- No hidden cloud processing.
