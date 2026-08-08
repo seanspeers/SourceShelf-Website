@@ -214,7 +214,8 @@
         "https://llmstxt.org/",
         "https://github.com/AnswerDotAI/llms-txt",
         "https://developers.google.com/search/docs/crawling-indexing/robots/intro",
-        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview"
+        "https://developers.google.com/search/docs/crawling-indexing/sitemaps/overview",
+        "https://sourceshelf.app/llms.txt"
       ],
       "requiredLogicalLinks": [
         "/blog/what-is-open-knowledge-format-okf/",

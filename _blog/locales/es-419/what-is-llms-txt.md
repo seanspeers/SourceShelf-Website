@@ -116,6 +116,10 @@ https://website.com/llms.txt
 
 Mantén la lista selectiva. Una guía breve del contenido de referencia suele ser más útil que un segundo mapa del sitio con todas las URL. Revisa el archivo cuando la documentación cambie de ubicación, cambien las políticas o se añadan páginas importantes.
 
+## SourceShelf publica su propio archivo llms.txt
+
+SourceShelf publica su propio [archivo llms.txt](https://sourceshelf.app/llms.txt). Esto permite que los sistemas de IA y los desarrolladores descubran la documentación y los conceptos clave de la aplicación mediante la misma convención descrita en este artículo.
+
 ## Cómo SourceShelf utiliza llms.txt
 
 SourceShelf trata `llms.txt` como un puente útil entre sitios web y flujos de trabajo de conocimiento local de IA.
