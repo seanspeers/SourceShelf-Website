@@ -193,10 +193,13 @@
       "heroAsset": "llms-txt-hero",
       "heroFormat": "webp",
       "visualKind": "llms-txt",
-      "mediaPlacementBeforeH2": 8,
+      "mediaPlacementBeforeH2": 9,
       "ctaRoute": "/private-ai-knowledge-base-mac/",
-      "videoPlaceholder": {
-        "posterAsset": "sourceshelf-llms-workflow"
+      "youtubeVideo": {
+        "id": "4GJ5FdAYTAI",
+        "uploadDate": "2026-08-08T08:15:38-07:00",
+        "watchUrl": "https://youtu.be/4GJ5FdAYTAI",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/4GJ5FdAYTAI"
       },
       "articleGraphics": [
         {"id": "llms-txt-markdown-example", "width": 1200, "height": 675},
@@ -240,19 +243,6 @@
             {"number": "3", "title": "Human-readable documentation", "description": "Because llms.txt is Markdown, people can read, edit, review, and version it with ordinary tools."},
             {"number": "4", "title": "Future-ready knowledge sharing", "description": "A lightweight open convention can provide structured context without tying a website to one AI vendor."}
           ],
-          "videoPlaceholder": {
-            "eyebrow": "Video guide",
-            "title": "How SourceShelf uses llms.txt",
-            "status": "Video in production",
-            "duration": "Target length: about 2 minutes",
-            "captions": "Captions will be included with the published video.",
-            "transcriptTitle": "Planned transcript",
-            "transcript": [
-              "The video will explain the llms.txt convention and its role as a curated Markdown guide.",
-              "It will demonstrate how SourceShelf imports safe local references without downloading remote URLs.",
-              "It will show how a saved pack can be exported as an llms.txt Collection Folder, AI Reference Pack, or OKF bundle."
-            ]
-          },
           "graphics": {
             "hero": {"tagline": "Helping AI understand your website", "website": "Website", "index": "llms.txt", "assistant": "AI Assistant"},
             "comparison": {"title": "Three files, three different jobs", "robots": "Crawler preferences", "sitemap": "Website URLs", "llms": "AI-readable context"},
@@ -278,19 +268,6 @@
             {"number": "3", "title": "Documentation lisible par tous", "description": "Comme llms.txt est du Markdown, on peut le lire, le modifier, le réviser et le versionner avec des outils courants."},
             {"number": "4", "title": "Partage de connaissances durable", "description": "Une convention ouverte et légère peut fournir un contexte structuré sans lier le site à un seul fournisseur d’IA."}
           ],
-          "videoPlaceholder": {
-            "eyebrow": "Guide vidéo",
-            "title": "Comment SourceShelf utilise llms.txt",
-            "status": "Vidéo en production",
-            "duration": "Durée visée : environ 2 minutes",
-            "captions": "Des sous-titres seront fournis avec la vidéo publiée.",
-            "transcriptTitle": "Transcription prévue",
-            "transcript": [
-              "La vidéo expliquera la convention llms.txt et son rôle de guide Markdown organisé.",
-              "Elle montrera comment SourceShelf importe des références locales sûres sans télécharger les URL distantes.",
-              "Elle présentera l’exportation d’un pack enregistré en dossier de collection llms.txt, en AI Reference Pack ou en bundle OKF."
-            ]
-          },
           "graphics": {
             "hero": {"tagline": "Aider l’IA à comprendre votre site Web", "website": "Site Web", "index": "llms.txt", "assistant": "Assistant IA"},
             "comparison": {"title": "Trois fichiers, trois rôles différents", "robots": "Préférences des robots", "sitemap": "URL du site Web", "llms": "Contexte lisible par l’IA"},
@@ -316,19 +293,6 @@
             {"number": "3", "title": "Documentación legible por personas", "description": "Como llms.txt es Markdown, se puede leer, editar, revisar y mantener bajo control de versiones con herramientas comunes."},
             {"number": "4", "title": "Intercambio preparado para el futuro", "description": "Una convención abierta y ligera puede aportar contexto estructurado sin vincular un sitio a un solo proveedor de IA."}
           ],
-          "videoPlaceholder": {
-            "eyebrow": "Guía en video",
-            "title": "Cómo usa SourceShelf llms.txt",
-            "status": "Video en producción",
-            "duration": "Duración prevista: aproximadamente 2 minutos",
-            "captions": "El video publicado incluirá subtítulos.",
-            "transcriptTitle": "Transcripción prevista",
-            "transcript": [
-              "El video explicará la convención llms.txt y su función como guía Markdown seleccionada.",
-              "Mostrará cómo SourceShelf importa referencias locales seguras sin descargar URL remotas.",
-              "También mostrará cómo exportar un paquete guardado como carpeta de colección llms.txt, AI Reference Pack o bundle OKF."
-            ]
-          },
           "graphics": {
             "hero": {"tagline": "Ayuda a la IA a entender tu sitio web", "website": "Sitio web", "index": "llms.txt", "assistant": "Asistente de IA"},
             "comparison": {"title": "Tres archivos, tres funciones distintas", "robots": "Preferencias de rastreo", "sitemap": "URL del sitio web", "llms": "Contexto legible para IA"},
@@ -354,19 +318,6 @@
             {"number": "3", "title": "Documentação legível por pessoas", "description": "Como llms.txt é Markdown, as pessoas podem ler, editar, revisar e versionar o arquivo com ferramentas comuns."},
             {"number": "4", "title": "Compartilhamento preparado para o futuro", "description": "Uma convenção aberta e leve pode fornecer contexto estruturado sem vincular o site a um único fornecedor de IA."}
           ],
-          "videoPlaceholder": {
-            "eyebrow": "Guia em vídeo",
-            "title": "Como o SourceShelf usa llms.txt",
-            "status": "Vídeo em produção",
-            "duration": "Duração prevista: cerca de 2 minutos",
-            "captions": "A versão publicada terá legendas.",
-            "transcriptTitle": "Transcrição planejada",
-            "transcript": [
-              "O vídeo explicará a convenção llms.txt e seu papel como guia Markdown selecionado.",
-              "Ele mostrará como o SourceShelf importa referências locais seguras sem baixar URLs remotas.",
-              "Também mostrará como exportar um pacote salvo como pasta de coleção llms.txt, AI Reference Pack ou bundle OKF."
-            ]
-          },
           "graphics": {
             "hero": {"tagline": "Ajude a IA a entender seu site", "website": "Site", "index": "llms.txt", "assistant": "Assistente de IA"},
             "comparison": {"title": "Três arquivos, três funções diferentes", "robots": "Preferências de rastreamento", "sitemap": "URLs do site", "llms": "Contexto legível por IA"},
@@ -392,19 +343,6 @@
             {"number": "3", "title": "人が読めるドキュメント", "description": "llms.txtはMarkdownなので、一般的なツールで読取、編集、レビュー、バージョン管理ができます。"},
             {"number": "4", "title": "将来を見据えた共有", "description": "軽量なオープン規約により、特定のAIベンダーに依存せず構造化コンテキストを提供できます。"}
           ],
-          "videoPlaceholder": {
-            "eyebrow": "動画ガイド",
-            "title": "SourceShelfでllms.txtを活用する方法",
-            "status": "動画を制作中",
-            "duration": "予定時間：約2分",
-            "captions": "公開時には字幕を用意します。",
-            "transcriptTitle": "予定している内容",
-            "transcript": [
-              "llms.txt規約と、整理されたMarkdownガイドとしての役割を説明します。",
-              "SourceShelfがリモートURLをダウンロードせず、安全なローカル参照を読み込む方法を紹介します。",
-              "保存済みパックをllms.txt Collection Folder、AI Reference Pack、OKFバンドルとして書き出す流れを示します。"
-            ]
-          },
           "graphics": {
             "hero": {"tagline": "AIがWebサイトを理解するために", "website": "Webサイト", "index": "llms.txt", "assistant": "AIアシスタント"},
             "comparison": {"title": "3つのファイル、3つの役割", "robots": "クローラー設定", "sitemap": "WebサイトのURL", "llms": "AI向けコンテキスト"},
