@@ -2052,6 +2052,7 @@ async function buildBlogPages() {
 }
 
 async function writeSitemap() {
+  const exampleRoutes = ["/examples/", "/examples/japan-trip-ai-planner/"];
   const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
   const blogIndexRoutes = locales.map((locale) => localizedRoute(locale, "/blog/"));
   const routes = [...new Set([
@@ -2059,9 +2060,10 @@ async function writeSitemap() {
     ...landingPages.map((page) => page.route),
     ...allPages.map((page) => page.route),
     ...blogIndexRoutes,
-    ...blogPages.map((page) => page.route)
+    ...blogPages.map((page) => page.route),
+    ...exampleRoutes
   ])].sort();
-  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalUrlForRoute(route)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
+  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalUrlForRoute(route)}</loc>\n    <lastmod>${exampleRoutes.includes(route) ? "2026-08-09" : buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
 }

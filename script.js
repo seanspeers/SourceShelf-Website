@@ -114,6 +114,12 @@
         setLightboxZoom(false);
         lightboxImage.src = trigger.href;
         lightboxImage.alt = trigger.getAttribute("data-lightbox-alt") || "";
+        var imageWidth = parseInt(trigger.getAttribute("data-lightbox-width") || "2880", 10);
+        var imageHeight = parseInt(trigger.getAttribute("data-lightbox-height") || "1800", 10);
+        lightboxImage.width = imageWidth;
+        lightboxImage.height = imageHeight;
+        lightbox.style.setProperty("--lightbox-image-width", imageWidth + "px");
+        lightbox.style.setProperty("--lightbox-image-height", imageHeight + "px");
         lightboxCaption.textContent = trigger.getAttribute("data-lightbox-caption") || "";
         document.body.classList.add("home-lightbox-open");
         lightbox.showModal();
@@ -143,6 +149,8 @@
       document.body.classList.remove("home-lightbox-open");
       lightboxImage.removeAttribute("src");
       lightboxImage.alt = "";
+      lightbox.style.removeProperty("--lightbox-image-width");
+      lightbox.style.removeProperty("--lightbox-image-height");
       lightboxCaption.textContent = "";
       window.scrollTo(0, lightboxScrollPosition);
       if (activeLightboxTrigger) {

@@ -19,6 +19,7 @@ const landingContent = new Map(await Promise.all(localeCodes.map(async (locale) 
 const landingRoutes = landingContent.get("en").pages.map((page) => page.route);
 const blogManifest = JSON.parse(await readFile(path.join(blogSourceRoot, "posts.json"), "utf8"));
 const blogRoutes = blogManifest.posts.map((post) => post.route);
+const exampleRoutes = ["/examples/", "/examples/japan-trip-ai-planner/"];
 const homepageScreenshotNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
@@ -76,6 +77,17 @@ for (const locale of localeCodes) {
       isBlogArticle: blogRoutes.includes(logicalRoute)
     });
   }
+}
+for (const route of exampleRoutes) {
+  expectedPages.set(route, {
+    locale: "en",
+    logicalRoute: route,
+    isDocs: false,
+    isLanding: false,
+    isBlogIndex: false,
+    isBlogArticle: false,
+    isExample: true
+  });
 }
 const expectedCanonicalUrls = new Set([...expectedPages.keys()].map(canonicalUrlForRoute));
 
@@ -229,7 +241,7 @@ for (const htmlFile of htmlFiles) {
     errors.push(`Unexpected public HTML file: ${publicPath}`);
     continue;
   }
-  const { locale, logicalRoute, isDocs, isLanding, isBlogIndex, isBlogArticle } = expected;
+  const { locale, logicalRoute, isDocs, isLanding, isBlogIndex, isBlogArticle, isExample } = expected;
 
   if (/PRIVACY\.md|\.markdownlint|assets\/README\.md/.test(html)) {
     errors.push(`${publicPath} contains a repository-only or Markdown source link`);
@@ -357,20 +369,29 @@ for (const htmlFile of htmlFiles) {
       }
     }
   }
-  for (const alternateLocale of localeCodes) {
-    const alternateUrl = canonicalUrlForRoute(localizedRoute(alternateLocale, logicalRoute));
-    if (!html.includes(`<link rel="alternate" hreflang="${alternateLocale}" href="${alternateUrl}">`)) {
-      errors.push(`${publicPath} is missing the ${alternateLocale} alternate URL`);
+  if (isExample) {
+    if (!html.includes(`<link rel="alternate" hreflang="en" href="${expectedCanonical}">`)) {
+      errors.push(`${publicPath} is missing its English alternate URL`);
     }
-  }
-  if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`)) {
-    errors.push(`${publicPath} is missing the English x-default URL`);
-  }
-  if (!html.includes(`<option value="${locale}" lang="${locale}" selected>`)) {
-    errors.push(`${publicPath} does not select its current language`);
-  }
-  if (!html.includes(`window.SourceShelfLocale.bootstrap("${locale}")`)) {
-    errors.push(`${publicPath} bootstraps the wrong locale`);
+    if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${expectedCanonical}">`)) {
+      errors.push(`${publicPath} is missing its English x-default URL`);
+    }
+  } else {
+    for (const alternateLocale of localeCodes) {
+      const alternateUrl = canonicalUrlForRoute(localizedRoute(alternateLocale, logicalRoute));
+      if (!html.includes(`<link rel="alternate" hreflang="${alternateLocale}" href="${alternateUrl}">`)) {
+        errors.push(`${publicPath} is missing the ${alternateLocale} alternate URL`);
+      }
+    }
+    if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`)) {
+      errors.push(`${publicPath} is missing the English x-default URL`);
+    }
+    if (!html.includes(`<option value="${locale}" lang="${locale}" selected>`)) {
+      errors.push(`${publicPath} does not select its current language`);
+    }
+    if (!html.includes(`window.SourceShelfLocale.bootstrap("${locale}")`)) {
+      errors.push(`${publicPath} bootstraps the wrong locale`);
+    }
   }
   if ((html.match(/<h1\b/g) || []).length !== 1) {
     errors.push(`${publicPath} must contain exactly one level-one heading`);
@@ -384,6 +405,52 @@ for (const htmlFile of htmlFiles) {
   const footerUseCases = html.match(/<nav class="footer-use-cases"[\s\S]*?<\/nav>/)?.[0] || "";
   if ((footerUseCases.match(/<a href=/g) || []).length !== 6) {
     errors.push(`${publicPath} must link all six use cases from its grouped footer`);
+  }
+
+  if (isExample) {
+    if (!html.includes('class="examples-nav"') || !html.includes('href="/examples/" aria-current="page"')) {
+      errors.push(`${publicPath} is missing the examples navigation or current-section state`);
+    }
+    for (const label of [
+      "Japan Trip Planner",
+      "Developer Documentation Assistant",
+      "Home Renovation Research",
+      "Academic Research Assistant",
+      "Personal Learning Assistant"
+    ]) {
+      if (!html.includes(label)) errors.push(`${publicPath} is missing future example label: ${label}`);
+    }
+    if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
+      errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the video`);
+    }
+
+    if (logicalRoute === "/examples/japan-trip-ai-planner/") {
+      if (!html.includes("<title>Private AI Travel Planner | SourceShelf</title>")) {
+        errors.push(`${publicPath} has the wrong SEO title`);
+      }
+      if (!html.includes('meta name="description" content="Learn how SourceShelf turns travel research, websites, PDFs, and notes into a private AI knowledge base you can explore with AI."')) {
+        errors.push(`${publicPath} has the wrong SEO description`);
+      }
+      if (!html.includes("Plan your next trip with your own private AI travel assistant")) {
+        errors.push(`${publicPath} is missing the requested hero heading`);
+      }
+      if (
+        !html.includes('data-youtube-embed="https://www.youtube-nocookie.com/embed/EgGdSRGvE7Y"') ||
+        !html.includes('href="https://youtube.com/shorts/EgGdSRGvE7Y?feature=share"') ||
+        !html.includes("data-youtube-load")
+      ) {
+        errors.push(`${publicPath} is missing the privacy-enhanced Japan demo video`);
+      }
+      if ((html.match(/class="example-evidence-card(?: |")/g) || []).length !== 3) {
+        errors.push(`${publicPath} must contain three product-evidence cards`);
+      }
+      if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
+        errors.push(`${publicPath} must prioritize only its Japan hero image`);
+      }
+      if (!html.includes('data-home-lightbox') || (html.match(/data-home-screenshot-trigger/g) || []).length < 7) {
+        errors.push(`${publicPath} is missing the shared screenshot viewer or its evidence triggers`);
+      }
+    }
   }
 
   if (logicalRoute === "/") {
