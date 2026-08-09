@@ -8,6 +8,10 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://sourceshelf.app/examples/">
   <link rel="alternate" hreflang="en" href="https://sourceshelf.app/examples/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/examples/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/examples/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/examples/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/examples/">
   <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/examples/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="SourceShelf Examples | Private AI Workflows">
@@ -21,8 +25,10 @@
   <title>SourceShelf Examples | Private AI Workflows</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260809-1">
+  <link rel="stylesheet" href="/styles.css?v=20260809-2">
+  <script src="/locale.js?v=20260809-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -51,7 +57,10 @@
         <a class="nav-link" href="/docs/">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
-        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false"><span class="theme-toggle-icon" aria-hidden="true"></span></button>
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
       </div>
     </nav>
   </header>
@@ -104,11 +113,20 @@
     </div>
   </main>
 
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-primary">
         <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
-        <div class="footer-links"><a href="/">Home</a><a href="/examples/">Examples</a><a href="/blog/">Blog</a><a href="/privacy.html">Privacy</a><a href="/docs/">Documentation</a><a href="/support.html">Support</a><a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a></div>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/examples/">Examples</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/docs/">Documentation</a>
+          <a href="/support.html">Support</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
       </div>
       <nav class="footer-use-cases" aria-label="SourceShelf use cases">
         <h2>Ways to use SourceShelf</h2>
@@ -116,6 +134,6 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260809-1"></script>
+  <script src="/script.js?v=20260809-2"></script>
 </body>
 </html>

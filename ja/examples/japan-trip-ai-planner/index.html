@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="旅行の調査、ウェブサイト、PDF、メモを、AI で探索できるプライベートなナレッジベースに SourceShelf でまとめる方法をご紹介します。">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/ja/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/examples/japan-trip-ai-planner/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="自分専用のプライベート AI 旅行アシスタントで次の旅を計画">
+  <meta property="og:description" content="旅行サイト、PDF、おすすめ情報、個人メモを、AI で探索できる一つの SourceShelf パックにまとめる方法をご覧ください。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/examples/japan-trip-ai-planner/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/examples/japan-trip-ai-planner/social.jpg">
+  <meta property="og:image:alt" content="富士山を背景にした SourceShelf のプライベート AI 旅行計画の活用例">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="自分専用のプライベート AI 旅行アシスタントで次の旅を計画">
+  <meta name="twitter:description" content="旅行サイト、PDF、おすすめ情報、個人メモを、AI で探索できる一つの SourceShelf パックにまとめる方法をご覧ください。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/examples/japan-trip-ai-planner/social.jpg">
+  <meta name="twitter:image:alt" content="富士山を背景にした SourceShelf のプライベート AI 旅行計画の活用例">
+  <title>プライベート AI 旅行プランナー | SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260809-2">
+  <script src="/locale.js?v=20260809-2"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"自分専用のプライベート AI 旅行アシスタントで次の旅を計画","description":"旅行の調査、ウェブサイト、PDF、メモを、AI で探索できるプライベートなナレッジベースに SourceShelf でまとめる方法をご紹介します。","url":"https://sourceshelf.app/ja/examples/japan-trip-ai-planner/","inLanguage":"ja","isPartOf":{"@type":"WebSite","name":"SourceShelf","url":"https://sourceshelf.app/"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://sourceshelf.app/ja/"},{"@type":"ListItem","position":2,"name":"活用例","item":"https://sourceshelf.app/ja/examples/"},{"@type":"ListItem","position":3,"name":"日本旅行プランナー","item":"https://sourceshelf.app/ja/examples/japan-trip-ai-planner/"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoObject","name":"自分専用のプライベート AI で日本旅行を計画","description":"旅行サイト、PDF、メモを、架空の日本旅行向けのプライベート AI ナレッジパックに SourceShelf でまとめる方法をご覧ください。","thumbnailUrl":"https://sourceshelf.app/assets/examples/japan-trip-ai-planner/video-poster-960.webp","uploadDate":"2026-08-09T10:07:13-07:00","embedUrl":"https://www.youtube-nocookie.com/embed/EgGdSRGvE7Y","sameAs":"https://youtube.com/shorts/EgGdSRGvE7Y","url":"https://sourceshelf.app/ja/examples/japan-trip-ai-planner/","inLanguage":"ja","publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/examples/" aria-current="page">活用例</a>
+        <a class="nav-link" href="/ja/blog/">ブログ</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main landing-main examples-main">
+    <div class="landing-page-shell">
+      <nav class="landing-breadcrumbs" aria-label="パンくずリスト">
+        <ol>
+          <li><a href="/ja/">ホーム</a></li>
+          <li><a href="/ja/examples/">活用例</a></li>
+          <li aria-current="page">日本旅行プランナー</li>
+        </ol>
+      </nav>
+
+      <nav class="examples-nav" aria-label="SourceShelf 活用例">
+        <a class="examples-nav-label" href="/ja/examples/">SourceShelf 活用例</a>
+        <div class="examples-nav-items">
+          <a href="/ja/examples/japan-trip-ai-planner/" aria-current="page">日本旅行プランナー</a>
+          <span>開発者ドキュメントアシスタント <small>近日公開</small></span>
+          <span>住宅リフォーム調査 <small>近日公開</small></span>
+          <span>学術研究アシスタント <small>近日公開</small></span>
+          <span>パーソナル学習アシスタント <small>近日公開</small></span>
+        </div>
+      </nav>
+
+      <section class="section hero example-hero" aria-labelledby="example-hero-title">
+        <div class="hero-copy example-hero-copy">
+          <div class="example-brand-lockup">
+            <img src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="58" height="58">
+            <span><strong>SourceShelf</strong><small>プライベート AI ワークフローの活用例</small></span>
+          </div>
+          <p class="eyebrow">自分の調査。自分の旅。自分で選ぶ AI。</p>
+          <h1 id="example-hero-title">自分専用のプライベート AI 旅行アシスタントで次の旅を計画</h1>
+          <p class="subheading">旅行ガイド、ホテル情報、交通の詳細、個人メモを SourceShelf にまとめます。情報を非公開に保ちながら、AI で自分の調査内容を探索できます。</p>
+          <div class="actions">
+            <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">SourceShelf をダウンロード</a>
+            <a class="button button-secondary" href="#workflow">ワークフローを見る</a>
+          </div>
+          <ul class="home-proof-list" aria-label="SourceShelf のプライバシー原則">
+            <li>ローカル処理</li>
+            <li>目的を絞ったナレッジパック</li>
+            <li>読み取り専用の AI アクセス</li>
+          </ul>
+        </div>
+
+        <div class="example-hero-media" aria-label="日本旅行計画のデモ">
+          <picture class="example-hero-photo">
+            <source srcset="/assets/examples/japan-trip-ai-planner/japan-hero-960.webp 960w, /assets/examples/japan-trip-ai-planner/japan-hero-1600.webp 1600w" type="image/webp">
+            <img src="/assets/examples/japan-trip-ai-planner/japan-hero-1600.webp" sizes="(max-width: 920px) calc(100vw - 24px), 620px" alt="Japan Adventure 2027 のデモ調査で使われている、静かな湖面に映る富士山" width="1600" height="901" loading="eager" fetchpriority="high" decoding="async">
+          </picture>
+          <div class="example-photo-caption">
+            <img src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="34" height="34">
+            <span><strong>Japan Adventure 2027</strong><small>選択した 10 件の情報源 · プライベートパック</small></span>
+          </div>
+          <figure class="example-short-card" data-youtube-player>
+            <div class="landing-video-frame example-video-frame" data-youtube-frame>
+              <img src="/assets/examples/japan-trip-ai-planner/video-poster-640.webp" srcset="/assets/examples/japan-trip-ai-planner/video-poster-640.webp 640w, /assets/examples/japan-trip-ai-planner/video-poster-960.webp 960w" sizes="230px" alt="Japan Adventure 2027 デモの東京の街並み" width="640" height="361" loading="lazy" decoding="async">
+              <button class="landing-video-play example-video-play" type="button" data-youtube-load data-youtube-embed="https://www.youtube-nocookie.com/embed/EgGdSRGvE7Y" data-youtube-title="自分専用のプライベート AI で日本旅行を計画" aria-describedby="japan-short-privacy" aria-label="日本旅行計画の動画を再生">
+                <span class="landing-video-play-icon" aria-hidden="true"></span>
+                <span>デモを見る</span>
+              </button>
+            </div>
+            <figcaption id="japan-short-privacy">
+              <span>1 分でわかるワークフロー</span>
+              <a href="https://youtube.com/shorts/EgGdSRGvE7Y?feature=share" target="_blank" rel="noopener noreferrer">YouTube <span aria-hidden="true">↗</span></a>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section example-story-section example-scattered" aria-labelledby="scattered-title">
+        <div class="example-split-copy">
+          <p class="eyebrow">旅行調査の課題</p>
+          <h2 id="scattered-title">旅行の調査情報はあちこちに散在します</h2>
+          <p>旅行計画では通常、さまざまな場所から役立つ情報を集めたあと、答えがどのタブ、ダウンロード、メモにあったかを思い出さなければなりません。</p>
+          <ul class="example-source-chips" aria-label="一般的な旅行調査の情報源">
+            <li>ブログ記事</li>
+            <li>ホテルのウェブサイト</li>
+            <li>PDF</li>
+            <li>レストランのおすすめ</li>
+            <li>個人メモ</li>
+            <li>旅程</li>
+          </ul>
+        </div>
+
+        <div class="research-collage" aria-label="ブラウザのタブ、PDF、メモに分散した旅行調査">
+          <div class="research-browser">
+            <div class="research-browser-bar" aria-hidden="true">
+              <span class="research-window-dots"><i></i><i></i><i></i></span>
+              <span class="research-tab is-active">日本で過ごす 10 日間</span>
+              <span class="research-tab">鉄道路線の比較</span>
+              <span class="research-tab">+ 6 個のタブ</span>
+            </div>
+            <img src="/assets/examples/japan-trip-ai-planner/research-collection-960.webp" srcset="/assets/examples/japan-trip-ai-planner/research-collection-960.webp 960w, /assets/examples/japan-trip-ai-planner/research-collection-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), 650px" alt="架空の Japan Adventure 2027 旅行調査サイト" width="960" height="734" loading="lazy" decoding="async">
+          </div>
+          <div class="research-document">
+            <span class="research-file-label">PDF · 5 ページ</span>
+            <img src="/assets/examples/japan-trip-ai-planner/budget-notebook-480.webp" srcset="/assets/examples/japan-trip-ai-planner/budget-notebook-480.webp 480w, /assets/examples/japan-trip-ai-planner/budget-notebook-800.webp 800w" sizes="220px" alt="Japan Adventure 2027 の旅行予算ノート" width="480" height="622" loading="lazy" decoding="async">
+          </div>
+          <div class="research-note">
+            <span class="research-file-label">個人メモ</span>
+            <strong>旅行の希望</strong>
+            <ul>
+              <li>文化体験を優先</li>
+              <li>公共交通機関</li>
+              <li>思い出に残る旅館に 1 泊</li>
+              <li>無理のないペース</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="workflow" class="section example-story-section example-workflow-section" aria-labelledby="workflow-title">
+        <div class="section-heading home-section-heading">
+          <p class="eyebrow">一つの明確なワークフロー</p>
+          <h2 id="workflow-title">散在する調査を AI で使えるナレッジパックに</h2>
+          <p>SourceShelf は調査の収集を明確な流れに変えます。重要な情報を集め、旅行用にまとめ、対応する AI アプリが選択したコンテキストを利用できるようにします。</p>
+        </div>
+
+        <ol class="example-workflow-grid">
+          <li class="example-workflow-card">
+            <a class="home-screenshot-trigger example-workflow-image" href="/assets/examples/japan-trip-ai-planner/capture-1800.webp" data-home-screenshot-trigger data-lightbox-width="1800" data-lightbox-height="1277" data-lightbox-alt="架空の日本旅行ページをローカル Markdown として取り込む SourceShelf Safari 拡張機能" data-lightbox-caption="Safari から役立つ旅行調査を取り込みます。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：Safari から役立つ旅行調査を取り込む">
+              <img src="/assets/examples/japan-trip-ai-planner/capture-960.webp" alt="架空の日本旅行ページをローカル Markdown として取り込む SourceShelf Safari 拡張機能" width="960" height="681" loading="lazy" decoding="async">
+              <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+            </a>
+            <div class="example-workflow-copy">
+              <span class="landing-step-number" aria-hidden="true">1</span>
+              <div><h3>取り込む</h3><p>Safari、書類、メモから役立つ旅行情報を保存します。</p></div>
+            </div>
+          </li>
+          <li class="example-workflow-card">
+            <a class="home-screenshot-trigger example-workflow-image" href="/assets/examples/japan-trip-ai-planner/organize-1800.webp" data-home-screenshot-trigger data-lightbox-width="1800" data-lightbox-height="1013" data-lightbox-alt="整理された旅行情報源を収めた Japan Adventure 2027 という SourceShelf パック" data-lightbox-caption="関連する旅行調査を、一つの目的を絞った SourceShelf パックに整理します。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：日本旅行のナレッジパックを整理する">
+              <img src="/assets/examples/japan-trip-ai-planner/organize-960.webp" alt="整理された旅行情報源を収めた Japan Adventure 2027 という SourceShelf パック" width="960" height="540" loading="lazy" decoding="async">
+              <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+            </a>
+            <div class="example-workflow-copy">
+              <span class="landing-step-number" aria-hidden="true">2</span>
+              <div><h3>整理する</h3><p>関連情報を、目的を絞った一つの SourceShelf パックにまとめます。</p></div>
+            </div>
+          </li>
+          <li class="example-workflow-card">
+            <a class="home-screenshot-trigger example-workflow-image" href="/assets/examples/japan-trip-ai-planner/share-1800.webp" data-home-screenshot-trigger data-lightbox-width="1800" data-lightbox-height="1013" data-lightbox-alt="Japan Adventure 2027 パックの現在の読み取り専用スナップショットを表示する SourceShelf ローカル AI アクセス" data-lightbox-caption="選択したパックだけを、対応する AI アプリと読み取り専用コンテキストとして共有します。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：選択したパックを AI で使う">
+              <img src="/assets/examples/japan-trip-ai-planner/share-960.webp" alt="Japan Adventure 2027 パックの現在の読み取り専用スナップショットを表示する SourceShelf ローカル AI アクセス" width="960" height="540" loading="lazy" decoding="async">
+              <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+            </a>
+            <div class="example-workflow-copy">
+              <span class="landing-step-number" aria-hidden="true">3</span>
+              <div><h3>質問する</h3><p>AI を使って自分の調査内容を探索します。</p></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section example-story-section example-pack-section" aria-labelledby="pack-title">
+        <div class="example-pack-copy">
+          <p class="eyebrow">デモ用パック</p>
+          <h2 id="pack-title">例：Japan Adventure 2027</h2>
+          <p>このデモでは SourceShelf を使い、旅行ガイド、交通情報、食事のおすすめ、個人の希望を含む架空の日本旅行調査コレクションを作成しました。</p>
+          <ul class="example-pack-sources">
+            <li><span aria-hidden="true">01</span><strong>旅行ガイド</strong><small>東京、京都、大阪、箱根</small></li>
+            <li><span aria-hidden="true">02</span><strong>交通手段の調査</strong><small>鉄道路線と乗り換え方法</small></li>
+            <li><span aria-hidden="true">03</span><strong>食事のおすすめ</strong><small>旬の料理とレストランのメモ</small></li>
+            <li><span aria-hidden="true">04</span><strong>予算メモ</strong><small>実用的な計画ノート</small></li>
+            <li><span aria-hidden="true">05</span><strong>個人の希望</strong><small>ペース、優先事項、旅行スタイル</small></li>
+          </ul>
+          <p class="example-demo-note"><strong>デモについて：</strong> ここに表示される名称、価格、時刻、場所、おすすめ情報は架空のものです。</p>
+        </div>
+        <figure class="example-pack-figure">
+          <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/organize-1800.webp" data-home-screenshot-trigger data-lightbox-width="1800" data-lightbox-height="1013" data-lightbox-alt="整理された 10 件の旅行調査情報源を収めた SourceShelf Japan Adventure 2027 パック" data-lightbox-caption="SourceShelf 内の実際の Japan Adventure 2027 デモ用パックです。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：Japan Adventure 2027 SourceShelf パック">
+            <img src="/assets/examples/japan-trip-ai-planner/organize-960.webp" alt="整理された 10 件の旅行調査情報源を収めた SourceShelf Japan Adventure 2027 パック" width="960" height="540" loading="lazy" decoding="async">
+            <span class="home-screenshot-expand" aria-hidden="true">拡大表示</span>
+          </a>
+          <figcaption><strong>10 件の情報源</strong><span>目的を絞った再利用可能な旅行調査パック</span></figcaption>
+        </figure>
+      </section>
+
+      <section id="questions" class="section example-story-section example-evidence-section" aria-labelledby="evidence-title">
+        <div class="section-heading home-section-heading">
+          <p class="eyebrow">実際の製品例</p>
+          <h2 id="evidence-title">自分の情報源を使って質問する</h2>
+          <p>これらは作成した画面モックではなく、デモで実際に得られた回答です。対応する AI アプリが選択した SourceShelf パックを検索し、その旅行調査に基づいて回答しました。</p>
+        </div>
+
+        <div class="example-evidence-list">
+          <article class="example-evidence-card">
+            <div class="example-evidence-copy">
+              <span class="example-evidence-number">質問 01</span>
+              <h3>「私の希望に合わせて 10 日間の旅程を作って」</h3>
+              <p>旅行のペース、文化体験の優先度、公共交通機関の希望、予算、保存した目的地調査を組み合わせ、一貫したルートを提案します。</p>
+              <span class="example-evidence-proof">実際のデモ回答 · SourceShelf パックを読み取り専用で接続</span>
+            </div>
+            <figure class="example-evidence-figure">
+              <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp" data-home-screenshot-trigger data-lightbox-width="1600" data-lightbox-height="1685" data-lightbox-alt="AI answer creating a detailed 10-day Japan itinerary from the user&amp;#39;s SourceShelf travel pack" data-lightbox-caption="選択した旅行情報源と個人の希望から生成された 10 日間の旅程です。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：AI が生成した 10 日間の日本旅程">
+                <img class="example-evidence-image" src="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp" srcset="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp 960w, /assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp 1600w" sizes="(max-width: 920px) calc(100vw - 68px), 640px" alt="AI answer creating a detailed 10-day Japan itinerary from the user&amp;#39;s SourceShelf travel pack" width="960" height="1011" loading="lazy" decoding="async">
+                <span class="home-screenshot-expand" aria-hidden="true">実際の回答を見る</span>
+              </a>
+            </figure>
+          </article>
+
+          <article class="example-evidence-card example-evidence-card-reversed">
+            <div class="example-evidence-copy">
+              <span class="example-evidence-number">質問 02</span>
+              <h3>「東京ではどのエリアに泊まるべき？」</h3>
+              <p>保存したエリアガイドと、文化を重視し無理のないペースを望む旅行者の希望を比較し、上野を提案します。</p>
+              <span class="example-evidence-proof">実際のデモ回答 · パック経由で情報源を参照</span>
+            </div>
+            <figure class="example-evidence-figure">
+              <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/neighborhood-answer-1600.webp" data-home-screenshot-trigger data-lightbox-width="1600" data-lightbox-height="1685" data-lightbox-alt="旅行の希望に最も合う東京のエリアとして上野を提案した AI の回答" data-lightbox-caption="選択した旅行情報源に基づく東京のエリア提案です。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：AI による東京のエリア提案">
+                <img class="example-evidence-image" src="/assets/examples/japan-trip-ai-planner/neighborhood-answer-960.webp" srcset="/assets/examples/japan-trip-ai-planner/neighborhood-answer-960.webp 960w, /assets/examples/japan-trip-ai-planner/neighborhood-answer-1600.webp 1600w" sizes="(max-width: 920px) calc(100vw - 68px), 640px" alt="旅行の希望に最も合う東京のエリアとして上野を提案した AI の回答" width="960" height="1011" loading="lazy" decoding="async">
+                <span class="home-screenshot-expand" aria-hidden="true">実際の回答を見る</span>
+              </a>
+            </figure>
+          </article>
+
+          <article class="example-evidence-card">
+            <div class="example-evidence-copy">
+              <span class="example-evidence-number">質問 03</span>
+              <h3>「旅行の選択肢を比較して」</h3>
+              <p>保存した目標、移動条件、天候の違い、架空の予算を使い、東京の各エリアと京都・沖縄を比較します。</p>
+              <span class="example-evidence-proof">実際のデモ回答 · 複数の情報源から調査を統合</span>
+            </div>
+            <figure class="example-evidence-figure">
+              <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/compare-answer-1600.webp" data-home-screenshot-trigger data-lightbox-width="1600" data-lightbox-height="1685" data-lightbox-alt="旅行調査パックを使って東京の各エリアと京都・沖縄を比較した AI の回答" data-lightbox-caption="旅行調査、希望、移動条件、予算に基づく並列比較です。" aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="画像を全画面表示：AI による日本旅行の選択肢比較">
+                <img class="example-evidence-image" src="/assets/examples/japan-trip-ai-planner/compare-answer-960.webp" srcset="/assets/examples/japan-trip-ai-planner/compare-answer-960.webp 960w, /assets/examples/japan-trip-ai-planner/compare-answer-1600.webp 1600w" sizes="(max-width: 920px) calc(100vw - 68px), 640px" alt="旅行調査パックを使って東京の各エリアと京都・沖縄を比較した AI の回答" width="960" height="1011" loading="lazy" decoding="async">
+                <span class="home-screenshot-expand" aria-hidden="true">実際の回答を見る</span>
+              </a>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <section class="section example-closing" aria-labelledby="closing-title">
+        <div class="example-closing-copy">
+          <p class="eyebrow">信頼する情報源から始める</p>
+          <h2 id="closing-title">自分専用のプライベート AI 旅行アシスタントを作る</h2>
+          <p>普段集めている調査を、一つのプライベートで持ち運べるワークフローにまとめ、対応する AI アプリと好みのモデルで活用できます。</p>
+          <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">SourceShelf をダウンロード</a>
+        </div>
+        <ol class="example-setup-list">
+          <li><span>1</span><strong>SourceShelf をインストール</strong></li>
+          <li><span>2</span><strong>調査内容を取り込む</strong></li>
+          <li><span>3</span><strong>書類とメモを追加</strong></li>
+          <li><span>4</span><strong>ナレッジパックを作成</strong></li>
+          <li><span>5</span><strong>AI で自分の情報を探索</strong></li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+  <dialog id="example-lightbox" class="home-lightbox" data-home-lightbox aria-label="スクリーンショットビューア" aria-describedby="example-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="example-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="フル解像度で表示" data-fit-label="画面に合わせる" aria-pressed="false">フル解像度で表示</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="全画面画像を閉じる">閉じる</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="1800" height="1013" decoding="async">
+      </div>
+    </div>
+  </dialog>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/ja/">ホーム</a>
+          <a href="/ja/examples/">活用例</a>
+          <a href="/ja/blog/">ブログ</a>
+          <a href="/ja/privacy.html">プライバシー</a>
+          <a href="/ja/docs/">ドキュメント</a>
+          <a href="/ja/support.html">サポート</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelfのユースケース">
+        <h2>SourceShelfの使用方法</h2>
+        <ul><li><a href="/ja/private-ai-knowledge-base-mac/">Mac用のプライベートAI知識ベース</a></li><li><a href="/ja/pdf-to-markdown-mac/">ローカルPDF変換</a></li><li><a href="/ja/save-webpages-as-markdown-safari/">Safariウェブキャプチャ</a></li><li><a href="/ja/local-ai-reference-packs/">AIのための集中的なコンテキスト</a></li><li><a href="/ja/research-archive-mac/">ローカル研究アーカイブ</a></li><li><a href="/ja/mcp-knowledge-base-mac/">読み取り専用MCP知識アクセス</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260809-2"></script>
+</body>
+</html>

@@ -19,7 +19,8 @@ const landingContent = new Map(await Promise.all(localeCodes.map(async (locale) 
 const landingRoutes = landingContent.get("en").pages.map((page) => page.route);
 const blogManifest = JSON.parse(await readFile(path.join(blogSourceRoot, "posts.json"), "utf8"));
 const blogRoutes = blogManifest.posts.map((post) => post.route);
-const exampleRoutes = ["/examples/", "/examples/japan-trip-ai-planner/"];
+const examplesContent = JSON.parse(await readFile(path.join(siteSourceRoot, "examples.json"), "utf8"));
+const exampleRoutes = examplesContent.pages.map((page) => page.logicalRoute);
 const homepageScreenshotNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
@@ -66,7 +67,7 @@ function logicalRouteFor(route, locale) {
 
 const expectedPages = new Map();
 for (const locale of localeCodes) {
-  for (const logicalRoute of ["/", "/privacy.html", "/support.html", "/blog/", ...blogRoutes, ...landingRoutes, ...navigation.pages.map((page) => page.route)]) {
+  for (const logicalRoute of ["/", "/privacy.html", "/support.html", "/blog/", ...blogRoutes, ...landingRoutes, ...exampleRoutes, ...navigation.pages.map((page) => page.route)]) {
     const route = localizedRoute(locale, logicalRoute);
     expectedPages.set(route, {
       locale,
@@ -74,20 +75,10 @@ for (const locale of localeCodes) {
       isDocs: logicalRoute.startsWith("/docs/"),
       isLanding: landingRoutes.includes(logicalRoute),
       isBlogIndex: logicalRoute === "/blog/",
-      isBlogArticle: blogRoutes.includes(logicalRoute)
+      isBlogArticle: blogRoutes.includes(logicalRoute),
+      isExample: exampleRoutes.includes(logicalRoute)
     });
   }
-}
-for (const route of exampleRoutes) {
-  expectedPages.set(route, {
-    locale: "en",
-    logicalRoute: route,
-    isDocs: false,
-    isLanding: false,
-    isBlogIndex: false,
-    isBlogArticle: false,
-    isExample: true
-  });
 }
 const expectedCanonicalUrls = new Set([...expectedPages.keys()].map(canonicalUrlForRoute));
 
@@ -369,29 +360,20 @@ for (const htmlFile of htmlFiles) {
       }
     }
   }
-  if (isExample) {
-    if (!html.includes(`<link rel="alternate" hreflang="en" href="${expectedCanonical}">`)) {
-      errors.push(`${publicPath} is missing its English alternate URL`);
+  for (const alternateLocale of localeCodes) {
+    const alternateUrl = canonicalUrlForRoute(localizedRoute(alternateLocale, logicalRoute));
+    if (!html.includes(`<link rel="alternate" hreflang="${alternateLocale}" href="${alternateUrl}">`)) {
+      errors.push(`${publicPath} is missing the ${alternateLocale} alternate URL`);
     }
-    if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${expectedCanonical}">`)) {
-      errors.push(`${publicPath} is missing its English x-default URL`);
-    }
-  } else {
-    for (const alternateLocale of localeCodes) {
-      const alternateUrl = canonicalUrlForRoute(localizedRoute(alternateLocale, logicalRoute));
-      if (!html.includes(`<link rel="alternate" hreflang="${alternateLocale}" href="${alternateUrl}">`)) {
-        errors.push(`${publicPath} is missing the ${alternateLocale} alternate URL`);
-      }
-    }
-    if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`)) {
-      errors.push(`${publicPath} is missing the English x-default URL`);
-    }
-    if (!html.includes(`<option value="${locale}" lang="${locale}" selected>`)) {
-      errors.push(`${publicPath} does not select its current language`);
-    }
-    if (!html.includes(`window.SourceShelfLocale.bootstrap("${locale}")`)) {
-      errors.push(`${publicPath} bootstraps the wrong locale`);
-    }
+  }
+  if (!html.includes(`<link rel="alternate" hreflang="x-default" href="${canonicalUrlForRoute(logicalRoute)}">`)) {
+    errors.push(`${publicPath} is missing the English x-default URL`);
+  }
+  if (!html.includes(`<option value="${locale}" lang="${locale}" selected>`)) {
+    errors.push(`${publicPath} does not select its current language`);
+  }
+  if (!html.includes(`window.SourceShelfLocale.bootstrap("${locale}")`)) {
+    errors.push(`${publicPath} bootstraps the wrong locale`);
   }
   if ((html.match(/<h1\b/g) || []).length !== 1) {
     errors.push(`${publicPath} must contain exactly one level-one heading`);
@@ -406,32 +388,41 @@ for (const htmlFile of htmlFiles) {
   if ((footerUseCases.match(/<a href=/g) || []).length !== 6) {
     errors.push(`${publicPath} must link all six use cases from its grouped footer`);
   }
+  const footerPrimary = html.match(/<div class="footer-links">[\s\S]*?<\/div>/)?.[0] || "";
+  const localizedExamplesRoute = localizedRoute(locale, "/examples/");
+  const localizedExamplesLabel = examplesContent.translations[locale]?.Examples;
+  if (!localizedExamplesLabel || !footerPrimary.includes(`<a href="${localizedExamplesRoute}">${localizedExamplesLabel}</a>`)) {
+    errors.push(`${publicPath} is missing the localized Examples footer link`);
+  }
 
   if (isExample) {
-    if (!html.includes('class="examples-nav"') || !html.includes('href="/examples/" aria-current="page"')) {
+    if (!html.includes('class="examples-nav"') || !html.includes(`href="${localizedExamplesRoute}" aria-current="page"`)) {
       errors.push(`${publicPath} is missing the examples navigation or current-section state`);
     }
-    for (const label of [
+    for (const englishLabel of [
       "Japan Trip Planner",
       "Developer Documentation Assistant",
       "Home Renovation Research",
       "Academic Research Assistant",
       "Personal Learning Assistant"
     ]) {
-      if (!html.includes(label)) errors.push(`${publicPath} is missing future example label: ${label}`);
+      const label = examplesContent.translations[locale]?.[englishLabel] || englishLabel;
+      if (!html.includes(label)) errors.push(`${publicPath} is missing localized example label: ${label}`);
     }
     if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
       errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the video`);
     }
 
     if (logicalRoute === "/examples/japan-trip-ai-planner/") {
-      if (!html.includes("<title>Private AI Travel Planner | SourceShelf</title>")) {
+      const pageContent = examplesContent.pages.find((page) => page.logicalRoute === logicalRoute)?.locales?.[locale];
+      if (!pageContent || !html.includes(`<title>${pageContent.title}</title>`)) {
         errors.push(`${publicPath} has the wrong SEO title`);
       }
-      if (!html.includes('meta name="description" content="Learn how SourceShelf turns travel research, websites, PDFs, and notes into a private AI knowledge base you can explore with AI."')) {
+      if (!pageContent || !html.includes(`meta name="description" content="${pageContent.description}"`)) {
         errors.push(`${publicPath} has the wrong SEO description`);
       }
-      if (!html.includes("Plan your next trip with your own private AI travel assistant")) {
+      const localizedHero = examplesContent.translations[locale]?.["Plan your next trip with your own private AI travel assistant"] || "Plan your next trip with your own private AI travel assistant";
+      if (!html.includes(localizedHero)) {
         errors.push(`${publicPath} is missing the requested hero heading`);
       }
       if (
@@ -974,7 +965,8 @@ if (uniqueYouTubeIds.size !== landingPageIds.length) {
   errors.push("YouTube video configuration contains a duplicate video ID");
 }
 const blogVideoIds = blogManifest.posts.map((post) => post.youtubeVideo?.id).filter(Boolean);
-const allYouTubeIds = [...uniqueYouTubeIds, ...blogVideoIds];
+const exampleVideoIds = examplesContent.pages.map((page) => page.video?.id).filter(Boolean);
+const allYouTubeIds = [...uniqueYouTubeIds, ...blogVideoIds, ...exampleVideoIds];
 if (new Set(allYouTubeIds).size !== allYouTubeIds.length) {
   errors.push("YouTube video configuration reuses an ID across SEO pages and blog articles");
 }
@@ -991,6 +983,39 @@ for (const locale of localeCodes) {
       const english = englishPublicStrings.get(entry.path);
       if (english && english.length >= 45 && entry.value === english) {
         errors.push(`${locale} landing-page source silently falls back to English at ${entry.path}`);
+      }
+    }
+  }
+}
+
+const exampleTranslationKeys = Object.keys(examplesContent.translations.fr || {}).sort();
+for (const locale of localeCodes.slice(1)) {
+  const translations = examplesContent.translations[locale] || {};
+  if (JSON.stringify(Object.keys(translations).sort()) !== JSON.stringify(exampleTranslationKeys)) {
+    errors.push(`${locale} example translations do not mirror the complete example string set`);
+  }
+  for (const [english, localized] of Object.entries(translations)) {
+    if (!localized?.trim()) errors.push(`${locale} example translation is empty: ${english}`);
+    if (english.length >= 45 && localized === english) {
+      errors.push(`${locale} example translation silently falls back to English: ${english}`);
+    }
+  }
+}
+for (const page of examplesContent.pages) {
+  const english = page.locales.en;
+  const englishShape = JSON.stringify(contentShape(english));
+  for (const locale of localeCodes) {
+    const content = page.locales[locale];
+    if (!content || JSON.stringify(contentShape(content)) !== englishShape) {
+      errors.push(`${locale} example-page source does not match the English schema for ${page.id}`);
+      continue;
+    }
+    if (locale !== "en") {
+      for (const entry of collectPublicStrings(content)) {
+        const englishValue = collectPublicStrings(english).find((candidate) => candidate.path === entry.path)?.value;
+        if (englishValue?.length >= 45 && entry.value === englishValue) {
+          errors.push(`${locale} example-page source silently falls back to English at ${page.id}.${entry.path}`);
+        }
       }
     }
   }
@@ -1126,5 +1151,5 @@ if (errors.length) {
 } else {
   console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
   console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
-  console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogVideoIds.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
+  console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogVideoIds.length + exampleVideoIds.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
 }

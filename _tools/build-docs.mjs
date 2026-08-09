@@ -10,8 +10,8 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
-const buildDate = "2026-08-08";
-const assetVersion = "20260808-1";
+const buildDate = "2026-08-09";
+const assetVersion = "20260809-2";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -41,6 +41,9 @@ const landingContent = new Map(await Promise.all(localeCodes.map(async (code) =>
   );
   return [code, content];
 })));
+const examplesContent = JSON.parse(
+  await readFile(path.join(siteSourceRoot, "examples.json"), "utf8")
+);
 const locales = await Promise.all(localeCodes.map(async (code) => {
   const catalog = JSON.parse(
     await readFile(path.join(siteSourceRoot, "locales", `${code}.json`), "utf8")
@@ -48,6 +51,7 @@ const locales = await Promise.all(localeCodes.map(async (code) => {
   const prefix = code === "en" ? "" : `/${code}`;
   const translations = {
     ...catalog.translations,
+    ...(examplesContent.translations[code] || {}),
     ...(translationOverrides[code] || {}),
     ...(editorialOverrides[code] || {})
   };
@@ -90,6 +94,12 @@ const blogPages = locales.flatMap((locale) => blogManifest.posts.map((post) => (
   logicalRoute: post.route,
   route: localizedRoute(locale, post.route)
 })));
+const examplePages = locales.flatMap((locale) => examplesContent.pages.map((page) => ({
+  ...page,
+  locale,
+  content: page.locales[locale.code],
+  route: localizedRoute(locale, page.logicalRoute)
+})));
 
 const pageBySource = new Map([...allPages, ...blogPages].map((page) => [page.source, page]));
 const logicalRoutes = new Set([
@@ -97,6 +107,7 @@ const logicalRoutes = new Set([
   "/privacy.html",
   "/support.html",
   "/blog/",
+  ...examplesContent.pages.map((page) => page.logicalRoute),
   ...allPages.map((page) => page.logicalRoute),
   ...landingPages.map((page) => page.logicalRoute),
   ...blogPages.map((page) => page.logicalRoute)
@@ -911,7 +922,7 @@ function renderHeader(locale, currentSection) {
       </a>
       <div class="nav-links">
         ${link("home", "/", "Home")}
-        ${link("blog", "/blog/", "Blog")}
+        ${currentSection === "examples" ? `${link("examples", "/examples/", "Examples")}\n        ` : ""}${link("blog", "/blog/", "Blog")}
         ${link("privacy", "/privacy.html", "Privacy")}
         ${link("docs", "/docs/", "Documentation")}
         ${link("support", "/support.html", "Support")}
@@ -936,6 +947,7 @@ function renderFooter(locale) {
         <span>&copy; <span data-current-year>${new Date().getFullYear()}</span> SourceShelf</span>
         <div class="footer-links">
           <a href="${localizedRoute(locale, "/")}">${escapeHtml(translate(locale, "Home"))}</a>
+          <a href="${localizedRoute(locale, "/examples/")}">${escapeHtml(translate(locale, "Examples"))}</a>
           <a href="${localizedRoute(locale, "/blog/")}">${escapeHtml(translate(locale, "Blog"))}</a>
           <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
           <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
@@ -1901,6 +1913,139 @@ ${renderAlternateLinks(page.logicalRoute)}
 `.replace(/[ \t]+$/gm, "");
 }
 
+function localizeExampleMainHtml(locale, html) {
+  let output = html.replace(/>([^<]+)</g, (match, value) => `>${localizeValue(locale, value)}<`);
+  output = output.replace(/\b(aria-label|alt|title|data-lightbox-alt|data-lightbox-caption|data-youtube-title)="([^"]+)"/g, (match, attribute, value) => (
+    `${attribute}="${localizeValue(locale, value).trim()}"`
+  ));
+  output = output.replace(/\bhref="([^"]+)"/g, (match, destination) => {
+    if (!destination.startsWith("/")) return match;
+    const suffixIndex = destination.search(/[?#]/);
+    const route = suffixIndex === -1 ? destination : destination.slice(0, suffixIndex);
+    const suffix = suffixIndex === -1 ? "" : destination.slice(suffixIndex);
+    return logicalRoutes.has(route)
+      ? `href="${localizedRoute(locale, route)}${suffix}"`
+      : match;
+  });
+  return output;
+}
+
+function renderExampleDialog(locale) {
+  return `<dialog id="example-lightbox" class="home-lightbox" data-home-lightbox aria-label="${escapeHtml(translate(locale, "Screenshot viewer"))}" aria-describedby="example-lightbox-caption">
+    <div class="home-lightbox-shell">
+      <div class="home-lightbox-toolbar">
+        <p id="example-lightbox-caption" class="home-lightbox-caption" data-home-lightbox-caption></p>
+        <div class="home-lightbox-controls">
+          <button class="home-lightbox-button" type="button" data-home-lightbox-zoom data-zoom-label="${escapeHtml(translate(locale, "View full resolution"))}" data-fit-label="${escapeHtml(translate(locale, "Fit to screen"))}" aria-pressed="false">${escapeHtml(translate(locale, "View full resolution"))}</button>
+          <button class="home-lightbox-button home-lightbox-close" type="button" data-home-lightbox-close aria-label="${escapeHtml(translate(locale, "Close full-screen image"))}">${escapeHtml(translate(locale, "Close"))}</button>
+        </div>
+      </div>
+      <div class="home-lightbox-viewport" data-home-lightbox-viewport>
+        <img class="home-lightbox-image" data-home-lightbox-image alt="" width="1800" height="1013" decoding="async">
+      </div>
+    </div>
+  </dialog>`;
+}
+
+function exampleStructuredData(page) {
+  const { locale, content } = page;
+  const canonicalUrl = canonicalUrlForRoute(page.route);
+  const homeUrl = canonicalUrlForRoute(localizedRoute(locale, "/"));
+  const examplesUrl = canonicalUrlForRoute(localizedRoute(locale, "/examples/"));
+  const breadcrumbs = [
+    { "@type": "ListItem", position: 1, name: translate(locale, "Home"), item: homeUrl },
+    { "@type": "ListItem", position: 2, name: translate(locale, "Examples"), item: examplesUrl }
+  ];
+  if (page.id !== "examples-index") {
+    breadcrumbs.push({ "@type": "ListItem", position: 3, name: content.navigationTitle, item: canonicalUrl });
+  }
+  const values = [
+    {
+      "@context": "https://schema.org",
+      "@type": page.schemaType,
+      name: content.schemaName,
+      description: content.schemaDescription,
+      url: canonicalUrl,
+      inLanguage: locale.code,
+      isPartOf: { "@type": "WebSite", name: "SourceShelf", url: canonicalUrlForRoute("/") }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbs
+    }
+  ];
+  if (page.video) {
+    values.push({
+      "@context": "https://schema.org",
+      "@type": "VideoObject",
+      name: content.videoName,
+      description: content.videoDescription,
+      thumbnailUrl: `${canonicalOrigin}${page.video.thumbnail}`,
+      uploadDate: page.video.uploadDate,
+      embedUrl: page.video.embedUrl,
+      sameAs: page.video.watchUrl,
+      url: canonicalUrl,
+      inLanguage: locale.code,
+      publisher: { "@type": "Organization", name: "SourceShelf", url: canonicalUrlForRoute("/") }
+    });
+  }
+  return values.map((value) => `<script type="application/ld+json">${JSON.stringify(value).replaceAll("<", "\\u003c")}</script>`).join("\n  ");
+}
+
+function renderExamplePage(page, template) {
+  const { locale, content } = page;
+  const canonicalUrl = canonicalUrlForRoute(page.route);
+  const main = extractMatch(/(<main\b[\s\S]*?<\/main>)/, template, `${page.id} main content`);
+  const renderedMain = localizeExampleMainHtml(locale, main);
+  const socialImage = `${canonicalOrigin}${page.socialImage}`;
+  const socialAlt = content.socialImageAlt
+    ? `\n  <meta property="og:image:alt" content="${escapeHtml(content.socialImageAlt)}">`
+    : "";
+  const twitterAlt = content.socialImageAlt
+    ? `\n  <meta name="twitter:image:alt" content="${escapeHtml(content.socialImageAlt)}">`
+    : "";
+
+  return `<!DOCTYPE html>
+<html lang="${locale.code}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="${escapeHtml(content.description)}">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="${canonicalUrl}">
+${renderAlternateLinks(page.logicalRoute)}
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="${escapeHtml(content.socialTitle)}">
+  <meta property="og:description" content="${escapeHtml(content.socialDescription)}">
+  <meta property="og:url" content="${canonicalUrl}">
+  <meta property="og:image" content="${socialImage}">${socialAlt}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(content.socialTitle)}">
+  <meta name="twitter:description" content="${escapeHtml(content.socialDescription)}">
+  <meta name="twitter:image" content="${socialImage}">${twitterAlt}
+  <title>${escapeHtml(content.title)}</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
+  ${headBootstrap(locale)}
+  ${exampleStructuredData(page)}
+</head>
+<body>
+  <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
+  ${renderHeader(locale, "examples")}
+
+  ${renderedMain}
+
+  ${page.id === "japan-trip-ai-planner" ? renderExampleDialog(locale) : ""}
+  ${renderFooter(locale)}
+  <script src="/script.js?v=${assetVersion}"></script>
+</body>
+</html>
+`.replace(/[ \t]+$/gm, "");
+}
+
 const generalPages = [
   { template: "index.html", logicalRoute: "/", section: "home" },
   { template: "privacy.html", logicalRoute: "/privacy.html", section: "privacy" },
@@ -2051,8 +2196,22 @@ async function buildBlogPages() {
   }
 }
 
+async function buildExamplePages() {
+  for (const definition of examplesContent.pages) {
+    const template = await readFile(path.join(siteRoot, definition.template), "utf8");
+    for (const locale of locales) {
+      const page = examplePages.find((candidate) => (
+        candidate.id === definition.id && candidate.locale.code === locale.code
+      ));
+      const outputDirectory = path.join(siteRoot, page.route.slice(1));
+      await mkdir(outputDirectory, { recursive: true });
+      await writeFile(path.join(outputDirectory, "index.html"), renderExamplePage(page, template));
+    }
+  }
+}
+
 async function writeSitemap() {
-  const exampleRoutes = ["/examples/", "/examples/japan-trip-ai-planner/"];
+  const exampleRoutes = examplePages.map((page) => page.route);
   const generalRoutes = locales.flatMap((locale) => generalPages.map((page) => localizedRoute(locale, page.logicalRoute)));
   const blogIndexRoutes = locales.map((locale) => localizedRoute(locale, "/blog/"));
   const routes = [...new Set([
@@ -2063,7 +2222,7 @@ async function writeSitemap() {
     ...blogPages.map((page) => page.route),
     ...exampleRoutes
   ])].sort();
-  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalUrlForRoute(route)}</loc>\n    <lastmod>${exampleRoutes.includes(route) ? "2026-08-09" : buildDate}</lastmod>\n  </url>`).join("\n");
+  const entries = routes.map((route) => `  <url>\n    <loc>${canonicalUrlForRoute(route)}</loc>\n    <lastmod>${buildDate}</lastmod>\n  </url>`).join("\n");
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries}\n</urlset>\n`;
   await writeFile(path.join(siteRoot, "sitemap.xml"), sitemap);
 }
@@ -2107,6 +2266,29 @@ async function build() {
   const uniqueLandingRoutes = new Set(landingPages.map((page) => page.route));
   if (uniqueLandingRoutes.size !== landingPages.length) {
     throw new Error("Landing-page content contains duplicate localized routes");
+  }
+  const expectedExampleIDs = examplesContent.pages.map((page) => page.id);
+  for (const page of examplesContent.pages) {
+    if (!page.template || !page.logicalRoute || !page.schemaType) {
+      throw new Error(`Example-page configuration is incomplete for ${page.id}`);
+    }
+    for (const locale of locales) {
+      const content = page.locales[locale.code];
+      if (!content?.title || !content?.description || !content?.socialTitle || !content?.socialDescription || !content?.schemaName || !content?.schemaDescription || !content?.navigationTitle) {
+        throw new Error(`Example-page content is incomplete for ${locale.code}:${page.id}`);
+      }
+      if (page.video && (!content.videoName || !content.videoDescription)) {
+        throw new Error(`Example video content is incomplete for ${locale.code}:${page.id}`);
+      }
+    }
+  }
+  if (new Set(expectedExampleIDs).size !== expectedExampleIDs.length || new Set(examplesContent.pages.map((page) => page.logicalRoute)).size !== expectedExampleIDs.length) {
+    throw new Error("Example-page content contains duplicate IDs or routes");
+  }
+  for (const locale of locales) {
+    if (!examplesContent.translations[locale.code]?.Examples) {
+      throw new Error(`Example translations are missing for ${locale.code}`);
+    }
   }
   const blogIDs = new Set();
   const blogRoutes = new Set();
@@ -2159,6 +2341,7 @@ async function build() {
   await buildGeneralPages();
   await buildLandingPages();
   await buildBlogPages();
+  await buildExamplePages();
 
   for (const page of allPages) {
     const outputDirectory = path.join(siteRoot, page.route.slice(1));
@@ -2168,7 +2351,7 @@ async function build() {
 
   const llmsLinkCount = await validateLlmsTxt();
   await writeSitemap();
-  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, ${locales.length} blog indexes, ${blogPages.length} blog articles, and ${imageMap.size * 2} documentation image variants; validated ${llmsLinkCount} llms.txt links.`);
+  console.log(`Generated ${generalPages.length * locales.length} general pages, ${landingPages.length} landing pages, ${allPages.length} documentation pages, ${locales.length} blog indexes, ${blogPages.length} blog articles, ${examplePages.length} example pages, and ${imageMap.size * 2} documentation image variants; validated ${llmsLinkCount} llms.txt links.`);
 }
 
 await build();

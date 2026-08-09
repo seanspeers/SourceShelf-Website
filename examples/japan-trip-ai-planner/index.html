@@ -8,14 +8,16 @@
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://sourceshelf.app/examples/japan-trip-ai-planner/">
   <link rel="alternate" hreflang="en" href="https://sourceshelf.app/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/examples/japan-trip-ai-planner/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/examples/japan-trip-ai-planner/">
   <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/examples/japan-trip-ai-planner/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Plan Your Next Trip With a Private AI Travel Assistant">
   <meta property="og:description" content="See how travel websites, PDFs, recommendations, and personal notes become one focused SourceShelf pack you can explore with AI.">
   <meta property="og:url" content="https://sourceshelf.app/examples/japan-trip-ai-planner/">
   <meta property="og:image" content="https://sourceshelf.app/assets/examples/japan-trip-ai-planner/social.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="SourceShelf private AI travel planning example with Mount Fuji">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Plan Your Next Trip With a Private AI Travel Assistant">
@@ -25,8 +27,10 @@
   <title>Private AI Travel Planner | SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260809-1">
+  <link rel="stylesheet" href="/styles.css?v=20260809-2">
+  <script src="/locale.js?v=20260809-2"></script>
   <script>
+    window.SourceShelfLocale.bootstrap("en");
     (function () {
       try {
         var theme = localStorage.getItem("sourceshelf-theme");
@@ -56,6 +60,7 @@
         <a class="nav-link" href="/docs/">Documentation</a>
         <a class="nav-link" href="/support.html">Support</a>
         <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
         <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
         </button>
@@ -251,8 +256,8 @@
               <span class="example-evidence-proof">Actual demo response · SourceShelf pack connected read-only</span>
             </div>
             <figure class="example-evidence-figure">
-              <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp" data-home-screenshot-trigger data-lightbox-width="1600" data-lightbox-height="1685" data-lightbox-alt="AI answer creating a detailed 10-day Japan itinerary from the user's SourceShelf travel pack" data-lightbox-caption="A 10-day itinerary generated from the selected travel sources and personal preferences." aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="View full-screen image: AI-generated 10-day Japan itinerary">
-                <img class="example-evidence-image" src="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp" srcset="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp 960w, /assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp 1600w" sizes="(max-width: 920px) calc(100vw - 68px), 640px" alt="AI answer creating a detailed 10-day Japan itinerary from the user's SourceShelf travel pack" width="960" height="1011" loading="lazy" decoding="async">
+              <a class="home-screenshot-trigger" href="/assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp" data-home-screenshot-trigger data-lightbox-width="1600" data-lightbox-height="1685" data-lightbox-alt="AI answer creating a detailed 10-day Japan itinerary from the user&amp;#39;s SourceShelf travel pack" data-lightbox-caption="A 10-day itinerary generated from the selected travel sources and personal preferences." aria-haspopup="dialog" aria-controls="example-lightbox" aria-label="View full-screen image: AI-generated 10-day Japan itinerary">
+                <img class="example-evidence-image" src="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp" srcset="/assets/examples/japan-trip-ai-planner/itinerary-answer-960.webp 960w, /assets/examples/japan-trip-ai-planner/itinerary-answer-1600.webp 1600w" sizes="(max-width: 920px) calc(100vw - 68px), 640px" alt="AI answer creating a detailed 10-day Japan itinerary from the user&amp;#39;s SourceShelf travel pack" width="960" height="1011" loading="lazy" decoding="async">
                 <span class="home-screenshot-expand" aria-hidden="true">View actual answer</span>
               </a>
             </figure>
@@ -322,7 +327,6 @@
       </div>
     </div>
   </dialog>
-
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-primary">
@@ -343,6 +347,6 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260809-1"></script>
+  <script src="/script.js?v=20260809-2"></script>
 </body>
 </html>
