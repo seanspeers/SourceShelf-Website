@@ -2,6 +2,8 @@
 
 L'extension SourceShelf Safari enregistre la page actuelle, le contenu principal, une sélection, une zone de page sélectionnée ou un panier de points forts de recherche sous forme de Markdown local.
 
+Elle peut aussi acquérir plusieurs onglets de la fenêtre Safari actuelle dans un seul pack de recherche, nouveau ou existant. L'extension récupère et prépare les données web ; l'app native ne reçoit que des captures locales limitées et n'agit jamais comme client web généraliste.
+
 ## Activer l'extension Safari
 
 1. Lancez SourceShelf.
@@ -18,6 +20,28 @@ L'extension SourceShelf Safari enregistre la page actuelle, le contenu principal
 - **Enregistrer les points forts sous forme de Markdown** Combine le panier de mise en évidence commandé et la note courte facultative.
 
 Les actions popup explicites suppriment la valeur par défaut de la recette pour cette capture.
+
+## Capturer la fenêtre actuelle
+
+Ouvrez SourceShelf dans Safari, choisissez **Recherche > Capturer la fenêtre actuelle**, puis vérifiez les onglets que Safari signale pour cette fenêtre. Les pages non HTTP(S), les fichiers locaux et les pages internes restent visibles mais ne peuvent pas être sélectionnés.
+
+Sélectionnez les onglets utiles et une destination unique. SourceShelf conserve l'ordre choisi, continue après un échec individuel, ne crée aucun pack vide si tout échoue et attribue un nouvel identifiant local à chaque élément. Les actions rapides sur une seule page restent inchangées et le traitement par lots réutilise le même pipeline Markdown, recettes, images, historique et dossier de sortie.
+
+## Accès aux sites web et sécurité
+
+Safari contrôle l’accès de l’extension aux sites Web et peut afficher sa demande d’autorisation dès que vous cliquez sur le bouton SourceShelf dans la barre d’outils. Le moment et le texte de cette demande système appartiennent à Safari. Si vous refusez l’accès, autorisez-le ensuite dans les réglages d’extensions de Safari, puis rouvrez SourceShelf.
+
+Pour les opérations par lots, SourceShelf demande uniquement à Safari l’accès aux origines HTTP(S) nécessaires aux onglets ou ressources `llms.txt` sélectionnés. Aucun accès permanent à tous les sites n’est déclaré. L’écran de révision distingue les sources disponibles, celles qui demandent un accès et celles qui ne sont pas prises en charge avant le début de l’acquisition.
+
+## Limites, annulation et échecs
+
+L'acquisition utilise au plus trois sources simultanées, 8 Mio par réponse, 256 Mio par opération, 100 images par source, cinq redirections et 20 secondes par requête. L'aperçu `llms.txt` est limité à 1 000 entrées et la découverte à 12 candidats. L'annulation arrête les requêtes en cours et nettoie les données temporaires ; un échec de permission, délai, HTTP, analyse, extraction ou taille n'efface pas les sources déjà réussies.
+
+## Groupes d'onglets Safari et limites du navigateur
+
+La capture utilise l'API publique `tabs.query({ currentWindow: true })`. L'API WebExtensions publique de Safari n'expose pas d'identifiant ni de requête d'appartenance documentés pour les groupes d'onglets. SourceShelf parle donc de « fenêtre actuelle » et ne prétend pas distinguer le groupe actif des autres onglets que Safari expose pour cette fenêtre.
+
+L'ensemble exact reste défini par Safari et peut varier selon la version et l'état de la fenêtre. Les pages interdites aux extensions restent indisponibles, et les en-têtes HTTP `Link` ou redirections manuelles dépendent des informations exposées par Safari. Vérifiez ces cas avec une extension signée sur les versions de Safari distribuées.
 
 ## Capturer les recettes
 
@@ -73,3 +97,4 @@ Si une nouvelle recette ne s'affiche pas dans Safari :
 2. Ouvrez Open SourceShelf une fois pour qu'il puisse publier les recettes actuelles.
 3. Fermez et rouvrez la fenêtre contextuelle de l'extension ; un redémarrage de Safari ne devrait normalement pas être nécessaire.
 4. Si le menu est vide, ouvrez **Paramètres de capture** à partir de la fenêtre contextuelle et confirmez qu'il existe au moins une recette standard ou personnalisée.
+5. Si Safari continue de demander l’accès ou si la fenêtre ne peut pas lire la page, ouvrez **Safari > Réglages > Extensions**, autorisez SourceShelf pour ce site, puis réessayez.

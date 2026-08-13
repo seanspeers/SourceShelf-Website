@@ -1,59 +1,59 @@
 # Confidentialité et sécurité
 
-SourceShelf est local par défaut. Conversion de fichiers, OCR, traitement de capture web, analyse sémantique, aperçus, regroupement de récupération, confiance et sécurité, chiffrages de contrôle, exportation, `llms.txt` Importation, comparaison des packs de vie et MCP Recherche/lecture fonctionne sur ce Mac.
+SourceShelf fonctionne localement par défaut. La conversion des fichiers, l’OCR, le traitement du contenu transmis par Safari, l’analyse sémantique, les aperçus, le découpage pour la recherche, les vérifications de confiance et de sécurité, les sommes de contrôle, l’exportation, l’importation locale de `llms.txt`, la comparaison des packs évolutifs et la recherche/lecture MCP s’effectuent sur l’appareil.
 
 ## Garantie sans réseau
 
-SourceShelf ne récupère pas de contenu distant pendant :
+SourceShelf ne récupère aucun contenu distant pendant :
 
-- Conversion de fichier ou aperçu ;
-- `llms.txt` Importation ou génération ;
-- Recharger et comparer ;
-- MCP Liste de ressources, recherche ou lecture ;
-- Génération de packs.
+- la conversion ou l’aperçu d’un fichier ;
+- l’importation et la génération à partir d’un fichier `llms.txt` local ou d’un pack de recherche ;
+- Actualiser et comparer ;
+- l’énumération, la recherche ou la lecture des ressources MCP ;
+- la génération d’un pack.
 
-Une capture Safari reçoit du contenu de la page que vous visualisez déjà via l'extension activée. télécommande URLS trouvé dans le local `llms.txt` Sont conservés comme des références indisponibles plutôt que récupérées.
+Un fichier `llms.txt` local reste hors ligne : les URL distantes qu’il contient deviennent des références indisponibles au lieu d’être récupérées. La capture d’un site et l’acquisition de son `llms.txt` sont des opérations distinctes et explicites de l’extension Safari. Celle-ci lit ou récupère le contenu autorisé selon le modèle d’autorisations de Safari, puis transmet à SourceShelf un volume limité de données locales. L’app native ne devient pas un client Web généraliste.
 
-## Quelles sources de stockage sont disponibles sur SourceShelf ?
+## Données stockées par SourceShelf
 
-Selon les fonctionnalités que vous utilisez, le stockage local comprend :
+Selon les fonctionnalités utilisées, le stockage local comprend :
 
-- Markdown converti dans le dossier de sortie ;
-- Histoire de la bibliothèque et packs enregistrés ;
-- Préparation des métadonnées ;
-- Mémoires caches de documents sémantiques ;
-- Images web archivées ;
-- Capturer les recettes et les brouillons de révisions en attente ;
-- Les lignes de base d'exportation réussies ;
-- Explicitement autorisé MCP Instantanés.
+- le Markdown converti dans le dossier de sortie autorisé sur Mac ou dans la bibliothèque privée sur iPhone et iPad ;
+- l’historique de la bibliothèque et les packs enregistrés ;
+- les métadonnées ordonnées des brouillons ;
+- les caches de documents sémantiques ;
+- les images Web archivées ;
+- les recettes de capture et les brouillons en attente de révision ;
+- les références des exportations réussies ;
+- les instantanés MCP explicitement autorisés.
 
-Les instantanés de brouillon et les identifiants de stockage de référence stockent l'ordre, les dates et les hachages, et non des copies de contenu Markdown arbitraire. MCP Les instantanés copient intentionnellement uniquement le Markdown lisible et les actifs référencés d'un pack partagé, afin que l'assistant sandboxé n'ait pas besoin d'un accès général aux fichiers.
+Les instantanés de brouillon et les références conservent des identifiants, l’ordre, des dates et des empreintes, mais aucune copie arbitraire du contenu Markdown. Les instantanés MCP copient volontairement uniquement le Markdown lisible et les ressources référencées d’un pack partagé, afin que l’auxiliaire isolé n’ait pas besoin d’un accès étendu aux fichiers.
 
-Les enregistrements de la bibliothèque sont conservés jusqu'à ce que vous les supprimiez. **Paramètres > Général > Réviser le stockage...** Sépare le nettoyage sûr et régénérable de la suppression des données de source générées. Les sorties générées visibles par l'utilisateur sont déplacées dans la corbeille, les sources marquées d'un astérisque et enregistrées sont protégées par défaut, et les documents importés originaux ne sont jamais sélectionnés ou supprimés. voir [Gérer le stockage SourceShelf](../guides/storage-management.md) Pour le flux de travail de nettoyage.
+Les éléments de la bibliothèque sont conservés jusqu’à leur suppression. **Réglages > Général > Examiner le stockage…** sépare le nettoyage sûr et régénérable de la suppression des données sources générées. Les fichiers générés visibles par l’utilisateur sont placés dans la corbeille, les sources favorites et celles des packs enregistrés sont protégées par défaut, et les documents originaux importés ne sont jamais sélectionnés ni supprimés. Consultez [Gérer le stockage de SourceShelf](../guides/storage-management.md) pour connaître la procédure de nettoyage.
 
-## Confidentialité du chemin local
+## Confidentialité des chemins locaux
 
-L'application affiche les chemins locaux dans son propre inspecteur afin que vous puissiez ouvrir ou révéler des fichiers. Les chemins de source de fichiers sont exclus de la provenance exportée, des concepts OKF, des manifeste, `llms.txt` Sortie, et MCP Instantanés. La documentation des captures d'écran devrait également recadrer ou masquer ces détails uniquement locaux.
+L’app affiche les chemins locaux dans son inspecteur afin de permettre l’ouverture ou l’affichage des fichiers. Ces chemins sont exclus de la provenance exportée, des concepts OKF, des manifestes, des sorties `llms.txt` et des instantanés MCP. Les captures d’écran destinées à la documentation doivent aussi recadrer ou masquer ces détails locaux.
 
-## Classification de la confiance
+## Classification de confiance
 
-Le texte capturé et converti est marqué. `untrusted_reference`. & Les avertissements de confiance et de sécurité sont des avis et ne prétendent jamais que le matériel a été désinfecté. Vérifiez le texte source avant de suivre toute instruction qu'il contient.
+Le texte capturé et converti porte la classification `untrusted_reference`. Les avertissements de confiance et de sécurité sont indicatifs et n’affirment jamais que le contenu a été assaini. Examinez le texte source avant de suivre les instructions qu’il contient.
 
-## MCP Limites
+## Limites de MCP sur Mac
 
-MCP Partager est :
+Le partage MCP est :
 
-- Désactivé par défaut ;
-- Autorisé par pack sauvegardé ;
-- Servi par un assistant stdio local signé sans écouteur réseau ;
-- En lecture seule ;
-- Restreint par une liste d'autorisations et SHA-256 Vérification ;
-- Imédiatement révocable.
+- désactivé par défaut ;
+- autorisé séparément pour chaque pack enregistré ;
+- assuré par un auxiliaire stdio local signé, sans écoute réseau ;
+- en lecture seule ;
+- limité par une liste d’autorisation et une vérification SHA-256 ;
+- révocable immédiatement.
 
-Les deux outils recherchent dans l'instantané et lisent une ressource autorisée. Il n'y a pas d'outil de chemin de système de fichiers, de navigateur de fichiers général, d'action d'écriture, de recherche à distance, de prompt ou d'abonnement.
+Les deux outils recherchent dans l’instantané et lisent une ressource autorisée. Il n’existe aucun outil donnant accès aux chemins du système de fichiers, aucun navigateur de fichiers généraliste, aucune action d’écriture, recherche distante, invite ou souscription.
 
-## Partager les identifiants et les configurations
+## Identifiants de partage et configurations
 
-Une identifiant de part autorise une capture d'écran locale. Gardez-la hors des référentiels publics et des captures d'écran de documentation. Si SourceShelf est déplacé, réinstallé ou mis à jour, recopiez le chemin d'aide. Revoyez l'accès de SourceShelf plutôt que de vous fier uniquement à la suppression d'une configuration client.
+Un identifiant de partage autorise un seul instantané local. Ne le publiez pas dans un dépôt ni dans une capture d’écran de documentation. Si SourceShelf est déplacé, réinstallé ou mis à jour, recopiez le chemin de l’auxiliaire. Révoquez l’accès depuis SourceShelf au lieu de compter uniquement sur la suppression d’une configuration cliente.
 
-Pour la déclaration de confidentialité du produit, consultez la [Politique de confidentialité de SourceShelf](/fr/privacy.html).
+Pour la déclaration de confidentialité du produit et les détails d’implémentation, consultez la [Politique de confidentialité de SourceShelf](/fr/privacy.html).

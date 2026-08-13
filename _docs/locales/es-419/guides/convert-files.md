@@ -7,10 +7,12 @@ SourceShelf convierte documentos locales compatibles a Markdown sin cargarlos ni
 - Arrastre archivos o carpetas a **convertir**.
 - seleccionar **Seleccionar archivos** Oregón **Seleccionar carpeta**.
 - uso **Archivo > Abrir** para archivos.
-- uso **Archivo > Importar llms.txt...** para un local `llms.txt` carpeta de índice o colección.
+- Usa **Archivo > Importar paquete de investigación…** para un paquete de SourceShelf, un ZIP de OKF, un paquete portátil `llms.txt`, un archivo `llms.txt` independiente o una carpeta de colección `llms.txt`.
 - Utilice la acción de Atajos de SourceShelf para una conversión automática de archivos.
 
 Al convertir una carpeta, SourceShelf escanea los archivos compatibles que contiene y reporta los elementos omitidos. La conversión de carpeta no convierte la carpeta en sí misma en un paquete guardado; agrega los elementos de la Biblioteca resultantes a un paquete después.
+
+La importación de un paquete portátil sigue un proceso separado de vista previa y validación. Antes de crear un paquete guardado, SourceShelf muestra el formato detectado, la cantidad de fuentes y recursos archivados, el origen, el estado de integridad y las advertencias. El Markdown y los recursos archivados se guardan dentro de la carpeta de salida autorizada. Los archivos grandes muestran el progreso, se pueden cancelar y se inspeccionan sin bloquear la interfaz principal.
 
 ## Qué se conserva
 

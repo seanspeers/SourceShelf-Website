@@ -1,6 +1,8 @@
 # Referência de ajustes
 
-aberto **SourceShelf > Configurações**. A janela é redimensionável e está organizada em cinco guias.
+Abra **SourceShelf > Ajustes**. A janela é redimensionável e está organizada em cinco abas.
+
+Para conhecer os ajustes no iPhone e iPad, consulte [Ajustes e privacidade no iPhone e iPad](../ios/settings-and-privacy.md).
 
 ## Idioma
 
@@ -35,7 +37,7 @@ Escolha o formato inicialmente selecionado no selecionador de exportação de pa
 
 ## Integrações
 
-**Ativar local MCP Compartilhando** Está desativado por padrão. Quando ativado, pacotes salvos individuais podem ser autorizados a partir de **Pacotes > Mais > Acesso Local à IA...**.
+**Ativar o compartilhamento MCP local** está desativado por padrão. Quando ativado, um pacote salvo pode ser autorizado pelo estado visível do Acesso Local de IA ou por **Ações do pacote > Acesso Local de IA…**.
 
 Esta guia mostra o número de compartilhamento ativo e fornece **Pacotes abertos** e **Revogar tudo**. Desativar o compartilhamento ou revogar tudo remove instantâneos e invalida imediatamente as configurações de cliente copiadas.
 

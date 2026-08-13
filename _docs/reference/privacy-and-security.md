@@ -1,24 +1,24 @@
 # Privacy and Security
 
-SourceShelf is local by default. File conversion, OCR, web-capture processing, semantic parsing, previews, retrieval chunking, Trust & Safety, checksums, export, `llms.txt` import, living-pack comparison, and MCP search/read operate on this Mac.
+SourceShelf is local by default. File conversion, OCR, processing of content handed off by Safari, semantic parsing, previews, retrieval chunking, Trust & Safety, checksums, export, local-file `llms.txt` import, living-pack comparison, and MCP search/read operate on the device.
 
 ## No-network guarantee
 
 SourceShelf does not fetch remote content during:
 
 - file conversion or preview;
-- `llms.txt` import or generation;
+- local-file `llms.txt` or research-package import and generation;
 - Refresh & Compare;
 - MCP resource listing, search, or reads;
 - bundle generation.
 
-A Safari capture receives content from the page you are already viewing through the enabled extension. Remote URLs found in local `llms.txt` are retained as unavailable references rather than fetched.
+A local `llms.txt` file remains offline: remote URLs in it become unavailable references rather than being fetched. Website capture and website `llms.txt` acquisition are different, explicit Safari-extension workflows. The extension reads or fetches authorized website content under Safari’s permission model, then hands bounded local data to SourceShelf. The native app does not become a general-purpose web client.
 
 ## What SourceShelf stores
 
 Depending on the features you use, local storage includes:
 
-- converted Markdown in the output folder;
+- converted Markdown in the authorized Mac output folder or the private iPhone/iPad library;
 - Library history and saved packs;
 - ordered draft metadata;
 - semantic-document caches;
@@ -39,7 +39,7 @@ The app shows local paths in its own inspector so you can open or reveal files. 
 
 Captured and converted text is marked `untrusted_reference`. Trust & Safety warnings are advisory and never claim that the material was sanitized. Review source text before following any instruction it contains.
 
-## MCP boundaries
+## MCP boundaries on Mac
 
 MCP sharing is:
 

@@ -10,7 +10,7 @@ SourceShelf uses the Model Context Protocol (MCP) over standard input/output. It
 2. Enable **Local MCP sharing**.
 3. Open **Packs** and select a saved pack.
 4. Save any outstanding changes.
-5. Choose **More > Local AI Access…**.
+5. Choose the visible Local AI status or **Pack Actions > Local AI Access…**.
 6. Review the fresh Trust & Safety result. If it has warnings or readable-source errors, explicitly choose **Share with Issues** to continue.
 
 ![The opt-in Local MCP Sharing setting](../assets/images/integrations-settings.png)

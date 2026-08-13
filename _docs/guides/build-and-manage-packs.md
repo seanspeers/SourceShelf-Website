@@ -4,21 +4,41 @@ A pack is an ordered selection of Library sources. Saved packs are SourceShelf�
 
 ## The Packs workspace
 
-The left column is a compact Library browser. The middle column is the ordered pack. At larger window widths, the inspector appears as a third column; at compact widths it opens in a sheet.
+The left column is a resizable pack navigator, the middle column is the active pack's source workspace, and the right column is the source inspector. At compact widths, the inspector opens in a sheet so pack navigation and sources remain visible.
 
 ![A saved pack built from synthetic demo sources](../assets/images/pack-builder.png)
 
-Use the header to select a saved pack, start a new one, save changes, save under a different name, rename, or delete it.
+Use **Search Packs** to filter the saved-pack list by name without changing the Library filters. Results stay in the stored pack order. The navigator shows source counts, updated dates, unsaved changes, and compact Local AI status. Long names truncate in the list and header without moving the workspace controls.
+
+Choose **New Pack** in the navigator to start an untitled draft. The center column has two modes:
+
+- **Contents** shows the current ordered pack, comparison badges, unavailable placeholders, and ordering controls.
+- **Add Sources** reuses the Library's local search and filters, membership controls, and bulk-add actions.
+
+New empty drafts open in Add Sources. Saved packs open in Contents.
 
 ## Add and order sources
 
-- Select the plus or minus control beside a source to change membership.
+- Open **Add Sources**, then select the plus or minus control beside a source to change membership.
 - **Add Matching** adds readable sources matching the current browser filters.
 - **Add All Exportable** adds all readable Library sources.
 - **Add Since Last Export** adds sources created after the current pack’s most recent successful export.
 - Drag sources to reorder them, or use **Move Up** and **Move Down** for keyboard-accessible ordering.
 
 Exporters and MCP snapshots receive sources in the displayed order.
+
+## Workspace status and actions
+
+The stable header shows the total source count, estimated token count, last saved date, readable or unavailable state, Trust & Safety status, and precise Local AI state. **Current** means an authorized MCP snapshot exists and is current; **Review Required**, **Not Shared**, and **Off** describe the actual sharing state without implying access is active.
+
+The primary actions remain visible:
+
+- **Save** or **Save Changes** persists the draft.
+- **Refresh & Compare** checks the current local sources against the last successful export.
+- **Trust & Safety** opens the current health workflow.
+- **Export…** opens the format chooser.
+
+The gear-shaped **Pack Actions** menu contains **Save As…**, **Rename Pack…**, **Local AI Access…**, and **Delete Pack…**.
 
 ## Drafts and explicit saving
 

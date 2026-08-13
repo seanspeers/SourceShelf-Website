@@ -2,6 +2,8 @@
 
 The SourceShelf Safari extension saves the current page, main content, a selection, a selected page area, or a basket of research highlights as local Markdown.
 
+It can also acquire several tabs from the current Safari window into one new or existing research pack. Website bytes are fetched and rendered in the extension process; the native app receives only bounded, locally staged capture payloads and never acts as a general-purpose web client.
+
 ## Enable the Safari extension
 
 1. Launch SourceShelf.
@@ -18,6 +20,34 @@ The SourceShelf Safari extension saves the current page, main content, a selecti
 - **Save Highlights as Markdown** combines the ordered highlight basket and optional short note.
 
 Explicit popup actions override the recipe’s default for that capture.
+
+## Capture the current window
+
+Open SourceShelf in Safari, choose **Research > Capture Current Window**, and review the tabs Safari reports for the window where you invoked the extension. Unsupported pages such as Safari settings, extension pages, local files, and other non-HTTP(S) URLs remain visible but cannot be selected.
+
+Select the useful tabs, choose one destination, then start the capture. The destination can be a locale-aware new pack such as `Safari Research — Aug 11, 2026` or a recently used existing pack. SourceShelf keeps the selected tab order, continues past individual failures, creates no empty pack when everything fails, and gives every saved item a fresh local identity.
+
+The quick single-page actions are unchanged. Batch capture uses the same readability, Markdown rendering, recipe, staged-image, history, and output-folder pipeline rather than maintaining a second converter.
+
+## Website access and security
+
+Safari controls website access for the extension and may show its permission prompt as soon as you click the SourceShelf toolbar button. The timing and wording of that system prompt belong to Safari. If you deny access, enable it later in Safari’s extension settings and reopen SourceShelf.
+
+For batch work, SourceShelf asks Safari only for the HTTP(S) origins needed by the selected tabs or `llms.txt` resources. It does not declare permanent access to every website. The review screen distinguishes available, access-needed, and unsupported sources before acquisition starts.
+
+Remote bytes and images are acquired by the Safari extension under Safari’s website-permission model. Redirects are revalidated, unsafe schemes are rejected, and staged files cross the existing App Group/native-messaging boundary. The native app has no outbound-network entitlement and does not use `URLSession` for Safari acquisition.
+
+## Limits, cancellation, and failures
+
+Acquisition uses at most three concurrent sources. A response may be at most 8 MiB, the operation may stage at most 256 MiB, each source may archive at most 100 images, redirects stop after five hops, and a request times out after 20 seconds. A bounded review shows at most 1,000 `llms.txt` entries and discovery probes at most 12 candidates.
+
+You can cancel while remote work is in progress. SourceShelf aborts outstanding requests, removes temporary staged data, and preserves only work already accepted for local processing. Individual permission, timeout, redirect, HTTP, parse, extraction, and size failures do not discard successful siblings.
+
+## Safari tab groups and browser limitations
+
+Current-window capture uses the public WebExtensions query `tabs.query({ currentWindow: true })`. Safari’s public WebExtensions API does not expose a documented Tab Group identifier or membership query, so SourceShelf does not label this feature “Capture Tab Group” or claim it can distinguish the active group from other tabs Safari exposes for that window.
+
+The exact set is therefore Safari-defined and can vary with Safari releases and window state. Pages Safari does not allow an extension to read remain unavailable. HTTP `Link` headers and manual redirect responses are also subject to the headers Safari exposes to extensions. A signed extension should be used to verify those cases against the Safari versions you ship.
 
 ## Capture recipes
 
@@ -73,3 +103,4 @@ If a new recipe does not appear in Safari:
 2. Open SourceShelf once so it can publish the current recipes.
 3. Close and reopen the extension popup; a Safari restart should not normally be necessary.
 4. If the menu is empty, open **Capture Settings** from the popup and confirm at least Standard or a custom recipe exists.
+5. If Safari keeps asking for website access or the popup cannot read the page, review SourceShelf under **Safari > Settings > Extensions** and grant access for that website before trying again.

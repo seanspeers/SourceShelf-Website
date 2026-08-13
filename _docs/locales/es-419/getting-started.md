@@ -10,7 +10,7 @@ Elige una carpeta fácil de reconocer y de hacer copias de seguridad. SourceShel
 
 ## 2. Convertir archivos
 
-aire libre **convertir**, luego arrastre los archivos a la zona de soltar o elija **Seleccionar archivos**. También puedes usar **Archivo > Abrir**, convierta una carpeta completa o importe una carpeta local `llms.txt` colección.
+Abre **Convertir**, arrastra los archivos al área o elige **Seleccionar archivos**. También puedes usar **Archivo > Abrir**, convertir una carpeta completa o elegir **Importar paquete de investigación…** para importar un paquete de SourceShelf, un ZIP de OKF, un paquete portátil `llms.txt`, un archivo `llms.txt` independiente o una carpeta que contenga `llms.txt`.
 
 ![El espacio de trabajo Convert listo para archivos locales](../../assets/images/convert.png)
 
@@ -33,15 +33,15 @@ Los filtros de la biblioteca solo afectan lo que ves. No cambian el paquete actu
 
 ## 4. Construye un paquete
 
-aire libre **Paquetes**, elegir **Nuevo paquete**, y utilice el navegador de fuentes a la izquierda para encontrar material. Agregue fuentes individuales o utilice:
+Abre **Paquetes**. El navegador izquierdo enumera los paquetes guardados y el campo **Buscar paquetes** permite filtrarlos localmente por nombre. Elige **Nuevo paquete** y luego **Agregar fuentes** en la columna central. La búsqueda de paquetes y la búsqueda de fuentes son independientes. Agrega fuentes individuales o usa:
 
 - **Agregar coincidencias** para los filtros actuales;
 - **Agregar todo lo exportable** para cada elemento de la Biblioteca legible;
 - **Agregar desde la última exportación** para artículos capturados o convertidos después de la última exportación exitosa.
 
-Reordene la lista central arrastrando los elementos o usando **Subir** y **Mueve hacia abajo**. orden mostrada se convierte en el pedido de exportación y el pedido presentado a través de Local AI Access.
+Cambie a **Contenido** y reordene la lista arrastrando los elementos o usando **Subir** y **Bajar**. El orden mostrado se convierte en el orden de exportación y en el que presenta el Acceso local a IA.
 
-Guarda el paquete para darle un nombre duradero y habilitar la comparación de paquetes de vida, `llms.txt` generación de carpetas, y MCP compartir.
+Guarda el paquete para darle un nombre permanente. **Guardar cambios**, **Actualizar y comparar**, **Confianza y Seguridad** y **Exportar…** permanecen visibles. Usa **Acciones del paquete** para Guardar como, Cambiar nombre, Acceso local a IA y Eliminar.
 
 ![Un paquete ordenado hecho a partir de archivos de investigación municipales sintéticos.](../../assets/images/pack-builder.png)
 
@@ -58,10 +58,11 @@ seleccionar **Exportar...**, luego elija el destino que coincida con su flujo de
 - **Paquete de referencia de IA ZIP** para chats de IA, agentes y espacios de trabajo de proyectos;
 - **OKF v0.2 Paquete ZIP** para catálogos y agentes basados en estándares;
 - **Paquete de contexto de Markdown** para un archivo portátil;
+- **Paquete portátil llms.txt ZIP** para una colección completa que puede moverse entre dispositivos con SourceShelf;
 - **llms.txt Carpeta de colección** para una carpeta ordenada e inspeccionable;
 - **Copiar Markdown combinado** para una pegatina rápida.
 
-![Las cinco opciones de exportación de SourceShelf](../../assets/images/export-chooser.png)
+![El selector de exportación de SourceShelf](../../assets/images/export-chooser.png)
 
 Código postal y `llms.txt` Las exportaciones de carpetas ejecutan una nueva verificación de Confianza y Seguridad. Las exportaciones de Markdown y bandeja de entrada comienzan inmediatamente. Una exportación exitosa registra una línea de base local para **Actualizar y comparar**.
 

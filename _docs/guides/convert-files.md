@@ -7,10 +7,12 @@ SourceShelf converts supported local documents to Markdown without uploading the
 - Drag files or folders into **Convert**.
 - Select **Select Files** or **Select Folder**.
 - Use **File > Open** for files.
-- Use **File > Import llms.txt…** for a local `llms.txt` index or collection folder.
+- Use **File > Import Research Pack…** for a SourceShelf package, OKF ZIP, portable `llms.txt` package, standalone `llms.txt`, or an `llms.txt` collection folder.
 - Use the SourceShelf Shortcuts action for an automated file conversion.
 
 When converting a folder, SourceShelf scans supported files inside it and reports skipped items. Folder conversion does not turn the folder itself into a saved pack; add the resulting Library items to a pack afterward.
+
+Portable package import follows a separate preview-and-validation path. SourceShelf shows the detected format, source and asset counts, origin, integrity state, and warnings before it creates a new saved pack. Imported Markdown and archived assets are written beneath the currently authorized output folder. Large archives show progress, can be cancelled, and are inspected away from the main interface so the app remains responsive.
 
 ## What is preserved
 

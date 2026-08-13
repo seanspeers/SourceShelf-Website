@@ -1,7 +1,8 @@
 {
   "groups": [
     "Getting Started",
-    "Guides",
+    "Mac Guides",
+    "iPhone & iPad",
     "Local AI Access",
     "Reference"
   ],
@@ -11,70 +12,105 @@
       "route": "/docs/",
       "label": "Documentation Home",
       "group": null,
-      "description": "Learn how to capture, convert, organize, inspect, export, and share local SourceShelf knowledge packs."
+      "description": "Learn how to capture, import, convert, organize, read, export, and share local SourceShelf research on Mac, iPhone, and iPad."
     },
     {
       "source": "getting-started.md",
       "route": "/docs/getting-started/",
-      "label": "Get Started",
+      "label": "Get Started on Mac",
       "group": "Getting Started",
-      "description": "Convert your first files, review the SourceShelf Library, build an ordered pack, and choose an export format."
+      "description": "Get started with SourceShelf on Mac by converting files, reviewing the Library, building an ordered pack, and choosing an export format."
     },
     {
       "source": "guides/safari-capture.md",
       "route": "/docs/guides/safari-capture/",
       "label": "Capture from Safari",
-      "group": "Guides",
-      "description": "Capture pages, main content, selections, page areas, and research highlights from Safari with SourceShelf."
+      "group": "Mac Guides",
+      "description": "Capture pages, selections, research highlights, or several tabs from a Safari window with SourceShelf on Mac."
     },
     {
       "source": "guides/convert-files.md",
       "route": "/docs/guides/convert-files/",
       "label": "Convert Files and Folders",
-      "group": "Guides",
+      "group": "Mac Guides",
       "description": "Convert supported files and folders into local Markdown while preserving useful structure and assets."
     },
     {
       "source": "guides/library-and-inspector.md",
       "route": "/docs/guides/library-and-inspector/",
       "label": "Library and Inspector",
-      "group": "Guides",
+      "group": "Mac Guides",
       "description": "Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library."
     },
     {
       "source": "guides/storage-management.md",
       "route": "/docs/guides/storage-management/",
       "label": "Manage Storage",
-      "group": "Guides",
+      "group": "Mac Guides",
       "description": "Review SourceShelf storage use, run safe cleanup, and deliberately remove generated source data."
     },
     {
       "source": "guides/build-and-manage-packs.md",
       "route": "/docs/guides/build-and-manage-packs/",
       "label": "Build and Manage Packs",
-      "group": "Guides",
+      "group": "Mac Guides",
       "description": "Create ordered SourceShelf packs, manage drafts and saved packs, and maintain living export baselines."
     },
     {
       "source": "guides/export-formats.md",
       "route": "/docs/guides/export-formats/",
       "label": "Choose an Export Format",
-      "group": "Guides",
-      "description": "Choose between AI Reference Pack, OKF, Markdown, llms.txt, and clipboard export workflows."
+      "group": "Mac Guides",
+      "description": "Choose between AI Reference Pack, OKF, Markdown, portable llms.txt package, llms.txt folder, and clipboard export workflows."
     },
     {
       "source": "guides/trust-safety-and-refresh.md",
       "route": "/docs/guides/trust-safety-and-refresh/",
       "label": "Trust & Safety and Living Packs",
-      "group": "Guides",
+      "group": "Mac Guides",
       "description": "Review SourceShelf pack readiness, trust warnings, freshness, checksums, assets, and living-pack changes."
     },
     {
       "source": "guides/llms-txt.md",
       "route": "/docs/guides/llms-txt/",
       "label": "Import and Export llms.txt",
-      "group": "Guides",
-      "description": "Import local llms.txt collections and generate ordered, inspectable llms.txt export folders."
+      "group": "Mac Guides",
+      "description": "Import local llms.txt collections, acquire website collections through Safari, and generate ordered llms.txt exports."
+    },
+    {
+      "source": "ios/getting-started.md",
+      "route": "/docs/ios/getting-started/",
+      "label": "Get Started on iPhone and iPad",
+      "group": "iPhone & iPad",
+      "description": "Get started with SourceShelf on iPhone and iPad, from the adaptive Library and Reader to local import and portable packs."
+    },
+    {
+      "source": "ios/safari-capture.md",
+      "route": "/docs/ios/safari-capture/",
+      "label": "Capture from Safari on iPhone and iPad",
+      "group": "iPhone & iPad",
+      "description": "Enable the SourceShelf Safari extension, capture pages or a Safari window, and import website llms.txt collections on iPhone and iPad."
+    },
+    {
+      "source": "ios/import-and-read.md",
+      "route": "/docs/ios/import-and-read/",
+      "label": "Import and Read Documents",
+      "group": "iPhone & iPad",
+      "description": "Import supported documents from Files or the Share Sheet, use local OCR and search, and read saved research offline."
+    },
+    {
+      "source": "ios/packs-and-portability.md",
+      "route": "/docs/ios/packs-and-portability/",
+      "label": "Build, Export, and Move Packs",
+      "group": "iPhone & iPad",
+      "description": "Build ordered research packs and move complete portable packages between SourceShelf devices with Files or AirDrop."
+    },
+    {
+      "source": "ios/settings-and-privacy.md",
+      "route": "/docs/ios/settings-and-privacy/",
+      "label": "Settings and Privacy",
+      "group": "iPhone & iPad",
+      "description": "Review local storage, Safari access, import and export controls, and SourceShelf's no-account, no-sync privacy model."
     },
     {
       "source": "mcp/local-ai-access.md",

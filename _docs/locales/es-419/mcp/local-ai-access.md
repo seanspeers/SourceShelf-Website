@@ -10,7 +10,7 @@ SourceShelf utiliza el Protocolo de Contexto del Modelo (MCP) sobre la entrada/s
 2. permitir **anestesia local MCP reparto**.
 3. aire libre **Paquetes** y selecciona un paquete guardado.
 4. Guarda cualquier cambio pendiente.
-5. elegir **Más > Acceso local a IA…**.
+5. Elige el estado visible de Acceso local a IA o **Acciones del paquete > Acceso local a IA…**.
 6. Revise el resultado reciente de Confianza y Seguridad. Si tiene advertencias o errores de fuente legible, elija explícitamente **Compartir con problemas** para continuar.
 
 ![El local de suscripción voluntaria MCP Configuración de compartir](../../../assets/images/integrations-settings.png)

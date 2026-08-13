@@ -25,7 +25,11 @@ Model Context Protocol, a standard through which an AI host can discover resourc
 Open Knowledge Format. SourceShelf exports canonical v0.2 concept metadata with SourceShelf manifest extensions.
 
 **Pack**  
-An ordered selection of Library source IDs. A saved pack can be exported, compared, or shared.
+An ordered selection of Library source IDs. A saved pack can be exported on every platform; comparison and Local AI Access are Mac-only in 1.0.2.
+
+**Portable pack**
+
+A ZIP research package containing ordered canonical Markdown, safe provenance, referenced archived assets, and a versioned SourceShelf manifest. It can be moved manually between SourceShelf on Mac, iPhone, and iPad without exposing either device’s private library layout.
 
 **Recipe review**  
 An optional queued step that lets you edit captured Markdown and destination metadata before saving.

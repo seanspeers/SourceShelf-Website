@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Review local storage, Safari access, import and export controls, and SourceShelf&#39;s no-account, no-sync privacy model.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/ios/settings-and-privacy/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/ios/settings-and-privacy/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Settings and Privacy on iPhone and iPad | SourceShelf Documentation">
+  <meta property="og:description" content="Review local storage, Safari access, import and export controls, and SourceShelf&#39;s no-account, no-sync privacy model.">
+  <meta property="og:url" content="https://sourceshelf.app/docs/ios/settings-and-privacy/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Settings and Privacy on iPhone and iPad | SourceShelf Documentation">
+  <meta name="twitter:description" content="Review local storage, Safari access, import and export controls, and SourceShelf&#39;s no-account, no-sync privacy model.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Settings and Privacy on iPhone and iPad | SourceShelf Documentation</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260813-1">
+  <script src="/locale.js?v=20260813-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("en");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/blog/">Blog</a>
+        <a class="nav-link" href="/privacy.html">Privacy</a>
+        <a class="nav-link" href="/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/support.html">Support</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Download SourceShelf on the Mac App Store">Download</a>
+        <label class="locale-picker"><span class="visually-hidden">Language</span><select data-locale-select aria-label="Select language"><option value="en" lang="en" selected>English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Switch to light mode" data-dark-label="Switch to dark mode" aria-label="Toggle dark mode" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/docs/">Documentation</a></li><li>iPhone &amp; iPad</li><li aria-current="page">Settings and Privacy on iPhone and iPad</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Browse documentation</summary>
+        <nav aria-label="Mobile documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf on Mac</a></li></ul></section>
+<section class="docs-nav-group"><h2>Mac Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone &amp; iPad</h2><ul><li><a href="/docs/ios/getting-started/">Get Started on iPhone and iPad</a></li><li><a href="/docs/ios/safari-capture/">Capture from Safari on iPhone and iPad</a></li><li><a href="/docs/ios/import-and-read/">Import and Read Documents on iPhone and iPad</a></li><li><a href="/docs/ios/packs-and-portability/">Build, Export, and Move Packs on iPhone and iPad</a></li><li><a href="/docs/ios/settings-and-privacy/" aria-current="page">Settings and Privacy on iPhone and iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference on Mac</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Documentation sidebar">
+          <nav aria-label="Documentation navigation"><a class="docs-nav-home" href="/docs/">Documentation Home</a><section class="docs-nav-group"><h2>Getting Started</h2><ul><li><a href="/docs/getting-started/">Get Started with SourceShelf on Mac</a></li></ul></section>
+<section class="docs-nav-group"><h2>Mac Guides</h2><ul><li><a href="/docs/guides/safari-capture/">Capture from Safari</a></li><li><a href="/docs/guides/convert-files/">Convert Files and Folders</a></li><li><a href="/docs/guides/library-and-inspector/">Library and Inspector</a></li><li><a href="/docs/guides/storage-management/">Manage SourceShelf Storage</a></li><li><a href="/docs/guides/build-and-manage-packs/">Build and Manage Packs</a></li><li><a href="/docs/guides/export-formats/">Choose an Export Format</a></li><li><a href="/docs/guides/trust-safety-and-refresh/">Trust &amp; Safety and Living Packs</a></li><li><a href="/docs/guides/llms-txt/">Import and Export llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone &amp; iPad</h2><ul><li><a href="/docs/ios/getting-started/">Get Started on iPhone and iPad</a></li><li><a href="/docs/ios/safari-capture/">Capture from Safari on iPhone and iPad</a></li><li><a href="/docs/ios/import-and-read/">Import and Read Documents on iPhone and iPad</a></li><li><a href="/docs/ios/packs-and-portability/">Build, Export, and Move Packs on iPhone and iPad</a></li><li><a href="/docs/ios/settings-and-privacy/" aria-current="page">Settings and Privacy on iPhone and iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Local AI Access</h2><ul><li><a href="/docs/mcp/local-ai-access/">Local AI Access (MCP)</a></li><li><a href="/docs/mcp/lm-studio/">Use SourceShelf with LM Studio</a></li><li><a href="/docs/mcp/ollama/">Use SourceShelf with Ollama</a></li><li><a href="/docs/mcp/codex/">Use SourceShelf with Codex</a></li><li><a href="/docs/mcp/claude-code/">Use SourceShelf with Claude Code</a></li><li><a href="/docs/mcp/opencode/">Use SourceShelf with OpenCode</a></li><li><a href="/docs/mcp/troubleshooting/">MCP Troubleshooting</a></li></ul></section>
+<section class="docs-nav-group"><h2>Reference</h2><ul><li><a href="/docs/reference/settings/">Settings Reference on Mac</a></li><li><a href="/docs/reference/supported-formats/">Supported Formats</a></li><li><a href="/docs/reference/privacy-and-security/">Privacy and Security</a></li><li><a href="/docs/reference/glossary/">Glossary</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="settings-and-privacy-on-iphone-and-ipad">Settings and Privacy on iPhone and iPad</h1>
+<p>Open the sidebar’s <strong>More</strong> menu and choose <strong>Settings</strong>. SourceShelf 1.0.2 groups the iPhone and iPad settings into Storage, Safari Extension, Import &amp; Export, Privacy, and About.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>On this page</summary><nav class="docs-toc-list" aria-label="Mobile table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#storage">Storage</a></li><li class="toc-level-2"><a href="#safari-extension">Safari Extension</a></li><li class="toc-level-2"><a href="#import-and-export">Import &amp; Export</a></li><li class="toc-level-2"><a href="#privacy-model">Privacy model</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="storage">Storage <a class="heading-anchor" href="#storage" aria-label="Section link: Storage"><span aria-hidden="true">#</span></a></h2>
+<p>Storage shows the local number of packs, sources, archived assets, and total SourceShelf library size. The library lives privately on the device rather than in a user-visible SourceShelf folder.</p>
+<p>Deleting a source from the Library removes that local source, its archived assets, and its pack memberships. Deleting a pack removes only the pack membership list; the underlying sources stay in <strong>All Research</strong>. SourceShelf 1.0.2 does not provide the Mac app’s separate storage-maintenance inventory on iPhone or iPad.</p>
+<h2 id="safari-extension">Safari Extension <a class="heading-anchor" href="#safari-extension" aria-label="Section link: Safari Extension"><span aria-hidden="true">#</span></a></h2>
+<p>This section reports the extension status when the operating system makes that status available, links to Safari’s extension settings, and includes manual setup instructions. Safari controls website access and may prompt as soon as you open the SourceShelf toolbar extension.</p>
+<p>SourceShelf captures only sites Safari authorizes. For cross-site or multi-tab research, review access in Safari settings if an origin remains unavailable.</p>
+<h2 id="import-and-export">Import &amp; Export <a class="heading-anchor" href="#import-and-export" aria-label="Section link: Import &amp; Export"><span aria-hidden="true">#</span></a></h2>
+<p><strong>Import Research…</strong> opens the Files picker for supported documents and packages. <strong>Export a Pack…</strong> lets you choose a saved pack and a portable format before opening the system share sheet.</p>
+<p>These are explicit transfers. SourceShelf does not watch Files, AirDrop in the background, or synchronize changes between devices.</p>
+<h2 id="privacy-model">Privacy model <a class="heading-anchor" href="#privacy-model" aria-label="Section link: Privacy model"><span aria-hidden="true">#</span></a></h2>
+<ul><li><strong>Stored Locally:</strong> research and archived images stay on this device until you explicitly export or share them.</li><li><strong>No Analytics or Tracking:</strong> SourceShelf includes no third-party analytics, advertising tracking, or SourceShelf account.</li><li><strong>Safari Controls Website Access:</strong> the extension sees website content only under permissions managed by Safari.</li><li><strong>No Cloud Sync:</strong> research moves only when you explicitly import, export, AirDrop, or share it.</li></ul>
+<p>The native iPhone and iPad app performs conversion, OCR, search, and reading locally. It has no native crawler or automatic remote-image loader. Tapping an ordinary web or mail link hands that link to the system.</p>
+<p>Local AI Access through MCP, output-folder bookmarks, Finder integration, and storage cleanup remain Mac-only in 1.0.2.</p>
+<p>For the product-wide policy, see <a href="/docs/reference/privacy-and-security/">Privacy and Security</a>.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Documentation pages"><a class="docs-page-link docs-page-link-previous" href="/docs/ios/packs-and-portability/"><span>Previous</span><strong>Build, Export, and Move Packs on iPhone and iPad</strong></a><a class="docs-page-link docs-page-link-next" href="/docs/mcp/local-ai-access/"><span>Next</span><strong>Local AI Access (MCP)</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Page contents"><nav class="docs-toc-list" aria-label="Table of contents"><h2>On this page</h2><ol><li class="toc-level-2"><a href="#storage">Storage</a></li><li class="toc-level-2"><a href="#safari-extension">Safari Extension</a></li><li class="toc-level-2"><a href="#import-and-export">Import &amp; Export</a></li><li class="toc-level-2"><a href="#privacy-model">Privacy model</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/">Home</a>
+          <a href="/examples/">Examples</a>
+          <a href="/blog/">Blog</a>
+          <a href="/privacy.html">Privacy</a>
+          <a href="/docs/">Documentation</a>
+          <a href="/support.html">Support</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelf use cases">
+        <h2>Ways to use SourceShelf</h2>
+        <ul><li><a href="/private-ai-knowledge-base-mac/">Private AI knowledge base for Mac</a></li><li><a href="/pdf-to-markdown-mac/">Local PDF conversion</a></li><li><a href="/save-webpages-as-markdown-safari/">Safari web capture</a></li><li><a href="/local-ai-reference-packs/">Focused context for AI</a></li><li><a href="/research-archive-mac/">Local research archive</a></li><li><a href="/mcp-knowledge-base-mac/">Read-only MCP knowledge access</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260813-1"></script>
+</body>
+</html>

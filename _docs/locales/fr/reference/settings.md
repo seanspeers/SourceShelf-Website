@@ -1,6 +1,8 @@
 # Référence des réglages
 
-ouvert **SourceShelf > Paramètres**. est rétrécissable et est organisée en cinq onglets.
+Ouvrez **SourceShelf > Réglages**. La fenêtre est redimensionnable et comporte cinq onglets.
+
+Pour les réglages sur iPhone et iPad, consultez [Réglages et confidentialité sur iPhone et iPad](../ios/settings-and-privacy.md).
 
 ## Langue
 
@@ -35,7 +37,7 @@ Choisissez le format initialement sélectionné dans le sélecteur d'exportation
 
 ## Intégrations
 
-**Activer local MCP Partageant** est désactivé par défaut. Lorsqu'il est activé, les packs enregistrés individuels peuvent être autorisés à partir de **Packs > Plus > Accès local à l'IA...**.
+**Activer le partage MCP local** est désactivé par défaut. Lorsqu'il est activé, un pack enregistré peut être autorisé avec son état visible d'accès local à l'IA ou **Actions du pack > Accès local à l'IA…**.
 
 Cette onglet affiche le nombre de partages actifs et fournit **Packs ouverts** et **Annuler tout**. le partage ou la révocation de tout cela supprime les instantanés et invalide immédiatement les configurations clients copiées.
 

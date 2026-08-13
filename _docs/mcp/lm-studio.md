@@ -8,7 +8,7 @@ Last verified: 2026-08-01.
 
 - A current LM Studio release with MCP support (LM Studio documents MCP support from 0.3.17).
 - A downloaded and loaded model that supports tool use.
-- A current SourceShelf share created through **Packs > More > Local AI Access…**.
+- A current SourceShelf share created through the visible Local AI status or **Pack Actions > Local AI Access…**.
 
 ## Install the SourceShelf connection
 

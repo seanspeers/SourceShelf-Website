@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="L’extension Safari de SourceShelf capture les recherches Web autorisées et les transmet à la bibliothèque locale SourceShelf. Safari, et non SourceShelf, détermine les sites auxquels l’extension peut accéder.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/ios/safari-capture/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/ios/safari-capture/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Capturer avec Safari sur iPhone et iPad | Documentation SourceShelf">
+  <meta property="og:description" content="L’extension Safari de SourceShelf capture les recherches Web autorisées et les transmet à la bibliothèque locale SourceShelf. Safari, et non SourceShelf, détermine les sites auxquels l’extension peut accéder.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/ios/safari-capture/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Capturer avec Safari sur iPhone et iPad | Documentation SourceShelf">
+  <meta name="twitter:description" content="L’extension Safari de SourceShelf capture les recherches Web autorisées et les transmet à la bibliothèque locale SourceShelf. Safari, et non SourceShelf, détermine les sites auxquels l’extension peut accéder.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Capturer avec Safari sur iPhone et iPad | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260813-1">
+  <script src="/locale.js?v=20260813-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/blog/">Blog</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>iPhone et iPad</li><li aria-current="page">Capturer avec Safari sur iPhone et iPad</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides pour Mac</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone et iPad</h2><ul><li><a href="/fr/docs/ios/getting-started/">Premiers pas sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/safari-capture/" aria-current="page">Capturer avec Safari sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/import-and-read/">Importer et lire des documents sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/packs-and-portability/">Créer, exporter et déplacer des packs sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/settings-and-privacy/">Réglages et confidentialité sur iPhone et iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides pour Mac</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone et iPad</h2><ul><li><a href="/fr/docs/ios/getting-started/">Premiers pas sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/safari-capture/" aria-current="page">Capturer avec Safari sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/import-and-read/">Importer et lire des documents sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/packs-and-portability/">Créer, exporter et déplacer des packs sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/settings-and-privacy/">Réglages et confidentialité sur iPhone et iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="capturer-avec-safari-sur-iphone-et-ipad">Capturer avec Safari sur iPhone et iPad</h1>
+<p>L’extension Safari de SourceShelf capture les recherches Web autorisées et les transmet à la bibliothèque locale SourceShelf. Safari, et non SourceShelf, détermine les sites auxquels l’extension peut accéder.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#activer-lextension">Activer l’extension</a></li><li class="toc-level-2"><a href="#demandes-daccès-aux-sites-web">Demandes d’accès aux sites Web</a></li><li class="toc-level-2"><a href="#capturer-une-page">Capturer une page</a></li><li class="toc-level-2"><a href="#capturer-la-fenêtre-safari-active">Capturer la fenêtre Safari active</a></li><li class="toc-level-2"><a href="#importer-la-collection-llms-txt-dun-site">Importer la collection llms.txt d’un site</a></li><li class="toc-level-2"><a href="#achèvement-et-récupération">Achèvement et récupération</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="activer-lextension">Activer l’extension <a class="heading-anchor" href="#activer-lextension" aria-label="Lien vers la section: Activer l’extension"><span aria-hidden="true">#</span></a></h2>
+<p>Dans SourceShelf, ouvrez <strong>Réglages &gt; Extension Safari</strong> et utilisez <strong>Activer l’extension Safari…</strong> lorsque le lien direct vers les réglages est disponible. Pour une configuration manuelle :</p>
+<ol><li>Ouvrez l’app <strong>Réglages</strong> du système.</li><li>Sous iOS ou iPadOS 18 et versions ultérieures, choisissez <strong>Apps &gt; Safari &gt; Extensions</strong>. Sous iOS ou iPadOS 17, choisissez <strong>Safari &gt; Extensions</strong>.</li><li>Sélectionnez SourceShelf et activez <strong>Autoriser l’extension</strong>.</li><li>Choisissez l’accès aux sites Web que vous souhaitez autoriser dans Safari.</li></ol>
+<p>Les réglages de Safari restent la référence pour la navigation normale et privée.</p>
+<h2 id="demandes-daccès-aux-sites-web">Demandes d’accès aux sites Web <a class="heading-anchor" href="#demandes-daccès-aux-sites-web" aria-label="Lien vers la section: Demandes d’accès aux sites Web"><span aria-hidden="true">#</span></a></h2>
+<p>Safari peut afficher sa demande d’accès au site dès que vous touchez l’extension SourceShelf dans la barre d’outils. Ce comportement système est normal ; SourceShelf ne peut ni supprimer ni remplacer la demande. Accordez l’accès nécessaire à la page que vous souhaitez capturer.</p>
+<p>Pour une collection <code>llms.txt</code> couvrant plusieurs sites ou plusieurs onglets, la révision peut marquer certaines sources comme <strong>Accès nécessaire</strong>. Sur iPhone et iPad, ouvrez chaque site indiqué, autorisez SourceShelf dans Safari, puis rouvrez la révision pour l’actualiser. Si Safari répète la demande ou si la page reste indisponible, vérifiez l’accès aux sites de SourceShelf dans les réglages de Safari plutôt que de toucher plusieurs fois l’action de la fenêtre contextuelle.</p>
+<h2 id="capturer-une-page">Capturer une page <a class="heading-anchor" href="#capturer-une-page" aria-label="Lien vers la section: Capturer une page"><span aria-hidden="true">#</span></a></h2>
+<p>Ouvrez une page HTTP(S) normale, touchez la commande des extensions de Safari et choisissez SourceShelf. La fenêtre peut enregistrer la page, son contenu principal, le texte sélectionné, une zone sélectionnée ou une série ordonnée de passages de recherche. Les actions interactives exigent une page compatible et, pour une capture fondée sur une sélection, une sélection réelle.</p>
+<p>Une capture de page unique est enregistrée dans <strong>Toutes les recherches</strong>. SourceShelf archive les images référencées admissibles dans ses limites habituelles afin que le résultat reste lisible hors ligne.</p>
+<h2 id="capturer-la-fenêtre-safari-active">Capturer la fenêtre Safari active <a class="heading-anchor" href="#capturer-la-fenêtre-safari-active" aria-label="Lien vers la section: Capturer la fenêtre Safari active"><span aria-hidden="true">#</span></a></h2>
+<p>Choisissez <strong>Recherche &gt; Capturer la fenêtre active</strong>. SourceShelf examine les onglets signalés par Safari dans la fenêtre où l’extension a été ouverte. Sélectionnez les onglets utiles, choisissez un pack nouveau ou existant, puis lancez la capture.</p>
+<p>Les pages non compatibles ou inaccessibles restent visibles, mais ne peuvent pas être sélectionnées. SourceShelf conserve l’ordre choisi dans Safari, poursuit le traitement si une page échoue et ne crée pas de pack vide si toutes les pages échouent. Les onglets disponibles sont déterminés par Safari et peuvent varier selon la fenêtre, le groupe d’onglets, les autorisations et l’état du système.</p>
+<h2 id="importer-la-collection-llms-txt-dun-site">Importer la collection llms.txt d’un site <a class="heading-anchor" href="#importer-la-collection-llms-txt-dun-site" aria-label="Lien vers la section: Importer la collection llms.txt d’un site"><span aria-hidden="true">#</span></a></h2>
+<p>Sur un site Web, choisissez <strong>Recherche &gt; Importer via llms.txt</strong>. SourceShelf cherche un index applicable à l’aide des liens de découverte déclarés, puis de chemins <code>llms.txt</code> de plus en plus généraux jusqu’à la racine du site. L’app présente les sections ordonnées et les ressources répertoriées sans explorer les autres liens de la page.</p>
+<p>Sélectionnez les ressources voulues et choisissez un pack nouveau ou existant. L’index <code>llms.txt</code> est enregistré en premier, puis les ressources sélectionnées réussies dans l’ordre indiqué. L’échec d’une ressource n’annule pas les autres.</p>
+<h2 id="achèvement-et-récupération">Achèvement et récupération <a class="heading-anchor" href="#achèvement-et-récupération" aria-label="Lien vers la section: Achèvement et récupération"><span aria-hidden="true">#</span></a></h2>
+<p>L’extension prépare des transferts locaux de taille limitée pour l’app principale. SourceShelf les traite au lancement ou lors de son retour au premier plan. Si une capture terminée n’apparaît pas immédiatement, ouvrez SourceShelf et laissez l’app terminer l’importation en attente.</p>
+<p>L’annulation d’une opération distante interrompt les requêtes encore actives et supprime si possible les données temporaires. Les tâches locales déjà acceptées peuvent se terminer. SourceShelf ne transforme jamais l’app native iPhone ou iPad en robot d’exploration en arrière-plan.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/ios/getting-started/"><span>Précédent</span><strong>Premiers pas sur iPhone et iPad</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/ios/import-and-read/"><span>Suivant</span><strong>Importer et lire des documents sur iPhone et iPad</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#activer-lextension">Activer l’extension</a></li><li class="toc-level-2"><a href="#demandes-daccès-aux-sites-web">Demandes d’accès aux sites Web</a></li><li class="toc-level-2"><a href="#capturer-une-page">Capturer une page</a></li><li class="toc-level-2"><a href="#capturer-la-fenêtre-safari-active">Capturer la fenêtre Safari active</a></li><li class="toc-level-2"><a href="#importer-la-collection-llms-txt-dun-site">Importer la collection llms.txt d’un site</a></li><li class="toc-level-2"><a href="#achèvement-et-récupération">Achèvement et récupération</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/fr/">Accueil</a>
+          <a href="/fr/examples/">Exemples</a>
+          <a href="/fr/blog/">Blog</a>
+          <a href="/fr/privacy.html">Confidentialité</a>
+          <a href="/fr/docs/">Documentation</a>
+          <a href="/fr/support.html">Assistance</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="Cas d&#39;utilisation de SourceShelf">
+        <h2>Manières d&#39;utiliser SourceShelf</h2>
+        <ul><li><a href="/fr/private-ai-knowledge-base-mac/">Base de connaissances privée sur l&#39;IA pour Mac</a></li><li><a href="/fr/pdf-to-markdown-mac/">Conversion locale de PDF</a></li><li><a href="/fr/save-webpages-as-markdown-safari/">Capture web Safari</a></li><li><a href="/fr/local-ai-reference-packs/">Contexte axé sur l&#39;IA</a></li><li><a href="/fr/research-archive-mac/">Archives de recherche locale</a></li><li><a href="/fr/mcp-knowledge-base-mac/">Accès en lecture seule aux connaissances de MCP</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260813-1"></script>
+</body>
+</html>

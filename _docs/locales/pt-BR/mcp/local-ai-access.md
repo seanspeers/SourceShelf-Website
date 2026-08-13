@@ -10,7 +10,7 @@ SourceShelf usa o Protocolo de Contexto do Modelo (MCP) acima da entrada/saída 
 2. habilitar **local MCP Compartilhando**.
 3. aberto **Pacotes** E selecione um pacote salvo.
 4. Salve quaisquer alterações pendentes.
-5. escolher **Mais > Acesso Local à IA...**.
+5. Escolha o estado visível do Acesso Local de IA ou **Ações do pacote > Acesso Local de IA…**.
 6. Revise o resultado recente de Confiança e Segurança. Se houver avisos ou erros de fonte legível, escolha explicitamente **Compartilhar com problemas** Para continuar.
 
 ![O Local de inscrição voluntária MCP Configurações de compartilhamento](../../../assets/images/integrations-settings.png)

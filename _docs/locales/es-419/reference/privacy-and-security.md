@@ -1,59 +1,59 @@
 # Privacidad y seguridad
 
-SourceShelf es local por defecto. Conversión de archivos, OCR, procesamiento de captura web, análisis semántico, vistas previas, agrupación de recuperación, Confianza y Seguridad, comprobaciones de suma, exportación. `llms.txt` importación, comparación de paquetes de vida y MCP buscar/leer funciona en este Mac.
+SourceShelf funciona de manera local por defecto. La conversión de archivos, el OCR, el procesamiento del contenido entregado por Safari, el análisis semántico, las vistas previas, la división para recuperación, las comprobaciones de confianza y seguridad, las sumas de verificación, la exportación, la importación local de `llms.txt`, la comparación de paquetes activos y la búsqueda/lectura mediante MCP se realizan en el dispositivo.
 
 ## Garantía sin red
 
-SourceShelf no recupera contenido remoto durante:
+SourceShelf no obtiene contenido remoto durante:
 
-- conversión de archivos o vista previa;
-- `llms.txt` importación o generación;
+- la conversión o vista previa de archivos;
+- la importación y generación desde un archivo `llms.txt` local o un paquete de investigación;
 - Actualizar y comparar;
-- MCP lista de recursos, búsqueda o lectura;
-- generación de paquetes.
+- el listado, la búsqueda o la lectura de recursos MCP;
+- la generación de paquetes.
 
-Una captura de Safari recibe contenido de la página que ya está visualizando a través de la extensión habilitada. a distancia URLse encuentra en local `llms.txt` se retienen como referencias no disponibles en lugar de ser recuperadas.
+Un archivo `llms.txt` local permanece sin conexión: sus URL remotas se conservan como referencias no disponibles, en vez de descargarse. La captura de sitios web y la adquisición del `llms.txt` de un sitio son flujos explícitos distintos de la extensión de Safari. La extensión lee u obtiene contenido autorizado conforme al modelo de permisos de Safari y después entrega datos locales limitados a SourceShelf. La app nativa no se convierte en un cliente web de uso general.
 
-## Qué tiendas de SourceShelf almacenan
+## Lo que almacena SourceShelf
 
-Dependiendo de las funciones que uses, el almacenamiento local incluye:
+Según las funciones que uses, el almacenamiento local incluye:
 
-- convertido Markdown en la carpeta de salida;
-- Historia de la biblioteca y paquetes guardados;
-- ordenado borrador de metadatos;
-- cache de documentos semánticos;
+- Markdown convertido en la carpeta de salida autorizada de Mac o en la biblioteca privada de iPhone y iPad;
+- historial de la biblioteca y paquetes guardados;
+- metadatos ordenados de borradores;
+- cachés de documentos semánticos;
 - imágenes web archivadas;
-- capturar recetas y borradores de reseñas en cola;
-- líneas de base de exportación exitosas;
-- explicitamente autorizado MCP instantáneas.
+- recetas de captura y borradores pendientes de revisión;
+- líneas base de exportaciones correctas;
+- instantáneas MCP autorizadas explícitamente.
 
-Las instantáneas de borrador y las bases de datos almacenan identificadores, orden, fechas y hashes, no copias de contenido Markdown arbitrario. MCP Las instantáneas copian intencionalmente solo el Markdown legible y los recursos referenciados de un paquete compartido para que el asistente en la caja de arena no necesite acceso general a los archivos.
+Las instantáneas de borrador y las líneas base guardan identificadores, orden, fechas y hashes, no copias arbitrarias de contenido Markdown. Las instantáneas MCP copian intencionalmente solo el Markdown legible y los recursos referenciados de un paquete compartido, para que el proceso auxiliar aislado no necesite acceso amplio a los archivos.
 
-Los registros de la biblioteca se conservan hasta que los elimines. **Configuración > General > Revisar almacenamiento...** Separa la limpieza segura y regenerable de la eliminación de los datos de origen generados. La salida generada visible al usuario se mueve a la papelera, las fuentes con estrellas y guardadas se protegen por defecto, y los documentos importados originales nunca se seleccionan ni eliminan. ver [Administrar el almacenamiento de SourceShelf](../guides/storage-management.md) para el flujo de trabajo de limpieza.
+Los registros de la biblioteca se conservan hasta que los elimines. **Configuración > General > Revisar almacenamiento…** separa la limpieza segura y regenerable de la eliminación de datos de origen generados. Los archivos generados visibles para el usuario se mueven a la papelera, las fuentes favoritas y las incluidas en paquetes guardados se protegen por defecto, y los documentos originales importados nunca se seleccionan ni se eliminan. Consulta [Administrar el almacenamiento de SourceShelf](../guides/storage-management.md) para conocer el flujo de limpieza.
 
-## Privacidad del camino local
+## Privacidad de las rutas locales
 
-La aplicación muestra los caminos locales en su propio inspector para que puedas abrir o revelar archivos. Los caminos de origen de los archivos están excluidos de la proveniencia exportada, los conceptos OKF, los manifiestos, `llms.txt` salida, y MCP instantáneas. La documentación de capturas de pantalla también debe recortar o ocultar estos detalles exclusivos de localización.
+La app muestra rutas locales en su inspector para que puedas abrir o mostrar archivos. Las rutas de origen se excluyen de la procedencia exportada, los conceptos OKF, los manifiestos, la salida `llms.txt` y las instantáneas MCP. Las capturas destinadas a la documentación también deben recortar u ocultar estos detalles locales.
 
 ## Clasificación de confianza
 
-El texto capturado y convertido está marcado `untrusted_reference`. y las advertencias de Confianza y Seguridad son de carácter orientativo y nunca afirman que el material haya sido desinfectado. Revisa el texto original antes de seguir cualquier instrucción que contenga.
+El texto capturado y convertido se marca como `untrusted_reference`. Las advertencias de confianza y seguridad son orientativas y nunca afirman que el material se haya saneado. Revisa el texto original antes de seguir cualquier instrucción que contenga.
 
-## MCP límites
+## Límites de MCP en Mac
 
-MCP compartir es:
+El uso compartido mediante MCP está:
 
 - desactivado por defecto;
-- autorizado por paquete guardado;
-- servido por un asistente local de stdio firmado sin oyente de red;
-- solo lectura;
-- restringido por una lista de permiso y SHA-256 verificación;
-- immediatamente revocable.
+- autorizado por cada paquete guardado;
+- servido por un auxiliar stdio local firmado, sin un puerto de red en escucha;
+- limitado a lectura;
+- restringido por una lista de permisos y verificación SHA-256;
+- disponible para revocación inmediata.
 
-Las dos herramientas buscan en la instantánea y leen un recurso que está en la lista de permisos. No hay una herramienta de ruta de sistema de archivos, un navegador de archivos general, una acción de escritura, una búsqueda remota, un mensaje de error o una suscripción.
+Las dos herramientas buscan en la instantánea y leen un recurso autorizado. No existe una herramienta de rutas del sistema de archivos, un explorador de archivos general, una acción de escritura, búsqueda remota, prompt ni suscripción.
 
-## Compartir identificaciones y configuraciones
+## Identificadores de uso compartido y configuraciones
 
-Una identificación de partición autoriza una instantánea local. Manténla alejada de repositorios públicos y capturas de pantalla de documentación. Si SourceShelf se mueve, se reinstala o se actualiza, copia de nuevo el camino auxiliar. Revoca el acceso de SourceShelf en lugar de depender únicamente de eliminar una configuración del cliente.
+Un identificador de uso compartido autoriza una instantánea local. No lo incluyas en repositorios públicos ni capturas de documentación. Si SourceShelf se mueve, reinstala o actualiza, vuelve a copiar la ruta del auxiliar. Revoca el acceso desde SourceShelf en vez de depender solo de eliminar una configuración del cliente.
 
-Para consultar la declaración de privacidad del producto, visita la [Política de privacidad de SourceShelf](/es-419/privacy.html).
+Para consultar la declaración de privacidad del producto y los detalles de implementación, consulta la [Política de privacidad de SourceShelf](/es-419/privacy.html).

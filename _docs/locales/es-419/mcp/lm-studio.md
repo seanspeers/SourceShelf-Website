@@ -8,7 +8,7 @@ LM Studio puede ejecutar un modelo local y actuar como el MCP anfitrión que ini
 
 - Una corriente LM Studio lanzamiento con MCP soporte (LM Studio documentos MCP soporte desde 0.3.17).
 - Un modelo descargado y cargado que admite el uso de herramientas.
-- Una participación actual de SourceShelf creada a través de **Paquetes > Más > Acceso local a IA…**.
+- Un recurso compartido actual de SourceShelf creado mediante el estado visible de Acceso local a IA o **Acciones del paquete > Acceso local a IA…**.
 
 ## Instalar la conexión SourceShelf
 

@@ -35,6 +35,14 @@ O manifesto do SourceShelf inclui hashes, datas de modificação, extensões de 
 
 Isso cria um arquivo Markdown contendo as fontes legíveis do pacote em ordem. É fácil inspecionar, editar, anexar ou colar em um sistema que não entende pacotes ZIP.
 
+## Pacote portátil llms.txt ZIP
+
+**Melhor para:** compartilhar ou fazer backup de uma coleção de pesquisa completa e movê-la entre o SourceShelf no Mac, iPhone e iPad.
+
+O ZIP mantém um arquivo `llms.txt` padrão na raiz e inclui Markdown canônico, ativos arquivados referenciados, um arquivo `sourceshelf-manifest.json` com versão e um inventário de integridade. A importação cria um novo pacote com novos identificadores locais; ela não combina com um pacote existente nem o substitui.
+
+A transferência é manual por Arquivos, AirDrop ou outro destino de compartilhamento escolhido pelo usuário. Não é sincronização na nuvem e não atualiza automaticamente outro dispositivo.
+
 ## llms.txt Pastinha de Coleção
 
 **Melhor para:** Uma coleta local inspecível usando o experimental `llms.txt` Convenção.
@@ -51,6 +59,6 @@ O Markdown combinado é copiado imediatamente. Como esta é uma entrega de pacot
 
 ## Checksums e validação
 
-AI e ZIPs da OKF e `llms.txt` Pastas contêm um determinístico `checksums.sha256`, ordenado por caminho relativo e cobrindo todos os arquivos gerados, exceto o próprio inventário de soma de verificação. O SourceShelf valida a ordenação, identificadores, hashes, proveniência e referências de ativos antes de escrever.
+Os ZIPs de IA, OKF e `llms.txt` portáteis, além das pastas `llms.txt`, contêm metadados de integridade determinísticos. O SourceShelf valida a ordem, os identificadores, os hashes, a proveniência e as referências de ativos antes de gravar.
 
-CEP e `llms.txt` Os fluxos de trabalho de pastas são executados com o Trust & Safety atualizados. Os fluxos de trabalho de Markdown e área de transferência mantêm seu comportamento imediato.
+Os fluxos de ZIP e pasta `llms.txt` executam uma nova verificação de Confiança e Segurança. Os fluxos de Markdown e área de transferência continuam imediatos. O manifesto de um pacote do SourceShelf também permite verificar na importação se o conteúdo corresponde ao inventário declarado; isso comprova a integridade, não a identidade do autor.

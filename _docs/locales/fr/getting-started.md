@@ -10,7 +10,7 @@ Choisissez un dossier facile à reconnaître et à sauvegarder. SourceShelf cons
 
 ## 2. Convertir des fichiers
 
-ouvert **convertir**, puis faites glisser les fichiers dans la zone de dépose ou choisissez **Sélectionner des fichiers**. Vous pouvez également utiliser **Fichier > Ouvrir**, convertissez un dossier entier, ou importez un local `llms.txt` Collection.
+Ouvrez **Convertir**, puis faites glisser les fichiers dans la zone de dépôt ou choisissez **Sélectionner des fichiers**. Vous pouvez également utiliser **Fichier > Ouvrir**, convertir un dossier entier ou choisir **Importer un pack de recherche…** pour importer un pack SourceShelf, un ZIP OKF, un pack portable `llms.txt`, un fichier `llms.txt` autonome ou un dossier qui contient `llms.txt`.
 
 ![L'espace de travail Convertir prêt pour les fichiers locaux](../../assets/images/convert.png)
 
@@ -33,15 +33,15 @@ Les filtres de la bibliothèque n'affectent que ce que vous voyez. Ils ne change
 
 ## 4. Construire un pack
 
-ouvert **Packs**, choisir **Nouveau pack**, et utilisez le navigateur de sources à gauche pour trouver du matériel. Ajoutez des sources individuelles ou utilisez :
+Ouvrez **Packs**. Le navigateur de gauche répertorie les packs enregistrés et le champ **Rechercher des packs** permet de les filtrer localement par nom. Choisissez **Nouveau pack**, puis **Ajouter des sources** dans la colonne centrale. La recherche de packs et la recherche de sources sont indépendantes. Ajoutez des sources individuelles ou utilisez :
 
 - **Ajouter des correspondances** Pour les filtres actuels ;
 - **Ajouter tout exportable** Pour chaque élément de bibliothèque lisible ;
 - **Ajouter depuis la dernière exportation** Pour les articles capturés ou convertis après la dernière exportation réussie.
 
-Réorganisez la liste centrale en glissant les éléments ou en utilisant **Avancer** et **Avancer vers le bas**. commande affichée devient la commande d'exportation et la commande présentée via Local AI Access.
+Passez à **Contenu**, puis réorganisez la liste en faisant glisser les éléments ou avec **Monter** et **Descendre**. L'ordre affiché devient l'ordre d'exportation et celui présenté par l'accès local à l'IA.
 
-Enregistrez le pack pour lui donner un nom durable et permettre la comparaison des packs vivants, `llms.txt` Génération de dossiers, et MCP Partage.
+Enregistrez le pack pour lui donner un nom durable. **Enregistrer les modifications**, **Actualiser et comparer**, **Confiance et sécurité** et **Exporter…** restent visibles. Utilisez **Actions du pack** pour Enregistrer sous, Renommer, Accès local à l'IA et Supprimer.
 
 ![Un pack commandé fabriqué à partir de fichiers de recherche municipaux synthétiques.](../../assets/images/pack-builder.png)
 
@@ -58,10 +58,11 @@ sélectionner **Exporter...**, puis choisissez la destination qui correspond à 
 - **Pack de référence AI ZIP** Pour les chats IA, les agents et les espaces de travail de projet ;
 - **OKF v0.2 Pack ZIP** Pour les catalogues et agents basés sur des normes ;
 - **Pack de contexte Markdown** Pour un seul fichier portable ;
+- **Pack portable llms.txt ZIP** pour une collection complète pouvant être déplacée entre vos appareils SourceShelf ;
 - **llms.txt Dossier de collection** Pour un dossier organisé et inspectable ;
 - **Copier le Markdown combiné** Pour une pâte rapide.
 
-![Les cinq choix d'exportation SourceShelf](../../assets/images/export-chooser.png)
+![Le sélecteur d’exportation de SourceShelf](../../assets/images/export-chooser.png)
 
 ZIP et `llms.txt` Les exportations de dossiers effectuent un nouveau contrôle de confiance et de sécurité. Les exportations de Markdown et de presse-papiers commencent immédiatement. Une exportation réussie enregistre une référence locale pour **Recharger et comparer**.
 

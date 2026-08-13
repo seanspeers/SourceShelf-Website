@@ -4,21 +4,34 @@ Un pack est un ensemble ordonné de sources de bibliothèque. Les packs enregist
 
 ## L'espace de travail des packs
 
-La colonne de gauche est un navigateur de bibliothèque compact. La colonne centrale est le pack trié. À des largeurs de fenêtre plus importantes, l'inspecteur apparaît comme une troisième colonne ; à des largeurs compactes, il s'ouvre dans une feuille.
+La colonne de gauche est un navigateur redimensionnable des packs, la colonne centrale contient les sources du pack actif et la colonne de droite est l'inspecteur de source. Lorsque la fenêtre est plus étroite, l'inspecteur s'ouvre dans une feuille afin que la navigation et les sources restent visibles.
 
 ![Un pack sauvegardé construit à partir de sources de démonstration synthétiques.](../../../assets/images/pack-builder.png)
 
-Utilisez le champ de tête pour sélectionner un pack enregistré, en créer un nouveau, enregistrer les modifications, enregistrer sous un nom différent, renommer ou le supprimer.
+Utilisez **Rechercher des packs** pour filtrer localement la liste par nom sans modifier les filtres de la Bibliothèque. L'ordre enregistré est conservé. Le navigateur affiche le nombre de sources, la date de mise à jour, les modifications non enregistrées et un état compact de l'accès local à l'IA. Les noms longs sont tronqués sans déplacer les commandes.
+
+Choisissez **Nouveau pack** dans le navigateur pour créer un brouillon. La colonne centrale propose deux modes :
+
+- **Contenu** affiche la liste ordonnée, les états de comparaison, les références indisponibles et les commandes de classement.
+- **Ajouter des sources** réutilise la recherche et les filtres locaux de la Bibliothèque, ainsi que les commandes d'ajout individuelles et groupées.
+
+Un nouveau brouillon vide s'ouvre dans Ajouter des sources. Un pack enregistré s'ouvre dans Contenu.
 
 ## Ajouter et commander des sources
 
-- Sélectionnez le contrôle plus ou moins à côté d'une source pour changer l'adhésion.
+- Ouvrez **Ajouter des sources**, puis sélectionnez le contrôle plus ou moins à côté d'une source pour modifier son appartenance.
 - **Ajouter des correspondances** Ajoute des sources lisibles correspondant aux filtres actuels du navigateur.
 - **Ajouter tout exportable** Ajoute toutes les sources de la bibliothèque lisibles.
 - **Ajouter depuis la dernière exportation** Ajoute des sources créées après l'exportation la plus récente réussie du pack actuel.
 - Faites glisser les sources pour les réorganiser, ou utilisez **Avancer** et **Avancer vers le bas** Pour la commande accessible par clavier.
 
 Exportateurs et MCP Les instantanés reçoivent les sources dans l'ordre affiché.
+
+## État et actions du pack
+
+L'en-tête stable affiche le nombre total de sources, l'estimation des jetons, la dernière date d'enregistrement, la disponibilité, l'état Confiance et sécurité et l'état exact de l'accès local à l'IA. **Actuel** signifie qu'un instantané MCP autorisé et à jour existe; **Révision requise**, **Non partagé** et **Désactivé** décrivent l'état réel.
+
+Les actions principales restent visibles : **Enregistrer** ou **Enregistrer les modifications**, **Actualiser et comparer**, **Confiance et sécurité** et **Exporter…**. Le menu en forme d'engrenage **Actions du pack** contient **Enregistrer sous…**, **Renommer le pack…**, **Accès local à l'IA…** et **Supprimer le pack…**.
 
 ## Dossiers et sauvegarde explicite
 

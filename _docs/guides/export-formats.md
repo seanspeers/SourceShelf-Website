@@ -35,6 +35,14 @@ SourceShelf’s manifest includes hashes, modification dates, trust extensions, 
 
 This creates one Markdown file containing the pack’s readable sources in order. It is easy to inspect, version, attach, or paste into a system that does not understand ZIP bundles.
 
+## Portable llms.txt Package ZIP
+
+**Best for:** sharing or backing up a complete research collection and moving it between SourceShelf on Mac, iPhone, and iPad.
+
+The ZIP keeps a standards-friendly `llms.txt` at its root and includes canonical Markdown, referenced archived assets, a versioned `sourceshelf-manifest.json`, and an integrity inventory. Importing it creates a new pack with fresh local identifiers; it does not merge with or overwrite an existing pack.
+
+This is manual portability through Files, AirDrop, or another user-selected share destination. It is not cloud sync and does not update another device automatically.
+
 ## llms.txt Collection Folder
 
 **Best for:** an inspectable local collection using the experimental `llms.txt` convention.
@@ -51,6 +59,6 @@ The combined Markdown is copied immediately. Because this is a successful pack d
 
 ## Checksums and validation
 
-AI and OKF ZIPs and `llms.txt` folders contain a deterministic `checksums.sha256`, sorted by relative path and covering every generated file except the checksum inventory itself. SourceShelf validates ordering, identifiers, hashes, provenance, and asset references before writing.
+AI, OKF, and portable `llms.txt` ZIPs plus `llms.txt` folders contain deterministic integrity metadata. SourceShelf validates ordering, identifiers, hashes, provenance, and asset references before writing.
 
-ZIP and `llms.txt` folder workflows run fresh Trust & Safety. Markdown and clipboard workflows keep their immediate behavior.
+ZIP and `llms.txt` folder workflows run fresh Trust & Safety. Markdown and clipboard workflows keep their immediate behavior. SourceShelf package manifests also let a later import verify that the package contents match the declared inventory; this is integrity checking, not proof of authorship.

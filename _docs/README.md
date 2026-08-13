@@ -1,15 +1,25 @@
 # SourceShelf User Guide
 
-SourceShelf turns files and web research into local Markdown, ordered context packs, portable exports, and optional read-only access for local AI applications. This guide is written for SourceShelf 1.0.1.
+Languages: **English** · [Français](locales/fr/README.md) · [Español (Latinoamérica)](locales/es-419/README.md) · [Português (Brasil)](locales/pt-BR/README.md) · [日本語](locales/ja/README.md)
 
-## Start here
+SourceShelf turns files and web research into local Markdown, ordered research packs, portable exports, and optional read-only access for local AI applications. This guide covers SourceShelf 1.0.2 on Mac, iPhone, and iPad.
 
-- [Get started](getting-started.md) — convert your first files, build a pack, and choose an export.
+## Start on Mac
+
+- [Get started on Mac](getting-started.md) — convert your first files, build a pack, and choose an export.
 - [Capture from Safari](guides/safari-capture.md) — pages, main content, selections, highlights, recipes, review, and keyboard shortcuts.
 - [Browse the Library](guides/library-and-inspector.md) — search, filters, source status, actions, and previews.
 - [Build and manage packs](guides/build-and-manage-packs.md) — saved packs, ordering, drafts, Trust & Safety, and Refresh & Compare.
 - [Choose an export format](guides/export-formats.md) — AI Reference Pack, OKF, Markdown, `llms.txt`, and clipboard workflows.
 - [Manage storage](guides/storage-management.md) — review local usage, safely clear obsolete data, and deliberately remove generated sources.
+
+## Start on iPhone or iPad
+
+- [Get started on iPhone and iPad](ios/getting-started.md) — learn the adaptive Library, Packs, Sources, and Reader workspace.
+- [Capture from Safari](ios/safari-capture.md) — enable the extension, capture pages or a Safari window, and import website `llms.txt` collections.
+- [Import and read documents](ios/import-and-read.md) — use Files, the Share Sheet, local OCR, search, and offline reading.
+- [Build, export, and move packs](ios/packs-and-portability.md) — organize research and move complete packs with Files or AirDrop.
+- [Settings and privacy](ios/settings-and-privacy.md) — review local storage, Safari access, and the no-account/no-sync model.
 
 ## Local AI access (MCP)
 
@@ -40,6 +50,6 @@ SourceShelf keeps four jobs separate:
 3. **Packs** arrange selected sources in a deliberate order.
 4. **Export or Local AI Access** delivers that pack to another workflow.
 
-SourceShelf performs these jobs locally. It does not fetch remote content during file conversion, `llms.txt` import, export, comparison, or MCP reads.
+SourceShelf performs these jobs locally. Local-file import, conversion, OCR, reading, export, comparison, and MCP access do not fetch remote content. Website capture and website `llms.txt` acquisition are explicit Safari-extension actions governed by Safari’s website permissions.
 
 The documentation screenshots use SourceShelf’s synthetic demo corpus and have local paths and MCP authorization values removed.

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Un pack est une collection ordonnée de sources de la Bibliothèque. Il organise les recherches sans dupliquer les sources sous-jacentes.">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/fr/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/ios/packs-and-portability/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/ios/packs-and-portability/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Créer, exporter et déplacer des packs sur iPhone et iPad | Documentation SourceShelf">
+  <meta property="og:description" content="Un pack est une collection ordonnée de sources de la Bibliothèque. Il organise les recherches sans dupliquer les sources sous-jacentes.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/docs/ios/packs-and-portability/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Créer, exporter et déplacer des packs sur iPhone et iPad | Documentation SourceShelf">
+  <meta name="twitter:description" content="Un pack est une collection ordonnée de sources de la Bibliothèque. Il organise les recherches sans dupliquer les sources sous-jacentes.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>Créer, exporter et déplacer des packs sur iPhone et iPad | Documentation SourceShelf</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260813-1">
+  <script src="/locale.js?v=20260813-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/blog/">Blog</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/" aria-current="page">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/docs/">Documentation</a></li><li>iPhone et iPad</li><li aria-current="page">Créer, exporter et déplacer des packs sur iPhone et iPad</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>Parcourir la documentation</summary>
+        <nav aria-label="Navigation mobile de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides pour Mac</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone et iPad</h2><ul><li><a href="/fr/docs/ios/getting-started/">Premiers pas sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/safari-capture/">Capturer avec Safari sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/import-and-read/">Importer et lire des documents sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/packs-and-portability/" aria-current="page">Créer, exporter et déplacer des packs sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/settings-and-privacy/">Réglages et confidentialité sur iPhone et iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="Barre latérale de la documentation">
+          <nav aria-label="Navigation de la documentation"><a class="docs-nav-home" href="/fr/docs/">Accueil de la documentation</a><section class="docs-nav-group"><h2>Bien démarrer</h2><ul><li><a href="/fr/docs/getting-started/">Commencer avec SourceShelf</a></li></ul></section>
+<section class="docs-nav-group"><h2>Guides pour Mac</h2><ul><li><a href="/fr/docs/guides/safari-capture/">Capturer depuis Safari</a></li><li><a href="/fr/docs/guides/convert-files/">Convertir des fichiers et des dossiers</a></li><li><a href="/fr/docs/guides/library-and-inspector/">Bibliothèque et inspecteur</a></li><li><a href="/fr/docs/guides/storage-management/">Gérer le stockage SourceShelf</a></li><li><a href="/fr/docs/guides/build-and-manage-packs/">Créer et gérer des packs</a></li><li><a href="/fr/docs/guides/export-formats/">Choisir un format d’exportation</a></li><li><a href="/fr/docs/guides/trust-safety-and-refresh/">Confiance et sécurité et packs évolutifs</a></li><li><a href="/fr/docs/guides/llms-txt/">Importer et exporter llms.txt</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhone et iPad</h2><ul><li><a href="/fr/docs/ios/getting-started/">Premiers pas sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/safari-capture/">Capturer avec Safari sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/import-and-read/">Importer et lire des documents sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/packs-and-portability/" aria-current="page">Créer, exporter et déplacer des packs sur iPhone et iPad</a></li><li><a href="/fr/docs/ios/settings-and-privacy/">Réglages et confidentialité sur iPhone et iPad</a></li></ul></section>
+<section class="docs-nav-group"><h2>Accès local à l’IA</h2><ul><li><a href="/fr/docs/mcp/local-ai-access/">Accès local à l’IA (MCP)</a></li><li><a href="/fr/docs/mcp/lm-studio/">Utiliser SourceShelf avec LM Studio</a></li><li><a href="/fr/docs/mcp/ollama/">Utiliser SourceShelf avec Ollama</a></li><li><a href="/fr/docs/mcp/codex/">Utiliser SourceShelf avec Codex</a></li><li><a href="/fr/docs/mcp/claude-code/">Utiliser SourceShelf avec Claude Code</a></li><li><a href="/fr/docs/mcp/opencode/">Utiliser SourceShelf avec OpenCode</a></li><li><a href="/fr/docs/mcp/troubleshooting/">Dépannage MCP</a></li></ul></section>
+<section class="docs-nav-group"><h2>Référence</h2><ul><li><a href="/fr/docs/reference/settings/">Référence des réglages</a></li><li><a href="/fr/docs/reference/supported-formats/">Formats pris en charge</a></li><li><a href="/fr/docs/reference/privacy-and-security/">Confidentialité et sécurité</a></li><li><a href="/fr/docs/reference/glossary/">Glossaire</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="créer-exporter-et-déplacer-des-packs-sur-iphone-et-ipad">Créer, exporter et déplacer des packs sur iPhone et iPad</h1>
+<p>Un pack est une collection ordonnée de sources de la Bibliothèque. Il organise les recherches sans dupliquer les sources sous-jacentes.</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#créer-et-gérer-un-pack">Créer et gérer un pack</a></li><li class="toc-level-2"><a href="#exporter-un-pack">Exporter un pack</a></li><li class="toc-level-2"><a href="#importer-un-pack-portable">Importer un pack portable</a></li><li class="toc-level-2"><a href="#continuer-sur-mac">Continuer sur Mac</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="créer-et-gérer-un-pack">Créer et gérer un pack <a class="heading-anchor" href="#créer-et-gérer-un-pack" aria-label="Lien vers la section: Créer et gérer un pack"><span aria-hidden="true">#</span></a></h2>
+<p>Utilisez <strong>Nouveau pack</strong> dans la barre latérale pour créer un pack vide. Pour ajouter des recherches, ouvrez les actions d’une source ou le mode de sélection, choisissez <strong>Ajouter au pack…</strong>, puis sélectionnez un pack existant ou créez-en un.</p>
+<p>Dans un pack, <strong>Retirer du pack</strong> retire uniquement l’appartenance. La source reste dans <strong>Toutes les recherches</strong>. Renommez ou supprimez un pack depuis son menu contextuel ; supprimer un pack conserve également ses sources.</p>
+<p>La recherche, les filtres et le tri s’appliquent à la Bibliothèque ou au pack actuellement sélectionné. Sur iPad, le pack, la liste des sources et le Lecteur peuvent rester visibles ensemble si l’espace le permet. Sur iPhone, parcourez la même hiérarchie un écran à la fois.</p>
+<h2 id="exporter-un-pack">Exporter un pack <a class="heading-anchor" href="#exporter-un-pack" aria-label="Lien vers la section: Exporter un pack"><span aria-hidden="true">#</span></a></h2>
+<p>Ouvrez un pack et choisissez <strong>Plus &gt; Exporter le pack…</strong>, ou choisissez <strong>Réglages &gt; Exporter un pack…</strong>. SourceShelf 1.0.2 pour iPhone et iPad propose :</p>
+<ul><li><strong>ZIP Pack de référence IA</strong> pour les conversations avec une IA et les espaces de projet ;</li><li><strong>Bundle OKF v0.2</strong> pour les catalogues et agents fondés sur des normes ;</li><li><strong>Package llms.txt portable</strong> pour une collection complète compatible avec les normes.</li></ul>
+<p>Une fois le ZIP créé, la feuille de partage du système permet de l’enregistrer dans Fichiers, de l’envoyer par AirDrop ou de le transmettre à une autre app sélectionnée.</p>
+<h2 id="importer-un-pack-portable">Importer un pack portable <a class="heading-anchor" href="#importer-un-pack-portable" aria-label="Lien vers la section: Importer un pack portable"><span aria-hidden="true">#</span></a></h2>
+<p>Choisissez <strong>Importer des recherches…</strong> et sélectionnez un ZIP compatible. SourceShelf détecte et valide les packs SourceShelf de référence IA, OKF et <code>llms.txt</code> portables, ainsi que les packs compatibles pris en charge. L’app vérifie les sommes de contrôle et les relations déclarées avant de valider l’importation.</p>
+<p>Une importation crée un nouveau pack local et de nouveaux identifiants de sources. Importer deux fois le même pack crée deux packs indépendants ; l’app ne fusionne ni ne remplace silencieusement le premier.</p>
+<p>L’intégrité du pack signifie que les octets importés correspondent à l’inventaire déclaré. Elle ne prouve ni l’identité du créateur ni l’innocuité des recherches. Le texte importé reste du contenu de référence et n’est pas interprété comme des instructions pour l’app.</p>
+<h2 id="continuer-sur-mac">Continuer sur Mac <a class="heading-anchor" href="#continuer-sur-mac" aria-label="Lien vers la section: Continuer sur Mac"><span aria-hidden="true">#</span></a></h2>
+<p>Exportez un pack sur iPhone ou iPad, déplacez-le avec Fichiers ou AirDrop, puis choisissez <strong>Importer un pack de recherche…</strong> dans SourceShelf sur Mac. Vous pouvez aussi exporter un pack sur Mac et sélectionner le pack avec <strong>Importer des recherches…</strong> sur iPhone ou iPad.</p>
+<p>Il s’agit d’une portabilité volontaire par fichier, et non d’une synchronisation automatique ou en direct. Les modifications apportées sur un appareil ne mettent pas à jour les copies sur un autre appareil sans nouvelle exportation et importation.</p>
+          </div>
+          <nav class="docs-pagination" aria-label="Pages de documentation"><a class="docs-page-link docs-page-link-previous" href="/fr/docs/ios/import-and-read/"><span>Précédent</span><strong>Importer et lire des documents sur iPhone et iPad</strong></a><a class="docs-page-link docs-page-link-next" href="/fr/docs/ios/settings-and-privacy/"><span>Suivant</span><strong>Réglages et confidentialité sur iPhone et iPad</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#créer-et-gérer-un-pack">Créer et gérer un pack</a></li><li class="toc-level-2"><a href="#exporter-un-pack">Exporter un pack</a></li><li class="toc-level-2"><a href="#importer-un-pack-portable">Importer un pack portable</a></li><li class="toc-level-2"><a href="#continuer-sur-mac">Continuer sur Mac</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/fr/">Accueil</a>
+          <a href="/fr/examples/">Exemples</a>
+          <a href="/fr/blog/">Blog</a>
+          <a href="/fr/privacy.html">Confidentialité</a>
+          <a href="/fr/docs/">Documentation</a>
+          <a href="/fr/support.html">Assistance</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="Cas d&#39;utilisation de SourceShelf">
+        <h2>Manières d&#39;utiliser SourceShelf</h2>
+        <ul><li><a href="/fr/private-ai-knowledge-base-mac/">Base de connaissances privée sur l&#39;IA pour Mac</a></li><li><a href="/fr/pdf-to-markdown-mac/">Conversion locale de PDF</a></li><li><a href="/fr/save-webpages-as-markdown-safari/">Capture web Safari</a></li><li><a href="/fr/local-ai-reference-packs/">Contexte axé sur l&#39;IA</a></li><li><a href="/fr/research-archive-mac/">Archives de recherche locale</a></li><li><a href="/fr/mcp-knowledge-base-mac/">Accès en lecture seule aux connaissances de MCP</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260813-1"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# Get Started with SourceShelf
+# Get Started with SourceShelf on Mac
 
 This walkthrough converts a few files, creates an ordered pack, checks it, and exports it.
 
@@ -10,7 +10,7 @@ Choose a folder that is easy to recognize and back up. SourceShelf also keeps lo
 
 ## 2. Convert files
 
-Open **Convert**, then drag files into the drop area or choose **Select Files**. You can also use **File > Open**, convert an entire folder, or import a local `llms.txt` collection.
+Open **Convert**, then drag files into the drop area or choose **Select Files**. You can also use **File > Open**, convert an entire folder, or choose **Import Research Pack…** to import a SourceShelf package, OKF ZIP, portable `llms.txt` package, standalone `llms.txt`, or a folder containing `llms.txt`.
 
 ![The Convert workspace ready for local files](assets/images/convert.png)
 
@@ -33,15 +33,17 @@ Library filters affect only what you see. They do not change the current pack.
 
 ## 4. Build a pack
 
-Open **Packs**, choose **New Pack**, and use the source browser on the left to find material. Add individual sources or use:
+Open **Packs**. The left navigator lists every saved pack and includes a local **Search Packs** field, so pack discovery remains quick as the list grows. Choose **New Pack**, switch the center column to **Add Sources**, and find material with the existing Library search and filters. Pack search and Library-source search are independent.
+
+Add individual sources or use:
 
 - **Add Matching** for the current filters;
 - **Add All Exportable** for every readable Library item;
 - **Add Since Last Export** for items captured or converted after the last successful export.
 
-Reorder the middle list by dragging items or using **Move Up** and **Move Down**. The displayed order becomes the export order and the order presented through Local AI Access.
+Switch to **Contents**, then reorder the list by dragging items or using **Move Up** and **Move Down**. The displayed order becomes the export order and the order presented through Local AI Access. Selecting another saved pack updates Contents and keeps the inspected source only when it belongs to that pack.
 
-Save the pack to give it a durable name and enable living-pack comparison, `llms.txt` folder generation, and MCP sharing.
+Save the pack to give it a durable name and enable living-pack comparison, `llms.txt` folder generation, and MCP sharing. **Save Changes**, **Refresh & Compare**, **Trust & Safety**, and **Export…** stay visible in the workspace header. Use the gear-shaped **Pack Actions** menu for Save As, Rename, Local AI Access, and Delete.
 
 ![An ordered pack made from synthetic municipal research files](assets/images/pack-builder.png)
 
@@ -58,10 +60,11 @@ Select **Export…**, then choose the destination that matches your workflow:
 - **AI Reference Pack ZIP** for AI chats, agents, and project workspaces;
 - **OKF v0.2 Bundle ZIP** for standards-based catalogs and agents;
 - **Markdown Context Pack** for one portable file;
+- **Portable llms.txt Package ZIP** for a complete collection that can move between SourceShelf devices;
 - **llms.txt Collection Folder** for an ordered, inspectable folder;
 - **Copy Combined Markdown** for a quick paste.
 
-![The five SourceShelf export choices](assets/images/export-chooser.png)
+![The SourceShelf export chooser](assets/images/export-chooser.png)
 
 ZIP and `llms.txt` folder exports run a fresh Trust & Safety check. Markdown and clipboard exports begin immediately. A successful export records a local baseline for **Refresh & Compare**.
 

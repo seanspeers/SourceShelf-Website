@@ -4,21 +4,34 @@ Un paquete es una selección ordenada de fuentes de la Biblioteca. Los paquetes 
 
 ## El espacio de trabajo de Packs
 
-La columna izquierda es un navegador de biblioteca compacto. La columna central es el paquete ordenado. En ventanas de mayor ancho, el inspector aparece como una tercera columna; en anchos compactos se abre en una hoja.
+La columna izquierda es un navegador redimensionable de paquetes, la columna central contiene las fuentes del paquete activo y la columna derecha es el inspector de fuentes. En ventanas compactas, el inspector se abre en una hoja para mantener visibles la navegación y las fuentes.
 
 ![Un paquete guardado construido a partir de fuentes de demostración sintéticas](../../../assets/images/pack-builder.png)
 
-Utilice el encabezado para seleccionar un paquete guardado, iniciar uno nuevo, guardar cambios, guardar con un nombre diferente, renombrarlo o eliminarlo.
+Usa **Buscar paquetes** para filtrar localmente la lista por nombre sin cambiar los filtros de la Biblioteca. Los resultados conservan el orden guardado. El navegador muestra el número de fuentes, la fecha de actualización, los cambios sin guardar y un estado compacto del acceso local a IA. Los nombres largos se truncan sin mover los controles.
+
+Elige **Nuevo paquete** en el navegador para iniciar un borrador. La columna central tiene dos modos:
+
+- **Contenido** muestra el paquete ordenado, estados de comparación, referencias no disponibles y controles de orden.
+- **Agregar fuentes** reutiliza la búsqueda y los filtros locales de la Biblioteca, los controles de membresía y las acciones de adición masiva.
+
+Los borradores nuevos y vacíos se abren en Agregar fuentes. Los paquetes guardados se abren en Contenido.
 
 ## Agregar y ordenar fuentes
 
-- Seleccione el control más o menos junto a una fuente para cambiar la membresía.
+- Abre **Agregar fuentes** y selecciona el control más o menos junto a una fuente para cambiar su membresía.
 - **Agregar coincidencias** añade fuentes legibles que coincidan con los filtros actuales del navegador.
 - **Agregar todo lo exportable** agrega todas las fuentes de la Biblioteca legibles.
 - **Agregar desde la última exportación** añade fuentes creadas después de la exportación exitosa más reciente del paquete actual.
 - Arrastre las fuentes para reordenarlas o use **Subir** y **Mueve hacia abajo** para pedidos accesibles con el teclado.
 
 Exportadores y MCP Las instantáneas reciben las fuentes en el orden que se muestran.
+
+## Estado y acciones del paquete
+
+El encabezado estable muestra el número total de fuentes, la estimación de tokens, la última fecha de guardado, la disponibilidad, el estado de Confianza y Seguridad y el estado preciso del acceso local a IA. **Actual** significa que existe una instantánea MCP autorizada y vigente; **Revisión requerida**, **No compartido** y **Desactivado** describen el estado real.
+
+Las acciones principales permanecen visibles: **Guardar** o **Guardar cambios**, **Actualizar y comparar**, **Confianza y Seguridad** y **Exportar…**. El menú con engrane **Acciones del paquete** contiene **Guardar como…**, **Cambiar nombre del paquete…**, **Acceso local a IA…** y **Eliminar paquete…**.
 
 ## Drafteos y ahorros explícitos
 

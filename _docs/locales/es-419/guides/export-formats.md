@@ -35,6 +35,14 @@ El manifiesto de SourceShelf incluye hashes, fechas de modificación, extensione
 
 Esto crea un archivo Markdown que contiene las fuentes legibles del paquete en orden. Es fácil de inspeccionar, verificar la versión, adjuntar o pegar en un sistema que no entienda los paquetes ZIP.
 
+## Paquete portátil llms.txt ZIP
+
+**Ideal para:** compartir o respaldar una colección de investigación completa y moverla entre SourceShelf en Mac, iPhone y iPad.
+
+El ZIP mantiene un archivo `llms.txt` estándar en la raíz e incluye Markdown canónico, recursos archivados con referencias, un archivo `sourceshelf-manifest.json` con versión y un inventario de integridad. Al importarlo se crea un paquete nuevo con identificadores locales nuevos; no se combina con un paquete existente ni lo sobrescribe.
+
+La transferencia es manual mediante Archivos, AirDrop u otro destino para compartir elegido por el usuario. No es sincronización en la nube y no actualiza automáticamente otro dispositivo.
+
 ## llms.txt Carpeta de colección
 
 **Ideal para:** una colección local inspeccionable utilizando el experimental `llms.txt` convención.
@@ -51,6 +59,6 @@ El Markdown combinado se copia inmediatamente. Debido a que esta es una entrega 
 
 ## Suma de verificación y validación
 
-Códigos postales de AI y OKF y `llms.txt` las carpetas contienen un determinista `checksums.sha256`, ordenado por ruta relativa y cubriendo todos los archivos generados excepto el inventario de suma de verificación en sí. SourceShelf valida el ordenamiento, los identificadores, las hashes, la procedencia y las referencias de activos antes de escribir.
+Los ZIP de IA, OKF y `llms.txt` portátiles, además de las carpetas `llms.txt`, contienen metadatos de integridad deterministas. SourceShelf valida el orden, los identificadores, los hashes, la procedencia y las referencias de recursos antes de escribir.
 
-Código postal y `llms.txt` Los flujos de trabajo de carpetas se ejecutan de nuevo con Trust & Safety. Los flujos de trabajo de Markdown y la bandeja de entrada mantienen su comportamiento inmediato.
+Los flujos de ZIP y carpeta `llms.txt` ejecutan una verificación nueva de Confianza y seguridad. Los flujos de Markdown y portapapeles mantienen su comportamiento inmediato. El manifiesto de un paquete de SourceShelf también permite comprobar durante la importación que el contenido coincide con el inventario declarado; esto comprueba la integridad, no la identidad del autor.

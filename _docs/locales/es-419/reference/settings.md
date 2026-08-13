@@ -1,6 +1,8 @@
 # Referencia de configuración
 
-aire libre **SourceShelf > Configuración**. la ventana es redimensionable y está organizada en cinco pestañas.
+Abre **SourceShelf > Configuración**. La ventana se puede redimensionar y está organizada en cinco pestañas.
+
+Para conocer la configuración de iPhone y iPad, consulta [Configuración y privacidad en iPhone y iPad](../ios/settings-and-privacy.md).
 
 ## Idioma
 
@@ -35,7 +37,7 @@ Elige el formato inicialmente seleccionado en el selector de exportación de Paq
 
 ## Integraciones
 
-**Habilitar local MCP reparto** está desactivado por defecto. Cuando está activado, los paquetes guardados individuales pueden ser autorizados desde **Paquetes > Más > Acceso local a IA…**.
+**Habilitar el uso compartido MCP local** está desactivado de forma predeterminada. Cuando está activado, un paquete guardado puede autorizarse desde su estado visible de Acceso local a IA o **Acciones del paquete > Acceso local a IA…**.
 
 Esta pestaña muestra el número de compartimientos activos y proporciona **Paquetes abiertos** y **Revocar todo**. el acceso compartido o la revocación de todo elimina instantáneas y invalida inmediatamente las configuraciones del cliente copiadas.
 

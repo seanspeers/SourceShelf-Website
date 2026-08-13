@@ -1,6 +1,8 @@
-# Settings Reference
+# Settings Reference on Mac
 
 Open **SourceShelf > Settings**. The window is resizable and is organized into five tabs.
+
+For the iPhone and iPad settings surface, see [Settings and Privacy on iPhone and iPad](../ios/settings-and-privacy.md).
 
 ## Language
 
@@ -35,7 +37,7 @@ Choose the format initially selected in the Packs export chooser. The setting an
 
 ## Integrations
 
-**Enable local MCP sharing** is off by default. When enabled, individual saved packs can be authorized from **Packs > More > Local AI Access…**.
+**Enable local MCP sharing** is off by default. When enabled, individual saved packs can be authorized from the Packs workspace's visible Local AI status or **Pack Actions > Local AI Access…**.
 
 This tab shows the active-share count and provides **Open Packs** and **Revoke All**. Disabling sharing or revoking all removes snapshots and immediately invalidates copied client configurations.
 

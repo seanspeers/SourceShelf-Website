@@ -1,10 +1,47 @@
 # Import and Export llms.txt
 
-SourceShelf’s `llms.txt` support is experimental and deliberately offline. It can import a local index and generate a portable collection folder, but it never fetches links from the internet.
+SourceShelf supports the current `llms.txt` v2 shape for both local-file import and website acquisition from Safari. Local-file import remains offline. Website import fetches only through the Safari extension under explicit Safari website permissions; the native app remains network-isolated.
+
+## Import a website from Safari
+
+On an HTTP(S) page, open SourceShelf and choose **Research > Import via llms.txt**. SourceShelf discovers the index, previews its ordered sections and entries, marks external origins that need access, and lets you select resources before choosing one new or existing pack.
+
+Safari may show a website-access prompt when you first open the SourceShelf extension. Additional origins listed by the collection can require separate access. Safari remains the source of truth for those permissions; if access is denied, change it in Safari’s extension settings and reopen the review.
+
+The imported `llms.txt` index is saved as the first source. Selected resources follow in listed order. A resource failure does not discard successful siblings, and no empty pack is created.
+
+## Website discovery order
+
+SourceShelf checks discovery evidence in this order and deduplicates normalized URLs:
+
+1. an HTML `<link rel="describedby" href="…/llms.txt">` declaration;
+2. an HTTP `Link` header with `rel="describedby"`;
+3. the most-specific `llms.txt` path for the current URL, walking outward to the site root;
+4. root `/llms.txt`.
+
+Relative discovery links resolve against the page URL. The first valid `text/plain` or Markdown-like response with a parseable H1 wins. Discovery is bounded to 12 candidates, five redirect hops, 8 MiB per response, and a 20-second request timeout.
+
+## Website content selection and provenance
+
+For each selected entry, SourceShelf prefers an explicit `rel="alternate"` Markdown representation from HTML or HTTP `Link` metadata. It then tries the common `page.html.md` and `page.md` variants before falling back to HTML extraction. This alternate-representation logic is intentionally limited to the `llms.txt` workflow; single-page quick capture remains unchanged.
+
+Only entries explicitly listed in the discovered index are eligible. SourceShelf does not crawl ordinary page links. It archives only images actually referenced by the selected Markdown, subject to access and size limits.
+
+History records keep the listed human-facing URL, the representation URL actually fetched, the discovery method, and the originating `llms.txt` URL as web-acquisition provenance. That record is separate from portable-package provenance and never claims package-integrity verification.
+
+## Website limits and cancellation
+
+The review is capped at 1,000 listed entries and flags larger indexes as limited. Acquisition uses at most three concurrent resources, at most 100 images per source, and at most 256 MiB of staged data per operation. Unsupported schemes, unsafe redirects, permission failures, timeouts, oversized responses, parse failures, and extraction failures are reported per resource.
+
+Canceling aborts outstanding extension requests and removes temporary staged data. Work already handed to the native local processor may finish, but remote acquisition does not continue in the native app.
+
+## Native network isolation
+
+The SourceShelf native app has no outbound-network entitlement for this feature and does not use `URLSession` for Safari or website `llms.txt` acquisition. The extension performs permission-gated fetching, Markdown selection, and asset staging, then sends bounded local handoffs through native messaging and the App Group. Local conversion, history, pack creation, output-folder authorization, and persistence stay native.
 
 ## Import a collection
 
-Choose **File > Import llms.txt…** or use the action in **Convert**. Select either:
+Choose **File > Import Research Pack…** or use the action in **Convert**. For a standalone local collection, select either:
 
 - an `llms.txt` file; or
 - a folder containing `llms.txt`.
@@ -22,6 +59,8 @@ An index must contain one H1 title. It may also contain:
 - a special `## Optional` section.
 
 An optional byte-order mark is accepted. Malformed optional entries are reported as warnings.
+
+The H1 is the only required element. A blockquote summary, freeform details, H2 sections, link descriptions, and `## Optional` are optional and remain omitted when absent. Export does not fabricate those fields.
 
 ## Local-link safety
 

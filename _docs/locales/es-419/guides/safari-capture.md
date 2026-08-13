@@ -2,6 +2,8 @@
 
 La extensión SourceShelf Safari guarda la página actual, el contenido principal, una selección, una área de página seleccionada o una cesta de puntos destacados de investigación como Markdown local.
 
+También puede adquirir varias pestañas de la ventana actual de Safari en un solo paquete de investigación nuevo o existente. La extensión obtiene y prepara los datos web; la app nativa solo recibe capturas locales acotadas y nunca actúa como cliente web de propósito general.
+
 ## Habilita la extensión de Safari
 
 1. Iniciar SourceShelf.
@@ -18,6 +20,28 @@ La extensión SourceShelf Safari guarda la página actual, el contenido principa
 - **Guardar los puntos destacados como Markdown** combina el cesto de resaltados ordenado y la nota corta opcional.
 
 Las acciones de pop-up explícitas suprimen la configuración predeterminada de la receta para esa captura.
+
+## Capturar la ventana actual
+
+Abre SourceShelf en Safari, elige **Investigación > Capturar ventana actual** y revisa las pestañas que Safari informa para esa ventana. Las páginas que no usan HTTP(S), los archivos locales y las páginas internas se muestran, pero no se pueden seleccionar.
+
+Selecciona las pestañas útiles y un solo destino. SourceShelf conserva el orden elegido, continúa tras fallas individuales, no crea un paquete vacío si todo falla y asigna una identidad local nueva a cada elemento. Las acciones rápidas de una sola página no cambian, y el lote reutiliza el mismo flujo de Markdown, recetas, imágenes, historial y carpeta de salida.
+
+## Acceso a sitios web y seguridad
+
+Safari controla el acceso de la extensión a los sitios web y puede mostrar su solicitud de permiso en cuanto haces clic en el botón de SourceShelf en la barra de herramientas. El momento y el texto de esa solicitud pertenecen a Safari. Si rechazas el acceso, concédelo después en la configuración de extensiones de Safari y vuelve a abrir SourceShelf.
+
+Para las operaciones por lotes, SourceShelf solo solicita a Safari acceso a los orígenes HTTP(S) necesarios para las pestañas o los recursos `llms.txt` seleccionados. No declara acceso permanente a todos los sitios. Antes de comenzar, la pantalla de revisión distingue entre fuentes disponibles, fuentes que necesitan acceso y fuentes no compatibles.
+
+## Límites, cancelación y fallas
+
+La adquisición usa como máximo tres fuentes a la vez, 8 MiB por respuesta, 256 MiB por operación, 100 imágenes por fuente, cinco redirecciones y 20 segundos por solicitud. La revisión de `llms.txt` se limita a 1,000 entradas y el descubrimiento a 12 candidatos. Cancelar detiene solicitudes pendientes y limpia datos temporales; una falla de permisos, tiempo, HTTP, análisis, extracción o tamaño no elimina las fuentes exitosas.
+
+## Grupos de pestañas de Safari y límites del navegador
+
+La captura usa la API pública `tabs.query({ currentWindow: true })`. La API pública WebExtensions de Safari no expone un identificador documentado ni una consulta de pertenencia para grupos de pestañas. Por eso SourceShelf dice “ventana actual” y no afirma que pueda distinguir el grupo activo de otras pestañas que Safari exponga para esa ventana.
+
+El conjunto exacto lo define Safari y puede variar según la versión y el estado de la ventana. Las páginas que Safari no permite leer siguen sin estar disponibles, y los encabezados HTTP `Link` o las redirecciones manuales dependen de lo que Safari exponga. Verifica esos casos con una extensión firmada en las versiones de Safari distribuidas.
 
 ## Captura recetas
 
@@ -73,3 +97,4 @@ Si una nueva receta no aparece en Safari:
 2. Abre Open SourceShelf una vez para que pueda publicar las recetas actuales.
 3. Cierre y vuelva a abrir la ventana emergente de la extensión; normalmente no debería ser necesario reiniciar Safari.
 4. Si el menú está vacío, abre **Configuración de Captura** de la ventana emergente y confirme que al menos existe una receta Estándar o personalizada.
+5. Si Safari sigue solicitando acceso o la ventana no puede leer la página, abre **Safari > Configuración > Extensiones**, concede acceso a SourceShelf para ese sitio y vuelve a intentarlo.

@@ -10,8 +10,8 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
-const buildDate = "2026-08-09";
-const assetVersion = "20260809-2";
+const buildDate = "2026-08-13";
+const assetVersion = "20260813-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(

@@ -35,6 +35,14 @@ La déclaration de SourceShelf comprend des hachages, des dates de modification,
 
 Cela crée un fichier Markdown contenant les sources lisibles du pack dans l'ordre. Il est facile de l'inspecter, de la versionner, de l'attacher ou de le coller dans un système qui ne comprend pas les packs ZIP.
 
+## Pack portable llms.txt ZIP
+
+**Idéal pour :** partager ou sauvegarder une collection de recherche complète et la déplacer entre SourceShelf sur Mac, iPhone et iPad.
+
+Le ZIP conserve un fichier `llms.txt` standard à la racine et inclut le Markdown canonique, les éléments archivés référencés, un fichier `sourceshelf-manifest.json` versionné et un inventaire d’intégrité. Son importation crée un nouveau pack avec de nouveaux identifiants locaux; elle ne fusionne pas avec un pack existant et ne le remplace pas.
+
+Il s’agit d’un déplacement manuel avec Fichiers, AirDrop ou une autre destination de partage choisie par l’utilisateur. Ce n’est pas une synchronisation dans le nuage et aucun autre appareil n’est mis à jour automatiquement.
+
 ## llms.txt Dossier de collection
 
 **Meilleur pour :** Une collection locale inspectable utilisant l'expérimentale `llms.txt` Convention.
@@ -51,6 +59,6 @@ Le Markdown combiné est copié immédiatement. Comme il s'agit d'une livraison 
 
 ## Chiffres de contrôle et validation
 
-AI et ZIP OKF et `llms.txt` Les dossiers contiennent un déterministe `checksums.sha256`, trié par chemin relatif et couvrant tous les fichiers générés, à l'exception de l'inventaire de la somme de contrôle lui-même. SourceShelf valide l'ordre, les identifiants, les hachages, la provenance et les références aux actifs avant d'écrire.
+Les ZIP IA, OKF et portables `llms.txt`, ainsi que les dossiers `llms.txt`, contiennent des métadonnées d’intégrité déterministes. SourceShelf valide l’ordre, les identifiants, les hachages, la provenance et les références aux éléments archivés avant l’écriture.
 
-ZIP et `llms.txt` Les flux de travail de dossiers fonctionnent à nouveau avec Trust & Safety. Les flux de travail Markdown et de presse-papiers conservent leur comportement immédiat.
+Les flux ZIP et dossier `llms.txt` exécutent une nouvelle vérification Confiance et sécurité. Les flux Markdown et presse-papiers restent immédiats. Le manifeste d’un pack SourceShelf permet également de vérifier à l’importation que son contenu correspond à l’inventaire déclaré; cette vérification porte sur l’intégrité, pas sur l’identité de l’auteur.

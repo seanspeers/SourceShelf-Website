@@ -7,10 +7,12 @@ O SourceShelf converte documentos locais suportados para Markdown sem carregá-l
 - Arraste arquivos ou pastas para dentro **converter**.
 - selecionar **Selecione arquivos** ou **Selecione Pasta**.
 - uso **Arquivo > Abrir** Para arquivos.
-- uso **Arquivo > Importar llms.txt...** Para um local `llms.txt` Índice ou pasta de coleção.
+- Use **Arquivo > Importar pacote de pesquisa…** para um pacote do SourceShelf, um ZIP OKF, um pacote portátil `llms.txt`, um arquivo `llms.txt` independente ou uma pasta de coleção `llms.txt`.
 - Use a ação Atalhos SourceShelf para uma conversão automática de arquivos.
 
 Ao converter uma pasta, o SourceShelf analisa os arquivos suportados dentro dela e relata os itens ignorados. A conversão de pasta não transforma a própria pasta em um pacote salvo; adicione os itens da Biblioteca resultantes a um pacote posteriormente.
+
+A importação de um pacote portátil segue um fluxo separado de pré-visualização e validação. Antes de criar um novo pacote salvo, o SourceShelf mostra o formato detectado, a quantidade de fontes e ativos arquivados, a origem, o status de integridade e os avisos. O Markdown e os ativos arquivados são salvos dentro da pasta de saída autorizada. Arquivos grandes mostram o progresso, podem ser cancelados e são inspecionados sem bloquear a interface principal.
 
 ## O que é preservado
 

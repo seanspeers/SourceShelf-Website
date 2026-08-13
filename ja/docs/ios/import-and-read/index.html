@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="SourceShelfは、対応するローカル文書をデバイス内の非公開ライブラリにある正規Markdownへ変換します。変換、OCR、インデックス作成、閲覧のために文書をアップロードすることはありません。">
+  <meta name="theme-color" content="#08244d">
+  <link rel="canonical" href="https://sourceshelf.app/ja/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/docs/ios/import-and-read/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/docs/ios/import-and-read/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="iPhoneとiPadで文書を読み込んで閲覧する | SourceShelfドキュメント">
+  <meta property="og:description" content="SourceShelfは、対応するローカル文書をデバイス内の非公開ライブラリにある正規Markdownへ変換します。変換、OCR、インデックス作成、閲覧のために文書をアップロードすることはありません。">
+  <meta property="og:url" content="https://sourceshelf.app/ja/docs/ios/import-and-read/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="iPhoneとiPadで文書を読み込んで閲覧する | SourceShelfドキュメント">
+  <meta name="twitter:description" content="SourceShelfは、対応するローカル文書をデバイス内の非公開ライブラリにある正規Markdownへ変換します。変換、OCR、インデックス作成、閲覧のために文書をアップロードすることはありません。">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png">
+  <title>iPhoneとiPadで文書を読み込んで閲覧する | SourceShelfドキュメント</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260813-1">
+  <script src="/locale.js?v=20260813-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("ja");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">本文へ移動</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a class="brand" href="/ja/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/ja/">ホーム</a>
+        <a class="nav-link" href="/ja/blog/">ブログ</a>
+        <a class="nav-link" href="/ja/privacy.html">プライバシー</a>
+        <a class="nav-link" href="/ja/docs/" aria-current="page">ドキュメント</a>
+        <a class="nav-link" href="/ja/support.html">サポート</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Mac App StoreでSourceShelfをダウンロード">ダウンロード</a>
+        <label class="locale-picker"><span class="visually-hidden">言語</span><select data-locale-select aria-label="言語を選択"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja" selected>日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="ライトモードに切り替える" data-dark-label="ダークモードに切り替える" aria-label="ダークモードを切り替える" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="main docs-main">
+    <div class="docs-page">
+      <nav class="breadcrumbs" aria-label="パンくずリスト"><ol><li><a href="/ja/">ホーム</a></li><li><a href="/ja/docs/">ドキュメント</a></li><li>iPhoneとiPad</li><li aria-current="page">iPhoneとiPadで文書を読み込んで閲覧する</li></ol></nav>
+      <details class="docs-mobile-nav">
+        <summary>ドキュメントを閲覧</summary>
+        <nav aria-label="モバイル用ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>Mac向けガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhoneとiPad</h2><ul><li><a href="/ja/docs/ios/getting-started/">iPhoneとiPadで使い始める</a></li><li><a href="/ja/docs/ios/safari-capture/">iPhoneとiPadのSafariからキャプチャする</a></li><li><a href="/ja/docs/ios/import-and-read/" aria-current="page">iPhoneとiPadで文書を読み込んで閲覧する</a></li><li><a href="/ja/docs/ios/packs-and-portability/">iPhoneとiPadでパックを作成、書き出し、移動する</a></li><li><a href="/ja/docs/ios/settings-and-privacy/">iPhoneとiPadの設定とプライバシー</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+      </details>
+      <div class="docs-layout">
+        <aside class="docs-sidebar" aria-label="ドキュメントサイドバー">
+          <nav aria-label="ドキュメントナビゲーション"><a class="docs-nav-home" href="/ja/docs/">ドキュメントホーム</a><section class="docs-nav-group"><h2>はじめに</h2><ul><li><a href="/ja/docs/getting-started/">SourceShelfを使い始める</a></li></ul></section>
+<section class="docs-nav-group"><h2>Mac向けガイド</h2><ul><li><a href="/ja/docs/guides/safari-capture/">Safariからキャプチャ</a></li><li><a href="/ja/docs/guides/convert-files/">ファイルとフォルダを変換</a></li><li><a href="/ja/docs/guides/library-and-inspector/">ライブラリとインスペクタ</a></li><li><a href="/ja/docs/guides/storage-management/">SourceShelfのストレージを管理</a></li><li><a href="/ja/docs/guides/build-and-manage-packs/">パックを作成・管理</a></li><li><a href="/ja/docs/guides/export-formats/">書き出し形式を選択</a></li><li><a href="/ja/docs/guides/trust-safety-and-refresh/">信頼性と安全性、継続運用パック</a></li><li><a href="/ja/docs/guides/llms-txt/">llms.txtのインポートとエクスポート</a></li></ul></section>
+<section class="docs-nav-group"><h2>iPhoneとiPad</h2><ul><li><a href="/ja/docs/ios/getting-started/">iPhoneとiPadで使い始める</a></li><li><a href="/ja/docs/ios/safari-capture/">iPhoneとiPadのSafariからキャプチャする</a></li><li><a href="/ja/docs/ios/import-and-read/" aria-current="page">iPhoneとiPadで文書を読み込んで閲覧する</a></li><li><a href="/ja/docs/ios/packs-and-portability/">iPhoneとiPadでパックを作成、書き出し、移動する</a></li><li><a href="/ja/docs/ios/settings-and-privacy/">iPhoneとiPadの設定とプライバシー</a></li></ul></section>
+<section class="docs-nav-group"><h2>ローカルAIアクセス</h2><ul><li><a href="/ja/docs/mcp/local-ai-access/">ローカルAIアクセス（MCP）</a></li><li><a href="/ja/docs/mcp/lm-studio/">SourceShelfをLM Studioで使う</a></li><li><a href="/ja/docs/mcp/ollama/">SourceShelfをOllamaで使う</a></li><li><a href="/ja/docs/mcp/codex/">SourceShelfをCodexで使う</a></li><li><a href="/ja/docs/mcp/claude-code/">SourceShelfをClaude Codeで使う</a></li><li><a href="/ja/docs/mcp/opencode/">SourceShelfをOpenCodeで使う</a></li><li><a href="/ja/docs/mcp/troubleshooting/">MCPのトラブルシューティング</a></li></ul></section>
+<section class="docs-nav-group"><h2>リファレンス</h2><ul><li><a href="/ja/docs/reference/settings/">設定リファレンス</a></li><li><a href="/ja/docs/reference/supported-formats/">対応形式</a></li><li><a href="/ja/docs/reference/privacy-and-security/">プライバシーとセキュリティ</a></li><li><a href="/ja/docs/reference/glossary/">用語集</a></li></ul></section></nav>
+        </aside>
+        <article class="docs-article">
+          <header class="docs-article-header">
+            <h1 id="iphoneとipadで文書を読み込んで閲覧する">iPhoneとiPadで文書を読み込んで閲覧する</h1>
+<p>SourceShelfは、対応するローカル文書をデバイス内の非公開ライブラリにある正規Markdownへ変換します。変換、OCR、インデックス作成、閲覧のために文書をアップロードすることはありません。</p>
+          </header>
+          <details class="docs-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#ファイルから読み込む">ファイルから読み込む</a></li><li class="toc-level-2"><a href="#共有シートから読み込む">共有シートから読み込む</a></li><li class="toc-level-2"><a href="#pdfと画像のテキスト認識">PDFと画像のテキスト認識</a></li><li class="toc-level-2"><a href="#検索と絞り込み">検索と絞り込み</a></li><li class="toc-level-2"><a href="#リーダーを使う">リーダーを使う</a></li><li class="toc-level-2"><a href="#現在の制限">現在の制限</a></li></ol></nav></details>
+          <div class="docs-article-body">
+            <h2 id="ファイルから読み込む">ファイルから読み込む <a class="heading-anchor" href="#ファイルから読み込む" aria-label="セクションへのリンク: ファイルから読み込む"><span aria-hidden="true">#</span></a></h2>
+<p>サイドバーの<strong>その他</strong>メニュー、または<strong>設定 &gt; 読み込みと書き出し</strong>を開き、<strong>リサーチを読み込む…</strong>を選択します。対応する複数のファイルを選択できます。時間がかかる処理では進行状況が表示され、読み込み中は<strong>キャンセル</strong>を選べます。</p>
+<p>次のローカル入力に対応しています。</p>
+<ul><li>PDF</li><li>JPEG、PNG、HEIC/HEIF、TIFF、およびAppleの画像フレームワークでデコードできるその他の画像</li><li>RTF</li><li>Markdown、プレーンテキスト、単独の<code>llms.txt</code></li><li>AIリファレンスパックZIP、OKF v0.2バンドルZIP、ポータブル<code>llms.txt</code>パッケージZIP</li></ul>
+<h2 id="共有シートから読み込む">共有シートから読み込む <a class="heading-anchor" href="#共有シートから読み込む" aria-label="セクションへのリンク: 共有シートから読み込む"><span aria-hidden="true">#</span></a></h2>
+<p>ファイル、写真、Safari、または別のアプリで<strong>共有</strong>を開き、対応文書の送信先としてSourceShelfを選びます。軽量な共有拡張機能が、許可されたファイルを範囲の限定されたローカル受信箱へコピーします。SourceShelf本体が変換を行い、ソースをライブラリへ保存します。</p>
+<p>SourceShelfが表示されない場合は、共有シートの<strong>その他</strong>から有効にするか、文書をファイルに保存して<strong>リサーチを読み込む…</strong>を使います。</p>
+<h2 id="pdfと画像のテキスト認識">PDFと画像のテキスト認識 <a class="heading-anchor" href="#pdfと画像のテキスト認識" aria-label="セクションへのリンク: PDFと画像のテキスト認識"><span aria-hidden="true">#</span></a></h2>
+<p>PDFでは、意味のある選択可能テキストを使用し、必要なページだけにローカルのVision OCRを適用します。ページ順は保持されます。パスワード保護、不正、サイズ超過、未対応のPDFは、完了済みソースを作成せずに失敗します。</p>
+<p>読み込んだ画像は、元の画像データをそのソース専用の非公開アセットディレクトリに保存し、認識できたテキストを追加します。そのため、画像をオフラインで表示でき、認識テキストもライブラリ検索の対象になります。元の画像に含まれるメタデータは、そのアセットを含むパッケージを後で書き出さない限り、ローカルに留まります。</p>
+<p>RTF変換では、読み取り可能な段落、基本的な強調、安全なリンク、単純なリスト、対応する添付画像が保持されます。RTFDには対応していません。</p>
+<h2 id="検索と絞り込み">検索と絞り込み <a class="heading-anchor" href="#検索と絞り込み" aria-label="セクションへのリンク: 検索と絞り込み"><span aria-hidden="true">#</span></a></h2>
+<p>検索対象は、ローカルライブラリでインデックス作成済みのコンテンツです。検索前に<strong>すべてのリサーチ</strong>、<strong>スター付き</strong>、またはパックを選択すると、範囲を限定できます。フィルタでは利用状況や取得方法でソースを絞り込み、並べ替えでは表示順を変更できます。</p>
+<h2 id="リーダーを使う">リーダーを使う <a class="heading-anchor" href="#リーダーを使う" aria-label="セクションへのリンク: リーダーを使う"><span aria-hidden="true">#</span></a></h2>
+<p>リーダーには、ソースのタイトル、種類、日付、利用可能な場合は安全な元Webサイトへのリンク、来歴、利用状況、Markdown本文、ローカルにアーカイブした画像が表示されます。テキストは選択できます。Webリンクとメールリンクは、タップした後にだけシステムの操作で開きます。</p>
+<p>SourceShelfはリーダー内でスクリプトを実行せず、任意のファイルパスを読み込まず、リモート画像を取得しません。利用できないローカル画像は、ダウンロードされず利用不可として表示されます。</p>
+<h2 id="現在の制限">現在の制限 <a class="heading-anchor" href="#現在の制限" aria-label="セクションへのリンク: 現在の制限"><span aria-hidden="true">#</span></a></h2>
+<p>バージョン1.0.2のiPhone/iPad版は、RTFD、Office文書、ローカルHTMLファイル、フォルダの読み込みに対応していません。DOCX、PPTX、XLSX、HTML、フォルダ内の一括変換にはMac版SourceShelfを使用し、iPhoneまたはiPadで利用する場合は変換結果をポータブルパックとして書き出してください。</p>
+          </div>
+          <nav class="docs-pagination" aria-label="ドキュメントページ"><a class="docs-page-link docs-page-link-previous" href="/ja/docs/ios/safari-capture/"><span>前へ</span><strong>iPhoneとiPadのSafariからキャプチャする</strong></a><a class="docs-page-link docs-page-link-next" href="/ja/docs/ios/packs-and-portability/"><span>次へ</span><strong>iPhoneとiPadでパックを作成、書き出し、移動する</strong></a></nav>
+        </article>
+        <aside class="docs-toc" aria-label="ページ内容"><nav class="docs-toc-list" aria-label="目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#ファイルから読み込む">ファイルから読み込む</a></li><li class="toc-level-2"><a href="#共有シートから読み込む">共有シートから読み込む</a></li><li class="toc-level-2"><a href="#pdfと画像のテキスト認識">PDFと画像のテキスト認識</a></li><li class="toc-level-2"><a href="#検索と絞り込み">検索と絞り込み</a></li><li class="toc-level-2"><a href="#リーダーを使う">リーダーを使う</a></li><li class="toc-level-2"><a href="#現在の制限">現在の制限</a></li></ol></nav></aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/ja/">ホーム</a>
+          <a href="/ja/examples/">活用例</a>
+          <a href="/ja/blog/">ブログ</a>
+          <a href="/ja/privacy.html">プライバシー</a>
+          <a href="/ja/docs/">ドキュメント</a>
+          <a href="/ja/support.html">サポート</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="SourceShelfのユースケース">
+        <h2>SourceShelfの使用方法</h2>
+        <ul><li><a href="/ja/private-ai-knowledge-base-mac/">Mac用のプライベートAI知識ベース</a></li><li><a href="/ja/pdf-to-markdown-mac/">ローカルPDF変換</a></li><li><a href="/ja/save-webpages-as-markdown-safari/">Safariウェブキャプチャ</a></li><li><a href="/ja/local-ai-reference-packs/">AIのための集中的なコンテキスト</a></li><li><a href="/ja/research-archive-mac/">ローカル研究アーカイブ</a></li><li><a href="/ja/mcp-knowledge-base-mac/">読み取り専用MCP知識アクセス</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260813-1"></script>
+</body>
+</html>

@@ -24,8 +24,13 @@ Protocolo de Contexto de Modelo, um padrão através do qual um host de IA pode 
 **OKF**  
 Formato de Conhecimento Aberto. O SourceShelf exporta metadados conceituais canônicos v0.2 com extensões de manifestação SourceShelf.
 
-**pacote**  
-Uma seleção ordenada de IDs de fontes da Biblioteca. Um pacote salvo pode ser exportado, comparado ou compartilhado.
+**Pacote**
+
+Uma seleção ordenada de IDs de fontes da Biblioteca. Um pacote salvo pode ser exportado em todas as plataformas; comparação e Acesso Local de IA são exclusivos do Mac na versão 1.0.2.
+
+**Pacote portátil**
+
+Um pacote de pesquisa ZIP com Markdown canônico ordenado, procedência segura, recursos arquivados referenciados e um manifesto SourceShelf versionado. Ele pode ser movido manualmente entre o SourceShelf no Mac, iPhone e iPad sem expor a estrutura da biblioteca privada de nenhum dispositivo.
 
 **Revisão da receita**  
 Uma etapa de fila opcional que permite que você edite o Markdown capturado e os metadados de destino antes de salvar.

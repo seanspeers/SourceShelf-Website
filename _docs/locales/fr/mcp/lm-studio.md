@@ -8,7 +8,7 @@ Dernière vérification : 01/08/2026.
 
 - Une courante LM Studio Libération avec MCP Soutien (LM Studio Documents MCP Soutien à partir de 0.3.17).
 - Un modèle téléchargé et chargé qui prend en charge l'utilisation d'outils.
-- Une part actuelle de SourceShelf créée via **Packs > Plus > Accès local à l'IA...**.
+- Un partage SourceShelf actuel créé avec l'état visible de l'accès local à l'IA ou **Actions du pack > Accès local à l'IA…**.
 
 ## Installez la connexion SourceShelf
 
