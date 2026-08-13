@@ -154,7 +154,7 @@ async function validateLlmsTxt() {
 
   if (bytes.includes(0)) throw new Error("llms.txt must not contain NUL bytes");
   if (!source.endsWith("\n")) throw new Error("llms.txt must end with a newline");
-  if (bytes.length > 5_000) throw new Error("llms.txt must remain concise (5 KB or less)");
+  if (bytes.length > 15_000) throw new Error("llms.txt must remain concise (15 KB or less)");
   if (!source.startsWith("# SourceShelf\n\n> ")) {
     throw new Error("llms.txt must start with the SourceShelf H1 and summary blockquote");
   }
@@ -167,7 +167,8 @@ async function validateLlmsTxt() {
     { level: 1, title: "SourceShelf" },
     { level: 2, title: "Product" },
     { level: 2, title: "Guides" },
-    { level: 2, title: "Technical Documentation" },
+    { level: 2, title: "Complete User Guide" },
+    { level: 2, title: "Privacy" },
     { level: 2, title: "Key Concepts" },
     { level: 2, title: "Product Principles" }
   ];
@@ -185,7 +186,32 @@ async function validateLlmsTxt() {
     label: match[1],
     href: match[2]
   }));
-  if (links.length !== 9) throw new Error(`llms.txt must contain 9 curated links, found ${links.length}`);
+  const expectedLinkCount = baseNavigation.pages.length + 8;
+  if (links.length !== expectedLinkCount) {
+    throw new Error(`llms.txt must contain ${expectedLinkCount} links, including every user-guide page; found ${links.length}`);
+  }
+
+  const documentationLinks = links.filter((link) => {
+    try {
+      return new URL(link.href).origin === canonicalOrigin
+        && new URL(link.href).pathname.startsWith("/docs/");
+    } catch {
+      return false;
+    }
+  });
+  const expectedDocumentationURLs = baseNavigation.pages.map((page) => canonicalUrlForRoute(page.route));
+  const documentationURLs = documentationLinks.map((link) => link.href);
+  const missingDocumentationURLs = expectedDocumentationURLs.filter((href) => !documentationURLs.includes(href));
+  const duplicateDocumentationURLs = documentationURLs.filter((href, index) => documentationURLs.indexOf(href) !== index);
+  const unexpectedDocumentationURLs = documentationURLs.filter((href) => !expectedDocumentationURLs.includes(href));
+  if (missingDocumentationURLs.length || duplicateDocumentationURLs.length || unexpectedDocumentationURLs.length) {
+    throw new Error([
+      "llms.txt must list every generated English user-guide route exactly once.",
+      missingDocumentationURLs.length ? `Missing: ${missingDocumentationURLs.join(", ")}` : "",
+      duplicateDocumentationURLs.length ? `Duplicates: ${[...new Set(duplicateDocumentationURLs)].join(", ")}` : "",
+      unexpectedDocumentationURLs.length ? `Unexpected: ${unexpectedDocumentationURLs.join(", ")}` : ""
+    ].filter(Boolean).join(" "));
+  }
 
   for (const link of links) {
     let url;

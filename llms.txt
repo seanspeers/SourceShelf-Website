@@ -1,24 +1,24 @@
 # SourceShelf
 
-> SourceShelf is a private AI knowledge base for Mac. Capture webpages, convert documents, organize sources into knowledge packs, and connect selected knowledge to compatible AI applications through local read-only workflows.
+> SourceShelf is a local-first research library for Mac, iPhone, and iPad. Capture webpages, import documents, organize sources into research packs, read saved material offline, and move focused context into compatible AI workflows.
 
-SourceShelf processes content locally on your Mac and keeps generated knowledge in portable formats such as Markdown, OKF bundles, AI reference packs, and llms.txt collections.
+SourceShelf processes imported content locally and keeps research in portable formats such as Markdown, OKF bundles, AI Reference Packs, and llms.txt collections. The complete English user guide is indexed below so AI applications can acquire it as one ordered research collection.
 
 ## Product
 
 - [SourceShelf Home](https://sourceshelf.app/)
-  Learn about the private AI knowledge base for Mac.
+  Learn about SourceShelf's local-first research workflows across Mac, iPhone, and iPad.
 
 - [Features](https://sourceshelf.app/#how-it-works)
-  Explore capture, conversion, knowledge packs, AI access, and export workflows.
+  Explore capture, conversion, research packs, AI access, and export workflows.
 
 - [Download SourceShelf](https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12)
-  Download SourceShelf for macOS.
+  Download SourceShelf from the App Store.
 
 ## Guides
 
 - [Private AI Knowledge Base for Mac](https://sourceshelf.app/private-ai-knowledge-base-mac/)
-  Learn how SourceShelf helps organize documents, research, and web sources into focused AI knowledge packs.
+  Learn how SourceShelf organizes documents, research, and web sources into focused AI knowledge packs.
 
 - [What Is Open Knowledge Format (OKF)?](https://sourceshelf.app/blog/what-is-open-knowledge-format-okf/)
   Learn about portable structured knowledge bundles based on Markdown and metadata.
@@ -29,27 +29,104 @@ SourceShelf processes content locally on your Mac and keeps generated knowledge 
 - [AI Reference Packs](https://sourceshelf.app/local-ai-reference-packs/)
   Learn how SourceShelf creates focused context packs for AI workflows.
 
-## Technical Documentation
+## Complete User Guide
 
 - [SourceShelf User Guide](https://sourceshelf.app/docs/)
-  Learn about importing sources, creating packs, exports, and local AI access.
+  Browse the complete SourceShelf 1.0.2 guide for Mac, iPhone, and iPad.
 
-- [Privacy](https://sourceshelf.app/privacy.html)
-  Learn how SourceShelf handles local processing and user data.
+- [Get Started on Mac](https://sourceshelf.app/docs/getting-started/)
+  Convert files, review the Library, build an ordered pack, and choose an export format.
+
+- [Capture from Safari on Mac](https://sourceshelf.app/docs/guides/safari-capture/)
+  Capture pages, selections, research highlights, or several tabs from a Safari window.
+
+- [Convert Files and Folders](https://sourceshelf.app/docs/guides/convert-files/)
+  Convert supported files and folders into local Markdown while preserving useful structure and assets.
+
+- [Library and Inspector](https://sourceshelf.app/docs/guides/library-and-inspector/)
+  Search, filter, inspect, preview, and maintain converted and captured sources in the SourceShelf Library.
+
+- [Manage Storage](https://sourceshelf.app/docs/guides/storage-management/)
+  Review SourceShelf storage use, run safe cleanup, and deliberately remove generated source data.
+
+- [Build and Manage Packs](https://sourceshelf.app/docs/guides/build-and-manage-packs/)
+  Create ordered SourceShelf packs, manage drafts and saved packs, and maintain living export baselines.
+
+- [Choose an Export Format](https://sourceshelf.app/docs/guides/export-formats/)
+  Choose among AI Reference Pack, OKF, Markdown, portable llms.txt, collection-folder, and clipboard workflows.
+
+- [Trust and Safety and Living Packs](https://sourceshelf.app/docs/guides/trust-safety-and-refresh/)
+  Review pack readiness, trust warnings, freshness, checksums, assets, and living-pack changes.
+
+- [Import and Export llms.txt](https://sourceshelf.app/docs/guides/llms-txt/)
+  Import local collections, acquire website collections through Safari, and generate ordered llms.txt exports.
+
+- [Get Started on iPhone and iPad](https://sourceshelf.app/docs/ios/getting-started/)
+  Learn the adaptive Library and Reader, local import, offline reading, and portable packs.
+
+- [Capture from Safari on iPhone and iPad](https://sourceshelf.app/docs/ios/safari-capture/)
+  Enable the extension, capture pages or a Safari window, and import website llms.txt collections.
+
+- [Import and Read Documents on iPhone and iPad](https://sourceshelf.app/docs/ios/import-and-read/)
+  Import from Files or the Share Sheet, use local OCR and search, and read saved research offline.
+
+- [Build, Export, and Move Packs on iPhone and iPad](https://sourceshelf.app/docs/ios/packs-and-portability/)
+  Build research packs and move complete portable packages between SourceShelf devices with Files or AirDrop.
+
+- [Settings and Privacy on iPhone and iPad](https://sourceshelf.app/docs/ios/settings-and-privacy/)
+  Review local storage, Safari access, import and export controls, and the no-account, no-sync privacy model.
+
+- [Local AI Access Overview](https://sourceshelf.app/docs/mcp/local-ai-access/)
+  Share one saved SourceShelf pack with compatible local AI applications through read-only MCP access.
+
+- [Connect SourceShelf to LM Studio](https://sourceshelf.app/docs/mcp/lm-studio/)
+  Connect a SourceShelf pack to LM Studio and test local search and read tools.
+
+- [Use SourceShelf with Ollama](https://sourceshelf.app/docs/mcp/ollama/)
+  Use an Ollama model with a SourceShelf MCP connection hosted by Codex, Claude Code, or OpenCode.
+
+- [Connect SourceShelf to Codex](https://sourceshelf.app/docs/mcp/codex/)
+  Configure Codex to search and read a locally shared SourceShelf pack.
+
+- [Connect SourceShelf to Claude Code](https://sourceshelf.app/docs/mcp/claude-code/)
+  Configure Claude Code to use SourceShelf local MCP search and read tools.
+
+- [Connect SourceShelf to OpenCode](https://sourceshelf.app/docs/mcp/opencode/)
+  Add SourceShelf as a local MCP server in OpenCode and verify pack access.
+
+- [MCP Troubleshooting](https://sourceshelf.app/docs/mcp/troubleshooting/)
+  Diagnose SourceShelf MCP connection, authorization, resource, checksum, search, and client issues.
+
+- [Settings Reference on Mac](https://sourceshelf.app/docs/reference/settings/)
+  Review SourceShelf general, capture, export, integration, and privacy settings on Mac.
+
+- [Supported Formats](https://sourceshelf.app/docs/reference/supported-formats/)
+  Review supported inputs, conversion behavior, current limitations, and output formats by platform.
+
+- [Privacy and Security](https://sourceshelf.app/docs/reference/privacy-and-security/)
+  Understand local processing, stored data, path privacy, trust classification, and MCP boundaries.
+
+- [Glossary](https://sourceshelf.app/docs/reference/glossary/)
+  Find definitions for capture, Library, packs, exports, trust checks, portability, and Local AI Access.
+
+## Privacy
+
+- [SourceShelf Privacy](https://sourceshelf.app/privacy.html)
+  Learn how SourceShelf handles local processing, Safari access, storage, export, and user data.
 
 ## Key Concepts
 
 SourceShelf concepts:
 
-- Local-first document conversion
-- Safari webpage capture
-- Markdown knowledge management
-- AI reference packs
-- Retrieval-ready context
+- Local-first document conversion and OCR
+- Safari webpage and llms.txt capture
+- Searchable offline research libraries
+- Ordered and portable research packs
+- AI Reference Packs and retrieval-ready context
 - Open Knowledge Format (OKF)
 - llms.txt collections
 - Model Context Protocol (MCP)
-- Read-only AI knowledge access
+- Read-only local AI access on Mac
 
 ## Product Principles
 
@@ -58,5 +135,5 @@ SourceShelf follows these principles:
 - User-owned files.
 - Local processing.
 - Portable formats.
-- Explicit AI permissions.
-- No hidden cloud processing.
+- Explicit Safari and AI permissions.
+- No SourceShelf cloud or hidden synchronization.
