@@ -352,6 +352,197 @@
           }
         }
       }
+    },
+    {
+      "id": "llms-txt-v2",
+      "source": "llms-txt-v2.md",
+      "route": "/blog/llms-txt-v2/",
+      "published": "2026-08-22",
+      "modified": "2026-08-22",
+      "author": "SourceShelf",
+      "heroAsset": "llms-txt-v2-workflow",
+      "heroMobile": true,
+      "heroMobileWidth": 600,
+      "heroMobileHeight": 1520,
+      "visualKind": "llms-txt-v2",
+      "mediaOptional": true,
+      "publishMarkdown": true,
+      "ctaRoute": "/local-ai-reference-packs/",
+      "articleGraphics": [
+        {"id": "llms-txt-v2-discovery", "format": "svg", "width": 1200, "height": 675, "mobileWidth": 800, "mobileHeight": 1120},
+        {"id": "llms-txt-v2-path-scoping", "format": "svg", "width": 1200, "height": 675, "mobileWidth": 800, "mobileHeight": 1060}
+      ],
+      "articleScreenshots": [
+        {"id": "llms-txt-v2-safari-discovery", "sourceFile": "llms-txt-v2-safari-discovery", "width": 1440, "height": 1029},
+        {"id": "llms-txt-v2-source-selection", "sourceFile": "llms-txt-v2-source-selection", "width": 900, "height": 1400, "smallWidth": 600, "layout": "narrow"},
+        {"id": "llms-txt-v2-sourceshelf-pack", "sourceFile": "llms-txt-v2-sourceshelf-pack", "width": 1440, "height": 1080}
+      ],
+      "requiredExternalLinks": [
+        "https://llmstxt.org/changes.html",
+        "https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt"
+      ],
+      "requiredLogicalLinks": [
+        "/blog/what-is-llms-txt/",
+        "/docs/guides/llms-txt/",
+        "/local-ai-reference-packs/"
+      ],
+      "locales": {
+        "en": {
+          "seoTitle": "llms.txt v2: What Changed for AI-Readable Websites",
+          "metaDescription": "llms.txt v2 makes AI-readable website knowledge easier to discover with Markdown links, path-scoped indexes, and a clearer agent workflow. See how SourceShelf 1.0.2 supports it.",
+          "excerpt": "llms.txt v2 adds explicit discovery, flexible Markdown URLs, path-scoped indexes, and a clearer retrieval workflow for AI-readable website knowledge.",
+          "articleLabel": "AI-readable website knowledge",
+          "publishedLabel": "Published",
+          "byLabel": "By",
+          "ctaTitle": "Turn AI-readable websites into portable research Packs",
+          "ctaDescription": "Discover a website collection in Safari, choose the sources that matter, and preserve them locally with SourceShelf.",
+          "ctaButton": "Explore SourceShelf Packs",
+          "heroAlt": "A five-stage workflow moves from a website through llms.txt v2 discovery and selected sources into a SourceShelf Pack for use with an AI workflow.",
+          "figureCaptions": {
+            "llms-txt-v2-discovery": "llms.txt v2 lets a page explicitly advertise both the index that describes it and an available Markdown representation.",
+            "llms-txt-v2-path-scoping": "An llms.txt file can describe a specific part of a site, allowing large sites to expose more focused collections of knowledge.",
+            "llms-txt-v2-safari-discovery": "SourceShelf 1.0.2 can discover an llms.txt collection directly from Safari and turn it into the starting point for a research Pack.",
+            "llms-txt-v2-source-selection": "Preview the collection and import only the sources relevant to your research.",
+            "llms-txt-v2-sourceshelf-pack": "Once imported, website resources become part of a local SourceShelf research Pack alongside your other research material."
+          },
+          "graphics": {
+            "hero": {
+              "title": "llms.txt v2",
+              "tagline": "How AI agents discover website knowledge",
+              "website": "Website", "websiteDetail": "Human-readable pages",
+              "index": "llms.txt v2", "indexDetail": "Explicit discovery",
+              "sources": "Selected sources", "sourcesDetail": "Useful Markdown",
+              "pack": "SourceShelf Pack", "packDetail": "Private and portable",
+              "workflow": "AI workflow", "workflowDetail": "Use anywhere",
+              "discover": "Discover", "choose": "Choose", "preserve": "Preserve", "anywhere": "Use anywhere"
+            },
+            "discovery": {
+              "title": "Explicit discovery, not guesswork", "before": "Conventional discovery", "v2": "Explicit v2 discovery",
+              "page": "Web page", "tryPath": "Try /llms.txt", "inferred": "Useful, but inferred", "declared": "Declared by the publisher"
+            },
+            "scoping": {
+              "title": "The closest llms.txt applies", "site": "Broader site", "docs": "Docs area", "api": "API area",
+              "broad": "Describes the broader site", "specific": "Most specific applicable index"
+            }
+          }
+        },
+        "fr": {
+          "seoTitle": "llms.txt v2 : ce qui change pour les sites lisibles par l’IA",
+          "metaDescription": "llms.txt v2 facilite la découverte des connaissances Web lisibles par l’IA grâce aux liens Markdown, aux index par chemin et à un flux d’agent plus clair. Découvrez la prise en charge de SourceShelf 1.0.2.",
+          "excerpt": "llms.txt v2 ajoute une découverte explicite, des URL Markdown flexibles, des index par chemin et un flux de récupération plus clair pour les connaissances Web lisibles par l’IA.",
+          "articleLabel": "Connaissances de site lisibles par l’IA",
+          "publishedLabel": "Publié le",
+          "byLabel": "Par",
+          "ctaTitle": "Transformez les sites lisibles par l’IA en Packs de recherche portables",
+          "ctaDescription": "Découvrez une collection de site dans Safari, choisissez les sources utiles et préservez-les localement avec SourceShelf.",
+          "ctaButton": "Découvrir les Packs SourceShelf",
+          "heroAlt": "Un flux en cinq étapes relie un site Web à un flux de travail d’IA en passant par la découverte llms.txt v2, des sources choisies et un Pack SourceShelf.",
+          "figureCaptions": {
+            "llms-txt-v2-discovery": "llms.txt v2 permet à une page d’annoncer explicitement l’index qui la décrit et une représentation Markdown disponible.",
+            "llms-txt-v2-path-scoping": "Un fichier llms.txt peut décrire une partie précise d’un site, ce qui permet aux grands sites de proposer des collections de connaissances plus ciblées.",
+            "llms-txt-v2-safari-discovery": "SourceShelf 1.0.2 peut découvrir une collection llms.txt directement dans Safari et en faire le point de départ d’un Pack de recherche.",
+            "llms-txt-v2-source-selection": "Prévisualisez la collection et importez uniquement les sources pertinentes pour votre recherche.",
+            "llms-txt-v2-sourceshelf-pack": "Après l’importation, les ressources Web rejoignent un Pack de recherche SourceShelf local aux côtés de vos autres documents."
+          },
+          "graphics": {
+            "hero": {
+              "title": "llms.txt v2", "tagline": "Comment les agents d’IA découvrent les connaissances Web",
+              "website": "Site Web", "websiteDetail": "Pages pour les humains", "index": "llms.txt v2", "indexDetail": "Découverte explicite",
+              "sources": "Sources choisies", "sourcesDetail": "Markdown utile", "pack": "Pack SourceShelf", "packDetail": "Privé et portable",
+              "workflow": "Flux de travail IA", "workflowDetail": "Utilisable partout", "discover": "Découvrir", "choose": "Choisir", "preserve": "Préserver", "anywhere": "Utiliser partout"
+            },
+            "discovery": {"title": "Une découverte explicite, sans deviner", "before": "Découverte conventionnelle", "v2": "Découverte v2 explicite", "page": "Page Web", "tryPath": "Essayer /llms.txt", "inferred": "Utile, mais déduit", "declared": "Déclaré par l’éditeur"},
+            "scoping": {"title": "Le llms.txt le plus proche s’applique", "site": "Site complet", "docs": "Zone Docs", "api": "Zone API", "broad": "Décrit l’ensemble du site", "specific": "Index applicable le plus précis"}
+          }
+        },
+        "es-419": {
+          "seoTitle": "llms.txt v2: qué cambió para los sitios legibles por IA",
+          "metaDescription": "llms.txt v2 facilita descubrir conocimiento web legible por IA con enlaces Markdown, índices por ruta y un flujo de agente más claro. Conoce la compatibilidad de SourceShelf 1.0.2.",
+          "excerpt": "llms.txt v2 incorpora descubrimiento explícito, URL Markdown flexibles, índices por ruta y un flujo de recuperación más claro para el conocimiento web legible por IA.",
+          "articleLabel": "Conocimiento web legible por IA",
+          "publishedLabel": "Publicado el",
+          "byLabel": "Por",
+          "ctaTitle": "Convierte sitios legibles por IA en paquetes de investigación portátiles",
+          "ctaDescription": "Descubre una colección web en Safari, elige las fuentes que importan y consérvalas localmente con SourceShelf.",
+          "ctaButton": "Explora los paquetes de SourceShelf",
+          "heroAlt": "Un flujo de cinco etapas va de un sitio web a un flujo de IA mediante el descubrimiento de llms.txt v2, fuentes seleccionadas y un paquete de SourceShelf.",
+          "figureCaptions": {
+            "llms-txt-v2-discovery": "llms.txt v2 permite que una página anuncie de forma explícita tanto el índice que la describe como una representación Markdown disponible.",
+            "llms-txt-v2-path-scoping": "Un archivo llms.txt puede describir una parte específica de un sitio, lo que permite que sitios grandes expongan colecciones de conocimiento más enfocadas.",
+            "llms-txt-v2-safari-discovery": "SourceShelf 1.0.2 puede descubrir una colección llms.txt directamente desde Safari y convertirla en el punto de partida de un paquete de investigación.",
+            "llms-txt-v2-source-selection": "Previsualiza la colección e importa solo las fuentes relevantes para tu investigación.",
+            "llms-txt-v2-sourceshelf-pack": "Tras la importación, los recursos web pasan a formar parte de un paquete de investigación local de SourceShelf junto con tus otros materiales."
+          },
+          "graphics": {
+            "hero": {
+              "title": "llms.txt v2", "tagline": "Cómo descubren los agentes de IA el conocimiento web",
+              "website": "Sitio web", "websiteDetail": "Páginas para personas", "index": "llms.txt v2", "indexDetail": "Descubrimiento explícito",
+              "sources": "Fuentes elegidas", "sourcesDetail": "Markdown útil", "pack": "Paquete SourceShelf", "packDetail": "Privado y portátil",
+              "workflow": "Flujo de IA", "workflowDetail": "Úsalo donde quieras", "discover": "Descubre", "choose": "Elige", "preserve": "Conserva", "anywhere": "Úsalo donde quieras"
+            },
+            "discovery": {"title": "Descubrimiento explícito, sin adivinar", "before": "Descubrimiento convencional", "v2": "Descubrimiento v2 explícito", "page": "Página web", "tryPath": "Probar /llms.txt", "inferred": "Útil, pero inferido", "declared": "Declarado por el editor"},
+            "scoping": {"title": "Se aplica el llms.txt más cercano", "site": "Sitio general", "docs": "Área de Docs", "api": "Área de API", "broad": "Describe el sitio general", "specific": "Índice aplicable más específico"}
+          }
+        },
+        "pt-BR": {
+          "seoTitle": "llms.txt v2: o que mudou em sites legíveis por IA",
+          "metaDescription": "llms.txt v2 facilita a descoberta de conhecimento legível por IA com links Markdown, índices por caminho e um fluxo de agente mais claro. Veja o suporte do SourceShelf 1.0.2.",
+          "excerpt": "llms.txt v2 adiciona descoberta explícita, URLs Markdown flexíveis, índices por caminho e um fluxo de recuperação mais claro para conhecimento legível por IA.",
+          "articleLabel": "Conhecimento de sites legível por IA",
+          "publishedLabel": "Publicado em",
+          "byLabel": "Por",
+          "ctaTitle": "Transforme sites legíveis por IA em Pacotes de pesquisa portáteis",
+          "ctaDescription": "Descubra uma coleção de site no Safari, escolha as fontes importantes e preserve tudo localmente com o SourceShelf.",
+          "ctaButton": "Conheça os Pacotes do SourceShelf",
+          "heroAlt": "Um fluxo de cinco etapas vai de um site a um fluxo de IA por meio da descoberta do llms.txt v2, fontes selecionadas e um Pacote do SourceShelf.",
+          "figureCaptions": {
+            "llms-txt-v2-discovery": "O llms.txt v2 permite que uma página anuncie explicitamente o índice que a descreve e uma representação Markdown disponível.",
+            "llms-txt-v2-path-scoping": "Um arquivo llms.txt pode descrever uma parte específica de um site, permitindo que sites grandes ofereçam coleções de conhecimento mais focadas.",
+            "llms-txt-v2-safari-discovery": "O SourceShelf 1.0.2 pode descobrir uma coleção llms.txt diretamente no Safari e transformá-la no ponto de partida de um Pacote de pesquisa.",
+            "llms-txt-v2-source-selection": "Visualize a coleção e importe apenas as fontes relevantes para a sua pesquisa.",
+            "llms-txt-v2-sourceshelf-pack": "Após a importação, os recursos do site passam a fazer parte de um Pacote de pesquisa local do SourceShelf junto com seus outros materiais."
+          },
+          "graphics": {
+            "hero": {
+              "title": "llms.txt v2", "tagline": "Como agentes de IA descobrem conhecimento em sites",
+              "website": "Site", "websiteDetail": "Páginas para pessoas", "index": "llms.txt v2", "indexDetail": "Descoberta explícita",
+              "sources": "Fontes escolhidas", "sourcesDetail": "Markdown útil", "pack": "Pacote SourceShelf", "packDetail": "Privado e portátil",
+              "workflow": "Fluxo de IA", "workflowDetail": "Use em qualquer lugar", "discover": "Descobrir", "choose": "Escolher", "preserve": "Preservar", "anywhere": "Usar em qualquer lugar"
+            },
+            "discovery": {"title": "Descoberta explícita, sem adivinhação", "before": "Descoberta convencional", "v2": "Descoberta v2 explícita", "page": "Página web", "tryPath": "Tentar /llms.txt", "inferred": "Útil, mas inferido", "declared": "Declarado pelo editor"},
+            "scoping": {"title": "O llms.txt mais próximo se aplica", "site": "Site geral", "docs": "Área de Docs", "api": "Área de API", "broad": "Descreve o site geral", "specific": "Índice aplicável mais específico"}
+          }
+        },
+        "ja": {
+          "seoTitle": "llms.txt v2：AIが読みやすいWebサイトの変更点",
+          "metaDescription": "llms.txt v2は、Markdownリンク、パス単位の索引、より明確なエージェントの流れにより、AI向けWebナレッジを見つけやすくします。SourceShelf 1.0.2での対応を紹介します。",
+          "excerpt": "llms.txt v2では、明示的な検出、柔軟なMarkdown URL、パス単位の索引、AI向けWebナレッジを必要に応じて取得する明確な流れが追加されました。",
+          "articleLabel": "AIが読みやすいWebナレッジ",
+          "publishedLabel": "公開日",
+          "byLabel": "著者",
+          "ctaTitle": "AIが読みやすいWebサイトを持ち運べるリサーチパックへ",
+          "ctaDescription": "SafariでWebサイトのコレクションを見つけ、必要なソースを選び、SourceShelfでローカルに保存できます。",
+          "ctaButton": "SourceShelfのパックを見る",
+          "heroAlt": "Webサイトからllms.txt v2による検出、選択したソース、SourceShelfパックを経てAIワークフローへ進む5段階の図。",
+          "figureCaptions": {
+            "llms-txt-v2-discovery": "llms.txt v2では、ページを説明する索引と、利用可能なMarkdown表現の両方をページから明示的に知らせることができます。",
+            "llms-txt-v2-path-scoping": "llms.txtファイルはサイトの特定部分を説明できるため、大規模なサイトでも対象を絞ったナレッジコレクションを公開できます。",
+            "llms-txt-v2-safari-discovery": "SourceShelf 1.0.2はSafariからllms.txtコレクションを直接検出し、リサーチパックの出発点にできます。",
+            "llms-txt-v2-source-selection": "コレクションをプレビューし、調査に必要なソースだけを読み込みます。",
+            "llms-txt-v2-sourceshelf-pack": "読み込んだWebリソースは、他の調査資料とともにローカルのSourceShelfリサーチパックに加わります。"
+          },
+          "graphics": {
+            "hero": {
+              "title": "llms.txt v2", "tagline": "AIエージェントがWebナレッジを見つける仕組み",
+              "website": "Webサイト", "websiteDetail": "人が読むページ", "index": "llms.txt v2", "indexDetail": "明示的な検出",
+              "sources": "選択したソース", "sourcesDetail": "有用なMarkdown", "pack": "SourceShelfパック", "packDetail": "非公開で持ち運び可能",
+              "workflow": "AIワークフロー", "workflowDetail": "どこでも利用", "discover": "見つける", "choose": "選ぶ", "preserve": "保存する", "anywhere": "どこでも使う"
+            },
+            "discovery": {"title": "推測ではなく明示的に検出", "before": "従来の検出", "v2": "明示的なv2検出", "page": "Webページ", "tryPath": "/llms.txtを試す", "inferred": "便利だが推測", "declared": "公開者が宣言"},
+            "scoping": {"title": "最も近いllms.txtを使用", "site": "サイト全体", "docs": "ドキュメント領域", "api": "API領域", "broad": "サイト全体を説明", "specific": "最も具体的な索引"}
+          }
+        }
+      }
     }
   ]
 }

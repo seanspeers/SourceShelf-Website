@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es-419">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="llms.txt v2 facilita descubrir conocimiento web legible por IA con enlaces Markdown, índices por ruta y un flujo de agente más claro. Conoce la compatibilidad de SourceShelf 1.0.2.">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/es-419/blog/llms-txt-v2/">
+  <link rel="describedby" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" href="/es-419/blog/llms-txt-v2/index.md">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/llms-txt-v2/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/llms-txt-v2/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/llms-txt-v2/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/blog/llms-txt-v2/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/blog/llms-txt-v2/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/blog/llms-txt-v2/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="llms.txt v2: qué cambió para los sitios legibles por IA">
+  <meta property="og:description" content="llms.txt v2 facilita descubrir conocimiento web legible por IA con enlaces Markdown, índices por ruta y un flujo de agente más claro. Conoce la compatibilidad de SourceShelf 1.0.2.">
+  <meta property="og:url" content="https://sourceshelf.app/es-419/blog/llms-txt-v2/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/blog/es-419/llms-txt-v2-workflow.png">
+  <meta property="article:published_time" content="2026-08-22">
+  <meta property="article:modified_time" content="2026-08-22">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="llms.txt v2: qué cambió para los sitios legibles por IA">
+  <meta name="twitter:description" content="llms.txt v2 facilita descubrir conocimiento web legible por IA con enlaces Markdown, índices por ruta y un flujo de agente más claro. Conoce la compatibilidad de SourceShelf 1.0.2.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/blog/es-419/llms-txt-v2-workflow.png">
+  <title>llms.txt v2: qué cambió para los sitios legibles por IA</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260822-1">
+  <script src="/locale.js?v=20260822-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("es-419");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"llms.txt v2: una mejor manera para que la IA descubra el conocimiento de un sitio web","description":"llms.txt v2 facilita descubrir conocimiento web legible por IA con enlaces Markdown, índices por ruta y un flujo de agente más claro. Conoce la compatibilidad de SourceShelf 1.0.2.","image":"https://sourceshelf.app/assets/blog/es-419/llms-txt-v2-workflow.png","mainEntityOfPage":"https://sourceshelf.app/es-419/blog/llms-txt-v2/","url":"https://sourceshelf.app/es-419/blog/llms-txt-v2/","datePublished":"2026-08-22","dateModified":"2026-08-22","inLanguage":"es-419","articleSection":"Conocimiento web legible por IA","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://sourceshelf.app/es-419/"},{"@type":"ListItem","position":2,"name":"Blog de SourceShelf","item":"https://sourceshelf.app/es-419/blog/"},{"@type":"ListItem","position":3,"name":"llms.txt v2: una mejor manera para que la IA descubra el conocimiento de un sitio web","item":"https://sourceshelf.app/es-419/blog/llms-txt-v2/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Ir al contenido</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a class="brand" href="/es-419/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/es-419/">Inicio</a>
+        <a class="nav-link" href="/es-419/blog/" aria-current="page">Blog</a>
+        <a class="nav-link" href="/es-419/privacy.html">Privacidad</a>
+        <a class="nav-link" href="/es-419/docs/">Documentación</a>
+        <a class="nav-link" href="/es-419/support.html">Soporte</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Descargar SourceShelf en la Mac App Store">Descargar</a>
+        <label class="locale-picker"><span class="visually-hidden">Idioma</span><select data-locale-select aria-label="Elegir idioma"><option value="en" lang="en">English</option><option value="fr" lang="fr">Français</option><option value="es-419" lang="es-419" selected>Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Cambiar al modo claro" data-dark-label="Cambiar al modo oscuro" aria-label="Activar o desactivar el modo oscuro" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main blog-main">
+    <div class="blog-page blog-article-page">
+      <nav class="breadcrumbs blog-breadcrumbs" aria-label="Ruta de navegación"><ol><li><a href="/es-419/">Inicio</a></li><li><a href="/es-419/blog/">Blog de SourceShelf</a></li><li aria-current="page">llms.txt v2: una mejor manera para que la IA descubra el conocimiento de un sitio web</li></ol></nav>
+      <article class="blog-article">
+        <header class="blog-article-header">
+          <p class="eyebrow">Conocimiento web legible por IA</p>
+          <h1 id="llms-txt-v2-una-mejor-manera-para-que-la-ia-descubra-el-conocimiento-de-un-sitio-web">llms.txt v2: una mejor manera para que la IA descubra el conocimiento de un sitio web</h1>
+          <p class="blog-article-excerpt">llms.txt v2 incorpora descubrimiento explícito, URL Markdown flexibles, índices por ruta y un flujo de recuperación más claro para el conocimiento web legible por IA.</p>
+          <div class="blog-article-meta">
+            <span>Publicado el <time datetime="2026-08-22">22 de agosto de 2026</time></span>
+            <span>Por SourceShelf</span>
+
+          </div>
+          <figure class="blog-hero-figure blog-hero-responsive">
+    <picture class="blog-responsive-art blog-responsive-hero" style="--mobile-aspect: 600 / 1520">
+    <source media="(max-width: 600px)" srcset="/assets/blog/es-419/llms-txt-v2-workflow-mobile.svg">
+      <img src="/assets/blog/es-419/llms-txt-v2-workflow.svg" alt="Un flujo de cinco etapas va de un sitio web a un flujo de IA mediante el descubrimiento de llms.txt v2, fuentes seleccionadas y un paquete de SourceShelf." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+        </header>
+        <details class="docs-toc-mobile blog-toc-mobile"><summary>En esta página</summary><nav class="docs-toc-list" aria-label="Tabla de contenido móvil"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#por-qué-llms-txt-necesitaba-una-versión-2">Por qué llms.txt necesitaba una versión 2</a></li><li class="toc-level-2"><a href="#section-1-los-sitios-web-pueden-anunciar-explícitamente-su-llms-txt">1. Los sitios web pueden anunciar explícitamente su llms.txt.</a></li><li class="toc-level-2"><a href="#section-2-las-páginas-pueden-anunciar-una-versión-limpia-de-markdown">2. Las páginas pueden anunciar una versión limpia de Markdown.</a></li><li class="toc-level-2"><a href="#section-3-las-url-de-markdown-son-más-flexibles">3. Las URL de Markdown son más flexibles</a></li><li class="toc-level-2"><a href="#section-4-llms-txt-puede-describir-una-parte-de-un-sitio-web">4. llms.txt puede describir una parte de un sitio web</a></li><li class="toc-level-2"><a href="#section-5-se-espera-que-los-agentes-recuperen-lo-que-necesitan">5. Se espera que los agentes recuperen lo que necesitan</a></li><li class="toc-level-2"><a href="#section-6-opcional-es-una-convención-no-una-regla-de-procesamiento">6. &quot;Opcional&quot; es una convención, no una regla de procesamiento.</a></li><li class="toc-level-2"><a href="#llms-txt-forma-parte-de-una-web-más-amplia-legible-por-ia">llms.txt forma parte de una web más amplia legible por IA.</a></li><li class="toc-level-2"><a href="#sourceshelf-1-0-2-admite-llms-txt-v2">SourceShelf 1.0.2 admite llms.txt v2</a></li><li class="toc-level-2"><a href="#desde-la-recopilación-de-sitios-web-hasta-el-paquete-de-investigación-local">Desde la recopilación de sitios web hasta el paquete de investigación local</a></li><li class="toc-level-2"><a href="#llms-txt-y-investigación-local-primero">llms.txt y investigación local primero</a></li><li class="toc-level-2"><a href="#una-colección-múltiples-flujos-de-trabajo-de-ia">Una colección, múltiples flujos de trabajo de IA</a></li><li class="toc-level-2"><a href="#lo-que-llms-txt-v2-no-hace">Lo que llms.txt v2 no hace</a></li><li class="toc-level-2"><a href="#un-pequeño-cambio-con-una-mayor-implicación">Un pequeño cambio con una mayor implicación</a></li></ol></nav></details>
+        <div class="blog-article-layout">
+          <div class="docs-article blog-copy">
+            <div class="docs-article-body">
+              <p>El conocimiento web legible por IA es cada vez más fácil de descubrir.</p>
+<p>La propuesta <code>llms.txt</code> ha alcanzado la versión 2. Esta actualización ayuda a que los asistentes y agentes de IA encuentren contenido web útil y legible por máquina. Si este formato es nuevo para ti, comienza con nuestra <a href="/es-419/blog/what-is-llms-txt/">introducción a llms.txt</a>.</p>
+<p>La propuesta original introdujo una idea sencilla: darle a un sitio web un pequeño índice Markdown que explique lo que contiene y indique a los sistemas de IA sus recursos más útiles.</p>
+<p>La versión 2 mantiene esa simplicidad, pero aborda uno de los mayores problemas prácticos con la propuesta original:</p>
+<p><strong>¿Cómo sabe un agente de IA que existe un archivo <code>llms.txt</code> —o una versión Markdown limpia de una página—?</strong></p>
+<p>La respuesta es una mejor exploración.</p>
+<p>Y SourceShelf 1.0.2 ya admite el nuevo flujo de trabajo <code>llms.txt</code> v2, lo que hace posible descubrir, visualizar, seleccionar, importar, organizar y preservar el conocimiento del sitio web amigable con la IA directamente desde Safari.</p>
+              <h2 id="por-qué-llms-txt-necesitaba-una-versión-2">Por qué llms.txt necesitaba una versión 2 <a class="heading-anchor" href="#por-qué-llms-txt-necesitaba-una-versión-2" aria-label="Enlace a la sección: Por qué llms.txt necesitaba una versión 2"><span aria-hidden="true">#</span></a></h2>
+<p>Cuando <code>llms.txt</code> se propuso por primera vez en 2024, la lectura rutinaria de sitios web por agentes de IA seguía siendo en gran medida una expectativa sobre hacia dónde se dirigía la web.</p>
+<p>Eso cambió rápidamente.</p>
+<p>Los asistentes de codificación de IA ahora consultan la documentación mientras trabajan. Los asistentes con búsqueda recuperan páginas web para responder preguntas. Los agentes cada vez necesitan localizar información específica dentro de sitios web en lugar de simplemente mostrar esos sitios a una persona.</p>
+<p>El <a href="https://llmstxt.org/changes.html">registro oficial de cambios de llms.txt v2</a> señala que miles de sitios ahora publican un archivo <code>llms.txt</code>, las plataformas de documentación los generan automáticamente y los principales proveedores de IA los publican para su propia documentación de desarrolladores.</p>
+<p>La versión 2 refleja lo que se aprendió de esa adopción.</p>
+<p>No reinventa el formato básico ni hace que la versión 1 deje de funcionar. En cambio, facilita la descubrimiento de <code>llms.txt</code> y clarifica cómo deben usarlo los agentes.</p>
+<h2 id="section-1-los-sitios-web-pueden-anunciar-explícitamente-su-llms-txt">1. Los sitios web pueden anunciar explícitamente su llms.txt. <a class="heading-anchor" href="#section-1-los-sitios-web-pueden-anunciar-explícitamente-su-llms-txt" aria-label="Enlace a la sección: 1. Los sitios web pueden anunciar explícitamente su llms.txt."><span aria-hidden="true">#</span></a></h2>
+<p>La adición más importante en v2 es la descubribilidad.</p>
+<p>Anteriormente, una herramienta que quería encontrar un archivo <code>llms.txt</code> a menudo tenía que probar una ubicación predecible como:</p>
+<div class="code-block"><pre><code class="language-text">/llms.txt</code></pre></div>
+<p>Ese URL convencional sigue siendo útil, pero probar una ubicación conocida no es lo mismo que el sitio web declarando explícitamente una relación.</p>
+<p>La versión 2 recomienda usar la relación HTML estándar:</p>
+<div class="code-block"><pre><code class="language-html">&lt;link rel=&quot;describedby&quot; href=&quot;/llms.txt&quot;&gt;</code></pre></div>
+<p>Un sitio web puede usar esto para decirle al software compatible:</p>
+<p><strong>Este es el archivo llms.txt que describe esta página.</strong></p>
+<p>La misma información se puede proporcionar a través de un encabezado HTTP <code>Link</code>, lo que significa que sitios web, sistemas de documentación, CDNs y otras infraestructuras pueden exponer la relación sin modificar la página visible.</p>
+<p>En lugar de requerir una herramienta de IA para examinar un sitio web en busca de archivos especiales, el sitio web puede declarar directamente su conocimiento legible por IA.</p>
+<h2 id="section-2-las-páginas-pueden-anunciar-una-versión-limpia-de-markdown">2. Las páginas pueden anunciar una versión limpia de Markdown. <a class="heading-anchor" href="#section-2-las-páginas-pueden-anunciar-una-versión-limpia-de-markdown" aria-label="Enlace a la sección: 2. Las páginas pueden anunciar una versión limpia de Markdown."><span aria-hidden="true">#</span></a></h2>
+<p><code>llms.txt</code> es útil como índice, pero la información detallada generalmente se encuentra en las páginas que hace referencia.</p>
+<p>El problema es que las páginas web normales contienen mucho más que su contenido principal.</p>
+<p>La navegación, los menús, los scripts, el diseño, los controles de cookies, la publicidad, los componentes interactivos y otros elementos de interfaz tienen sentido en un navegador. No son necesariamente la mejor representación para un sistema de IA que intenta entender la información subyacente.</p>
+<p>Por lo tanto, la versión 2 formaliza otra relación de descubrimiento:</p>
+<div class="code-block"><pre><code class="language-html">&lt;link
+  rel=&quot;alternate&quot;
+  type=&quot;text/markdown&quot;
+  href=&quot;/docs/example.md&quot;&gt;</code></pre></div>
+<p>Esto le dice al software compatible que la página tiene una representación Markdown disponible.</p>
+<p>Un agente de IA puede, por lo tanto, encontrar una página web normal mientras descubre una representación más limpia y concisa de la misma información.</p>
+<p>Eso puede significar menos extracción, menos material irrelevante y menos tokens gastados reconstruyendo contenido que el editor ya ha hecho disponible en una forma amigable con las máquinas.</p>
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
+  <a href="/assets/blog/es-419/llms-txt-v2-discovery.svg">
+  <picture class="blog-responsive-art" style="--mobile-aspect: 800 / 1120">
+    <source media="(max-width: 600px)" srcset="/assets/blog/es-419/llms-txt-v2-discovery-mobile.svg">
+    <img src="/assets/blog/es-419/llms-txt-v2-discovery.svg" alt="Un diagrama lado a lado contrasta probar la ubicación convencional /llms.txt con una página que declara explícitamente su índice descrito y su representación alternativa de Markdown." width="1200" height="675" loading="lazy" decoding="async">
+  </picture>
+  </a>
+  <figcaption>llms.txt v2 permite que una página anuncie de forma explícita tanto el índice que la describe como una representación Markdown disponible.</figcaption>
+</figure>
+<h2 id="section-3-las-url-de-markdown-son-más-flexibles">3. Las URL de Markdown son más flexibles <a class="heading-anchor" href="#section-3-las-url-de-markdown-son-más-flexibles" aria-label="Enlace a la sección: 3. Las URL de Markdown son más flexibles"><span aria-hidden="true">#</span></a></h2>
+<p>La propuesta original sugería producir versiones de Markdown de las páginas agregando <code>.md</code> al URL existente.</p>
+<p>Por ejemplo:</p>
+<div class="code-block"><pre><code class="language-text">guide.html
+guide.html.md</code></pre></div>
+<p>En la práctica, algunos sistemas de publicación reemplazan en su lugar la extensión original:</p>
+<div class="code-block"><pre><code class="language-text">guide.html
+guide.md</code></pre></div>
+<p>La versión 2 reconoce ambos enfoques.</p>
+<p>Esto puede parecer un cambio de compatibilidad menor, pero refleja un principio importante detrás de la propuesta actualizada: <code>llms.txt</code> se está adaptando a convenciones que los desarrolladores y los sistemas de publicación ya utilizan, en lugar de obligar a todos los sitios a adoptar una sola estructura de URL.</p>
+<h2 id="section-4-llms-txt-puede-describir-una-parte-de-un-sitio-web">4. llms.txt puede describir una parte de un sitio web <a class="heading-anchor" href="#section-4-llms-txt-puede-describir-una-parte-de-un-sitio-web" aria-label="Enlace a la sección: 4. llms.txt puede describir una parte de un sitio web"><span aria-hidden="true">#</span></a></h2>
+<p>Otra aclaración particularmente útil es <strong>el ámbito de la ruta</strong>.</p>
+<p>Un archivo <code>llms.txt</code> no necesita describir un dominio completo. Por ejemplo:</p>
+<div class="code-block"><pre><code class="language-text">/llms.txt
+/docs/llms.txt
+/api/llms.txt</code></pre></div>
+<p>puede describir diferentes partes del mismo sitio.</p>
+<p>Un archivo <code>llms.txt</code> se aplica a las páginas que están debajo de su propio camino, y cuando más de un índice podría aplicarse, el más específico tiene prioridad.</p>
+<p>Eso significa:</p>
+<div class="code-block"><pre><code class="language-text">/docs/llms.txt</code></pre></div>
+<p>puede describir la sección de documentación sin necesidad de representar el resto del sitio web.</p>
+<p>Esto es útil para grandes organizaciones, plataformas de documentación, proyectos alojados, universidades, productos de software y cualquier sitio donde diferentes áreas contengan colecciones distintas de conocimiento.</p>
+<p>También hace que la búsqueda sea más precisa. Un agente de IA que lee la documentación de la API no necesariamente necesita las páginas de marketing, las noticias de la empresa, la sección de carreras y todo lo demás publicado en el mismo dominio.</p>
+<p>Un <code>llms.txt</code> con alcance puede guiarlo hacia el conocimiento que realmente es relevante.</p>
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
+  <a href="/assets/blog/es-419/llms-txt-v2-path-scoping.svg">
+  <picture class="blog-responsive-art" style="--mobile-aspect: 800 / 1060">
+    <source media="(max-width: 600px)" srcset="/assets/blog/es-419/llms-txt-v2-path-scoping-mobile.svg">
+    <img src="/assets/blog/es-419/llms-txt-v2-path-scoping.svg" alt="Un árbol de sitios muestra una raíz llms.txt para el sitio más amplio, además de archivos llms.txt más específicos dentro de los archivos y rutas de la API." width="1200" height="675" loading="lazy" decoding="async">
+  </picture>
+  </a>
+  <figcaption>Un archivo llms.txt puede describir una parte específica de un sitio, lo que permite que sitios grandes expongan colecciones de conocimiento más enfocadas.</figcaption>
+</figure>
+<h2 id="section-5-se-espera-que-los-agentes-recuperen-lo-que-necesitan">5. Se espera que los agentes recuperen lo que necesitan <a class="heading-anchor" href="#section-5-se-espera-que-los-agentes-recuperen-lo-que-necesitan" aria-label="Enlace a la sección: 5. Se espera que los agentes recuperen lo que necesitan"><span aria-hidden="true">#</span></a></h2>
+<p>La versión 2 también aclara una importante idea errónea sobre <code>llms.txt</code>.</p>
+<p>El objetivo no es necesariamente concatenar un sitio web completo y alimentarlo a un modelo de IA.</p>
+<p>En cambio, el archivo <code>llms.txt</code> actúa como un mapa.</p>
+<p>Un agente puede leer o buscar en el índice relativamente pequeño, determinar qué recursos son relevantes para la tarea actual y luego recuperar esos recursos según sea necesario.</p>
+<p>Conceptualmente, el flujo de trabajo se convierte en:</p>
+<div class="code-block"><pre><code class="language-text">Question
+   ↓
+llms.txt
+   ↓
+Find relevant sources
+   ↓
+Retrieve only those sources
+   ↓
+Use them as context</code></pre></div>
+<p>Este es un modelo mucho más escalable que tratar cada documento disponible como contexto para cada pregunta.</p>
+<p>También se parece a la forma en que funciona una buena investigación: comienza con una colección organizada, identifica las fuentes relevantes, luego examina esas fuentes en detalle.</p>
+<h2 id="section-6-opcional-es-una-convención-no-una-regla-de-procesamiento">6. &quot;Opcional&quot; es una convención, no una regla de procesamiento. <a class="heading-anchor" href="#section-6-opcional-es-una-convención-no-una-regla-de-procesamiento" aria-label="Enlace a la sección: 6. &quot;Opcional&quot; es una convención, no una regla de procesamiento."><span aria-hidden="true">#</span></a></h2>
+<p>Versiones anteriores de la propuesta otorgaron a la sección <code>## Opcional</code> un papel especial al expandir una colección <code>llms.txt</code> en el contexto del modelo.</p>
+<p>La versión 2 elimina ese significado mecánico.</p>
+<p>Una sección opcional aún puede identificar material secundario que un agente podría omitir cuando una colección más pequeña es preferible, pero ya no se espera que los agentes lo traten como una instrucción de procesamiento especial.</p>
+<p>Eso hace que el formato sea más sencillo.</p>
+<p>El índice describe y organiza el conocimiento. El agente decide qué conocimiento es relevante para la tarea.</p>
+<h2 id="llms-txt-forma-parte-de-una-web-más-amplia-legible-por-ia">llms.txt forma parte de una web más amplia legible por IA. <a class="heading-anchor" href="#llms-txt-forma-parte-de-una-web-más-amplia-legible-por-ia" aria-label="Enlace a la sección: llms.txt forma parte de una web más amplia legible por IA."><span aria-hidden="true">#</span></a></h2>
+<p>Estos cambios están llegando a medida que la web comienza a adaptarse más deliberadamente a los agentes de IA.</p>
+<p>El trabajo experimental de Chrome en el navegador Agencial en Lighthouse, por ejemplo, ahora incluye <a href="https://developer.chrome.com/docs/lighthouse/agentic-browsing/llms-txt">un auditoría de descubribilidad de llms.txt</a>.</p>
+<p>Eso no hace que <code>llms.txt</code> sea un estándar web universal, ni la publicación de uno garantiza que todos los sistemas de IA lo utilizarán.</p>
+<p>Demuestra que el contenido legible por IA está pasando de ser un experimento interesante a algo más.</p>
+<p>Los creadores de sitios web están considerando cada vez más no solo cómo la información se presenta a las personas y a los motores de búsqueda, sino también cómo los agentes de software pueden descubrirla y comprenderla de manera fiable.</p>
+<p><code>llms.txt</code> ofrece un enfoque deliberadamente simple para ese problema.</p>
+<h2 id="sourceshelf-1-0-2-admite-llms-txt-v2">SourceShelf 1.0.2 admite llms.txt v2 <a class="heading-anchor" href="#sourceshelf-1-0-2-admite-llms-txt-v2" aria-label="Enlace a la sección: SourceShelf 1.0.2 admite llms.txt v2"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf trata <code>llms.txt</code> como algo más que un archivo para ver.</p>
+<p>La versión 1.0.2 amplía el flujo de trabajo a Safari, permitiendo que la colección <code>llms.txt</code> de un sitio web compatible se convierta en el punto de partida para un Pack de investigación local. El <a href="/es-419/docs/guides/llms-txt/">Guía de SourceShelf llms.txt</a> documenta el orden completo de descubrimiento, el flujo de trabajo de selección, las salvaguardias y la procedencia que la aplicación preserva.</p>
+<p>Cuando SourceShelf descubre una colección disponible, puedes ver una vista previa de lo que el sitio ofrece, elegir las fuentes que realmente deseas e importar esa selección a SourceShelf.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/es-419/llms-txt-v2-safari-discovery.webp"><img src="/assets/blog/es-419/llms-txt-v2-safari-discovery.webp" srcset="/assets/blog/es-419/llms-txt-v2-safari-discovery-960.webp 960w, /assets/blog/es-419/llms-txt-v2-safari-discovery.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Safari muestra un sitio web de investigación sintético, mientras que la extensión real SourceShelf muestra una colección llms.txt descubierta para importarla." width="1440" height="1029" loading="lazy" decoding="async"></a>
+  <figcaption>SourceShelf 1.0.2 puede descubrir una colección llms.txt directamente desde Safari y convertirla en el punto de partida de un paquete de investigación.</figcaption>
+</figure>
+<p>Esta es una distinción importante.</p>
+<p>Un sitio web podría exponer docenas, o eventualmente cientos, de recursos a través de <code>llms.txt</code>. Su proyecto de investigación solo podría necesitar cinco.</p>
+<p>SourceShelf permite que el índice del sitio ayude con la exploración sin necesidad de que toda la colección se convierta en parte de su contexto de trabajo.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure blog-figure-narrow">
+  <a href="/assets/blog/es-419/llms-txt-v2-source-selection.webp"><img src="/assets/blog/es-419/llms-txt-v2-source-selection.webp" srcset="/assets/blog/es-419/llms-txt-v2-source-selection-600.webp 600w, /assets/blog/es-419/llms-txt-v2-source-selection.webp 900w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="La revisión de la colección SourceShelf utiliza la interfaz de extensión de envío con doce recursos realistas y solo seis seleccionados para importación." width="900" height="1400" loading="lazy" decoding="async"></a>
+  <figcaption>Previsualiza la colección e importa solo las fuentes relevantes para tu investigación.</figcaption>
+</figure>
+<h2 id="desde-la-recopilación-de-sitios-web-hasta-el-paquete-de-investigación-local">Desde la recopilación de sitios web hasta el paquete de investigación local <a class="heading-anchor" href="#desde-la-recopilación-de-sitios-web-hasta-el-paquete-de-investigación-local" aria-label="Enlace a la sección: Desde la recopilación de sitios web hasta el paquete de investigación local"><span aria-hidden="true">#</span></a></h2>
+<p>Un flujo de trabajo típico puede verse así:</p>
+<ol><li>Visite un sitio web en Safari.</li><li>Abra la extensión SourceShelf.</li><li>Descubra la colección disponible de <code>llms.txt</code> en el sitio.</li><li>Vea una vista previa de los recursos que expone.</li><li>Seleccione las fuentes relevantes para su investigación.</li><li>Importalos a un nuevo o existente paquete SourceShelf.</li><li>Revisa y organiza la colección resultante localmente.</li><li>Exporte o comparta el Paquete utilizando el formato adecuado para su flujo de trabajo de IA.</li></ol>
+<p>Una vez importadas, esas fuentes ya no son solo una colección de pestañas del navegador.</p>
+<p>Se convierten en parte de un proyecto de investigación organizado que puede preservar el orden de las fuentes, los metadatos, la procedencia, los activos archivados y otra información necesaria para mover la investigación entre los flujos de trabajo.</p>
+<figure class="docs-figure blog-article-figure blog-product-figure">
+  <a href="/assets/blog/es-419/llms-txt-v2-sourceshelf-pack.webp"><img src="/assets/blog/es-419/llms-txt-v2-sourceshelf-pack.webp" srcset="/assets/blog/es-419/llms-txt-v2-sourceshelf-pack-960.webp 960w, /assets/blog/es-419/llms-txt-v2-sourceshelf-pack.webp 1440w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="La interfaz de tres columnas real de SourceShelf muestra un paquete de investigación sintético terminado con recursos de llms.txt, otros documentos y procedencia de importación del sitio web." width="1440" height="1080" loading="lazy" decoding="async"></a>
+  <figcaption>Tras la importación, los recursos web pasan a formar parte de un paquete de investigación local de SourceShelf junto con tus otros materiales.</figcaption>
+</figure>
+<h2 id="llms-txt-y-investigación-local-primero">llms.txt y investigación local primero <a class="heading-anchor" href="#llms-txt-y-investigación-local-primero" aria-label="Enlace a la sección: llms.txt y investigación local primero"><span aria-hidden="true">#</span></a></h2>
+<p>Hay una diferencia importante entre <strong>descubrir</strong> información y <strong>poseer tu propia colección de investigación</strong>.</p>
+<p><code>llms.txt</code> ayuda con el primer problema.</p>
+<p>Le da a los editores una forma de describir conocimientos útiles y ayuda al software compatible a encontrarlos.</p>
+<p>SourceShelf aborda el segundo.</p>
+<p>Te permite elegir qué fuentes son importantes, preservarlas como un paquete de investigación, combinarlas con tus propios PDF, documentos, notas, escaneos y otro material, y luego decidir cómo debe utilizarse esa colección.</p>
+<p>El sitio web sigue siendo el editor.</p>
+<p>El archivo <code>llms.txt</code> sigue siendo la guía.</p>
+<p>Tu paquete SourceShelf se convierte en tu colección de investigación.</p>
+<h2 id="una-colección-múltiples-flujos-de-trabajo-de-ia">Una colección, múltiples flujos de trabajo de IA <a class="heading-anchor" href="#una-colección-múltiples-flujos-de-trabajo-de-ia" aria-label="Enlace a la sección: Una colección, múltiples flujos de trabajo de IA"><span aria-hidden="true">#</span></a></h2>
+<p>Una importación de <code>llms.txt</code> no tiene por qué permanecer una colección de <code>llms.txt</code> para siempre.</p>
+<p>Una vez que el conocimiento relevante esté organizado en SourceShelf, el mismo paquete puede participar en diferentes flujos de trabajo.</p>
+<p>Puede conservarlo como un archivo de investigación portátil, exportar Markdown para otra aplicación, crear un <a href="/es-419/local-ai-reference-packs/">Paquete de referencia orientado a la IA</a> o exponer un paquete seleccionado a un cliente de IA compatible a través de la integración local de MCP de lectura única de SourceShelf.</p>
+<p>Esa separación entre <strong>recopilar conocimiento</strong> y <strong>elegir una herramienta de IA</strong> es intencional.</p>
+<p>La investigación útil no debe quedar permanentemente vinculada a cualquier producto de IA que haya ayudado a recopilarla.</p>
+<p>Markdown, la procedencia, los paquetes portátiles e interfaces abiertas proporcionan una forma de mantener la investigación útil incluso a medida que cambian las herramientas de IA.</p>
+<h2 id="lo-que-llms-txt-v2-no-hace">Lo que llms.txt v2 no hace <a class="heading-anchor" href="#lo-que-llms-txt-v2-no-hace" aria-label="Enlace a la sección: Lo que llms.txt v2 no hace"><span aria-hidden="true">#</span></a></h2>
+<p>Es igualmente importante entender qué no afirma que la propuesta resuelva.</p>
+<p><code>llms.txt</code> no es una sustitución para <code>robots.txt</code>.</p>
+<p>No es una sustitución para un mapa del sitio.</p>
+<p>No garantiza que un proveedor de IA indexará un sitio web.</p>
+<p>No otorga a un sistema de IA permiso para acceder a contenido de otro modo restringido.</p>
+<p>Y no hace que la información sea automáticamente confiable simplemente porque está escrita en Markdown.</p>
+<p>Su propósito es mucho más restringido:</p>
+<p><strong>ayudar a un sistema de IA a descubrir y navegar de manera más deliberada el conocimiento útil de los sitios web.</strong></p>
+<p>Esa simplicidad es parte de lo que hace que el formato sea interesante.</p>
+<h2 id="un-pequeño-cambio-con-una-mayor-implicación">Un pequeño cambio con una mayor implicación <a class="heading-anchor" href="#un-pequeño-cambio-con-una-mayor-implicación" aria-label="Enlace a la sección: Un pequeño cambio con una mayor implicación"><span aria-hidden="true">#</span></a></h2>
+<p>La parte más significativa de <code>llms.txt</code> v2 puede no ser ningún cambio individual de sintaxis.</p>
+<p>Es el cambio en la suposición detrás de la propuesta.</p>
+<p>En 2024, la pregunta era si los sistemas de IA podrían necesitar regularmente que los sitios web se presentaran de una forma más utilizable.</p>
+<p>En 2026, los agentes que leen documentación, buscan en sitios web, escriben software, recopilan investigaciones y responden preguntas de fuentes en línea ya son algo normal.</p>
+<p>La pregunta se está convirtiendo cada vez más en:</p>
+<p>¿Cómo deberían los sitios web hacer que su conocimiento sea descubrible para ellos?</p>
+<p>La versión 2 proporciona una mejor respuesta que la versión 1.</p>
+<p>Un pequeño índice Markdown puede describir los conocimientos importantes.</p>
+<p>Las relaciones web estándar pueden hacer que ese índice sea descubrible.</p>
+<p>Clean Markdown puede proporcionar versiones amigables para agentes de páginas individuales.</p>
+<p>El escaneo de rutas puede mantener organizados sitios grandes.</p>
+<p>Y los agentes solo pueden recuperar la información relevante para la tarea en cuestión.</p>
+<p>Con SourceShelf 1.0.2, esa misma estructura también puede convertirse en el comienzo de un flujo de trabajo de investigación privado y portátil, comenzando en la web y continuando en tus propios dispositivos.</p>
+<p>La web legible por IA todavía está evolucionando.</p>
+<p>Pero con <code>llms.txt</code> v2, se está volviendo mucho más fácil de encontrar.</p>
+            </div>
+            <section class="blog-cta" aria-labelledby="blog-cta-llms-txt-v2">
+              <div>
+                <p class="eyebrow">SourceShelf</p>
+                <h2 id="blog-cta-llms-txt-v2">Convierte sitios legibles por IA en paquetes de investigación portátiles</h2>
+                <p>Descubre una colección web en Safari, elige las fuentes que importan y consérvalas localmente con SourceShelf.</p>
+              </div>
+              <a class="button button-primary blog-cta-button" href="/es-419/local-ai-reference-packs/">Explora los paquetes de SourceShelf</a>
+            </section>
+          </div>
+          <aside class="docs-toc blog-toc" aria-label="Contenido de la página"><nav class="docs-toc-list" aria-label="Tabla de contenido"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#por-qué-llms-txt-necesitaba-una-versión-2">Por qué llms.txt necesitaba una versión 2</a></li><li class="toc-level-2"><a href="#section-1-los-sitios-web-pueden-anunciar-explícitamente-su-llms-txt">1. Los sitios web pueden anunciar explícitamente su llms.txt.</a></li><li class="toc-level-2"><a href="#section-2-las-páginas-pueden-anunciar-una-versión-limpia-de-markdown">2. Las páginas pueden anunciar una versión limpia de Markdown.</a></li><li class="toc-level-2"><a href="#section-3-las-url-de-markdown-son-más-flexibles">3. Las URL de Markdown son más flexibles</a></li><li class="toc-level-2"><a href="#section-4-llms-txt-puede-describir-una-parte-de-un-sitio-web">4. llms.txt puede describir una parte de un sitio web</a></li><li class="toc-level-2"><a href="#section-5-se-espera-que-los-agentes-recuperen-lo-que-necesitan">5. Se espera que los agentes recuperen lo que necesitan</a></li><li class="toc-level-2"><a href="#section-6-opcional-es-una-convención-no-una-regla-de-procesamiento">6. &quot;Opcional&quot; es una convención, no una regla de procesamiento.</a></li><li class="toc-level-2"><a href="#llms-txt-forma-parte-de-una-web-más-amplia-legible-por-ia">llms.txt forma parte de una web más amplia legible por IA.</a></li><li class="toc-level-2"><a href="#sourceshelf-1-0-2-admite-llms-txt-v2">SourceShelf 1.0.2 admite llms.txt v2</a></li><li class="toc-level-2"><a href="#desde-la-recopilación-de-sitios-web-hasta-el-paquete-de-investigación-local">Desde la recopilación de sitios web hasta el paquete de investigación local</a></li><li class="toc-level-2"><a href="#llms-txt-y-investigación-local-primero">llms.txt y investigación local primero</a></li><li class="toc-level-2"><a href="#una-colección-múltiples-flujos-de-trabajo-de-ia">Una colección, múltiples flujos de trabajo de IA</a></li><li class="toc-level-2"><a href="#lo-que-llms-txt-v2-no-hace">Lo que llms.txt v2 no hace</a></li><li class="toc-level-2"><a href="#un-pequeño-cambio-con-una-mayor-implicación">Un pequeño cambio con una mayor implicación</a></li></ol></nav></aside>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/es-419/">Inicio</a>
+          <a href="/es-419/examples/">Ejemplos</a>
+          <a href="/es-419/blog/">Blog</a>
+          <a href="/es-419/privacy.html">Privacidad</a>
+          <a href="/es-419/docs/">Documentación</a>
+          <a href="/es-419/support.html">Soporte</a>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="Casos de uso de SourceShelf">
+        <h2>Formas de usar SourceShelf</h2>
+        <ul><li><a href="/es-419/private-ai-knowledge-base-mac/">Base de conocimientos privada de IA para Mac</a></li><li><a href="/es-419/pdf-to-markdown-mac/">Conversión local de PDF</a></li><li><a href="/es-419/save-webpages-as-markdown-safari/">Captura web de Safari</a></li><li><a href="/es-419/local-ai-reference-packs/">Contexto enfocado para IA</a></li><li><a href="/es-419/research-archive-mac/">Archivo de investigación local</a></li><li><a href="/es-419/mcp-knowledge-base-mac/">Acceso de conocimiento MCP solo de lectura</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <script src="/script.js?v=20260822-1"></script>
+</body>
+</html>

@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#08244d">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://sourceshelf.app/ja/blog/what-is-llms-txt/">
+  <link rel="describedby" href="/llms.txt">
   <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/what-is-llms-txt/">
   <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
   <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/what-is-llms-txt/">
@@ -27,8 +28,8 @@
   <title>llms.txtとは？AIが読みやすいWebサイトのガイド</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260813-1">
-  <script src="/locale.js?v=20260813-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260822-1">
+  <script src="/locale.js?v=20260822-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("ja");
     (function () {
@@ -80,7 +81,9 @@
 
           </div>
           <figure class="blog-hero-figure">
-    <img src="/assets/blog/ja/llms-txt-hero.webp" srcset="/assets/blog/ja/llms-txt-hero-800.webp 800w, /assets/blog/ja/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Webサイトからllms.txtのMarkdownガイドを経てAIアシスタントへつながる図。「AIがWebサイトを理解するために」というメッセージを表示。" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    <picture>
+      <img src="/assets/blog/ja/llms-txt-hero.webp" srcset="/assets/blog/ja/llms-txt-hero-800.webp 800w, /assets/blog/ja/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Webサイトからllms.txtのMarkdownガイドを経てAIアシスタントへつながる図。「AIがWebサイトを理解するために」というメッセージを表示。" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
   </figure>
         </header>
         <details class="docs-toc-mobile blog-toc-mobile"><summary>このページの内容</summary><nav class="docs-toc-list" aria-label="モバイル用目次"><h2>このページの内容</h2><ol><li class="toc-level-2"><a href="#llms-txtを簡単に言うと">llms.txtを簡単に言うと</a></li><li class="toc-level-2"><a href="#llms-txtファイルの例">llms.txtファイルの例</a></li><li class="toc-level-2"><a href="#llms-txtが存在する理由">llms.txtが存在する理由</a></li><li class="toc-level-2"><a href="#llms-txtの利点">llms.txtの利点</a></li><li class="toc-level-2"><a href="#llms-txtができないこと">llms.txtができないこと</a></li><li class="toc-level-2"><a href="#llms-txt対robots-txt">llms.txt対robots.txt</a></li><li class="toc-level-2"><a href="#llms-txtを手動で作成する">llms.txtを手動で作成する</a></li><li class="toc-level-2"><a href="#sourceshelfもllms-txtを公開しています">SourceShelfもllms.txtを公開しています</a></li><li class="toc-level-2"><a href="#sourceshelfがllms-txtを使用する方法">SourceShelfがllms.txtを使用する方法</a></li><li class="toc-level-3"><a href="#sourceshelfでllms-txtをインポートする">SourceShelfでllms.txtをインポートする</a></li><li class="toc-level-3"><a href="#sourceshelfを使用してllms-txtコレクションをエクスポートする">SourceShelfを使用してllms.txtコレクションをエクスポートする</a></li><li class="toc-level-3"><a href="#llms-txtからsourceshelfワークフローへの移行">llms.txtからSourceShelfワークフローへの移行</a></li><li class="toc-level-2"><a href="#okfとの関係">OKFとの関係</a></li><li class="toc-level-2"><a href="#aiが実際に使えるナレッジを作る">AIが実際に使えるナレッジを作る</a></li><li class="toc-level-2"><a href="#公式情報源">公式情報源</a></li></ol></nav></details>
@@ -101,7 +104,7 @@
 <p>3つのルートレベルのファイルを同等なものとして扱うことなく、その意図を比較することは有用です。</p>
 <ul><li><code>robots.txt</code>：クローラーアクセス環境設定に関する説明</li><li><code>sitemap.xml</code>：ウェブサイトのURLとファイルのマップ</li><li><code>llms.txt</code>：AIシステムにとって重要なコンテンツのキュレーションガイド</li></ul>
 <h2 id="llms-txtファイルの例">llms.txtファイルの例 <a class="heading-anchor" href="#llms-txtファイルの例" aria-label="セクションへのリンク: llms.txtファイルの例"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/ja/llms-txt-markdown-example.webp"><img src="/assets/blog/ja/llms-txt-markdown-example.webp" srcset="/assets/blog/ja/llms-txt-markdown-example-800.webp 800w, /assets/blog/ja/llms-txt-markdown-example.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="SourceShelfのllms.txtの例を表示するMarkdownエディタで、Getting Started、AI Packs、MCP Accessへのリンクが含まれています。" width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <div class="code-block"><pre><code class="language-markdown"># Example Documentation
@@ -152,7 +155,7 @@
 <ul><li>AIシステムにWebサイトを読ませる</li><li>AIの回答に必ず含まれるようにする</li><li>AI検索やランキングの向上を保証する</li><li>通常のSEOやアクセシブルなWebサイト構造を置き換える</li><li><code>robots.txt</code>、サイトマップ、適切な内部リンクを置き換える</li><li>スクレイピングを防いだり、アクセス許可を与えたりする</li><li>AIナレッジベースを自動的に作る</li></ul>
 <p>これは許可システムではなく、有用なヒントと構造化された参照情報です。Webサイト運営者は、引き続き適切なアクセス制御、ライセンス、クローラーポリシー、プライバシーに関する判断を行う必要があります。</p>
 <h2 id="llms-txt対robots-txt">llms.txt対robots.txt <a class="heading-anchor" href="#llms-txt対robots-txt" aria-label="セクションへのリンク: llms.txt対robots.txt"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/ja/llms-txt-file-comparison.webp"><img src="/assets/blog/ja/llms-txt-file-comparison.webp" srcset="/assets/blog/ja/llms-txt-file-comparison-800.webp 800w, /assets/blog/ja/llms-txt-file-comparison.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="robots.txtはクローラーのアクセス設定、sitemap.xmlはWebサイトのURL、llms.txtはAI向けに選択されたコンテキストを表すという3列の比較。" width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <section class="table-wrap" tabindex="0" aria-label="スクロール可能な表"><table><thead><tr><th scope="col">ファイル</th><th scope="col">目的</th></tr></thead><tbody><tr><td><code>robots.txt</code></td><td>クローラーへのアクセス設定を伝達</td></tr>
@@ -208,7 +211,7 @@
 </figure>
 <p>これはポータブルなコレクション形式ですが、すべてのAI製品が直接インポートできることを保証するものではありません。読み取り可能なローカルナレッジとして保管したり、別のワークフローに合わせて変更したり、同じ保存済みパックを別の形式でエクスポートしたりできます。</p>
 <h3 id="llms-txtからsourceshelfワークフローへの移行">llms.txtからSourceShelfワークフローへの移行 <a class="heading-anchor" href="#llms-txtからsourceshelfワークフローへの移行" aria-label="セクションへのリンク: llms.txtからSourceShelfワークフローへの移行"><span aria-hidden="true">#</span></a></h3>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/ja/sourceshelf-llms-workflow.webp"><img src="/assets/blog/ja/sourceshelf-llms-workflow.webp" srcset="/assets/blog/ja/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/ja/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Webサイトからllms.txt、SourceShelf、ナレッジパックを経て、選択したAIツールにつながるワークフロー。" width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <p>コレクションが保存されたパックになったら、<a href="/ja/local-ai-reference-packs/">AI Reference Pack</a>をエクスポートしたり、Local AI Accessを使用して、不変で読み取り専用のスナップショットを互換性のあるクライアントと共有したりできます。選択したパックだけが公開されます。SourceShelfはライブラリの残りを共有しません。</p>
@@ -217,7 +220,7 @@
 </figure>
 <p>既存のインデックスではなく、より幅広いドキュメントやWebページの組み合わせから始める場合は、<a href="/ja/private-ai-knowledge-base-mac/">プライベートAIナレッジベースのワークフロー</a>で、ローカルソースを取り込み、整理し、選択的に共有する方法を解説しています。</p>
 <h2 id="okfとの関係">OKFとの関係 <a class="heading-anchor" href="#okfとの関係" aria-label="セクションへのリンク: OKFとの関係"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/ja/llms-txt-okf-relationship.webp"><img src="/assets/blog/ja/llms-txt-okf-relationship.webp" srcset="/assets/blog/ja/llms-txt-okf-relationship-800.webp 800w, /assets/blog/ja/llms-txt-okf-relationship.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="3つの段階では、発見にはllms.txt、組織にはSourceShelf、保存にはOKFが表示されます。" width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <p><code>llms.txt</code>とOpen Knowledge Formatは異なる問題を解決します。</p>
@@ -264,6 +267,6 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260813-1"></script>
+  <script src="/script.js?v=20260822-1"></script>
 </body>
 </html>

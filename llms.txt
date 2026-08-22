@@ -26,6 +26,9 @@ SourceShelf processes imported content locally and keeps research in portable fo
 - [What Is llms.txt?](https://sourceshelf.app/blog/what-is-llms-txt/)
   Learn how llms.txt provides a simple Markdown-based index for AI-readable website knowledge.
 
+- [llms.txt v2: A Better Way for AI to Discover Website Knowledge](https://sourceshelf.app/blog/llms-txt-v2/)
+  Learn about explicit discovery, Markdown alternatives, path-scoped indexes, and SourceShelf 1.0.2 support.
+
 - [AI Reference Packs](https://sourceshelf.app/local-ai-reference-packs/)
   Learn how SourceShelf creates focused context packs for AI workflows.
 

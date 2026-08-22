@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#08244d">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="https://sourceshelf.app/es-419/blog/what-is-llms-txt/">
+  <link rel="describedby" href="/llms.txt">
   <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/what-is-llms-txt/">
   <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/what-is-llms-txt/">
   <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/what-is-llms-txt/">
@@ -27,8 +28,8 @@
   <title>¿Qué es llms.txt? Guía de sitios legibles para IA</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260813-1">
-  <script src="/locale.js?v=20260813-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260822-1">
+  <script src="/locale.js?v=20260822-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("es-419");
     (function () {
@@ -80,7 +81,9 @@
 
           </div>
           <figure class="blog-hero-figure">
-    <img src="/assets/blog/es-419/llms-txt-hero.webp" srcset="/assets/blog/es-419/llms-txt-hero-800.webp 800w, /assets/blog/es-419/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Un sitio web pasa por una guía Markdown llms.txt hacia un asistente de IA, con el mensaje Ayuda a la IA a entender tu sitio web." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    <picture>
+      <img src="/assets/blog/es-419/llms-txt-hero.webp" srcset="/assets/blog/es-419/llms-txt-hero-800.webp 800w, /assets/blog/es-419/llms-txt-hero.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Un sitio web pasa por una guía Markdown llms.txt hacia un asistente de IA, con el mensaje Ayuda a la IA a entender tu sitio web." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
   </figure>
         </header>
         <details class="docs-toc-mobile blog-toc-mobile"><summary>En esta página</summary><nav class="docs-toc-list" aria-label="Tabla de contenido móvil"><h2>En esta página</h2><ol><li class="toc-level-2"><a href="#llms-txt-en-términos-simples">llms.txt en términos simples</a></li><li class="toc-level-2"><a href="#ejemplo-de-archivo-llms-txt">Ejemplo de archivo llms.txt</a></li><li class="toc-level-2"><a href="#por-qué-existe-llms-txt">Por qué existe llms.txt</a></li><li class="toc-level-2"><a href="#beneficios-de-llms-txt">Beneficios de llms.txt</a></li><li class="toc-level-2"><a href="#lo-que-llms-txt-no-hace">Lo que llms.txt no hace</a></li><li class="toc-level-2"><a href="#llms-txt-frente-a-robots-txt">llms.txt frente a robots.txt</a></li><li class="toc-level-2"><a href="#crear-llms-txt-manualmente">Crear llms.txt manualmente</a></li><li class="toc-level-2"><a href="#sourceshelf-publica-su-propio-archivo-llms-txt">SourceShelf publica su propio archivo llms.txt</a></li><li class="toc-level-2"><a href="#cómo-sourceshelf-utiliza-llms-txt">Cómo SourceShelf utiliza llms.txt</a></li><li class="toc-level-3"><a href="#importar-llms-txt-con-sourceshelf">Importar llms.txt con SourceShelf</a></li><li class="toc-level-3"><a href="#exportar-colecciones-llms-txt-con-sourceshelf">Exportar colecciones llms.txt con SourceShelf</a></li><li class="toc-level-3"><a href="#de-llms-txt-a-un-flujo-de-trabajo-de-sourceshelf">De llms.txt a un flujo de trabajo de SourceShelf</a></li><li class="toc-level-2"><a href="#relación-con-okf">Relación con OKF</a></li><li class="toc-level-2"><a href="#crear-conocimiento-que-la-ia-realmente-pueda-usar">Crear conocimiento que la IA realmente pueda usar</a></li><li class="toc-level-2"><a href="#fuentes-oficiales">Fuentes oficiales</a></li></ol></nav></details>
@@ -101,7 +104,7 @@
 <p>Es útil comparar la intención de tres archivos de nivel raíz sin tratarlos como equivalentes:</p>
 <ul><li><code>robots.txt</code>: instrucciones sobre preferencias de acceso del rastreador</li><li><code>sitemap.xml</code>: un mapa de las URL y archivos del sitio web</li><li><code>llms.txt</code>: una guía seleccionada de contenido importante para sistemas de IA</li></ul>
 <h2 id="ejemplo-de-archivo-llms-txt">Ejemplo de archivo llms.txt <a class="heading-anchor" href="#ejemplo-de-archivo-llms-txt" aria-label="Enlace a la sección: Ejemplo de archivo llms.txt"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/es-419/llms-txt-markdown-example.webp"><img src="/assets/blog/es-419/llms-txt-markdown-example.webp" srcset="/assets/blog/es-419/llms-txt-markdown-example-800.webp 800w, /assets/blog/es-419/llms-txt-markdown-example.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un editor Markdown mostrando un ejemplo de llms.txt para SourceShelf con enlaces a Inicio, Paquetes de IA y Acceso a MCP." width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <div class="code-block"><pre><code class="language-markdown"># Example Documentation
@@ -152,7 +155,7 @@
 <ul><li>Obligar a los sistemas de IA a leer un sitio web</li><li>Garantizar la inclusión en respuestas generadas por IA</li><li>Garantizar mejoras en la búsqueda o en la clasificación de IA</li><li>Reemplazar el SEO normal o una estructura web accesible</li><li>Sustituir <code>robots.txt</code>, un mapa del sitio o buenos enlaces internos</li><li>Impedir la extracción automatizada ni conceder permiso de acceso</li><li>Crear automáticamente una base de conocimiento para IA</li></ul>
 <p>Es una pista útil y una referencia estructurada, no un sistema de permisos. Los propietarios de sitios web aún necesitan controles de acceso adecuados, licencias, políticas de rastreadores y decisiones de privacidad.</p>
 <h2 id="llms-txt-frente-a-robots-txt">llms.txt frente a robots.txt <a class="heading-anchor" href="#llms-txt-frente-a-robots-txt" aria-label="Enlace a la sección: llms.txt frente a robots.txt"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/es-419/llms-txt-file-comparison.webp"><img src="/assets/blog/es-419/llms-txt-file-comparison.webp" srcset="/assets/blog/es-419/llms-txt-file-comparison-800.webp 800w, /assets/blog/es-419/llms-txt-file-comparison.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Tres columnas comparan robots.txt para preferencias de rastreadores, sitemap.xml para URL de sitios web y llms.txt para contexto curado legible por IA." width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <section class="table-wrap" tabindex="0" aria-label="Tabla desplazable"><table><thead><tr><th scope="col">Archivo</th><th scope="col">Propósito</th></tr></thead><tbody><tr><td><code>robots.txt</code></td><td>Comunica las preferencias de acceso del rastreador</td></tr>
@@ -208,7 +211,7 @@
 </figure>
 <p>Este es un formato de colección portátil, no una promesa de que todos los productos de IA lo importarán directamente. Puedes mantener la carpeta como conocimiento local legible, adaptarla para otro flujo de trabajo o exportar el mismo paquete guardado en un formato diferente.</p>
 <h3 id="de-llms-txt-a-un-flujo-de-trabajo-de-sourceshelf">De llms.txt a un flujo de trabajo de SourceShelf <a class="heading-anchor" href="#de-llms-txt-a-un-flujo-de-trabajo-de-sourceshelf" aria-label="Enlace a la sección: De llms.txt a un flujo de trabajo de SourceShelf"><span aria-hidden="true">#</span></a></h3>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/es-419/sourceshelf-llms-workflow.webp"><img src="/assets/blog/es-419/sourceshelf-llms-workflow.webp" srcset="/assets/blog/es-419/sourceshelf-llms-workflow-800.webp 800w, /assets/blog/es-419/sourceshelf-llms-workflow.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Un flujo de trabajo pasa de un sitio web y llms.txt a SourceShelf, luego a un paquete de conocimientos y a herramientas de IA seleccionadas." width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <p>Una vez que una colección es un paquete guardado, puedes exportar un <a href="/es-419/local-ai-reference-packs/">AI Reference Pack</a> o usar Local AI Access para compartir una instantánea inmutable y de solo lectura con un cliente compatible. Solo se expone el paquete seleccionado; SourceShelf no comparte el resto de la Biblioteca.</p>
@@ -217,7 +220,7 @@
 </figure>
 <p>Si estás comenzando con una mezcla más amplia de documentos y páginas web en lugar de un índice existente, el <a href="/es-419/private-ai-knowledge-base-mac/">proceso de trabajo de la base de conocimientos de IA privada</a> explica cómo capturar, organizar y compartir selectivamente fuentes locales.</p>
 <h2 id="relación-con-okf">Relación con OKF <a class="heading-anchor" href="#relación-con-okf" aria-label="Enlace a la sección: Relación con OKF"><span aria-hidden="true">#</span></a></h2>
-<figure class="docs-figure blog-article-figure">
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
   <a href="/assets/blog/es-419/llms-txt-okf-relationship.webp"><img src="/assets/blog/es-419/llms-txt-okf-relationship.webp" srcset="/assets/blog/es-419/llms-txt-okf-relationship-800.webp 800w, /assets/blog/es-419/llms-txt-okf-relationship.webp 1200w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="Tres etapas muestran llms.txt para el descubrimiento, SourceShelf para la organización y OKF para la preservación." width="1200" height="675" loading="lazy" decoding="async"></a>
 </figure>
 <p><code>llms.txt</code> y Open Knowledge Format resuelven problemas diferentes.</p>
@@ -264,6 +267,6 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260813-1"></script>
+  <script src="/script.js?v=20260822-1"></script>
 </body>
 </html>

@@ -10,8 +10,8 @@ const sourceRoot = path.join(siteRoot, "_docs");
 const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
-const buildDate = "2026-08-13";
-const assetVersion = "20260813-1";
+const buildDate = "2026-08-22";
+const assetVersion = "20260822-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -186,7 +186,7 @@ async function validateLlmsTxt() {
     label: match[1],
     href: match[2]
   }));
-  const expectedLinkCount = baseNavigation.pages.length + 8;
+  const expectedLinkCount = baseNavigation.pages.length + 9;
   if (links.length !== expectedLinkCount) {
     throw new Error(`llms.txt must contain ${expectedLinkCount} links, including every user-guide page; found ${links.length}`);
   }
@@ -326,6 +326,12 @@ function resolveLink(destination, page) {
   return `${targetPage.route}${fragment}`;
 }
 
+function renderPublishedMarkdown(source, page) {
+  return source.replace(/\]\(([^)]+)\)/g, (match, destination) => (
+    `](${resolveLink(destination, page)})`
+  ));
+}
+
 function renderInline(value, page) {
   let output = "";
   let index = 0;
@@ -440,7 +446,7 @@ function renderImage(line, page) {
     ].join("\n");
   }
 
-  const blogImage = destination.match(/^\/assets\/blog\/([^/]+)\/([^/]+)\.webp$/);
+  const blogImage = destination.match(/^\/assets\/blog\/([^/]+)\/([^/]+)\.(webp|svg)$/);
   if (blogImage) {
     if (!page.content || blogImage[1] !== page.locale.code) {
       throw new Error(`Localized blog image does not match ${page.locale.code} in ${page.source}: ${destination}`);
@@ -451,13 +457,40 @@ function renderImage(line, page) {
     const asset = graphic || screenshot;
     if (!asset) throw new Error(`Unknown blog image in ${page.source}: ${destination}`);
     const base = `/assets/blog/${blogImage[1]}/${assetId}`;
-    const smallWidth = screenshot ? 960 : 800;
-    const cssClass = screenshot ? "docs-figure blog-article-figure blog-product-figure" : "docs-figure blog-article-figure";
+    const smallWidth = asset.smallWidth || (screenshot ? 960 : 800);
+    const cssClass = [
+      "docs-figure",
+      "blog-article-figure",
+      screenshot ? "blog-product-figure" : "blog-diagram-figure",
+      asset.layout === "narrow" ? "blog-figure-narrow" : ""
+    ].filter(Boolean).join(" ");
+    const caption = page.content.figureCaptions?.[assetId];
+    const captionMarkup = caption ? `  <figcaption>${escapeHtml(caption)}</figcaption>` : "";
+    if (blogImage[3] === "svg") {
+      const pictureClass = asset.mobileWidth
+        ? ` class="blog-responsive-art" style="--mobile-aspect: ${asset.mobileWidth} / ${asset.mobileHeight}"`
+        : "";
+      const mobileSource = asset.mobileWidth
+        ? `    <source media="(max-width: 600px)" srcset="${base}-mobile.svg">\n`
+        : "";
+      return [
+        `<figure class="${cssClass}">`,
+        `  <a href="${base}.svg">`,
+        `  <picture${pictureClass}>`,
+        mobileSource.trimEnd(),
+        `    <img src="${base}.svg" alt="${escapeHtml(alt)}" width="${asset.width}" height="${asset.height}" loading="lazy" decoding="async">`,
+        "  </picture>",
+        "  </a>",
+        captionMarkup,
+        "</figure>"
+      ].filter(Boolean).join("\n");
+    }
     return [
       `<figure class="${cssClass}">`,
       `  <a href="${base}.webp"><img src="${base}.webp" srcset="${base}-${smallWidth}.webp ${smallWidth}w, ${base}.webp ${asset.width}w" sizes="(max-width: 700px) calc(100vw - 48px), (max-width: 1100px) calc(100vw - 80px), 760px" alt="${escapeHtml(alt)}" width="${asset.width}" height="${asset.height}" loading="lazy" decoding="async"></a>`,
+      captionMarkup,
       "</figure>"
-    ].join("\n");
+    ].filter(Boolean).join("\n");
   }
 
   const sourcePath = normalizeSourcePath(
@@ -819,10 +852,125 @@ function renderLlmsGraphicSvg(page, assetId) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="${height}" viewBox="0 0 1200 ${height}" role="img" aria-labelledby="title description">${shared}${body}</svg>\n`;
 }
 
-function renderBlogGraphicSvg(page, assetId) {
-  return page.visualKind === "llms-txt"
-    ? renderLlmsGraphicSvg(page, assetId)
-    : renderOkfBlogHeroSvg(page);
+function renderLlmsV2GraphicSvg(page, assetId, mobile = false) {
+  const labels = page.content.graphics;
+  const text = (value) => escapeHtml(value);
+  const fontSize = (value, normal = 24) => {
+    const length = [...String(value)].length;
+    if (length > 24) return Math.max(17, normal - 7);
+    if (length > 17) return Math.max(19, normal - 4);
+    return normal;
+  };
+  const dimensions = mobile
+    ? (assetId === page.heroAsset
+      ? [page.heroMobileWidth || 800, page.heroMobileHeight || 940]
+      : assetId === "llms-txt-v2-discovery" ? [800, 1120] : [800, 1060])
+    : (assetId === page.heroAsset ? [1200, 630] : [1200, 675]);
+  const [width, height] = dimensions;
+  const title = assetId === page.heroAsset
+    ? labels.hero.title
+    : assetId === "llms-txt-v2-discovery"
+      ? labels.discovery.title
+      : labels.scoping.title;
+  const description = assetId === page.heroAsset
+    ? page.content.heroAlt
+    : page.content.figureCaptions?.[assetId] || title;
+  const shared = `<defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#061528"/><stop offset="0.58" stop-color="#08244d"/><stop offset="1" stop-color="#0a5d78"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2ea9ff"/><stop offset="1" stop-color="#54e5e7"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#020b17" flood-opacity="0.42"/></filter>
+    <style>.title{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:760;text-anchor:middle}.label{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:720;text-anchor:middle}.detail{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:520;text-anchor:middle}.left{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue","Hiragino Sans",sans-serif;font-weight:650}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-weight:620;text-anchor:middle}</style>
+  </defs>
+  <rect width="${width}" height="${height}" fill="url(#background)"/>
+  <circle cx="70" cy="60" r="190" fill="#31d4dc" opacity="0.08"/><circle cx="${width - 55}" cy="${height - 55}" r="240" fill="#2ea9ff" opacity="0.10"/>
+  <title id="title">${text(title)}</title><desc id="description">${text(description)}</desc>`;
+  let body = "";
+
+  if (assetId === page.heroAsset && !mobile) {
+    const item = labels.hero;
+    const nodes = [
+      [item.website, item.websiteDetail, 35, "browser"],
+      [item.index, item.indexDetail, 270, "document"],
+      [item.sources, item.sourcesDetail, 505, "checklist"],
+      [item.pack, item.packDetail, 740, "pack"],
+      [item.workflow, item.workflowDetail, 975, "window"]
+    ];
+    const icons = {
+      browser: (x) => `<rect x="${x + 54}" y="214" width="92" height="66" rx="10" fill="#07182d" stroke="#8bc8ea" stroke-width="3"/><path d="M${x + 54} 234h92M${x + 67} 254h64" stroke="#7beff4" stroke-width="5" stroke-linecap="round"/><circle cx="${x + 68}" cy="224" r="3" fill="#54e5e7"/>`,
+      document: (x) => `<path d="M${x + 69} 202h54l28 28v65H${x + 69}z" fill="#07182d" stroke="#8bc8ea" stroke-width="3"/><path d="M${x + 123} 202v29h28M${x + 84} 253h49M${x + 84} 271h38" fill="none" stroke="#7beff4" stroke-width="5" stroke-linecap="round"/>`,
+      checklist: (x) => `<rect x="${x + 59}" y="204" width="82" height="88" rx="12" fill="#07182d" stroke="#8bc8ea" stroke-width="3"/><path d="M${x + 73} 229l7 7 12-15M${x + 73} 257l7 7 12-15M${x + 101} 229h25M${x + 101} 257h25" fill="none" stroke="#7beff4" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`,
+      pack: (x) => `<path d="M${x + 55} 226h40l12-16h40l12 16v62H${x + 55}z" fill="#07182d" stroke="#8bc8ea" stroke-width="3"/><path d="M${x + 73} 249h68M${x + 73} 267h48" stroke="#7beff4" stroke-width="5" stroke-linecap="round"/>`,
+      window: (x) => `<rect x="${x + 50}" y="207" width="100" height="82" rx="13" fill="#07182d" stroke="#8bc8ea" stroke-width="3"/><path d="M${x + 50} 230h100M${x + 100} 230v59M${x + 64} 248h21M${x + 64} 265h28M${x + 113} 247h23M${x + 113} 264h17" stroke="#7beff4" stroke-width="4" stroke-linecap="round"/>`
+    };
+    body = `<text class="title" x="600" y="64" fill="#f6fbff" font-size="43">${text(item.title)}</text>
+    <text class="detail" x="600" y="105" fill="#a8dcec" font-size="23">${text(item.tagline)}</text>
+    <g fill="none" stroke="#7beff4" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">${[235,470,705,940].map((x) => `<path d="M${x} 300h28"/><path d="M${x + 15} 288l14 12-14 12"/>`).join("")}</g>
+    ${nodes.map(([label, detail, x, icon], index) => `<g filter="url(#shadow)"><rect x="${x}" y="168" width="200" height="230" rx="28" fill="${index === 3 ? "#0e3658" : "#0c2949"}" stroke="${index === 3 ? "#54e5e7" : "#63cddd"}" stroke-opacity=".72"/>${icons[icon](x)}<text class="label" x="${x + 100}" y="337" fill="#f6fbff" font-size="${fontSize(label, 24)}">${text(label)}</text><text class="detail" x="${x + 100}" y="368" fill="#9fdce8" font-size="${fontSize(detail, 17)}">${text(detail)}</text></g>`).join("")}
+    ${[[item.discover,238],[item.choose,473],[item.preserve,708],[item.anywhere,943]].map(([label,x]) => `<g><rect x="${x - 76}" y="450" width="152" height="40" rx="20" fill="#0e3457" stroke="#54e5e7" stroke-opacity=".46"/><text class="label" x="${x}" y="477" fill="#bdfaff" font-size="18">${text(label)}</text></g>`).join("")}
+    <text class="label" x="600" y="565" fill="#f6fbff" font-size="23">SourceShelf</text>`;
+  } else if (assetId === page.heroAsset) {
+    const item = labels.hero;
+    const nodes = [
+      [item.website, item.websiteDetail, "browser"],
+      [item.index, item.indexDetail, "document"],
+      [item.sources, item.sourcesDetail, "checklist"],
+      [item.pack, item.packDetail, "pack"],
+      [item.workflow, item.workflowDetail, "window"]
+    ];
+    const mobileIcons = {
+      browser: (cx, cy) => `<rect x="${cx - 24}" y="${cy - 18}" width="48" height="36" rx="6" fill="#07182d" stroke="#8bc8ea" stroke-width="2"/><path d="M${cx - 24} ${cy - 7}h48M${cx - 14} ${cy + 6}h28" stroke="#7beff4" stroke-width="3" stroke-linecap="round"/>`,
+      document: (cx, cy) => `<path d="M${cx - 17} ${cy - 24}h24l14 14v34h-38z" fill="#07182d" stroke="#8bc8ea" stroke-width="2"/><path d="M${cx + 7} ${cy - 24}v14h14M${cx - 8} ${cy + 2}h20M${cx - 8} ${cy + 12}h15" fill="none" stroke="#7beff4" stroke-width="3" stroke-linecap="round"/>`,
+      checklist: (cx, cy) => `<rect x="${cx - 22}" y="${cy - 24}" width="44" height="48" rx="7" fill="#07182d" stroke="#8bc8ea" stroke-width="2"/><path d="M${cx - 14} ${cy - 8}l4 4 7-9M${cx - 14} ${cy + 9}l4 4 7-9M${cx + 4} ${cy - 8}h10M${cx + 4} ${cy + 9}h10" fill="none" stroke="#7beff4" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`,
+      pack: (cx, cy) => `<path d="M${cx - 25} ${cy - 12}h17l7-9h18l7 9v31h-49z" fill="#07182d" stroke="#bdfaff" stroke-width="2"/><path d="M${cx - 14} ${cy + 1}h28M${cx - 14} ${cy + 10}h20" stroke="#7beff4" stroke-width="3" stroke-linecap="round"/>`,
+      window: (cx, cy) => `<rect x="${cx - 25}" y="${cy - 21}" width="50" height="42" rx="7" fill="#07182d" stroke="#8bc8ea" stroke-width="2"/><path d="M${cx - 25} ${cy - 9}h50M${cx} ${cy - 9}v30M${cx - 16} ${cy}h8M${cx + 8} ${cy}h8M${cx - 16} ${cy + 9}h8M${cx + 8} ${cy + 9}h8" stroke="#7beff4" stroke-width="2.5" stroke-linecap="round"/>`
+    };
+    const card = ([label, detail, icon], y, accent = false) => `<g filter="url(#shadow)"><rect x="55" y="${y}" width="490" height="190" rx="30" fill="${accent ? "#0e3658" : "#0c2949"}" stroke="${accent ? "#54e5e7" : "#63cddd"}" stroke-opacity=".74"/><circle cx="135" cy="${y + 95}" r="35" fill="${accent ? "url(#accent)" : "#07182d"}" stroke="#79cddf"/>${mobileIcons[icon](135, y + 95)}<text class="label" x="350" y="${y + 86}" fill="#f6fbff" font-size="${fontSize(label, 34)}">${text(label)}</text><text class="detail" x="350" y="${y + 128}" fill="#9fdce8" font-size="${fontSize(detail, 25)}">${text(detail)}</text></g>`;
+    const yPositions = [145, 405, 665, 925, 1185];
+    const steps = [item.discover, item.choose, item.preserve, item.anywhere];
+    body = `<text class="title" x="300" y="62" fill="#f6fbff" font-size="46">${text(item.title)}</text><text class="detail" x="300" y="105" fill="#a8dcec" font-size="${fontSize(item.tagline, 25)}">${text(item.tagline)}</text>
+    ${nodes.map((node, index) => card(node, yPositions[index], index === 3)).join("")}
+    <g fill="none" stroke="#7beff4" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">${yPositions.slice(0, -1).map((y) => `<path d="M300 ${y + 190}v70"/><path d="M286 ${y + 246}l14 14 14-14"/>`).join("")}</g>
+    ${steps.map((label, index) => `<text class="label" x="425" y="${yPositions[index] + 232}" fill="#bdfaff" font-size="23">${text(label)}</text>`).join("")}
+    <text class="label" x="300" y="1485" fill="#f6fbff" font-size="27">SourceShelf</text>`;
+  } else if (assetId === "llms-txt-v2-discovery" && !mobile) {
+    const item = labels.discovery;
+    body = `<text class="title" x="600" y="72" fill="#f6fbff" font-size="40">${text(item.title)}</text>
+    <g filter="url(#shadow)"><rect x="55" y="125" width="510" height="490" rx="32" fill="#0b2747" stroke="#759fba" stroke-opacity=".6"/><rect x="635" y="125" width="510" height="490" rx="32" fill="#0d3152" stroke="#54e5e7" stroke-opacity=".76"/></g>
+    <text class="label" x="310" y="176" fill="#d7e7f1" font-size="27">${text(item.before)}</text><text class="label" x="890" y="176" fill="#bdfaff" font-size="27">${text(item.v2)}</text>
+    <rect x="160" y="210" width="300" height="68" rx="16" fill="#07182d" stroke="#78a9c8"/><text class="code" x="310" y="253" fill="#f6fbff" font-size="22">website.example</text>
+    <path d="M310 278v45" stroke="#8bb8d2" stroke-width="5" stroke-dasharray="8 10"/><circle cx="310" cy="360" r="35" fill="#102c49" stroke="#8bb8d2"/><text class="label" x="310" y="371" fill="#d7e7f1" font-size="34">?</text><path d="M310 395v45" stroke="#8bb8d2" stroke-width="5" stroke-dasharray="8 10"/>
+    <rect x="160" y="440" width="300" height="68" rx="16" fill="#07182d" stroke="#78a9c8"/><text class="code" x="310" y="483" fill="#d7e7f1" font-size="22">${text(item.tryPath)}</text><text class="detail" x="310" y="554" fill="#9db8c9" font-size="19">${text(item.inferred)}</text>
+    <rect x="765" y="207" width="250" height="64" rx="16" fill="#07182d" stroke="#54e5e7"/><text class="label" x="890" y="247" fill="#f6fbff" font-size="23">${text(item.page)}</text><path d="M890 271v38M890 309H752v32M890 309h138v32" fill="none" stroke="#7beff4" stroke-width="5" stroke-linecap="round"/>
+    <rect x="670" y="341" width="250" height="70" rx="15" fill="#08213b" stroke="#54e5e7"/><text class="code" x="795" y="384" fill="#bdfaff" font-size="18">rel=&quot;describedby&quot;</text><rect x="935" y="341" width="175" height="70" rx="15" fill="#08213b" stroke="#54e5e7"/><text class="code" x="1023" y="374" fill="#bdfaff" font-size="17">rel=&quot;alternate&quot;</text><text class="detail" x="1023" y="397" fill="#9fdce8" font-size="13">text/markdown</text>
+    <path d="M795 411v42M1023 411v42" stroke="#7beff4" stroke-width="5"/><path d="M783 441l12 14 12-14M1011 441l12 14 12-14" fill="none" stroke="#7beff4" stroke-width="5"/>
+    <rect x="680" y="455" width="230" height="60" rx="14" fill="#07182d"/><text class="code" x="795" y="493" fill="#f6fbff" font-size="20">/docs/llms.txt</text><rect x="950" y="455" width="145" height="60" rx="14" fill="#07182d"/><text class="code" x="1023" y="493" fill="#f6fbff" font-size="20">page.md</text><text class="detail" x="890" y="560" fill="#bdfaff" font-size="19">${text(item.declared)}</text>`;
+  } else if (assetId === "llms-txt-v2-discovery") {
+    const item = labels.discovery;
+    body = `<text class="title" x="400" y="70" fill="#f6fbff" font-size="${fontSize(item.title, 44)}">${text(item.title)}</text>
+    <g filter="url(#shadow)"><rect x="55" y="112" width="690" height="360" rx="30" fill="#0b2747" stroke="#759fba" stroke-opacity=".6"/><rect x="55" y="515" width="690" height="535" rx="30" fill="#0d3152" stroke="#54e5e7" stroke-opacity=".76"/></g>
+    <text class="label" x="400" y="160" fill="#d7e7f1" font-size="32">${text(item.before)}</text><rect x="175" y="190" width="450" height="62" rx="15" fill="#07182d"/><text class="code" x="400" y="230" fill="#f6fbff" font-size="28">website.example</text><path d="M400 252v38" stroke="#8bb8d2" stroke-width="5" stroke-dasharray="8 9"/><circle cx="400" cy="322" r="27" fill="#102c49" stroke="#8bb8d2"/><text class="label" x="400" y="332" fill="#d7e7f1" font-size="30">?</text><path d="M400 349v32" stroke="#8bb8d2" stroke-width="5" stroke-dasharray="8 9"/><rect x="235" y="381" width="330" height="55" rx="14" fill="#07182d"/><text class="code" x="400" y="417" fill="#d7e7f1" font-size="26">${text(item.tryPath)}</text>
+    <text class="label" x="400" y="567" fill="#bdfaff" font-size="32">${text(item.v2)}</text><rect x="230" y="595" width="340" height="60" rx="15" fill="#07182d"/><text class="label" x="400" y="633" fill="#f6fbff" font-size="28">${text(item.page)}</text><path d="M400 655v38M400 693H235v30M400 693h165v30" fill="none" stroke="#7beff4" stroke-width="5"/>
+    <rect x="90" y="723" width="290" height="70" rx="15" fill="#08213b" stroke="#54e5e7"/><text class="code" x="235" y="766" fill="#bdfaff" font-size="25">rel=&quot;describedby&quot;</text><rect x="420" y="723" width="290" height="70" rx="15" fill="#08213b" stroke="#54e5e7"/><text class="code" x="565" y="754" fill="#bdfaff" font-size="25">rel=&quot;alternate&quot;</text><text class="detail" x="565" y="780" fill="#9fdce8" font-size="21">text/markdown</text>
+    <path d="M235 793v42M565 793v42" stroke="#7beff4" stroke-width="5"/><rect x="100" y="835" width="270" height="58" rx="14" fill="#07182d"/><text class="code" x="235" y="872" fill="#f6fbff" font-size="25">/docs/llms.txt</text><rect x="445" y="835" width="240" height="58" rx="14" fill="#07182d"/><text class="code" x="565" y="872" fill="#f6fbff" font-size="25">page.md</text><text class="detail" x="400" y="954" fill="#bdfaff" font-size="26">${text(item.declared)}</text>`;
+  } else if (!mobile) {
+    const item = labels.scoping;
+    body = `<text class="title" x="600" y="72" fill="#f6fbff" font-size="40">${text(item.title)}</text>
+    <g filter="url(#shadow)"><rect x="55" y="120" width="680" height="500" rx="32" fill="#0b2747" stroke="#6ca6cd" stroke-opacity=".62"/></g><text class="code" x="120" y="175" fill="#f6fbff" font-size="25" text-anchor="start">example.com</text>
+    <g class="code" font-size="22" text-anchor="start"><path d="M117 192v328M117 215h43M117 270h43M117 325h43M117 520h43M190 338v132M190 370h43M190 420h43M190 470h43M190 535v65M190 560h43M190 600h43" fill="none" stroke="#6ca6cd" stroke-width="4" stroke-linecap="round"/><text x="174" y="223" fill="#54e5e7">llms.txt</text><text x="174" y="278" fill="#d7e7f1">about/</text><text x="174" y="333" fill="#f6fbff">docs/</text><text x="247" y="378" fill="#54e5e7">llms.txt</text><text x="247" y="428" fill="#d7e7f1">getting-started</text><text x="247" y="478" fill="#d7e7f1">reference</text><text x="174" y="528" fill="#f6fbff">api/</text><text x="247" y="568" fill="#54e5e7">llms.txt</text><text x="247" y="608" fill="#d7e7f1">endpoints</text></g>
+    <g>${[[item.site,"/llms.txt",145],[item.docs,"/docs/llms.txt",307],[item.api,"/api/llms.txt",469]].map(([label,pathValue,y], index) => `<rect x="785" y="${y}" width="350" height="122" rx="22" fill="${index === 0 ? "#0c2949" : "#0e3658"}" stroke="#54e5e7" stroke-opacity=".7"/><text class="label" x="960" y="${y + 40}" fill="#f6fbff" font-size="${fontSize(label, 24)}">${text(label)}</text><text class="code" x="960" y="${y + 78}" fill="#bdfaff" font-size="20">${pathValue}</text><text class="detail" x="960" y="${y + 105}" fill="#9fdce8" font-size="15">${text(index === 0 ? item.broad : item.specific)}</text>`).join("")}</g>`;
+  } else {
+    const item = labels.scoping;
+    body = `<text class="title" x="400" y="70" fill="#f6fbff" font-size="${fontSize(item.title, 44)}">${text(item.title)}</text><g filter="url(#shadow)"><rect x="55" y="110" width="690" height="510" rx="30" fill="#0b2747" stroke="#6ca6cd" stroke-opacity=".62"/></g><text class="code" x="105" y="164" fill="#f6fbff" font-size="29" text-anchor="start">example.com</text>
+    <g class="code" font-size="28" text-anchor="start"><path d="M104 183v337M104 213h38M104 270h38M104 325h38M104 520h38M168 338v132M168 370h38M168 420h38M168 470h38M168 535v65M168 560h38M168 600h38" fill="none" stroke="#6ca6cd" stroke-width="4" stroke-linecap="round"/><text x="154" y="221" fill="#54e5e7">llms.txt</text><text x="154" y="278" fill="#d7e7f1">about/</text><text x="154" y="333" fill="#f6fbff">docs/</text><text x="220" y="378" fill="#54e5e7">llms.txt</text><text x="220" y="428" fill="#d7e7f1">getting-started</text><text x="220" y="478" fill="#d7e7f1">reference</text><text x="154" y="528" fill="#f6fbff">api/</text><text x="220" y="568" fill="#54e5e7">llms.txt</text><text x="220" y="608" fill="#d7e7f1">endpoints</text></g>
+    ${[[item.site,"/llms.txt",665],[item.docs,"/docs/llms.txt",790],[item.api,"/api/llms.txt",915]].map(([label,pathValue,y], index) => `<rect x="95" y="${y}" width="610" height="100" rx="22" fill="${index === 0 ? "#0c2949" : "#0e3658"}" stroke="#54e5e7" stroke-opacity=".7"/><text class="label" x="245" y="${y + 42}" fill="#f6fbff" font-size="${fontSize(label, 28)}">${text(label)}</text><text class="code" x="540" y="${y + 42}" fill="#bdfaff" font-size="24">${pathValue}</text><text class="detail" x="400" y="${y + 76}" fill="#9fdce8" font-size="24">${text(index === 0 ? item.broad : item.specific)}</text>`).join("")}`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-labelledby="title description">${shared}${body}</svg>\n`;
+}
+
+function renderBlogGraphicSvg(page, assetId, mobile = false) {
+  if (page.visualKind === "llms-txt") return renderLlmsGraphicSvg(page, assetId);
+  if (page.visualKind === "llms-txt-v2") return renderLlmsV2GraphicSvg(page, assetId, mobile);
+  return renderOkfBlogHeroSvg(page);
 }
 
 async function buildBlogAssets() {
@@ -840,6 +988,12 @@ async function buildBlogAssets() {
     const svgFile = path.join(directory, `${page.heroAsset}.svg`);
     const pngFile = path.join(directory, `${page.heroAsset}.png`);
     await writeFile(svgFile, renderBlogGraphicSvg(page, page.heroAsset));
+    if (page.heroMobile) {
+      await writeFile(
+        path.join(directory, `${page.heroAsset}-mobile.svg`),
+        renderBlogGraphicSvg(page, page.heroAsset, true)
+      );
+    }
     execFileSync("sips", ["-s", "format", "png", svgFile, "--out", pngFile], { stdio: "pipe" });
     if (page.heroFormat === "webp") {
       execFileSync("cwebp", ["-quiet", "-q", "92", "-m", "6", "-metadata", "none", pngFile, "-o", path.join(directory, `${page.heroAsset}.webp`)], { stdio: "pipe" });
@@ -849,15 +1003,25 @@ async function buildBlogAssets() {
       const assetSvg = path.join(directory, `${asset.id}.svg`);
       const assetPng = path.join(directory, `${asset.id}.png`);
       await writeFile(assetSvg, renderBlogGraphicSvg(page, asset.id));
+      if (asset.mobileWidth) {
+        await writeFile(
+          path.join(directory, `${asset.id}-mobile.svg`),
+          renderBlogGraphicSvg(page, asset.id, true)
+        );
+      }
+      if (asset.format === "svg") continue;
       execFileSync("sips", ["-s", "format", "png", assetSvg, "--out", assetPng], { stdio: "pipe" });
       execFileSync("cwebp", ["-quiet", "-q", "92", "-m", "6", "-metadata", "none", assetPng, "-o", path.join(directory, `${asset.id}.webp`)], { stdio: "pipe" });
       execFileSync("cwebp", ["-quiet", "-q", "90", "-m", "6", "-metadata", "none", "-resize", "800", "450", assetPng, "-o", path.join(directory, `${asset.id}-800.webp`)], { stdio: "pipe" });
       await rm(assetPng, { force: true });
     }
     for (const asset of page.articleScreenshots || []) {
-      const sourceBase = path.join(siteRoot, "assets", "home", page.locale.code, asset.sourceAsset);
+      const sourceBase = asset.sourceAsset
+        ? path.join(siteRoot, "assets", "home", page.locale.code, asset.sourceAsset)
+        : path.join(blogSourceRoot, "assets", page.locale.code, asset.sourceFile || asset.id);
+      const smallWidth = asset.smallWidth || 960;
       await copyFile(`${sourceBase}-1440.webp`, path.join(directory, `${asset.id}.webp`));
-      await copyFile(`${sourceBase}-960.webp`, path.join(directory, `${asset.id}-960.webp`));
+      await copyFile(`${sourceBase}-${smallWidth}.webp`, path.join(directory, `${asset.id}-${smallWidth}.webp`));
     }
   }
 }
@@ -1636,8 +1800,16 @@ function renderBlogHeroImage(page, heroImage) {
   const responsive = page.heroFormat === "webp"
     ? ` srcset="${heroImage.replace(/\.webp$/, "-800.webp")} 800w, ${heroImage} 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px"`
     : "";
-  return `<figure class="blog-hero-figure">
-    <img src="${heroImage}"${responsive} alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+  const pictureClass = page.heroMobile
+    ? ` class="blog-responsive-art blog-responsive-hero" style="--mobile-aspect: ${page.heroMobileWidth || 800} / ${page.heroMobileHeight || 940}"`
+    : "";
+  const mobileSource = page.heroMobile
+    ? `    <source media="(max-width: 600px)" srcset="${heroImage.replace(/\.svg$/, "-mobile.svg")}">\n`
+    : "";
+  return `<figure class="blog-hero-figure${page.heroMobile ? " blog-hero-responsive" : ""}">
+    <picture${pictureClass}>
+${mobileSource}      <img src="${heroImage}"${responsive} alt="${escapeHtml(page.content.heroAlt)}" width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
   </figure>`;
 }
 
@@ -1812,6 +1984,9 @@ function renderBlogArticle(page) {
   const canonicalBlogUrl = canonicalUrlForRoute(localizedRoute(locale, "/blog/"));
   const socialImage = `${canonicalOrigin}/assets/blog/${locale.code}/${page.heroAsset}.png`;
   const heroImage = `/assets/blog/${locale.code}/${page.heroAsset}.${page.heroFormat || "svg"}`;
+  const markdownAlternate = page.publishMarkdown
+    ? `  <link rel="alternate" type="text/markdown" href="${page.route}index.md">\n`
+    : "";
   const video = page.youtubeVideo ? blogYoutubeVideoFor(page) : null;
   const bodyHtml = insertBlogMediaBeforeSection(page, rendered, heroImage);
   const mobileToc = `<details class="docs-toc-mobile blog-toc-mobile"><summary>${escapeHtml(translate(locale, "On this page"))}</summary>${renderToc(rendered.headings, "docs-toc-list", "Mobile table of contents", locale)}</details>`;
@@ -1874,7 +2049,8 @@ function renderBlogArticle(page) {
   <meta name="theme-color" content="#08244d">
   <meta name="robots" content="index,follow">
   <link rel="canonical" href="${canonicalUrl}">
-${renderAlternateLinks(page.logicalRoute)}
+  <link rel="describedby" href="/llms.txt">
+${markdownAlternate}${renderAlternateLinks(page.logicalRoute)}
   <meta property="og:type" content="article">
   <meta property="og:title" content="${escapeHtml(content.seoTitle)}">
   <meta property="og:description" content="${escapeHtml(content.metaDescription)}">
@@ -2219,6 +2395,11 @@ async function buildBlogPages() {
     const outputDirectory = path.join(siteRoot, page.route.slice(1));
     await mkdir(outputDirectory, { recursive: true });
     await writeFile(path.join(outputDirectory, "index.html"), renderBlogArticle(page));
+    if (page.publishMarkdown) {
+      const sourceFile = path.join(blogSourceRoot, page.source);
+      const source = await readFile(sourceFile, "utf8");
+      await writeFile(path.join(outputDirectory, "index.md"), renderPublishedMarkdown(source, page));
+    }
   }
 }
 
@@ -2328,7 +2509,7 @@ async function build() {
     if (post.videoPlaceholder && !post.videoPlaceholder.posterAsset) {
       throw new Error(`Blog video placeholder is missing a poster asset: ${post.id}`);
     }
-    if (!post.youtubeVideo && !post.videoPlaceholder) {
+    if (!post.youtubeVideo && !post.videoPlaceholder && !post.mediaOptional) {
       throw new Error(`Blog post needs a video or an explicit video placeholder: ${post.id}`);
     }
     for (const locale of locales) {

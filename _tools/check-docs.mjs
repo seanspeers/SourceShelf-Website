@@ -233,6 +233,9 @@ for (const htmlFile of htmlFiles) {
     continue;
   }
   const { locale, logicalRoute, isDocs, isLanding, isBlogIndex, isBlogArticle, isExample } = expected;
+  const expectedBlogPost = isBlogArticle
+    ? blogManifest.posts.find((post) => post.route === logicalRoute)
+    : null;
 
   if (/PRIVACY\.md|\.markdownlint|assets\/README\.md/.test(html)) {
     errors.push(`${publicPath} contains a repository-only or Markdown source link`);
@@ -267,8 +270,13 @@ for (const htmlFile of htmlFiles) {
     const reference = match[1].replaceAll("&amp;", "&");
     if (isExternal(reference) || reference.startsWith("data:")) continue;
     if (/\.md(?:#.*)?$/.test(reference)) {
-      errors.push(`${publicPath} contains an internal Markdown source link: ${reference}`);
-      continue;
+      const expectedMarkdownAlternate = expectedBlogPost?.publishMarkdown
+        ? `${localizedRoute(locale, logicalRoute)}index.md`
+        : null;
+      if (reference !== expectedMarkdownAlternate) {
+        errors.push(`${publicPath} contains an internal Markdown source link: ${reference}`);
+        continue;
+      }
     }
     checkedReferences += 1;
     const { target, fragment } = await resolveTarget(reference, htmlFile);
@@ -726,6 +734,12 @@ for (const htmlFile of htmlFiles) {
       if (!html.includes('property="og:type" content="article"') || !html.includes(`property="article:published_time" content="${post.published}"`)) {
         errors.push(`${publicPath} is missing article Open Graph metadata`);
       }
+      if (!html.includes('<link rel="describedby" href="/llms.txt">')) {
+        errors.push(`${publicPath} is missing its llms.txt discovery link`);
+      }
+      if (post.publishMarkdown && !html.includes(`<link rel="alternate" type="text/markdown" href="${localizedRoute(locale, logicalRoute)}index.md">`)) {
+        errors.push(`${publicPath} is missing its published Markdown alternate`);
+      }
       if (content.verifiedLabel && !html.includes('class="blog-verified"')) {
         errors.push(`${publicPath} is missing its localized verification date`);
       }
@@ -779,15 +793,17 @@ for (const htmlFile of htmlFiles) {
         if (videoObjects.length !== 0 || html.includes("data-youtube-load")) {
           errors.push(`${publicPath} gives an unpublished placeholder fake video metadata or controls`);
         }
-      } else {
+      } else if (!post.mediaOptional) {
         errors.push(`${publicPath} has neither a video nor a video placeholder`);
       }
       if (/<iframe\b/i.test(html) || /\bsrc="https:\/\/(?:www\.)?youtube/i.test(html)) {
         errors.push(`${publicPath} contacts YouTube before the visitor chooses to play the blog video`);
       }
       for (const asset of [...(post.articleGraphics || []), ...(post.articleScreenshots || [])]) {
-        const image = html.match(new RegExp(`<img\\b[^>]*\\bsrc="/assets/blog/${locale}/${asset.id}\\.webp"[^>]*>`))?.[0] || "";
-        if (!/\balt="[^"]+"/.test(image) || !image.includes("srcset=") || !image.includes(`width="${asset.width}"`) || !image.includes(`height="${asset.height}"`)) {
+        const format = asset.format || "webp";
+        const image = html.match(new RegExp(`<img\\b[^>]*\\bsrc="/assets/blog/${locale}/${asset.id}\\.${format}"[^>]*>`))?.[0] || "";
+        const responsiveMarkup = format === "webp" ? image.includes("srcset=") : true;
+        if (!/\balt="[^"]+"/.test(image) || !responsiveMarkup || !image.includes(`width="${asset.width}"`) || !image.includes(`height="${asset.height}"`)) {
           errors.push(`${publicPath} has incomplete localized article image markup for ${asset.id}`);
         }
       }
@@ -911,7 +927,8 @@ for (const post of blogManifest.posts) {
         }
       }
       for (const asset of [...(post.articleGraphics || []), ...(post.articleScreenshots || [])]) {
-        if (!localized.includes(`/assets/blog/${locale}/${asset.id}.webp`)) {
+        const format = asset.format || "webp";
+        if (!localized.includes(`/assets/blog/${locale}/${asset.id}.${format}`)) {
           errors.push(`${locale}/${post.source} does not reference localized blog image: ${asset.id}`);
         }
       }
@@ -1077,9 +1094,13 @@ if (homepageAssets.length !== 140) {
 }
 
 const blogAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "blog")));
-const expectedBlogAssetsPerLocale = blogManifest.posts.reduce((count, post) => (
-  count + 2 + (post.heroFormat === "webp" ? 2 : 0) + (post.articleGraphics?.length || 0) * 3 + (post.articleScreenshots?.length || 0) * 2
-), 0);
+const expectedBlogAssetsPerLocale = blogManifest.posts.reduce((count, post) => {
+  const heroAssets = 2 + (post.heroMobile ? 1 : 0) + (post.heroFormat === "webp" ? 2 : 0);
+  const graphicAssets = (post.articleGraphics || []).reduce((total, asset) => (
+    total + (asset.format === "svg" ? (asset.mobileWidth ? 2 : 1) : 3)
+  ), 0);
+  return count + heroAssets + graphicAssets + (post.articleScreenshots?.length || 0) * 2;
+}, 0);
 const expectedBlogAssetCount = expectedBlogAssetsPerLocale * localeCodes.length;
 if (blogAssets.length !== expectedBlogAssetCount) {
   errors.push(`Expected ${expectedBlogAssetCount} localized blog assets, found ${blogAssets.length}`);
@@ -1101,17 +1122,32 @@ for (const post of blogManifest.posts) {
         await access(path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.webp`));
         await access(path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}-800.webp`));
       }
+      if (post.heroMobile) {
+        const mobileHero = await readFile(path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}-mobile.svg`), "utf8");
+        if (!mobileHero.includes(`width="${post.heroMobileWidth || 800}"`) || !mobileHero.includes(`height="${post.heroMobileHeight || 940}"`)) {
+          errors.push(`${locale}/${post.heroAsset}-mobile.svg has incorrect intrinsic dimensions`);
+        }
+      }
       for (const asset of post.articleGraphics || []) {
         const graphicSvg = await readFile(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.svg`), "utf8");
         if (!graphicSvg.includes(`width="${asset.width}"`) || !graphicSvg.includes(`height="${asset.height}"`)) {
           errors.push(`${locale}/${asset.id}.svg has incorrect intrinsic dimensions`);
         }
-        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.webp`));
-        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-800.webp`));
+        if (asset.format === "svg") {
+          if (asset.mobileWidth) {
+            const mobileSvg = await readFile(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-mobile.svg`), "utf8");
+            if (!mobileSvg.includes(`width="${asset.mobileWidth}"`) || !mobileSvg.includes(`height="${asset.mobileHeight}"`)) {
+              errors.push(`${locale}/${asset.id}-mobile.svg has incorrect intrinsic dimensions`);
+            }
+          }
+        } else {
+          await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.webp`));
+          await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-800.webp`));
+        }
       }
       for (const asset of post.articleScreenshots || []) {
         await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}.webp`));
-        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-960.webp`));
+        await access(path.join(siteRoot, "assets", "blog", locale, `${asset.id}-${asset.smallWidth || 960}.webp`));
       }
     } catch {
       errors.push(`Missing localized blog assets for ${locale}:${post.id}`);
