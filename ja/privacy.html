@@ -24,8 +24,8 @@
   <title>プライバシーポリシー | SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("ja");
     (function () {
@@ -65,7 +65,7 @@
     <section class="section page-hero" aria-labelledby="page-title">
       <p class="eyebrow">SourceShelf</p>
       <h1 id="page-title">プライバシーポリシー</h1>
-      <p>SourceShelfは、ローカルファーストのMacアプリとして設計されています。 Mac上でキャプチャ、変換、アーカイブされたアセット、パックチェック、クリーニング、エクスポート処理を行い、クラウド変換、分析、テレメトリ、アカウント、または外部変換APIを使用しません。</p>
+      <p>SourceShelfはローカルファーストのMacアプリとして設計されています。アプリはキャプチャ、変換、アーカイブしたアセット、パックの確認、クリーンアップ、書き出しをMac上で処理し、クラウド変換、アプリ内のアクセス解析、テレメトリ、アカウント、外部変換APIを使用しません。</p>
     </section>
 
     <section class="section content-grid" aria-label="プライバシーの詳細">
@@ -100,8 +100,8 @@
       <section class="content-section" aria-labelledby="does-not-title">
         <h2 id="does-not-title">SourceShelfが行わないこと</h2>
         <ul class="plain-list">
-          <li>テレメトリなし</li>
-          <li>分析なし</li>
+          <li>アプリのテレメトリなし</li>
+          <li>アプリ内のアクセス解析なし</li>
           <li>クラウドOCRなし</li>
           <li>クラウド変換なし</li>
           <li>外部変換APIはありません</li>
@@ -116,9 +116,14 @@
 
       <section class="content-section" aria-labelledby="website-privacy-title">
         <h2 id="website-privacy-title">ウェブサイトのプライバシー</h2>
-        <p>このウェブサイトは、分析、トラッキングスクリプト、広告ピクセル、クッキー、または外部フォント/CDNを使用していません。GitHub PagesまたはDNS/ホスティングプロバイダーは、ホスティングの一環として通常のサーバーログを処理する場合があります。</p>
-        <p>SourceShelfは、テーマと言語の設定のみをブラウザ内に保存します。これらの設定をトラッキングに使用したり、SourceShelfへ送信したりすることはありません。</p>
+        <p>SourceShelfアプリは引き続きアクセス解析を行わず、テレメトリを送信しません。</p>
+        <p>このウェブサイトでは、「アクセス解析を許可」を選択しない限りGoogle Analyticsは無効です。同意する前にGoogle Analyticsのスクリプトが読み込まれたり、アクセス解析データがGoogleへ送信されたりすることはありません。</p>
+        <p>許可した場合、Google AnalyticsはファーストパーティCookieを使用して、ページ閲覧、スクロール、ダウンロード、外部リンクのクリックなど、サイト上の操作を測定します。広告機能とGoogleシグナルは無効です。</p>
+        <p>フッターの「アクセス解析の設定」から、いつでも選択を変更できます。</p>
+        <p><a href="https://policies.google.com/technologies/partner-sites">Googleがサービスを利用するサイトやアプリからの情報をどのように使用するかをご確認ください。</a></p>
+        <p>SourceShelfはテーマ、言語、アクセス解析の選択をブラウザ内に保存します。テーマと言語の設定をトラッキングに使用したり、SourceShelfへ送信したりすることはありません。</p>
         <p>任意のYouTube動画には、クリックするまで読み込まれないプライバシー強化プレーヤーを使用しています。動画の再生を選択するまでYouTubeプレーヤーは読み込まれず、YouTubeへの接続も行われません。動画を再生または開くと、Googleがプライバシーポリシーに基づいてデータを処理する場合があります。</p>
+        <p>このウェブサイトでは広告ピクセルや外部フォント、外部CDNを使用しません。GitHub PagesやDNS、ホスティング事業者は、ホスティングの一環として通常のサーバーログを処理する場合があります。</p>
         <p>プライバシーに関する質問については、メールでご連絡ください。 <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>.</p>
       </section>
     </section>
@@ -135,6 +140,7 @@
           <a href="/ja/privacy.html">プライバシー</a>
           <a href="/ja/docs/">ドキュメント</a>
           <a href="/ja/support.html">サポート</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>アクセス解析の設定</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -144,6 +150,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">ウェブサイトのアクセス解析</p>
+      <h2 id="analytics-consent-title">SourceShelfの改善にご協力ください</h2>
+      <p id="analytics-consent-description">許可いただいた場合、このウェブサイトではGoogle Analyticsを使用して、閲覧されたページやリンク操作を把握します。許可されるまでGoogle Analyticsは無効のままです。</p>
+      <a href="/ja/privacy.html">ウェブサイトのプライバシー詳細を読む</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>アクセス解析を拒否</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>アクセス解析を許可</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

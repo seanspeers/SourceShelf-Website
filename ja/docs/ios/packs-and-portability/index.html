@@ -24,8 +24,8 @@
   <title>iPhoneとiPadでパックを作成、書き出し、移動する | SourceShelfドキュメント</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("ja");
     (function () {
@@ -121,6 +121,7 @@
           <a href="/ja/privacy.html">プライバシー</a>
           <a href="/ja/docs/">ドキュメント</a>
           <a href="/ja/support.html">サポート</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>アクセス解析の設定</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -130,6 +131,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">ウェブサイトのアクセス解析</p>
+      <h2 id="analytics-consent-title">SourceShelfの改善にご協力ください</h2>
+      <p id="analytics-consent-description">許可いただいた場合、このウェブサイトではGoogle Analyticsを使用して、閲覧されたページやリンク操作を把握します。許可されるまでGoogle Analyticsは無効のままです。</p>
+      <a href="/ja/privacy.html">ウェブサイトのプライバシー詳細を読む</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>アクセス解析を拒否</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>アクセス解析を許可</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

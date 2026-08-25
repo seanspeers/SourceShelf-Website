@@ -24,8 +24,8 @@
   <title>Get Started with SourceShelf on Mac | SourceShelf Documentation</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("en");
     (function () {
@@ -144,6 +144,7 @@
           <a href="/privacy.html">Privacy</a>
           <a href="/docs/">Documentation</a>
           <a href="/support.html">Support</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Analytics settings</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -153,6 +154,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Website analytics</p>
+      <h2 id="analytics-consent-title">Help improve SourceShelf</h2>
+      <p id="analytics-consent-description">With your permission, this website uses Google Analytics to understand page visits and link interactions. Google Analytics stays off unless you allow it.</p>
+      <a href="/privacy.html">Read the website privacy details</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Decline analytics</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Allow analytics</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

@@ -24,8 +24,8 @@
   <title>Primeiros passos no iPhone e iPad | Documentação do SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("pt-BR");
     (function () {
@@ -125,6 +125,7 @@
           <a href="/pt-BR/privacy.html">Privacidade</a>
           <a href="/pt-BR/docs/">Documentação</a>
           <a href="/pt-BR/support.html">Suporte</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Configurações de análise</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -134,6 +135,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Análise do site</p>
+      <h2 id="analytics-consent-title">Ajude a melhorar o SourceShelf</h2>
+      <p id="analytics-consent-description">Com sua permissão, este site usa o Google Analytics para entender as páginas visitadas e as interações com links. O Google Analytics permanece desativado até que você o permita.</p>
+      <a href="/pt-BR/privacy.html">Ler os detalhes de privacidade do site</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Recusar análises</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Permitir análises</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

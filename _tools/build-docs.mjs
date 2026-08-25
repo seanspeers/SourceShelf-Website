@@ -11,7 +11,7 @@ const outputRoot = path.join(siteRoot, "docs");
 const siteSourceRoot = path.join(siteRoot, "_site");
 const blogSourceRoot = path.join(siteRoot, "_blog");
 const buildDate = "2026-08-22";
-const assetVersion = "20260822-1";
+const assetVersion = "20260825-1";
 const localeCodes = ["en", "fr", "es-419", "pt-BR", "ja"];
 
 const productConfig = JSON.parse(
@@ -1142,6 +1142,7 @@ function renderFooter(locale) {
           <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Privacy"))}</a>
           <a href="${localizedRoute(locale, "/docs/")}">${escapeHtml(translate(locale, "Documentation"))}</a>
           <a href="${localizedRoute(locale, "/support.html")}">${escapeHtml(translate(locale, "Support"))}</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>${escapeHtml(translate(locale, "Analytics settings"))}</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -1150,7 +1151,19 @@ function renderFooter(locale) {
         <ul>${useCaseLinks}</ul>
       </nav>
     </div>
-  </footer>`;
+  </footer>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">${escapeHtml(translate(locale, "Website analytics"))}</p>
+      <h2 id="analytics-consent-title">${escapeHtml(translate(locale, "Help improve SourceShelf"))}</h2>
+      <p id="analytics-consent-description">${escapeHtml(translate(locale, "With your permission, this website uses Google Analytics to understand page visits and link interactions. Google Analytics stays off unless you allow it."))}</p>
+      <a href="${localizedRoute(locale, "/privacy.html")}">${escapeHtml(translate(locale, "Read the website privacy details"))}</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>${escapeHtml(translate(locale, "Decline analytics"))}</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>${escapeHtml(translate(locale, "Allow analytics"))}</button>
+    </div>
+  </section>`;
 }
 
 function renderHomepageImage(locale, item, lightbox, { hero = false } = {}) {

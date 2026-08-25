@@ -24,8 +24,8 @@
   <title>Política de privacidad | SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("es-419");
     (function () {
@@ -65,7 +65,7 @@
     <section class="section page-hero" aria-labelledby="page-title">
       <p class="eyebrow">SourceShelf</p>
       <h1 id="page-title">Política de privacidad</h1>
-      <p>SourceShelf está diseñado como una aplicación Mac que prioriza la localización. Procesa capturas, conversiones, activos archivados, comprobaciones de paquetes, limpieza y exportaciones en tu Mac y no utiliza conversión en la nube, análisis, telemetría, cuentas ni API de conversión externas.</p>
+      <p>SourceShelf está diseñado como una app para Mac que prioriza el procesamiento local. La app procesa capturas, conversiones, recursos archivados, comprobaciones de paquetes, limpieza y exportaciones en tu Mac, y no utiliza conversión en la nube, analítica dentro de la app, telemetría, cuentas ni API de conversión externas.</p>
     </section>
 
     <section class="section content-grid" aria-label="Detalles de privacidad">
@@ -100,8 +100,8 @@
       <section class="content-section" aria-labelledby="does-not-title">
         <h2 id="does-not-title">Lo que SourceShelf no hace</h2>
         <ul class="plain-list">
-          <li>Sin telemetría</li>
-          <li>Sin análisis</li>
+          <li>Sin telemetría en la app</li>
+          <li>Sin analítica en la app</li>
           <li>No OCR de nube</li>
           <li>Sin conversión de nube</li>
           <li>Sin API de conversión externa</li>
@@ -116,9 +116,14 @@
 
       <section class="content-section" aria-labelledby="website-privacy-title">
         <h2 id="website-privacy-title">Privacidad del sitio web</h2>
-        <p>Este sitio web no utiliza análisis, scripts de seguimiento, píxeles publicitarios, cookies ni fuentes/CDNs externas. GitHub Pages o los proveedores de DNS/hosting pueden procesar los registros normales del servidor como parte del alojamiento.</p>
-        <p>SourceShelf solo almacena tus preferencias de tema e idioma localmente en tu navegador. Estas preferencias no se usan para rastrearte y nunca se envían a SourceShelf.</p>
+        <p>La app de SourceShelf sigue sin usar analítica y no envía telemetría.</p>
+        <p>En este sitio web, Google Analytics está desactivado a menos que elijas Permitir analítica. Antes de que des tu consentimiento, el script de Google Analytics no se carga ni se envían datos de analítica a Google.</p>
+        <p>Si lo permites, Google Analytics usa cookies propias para medir visitas a páginas, desplazamientos, descargas, clics en enlaces externos y otras interacciones con el sitio. Las funciones publicitarias y las señales de Google están desactivadas.</p>
+        <p>Puedes cambiar tu elección en cualquier momento mediante Configuración de analítica en el pie de página.</p>
+        <p><a href="https://policies.google.com/technologies/partner-sites">Conoce cómo Google usa la información de sitios o apps que utilizan sus servicios.</a></p>
+        <p>SourceShelf guarda tus elecciones de tema, idioma y analítica localmente en tu navegador. Las preferencias de tema e idioma no se usan para rastrearte ni se envían a SourceShelf.</p>
         <p>Los videos opcionales de YouTube usan reproductores con privacidad mejorada que solo se cargan al hacer clic. No se carga ningún reproductor de YouTube ni se establece una conexión con YouTube hasta que eliges reproducir un video. Si reproduces o abres un video, Google puede procesar datos conforme a su política de privacidad.</p>
+        <p>Este sitio web no utiliza píxeles publicitarios ni fuentes o CDN externas. GitHub Pages o los proveedores de DNS o alojamiento pueden procesar registros ordinarios del servidor como parte del alojamiento.</p>
         <p>Para preguntas sobre privacidad, envíe un correo electrónico <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>.</p>
       </section>
     </section>
@@ -135,6 +140,7 @@
           <a href="/es-419/privacy.html">Privacidad</a>
           <a href="/es-419/docs/">Documentación</a>
           <a href="/es-419/support.html">Soporte</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Configuración de analítica</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -144,6 +150,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Analítica del sitio web</p>
+      <h2 id="analytics-consent-title">Ayúdanos a mejorar SourceShelf</h2>
+      <p id="analytics-consent-description">Con tu permiso, este sitio usa Google Analytics para conocer las páginas visitadas y las interacciones con enlaces. Google Analytics permanece desactivado hasta que lo permitas.</p>
+      <a href="/es-419/privacy.html">Leer los detalles de privacidad del sitio</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Rechazar analítica</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Permitir analítica</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

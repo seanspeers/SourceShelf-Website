@@ -24,8 +24,8 @@
   <title>Formats pris en charge | Documentation SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("fr");
     (function () {
@@ -127,6 +127,7 @@
           <a href="/fr/privacy.html">Confidentialité</a>
           <a href="/fr/docs/">Documentation</a>
           <a href="/fr/support.html">Assistance</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Paramètres d’analyse</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -136,6 +137,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Analyse du site Web</p>
+      <h2 id="analytics-consent-title">Aidez-nous à améliorer SourceShelf</h2>
+      <p id="analytics-consent-description">Avec votre autorisation, ce site utilise Google Analytics pour comprendre les pages consultées et les interactions avec les liens. Google Analytics reste désactivé tant que vous ne l’autorisez pas.</p>
+      <a href="/fr/privacy.html">Lire les détails sur la confidentialité du site</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Refuser l’analyse</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Autoriser l’analyse</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>

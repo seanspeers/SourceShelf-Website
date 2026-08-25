@@ -21,6 +21,7 @@ const blogManifest = JSON.parse(await readFile(path.join(blogSourceRoot, "posts.
 const blogRoutes = blogManifest.posts.map((post) => post.route);
 const examplesContent = JSON.parse(await readFile(path.join(siteSourceRoot, "examples.json"), "utf8"));
 const exampleRoutes = examplesContent.pages.map((page) => page.logicalRoute);
+const sharedScript = await readFile(path.join(siteRoot, "script.js"), "utf8");
 const homepageScreenshotNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
@@ -202,6 +203,16 @@ let checkedReferences = 0;
 let checkedImages = 0;
 const landingTitles = new Set();
 const landingDescriptions = new Set();
+
+if (!sharedScript.includes('var analyticsMeasurementId = "G-D15DHBQH6F";')) {
+  errors.push("script.js is missing the SourceShelf Google Analytics measurement ID");
+}
+if (!sharedScript.includes('var analyticsConsentStorageKey = "sourceshelf-analytics-consent-v1";')) {
+  errors.push("script.js is missing the versioned analytics consent choice");
+}
+if (!sharedScript.includes('googleTag.setAttribute("data-sourceshelf-analytics", "")')) {
+  errors.push("script.js does not load Google Analytics through the consent-gated tag marker");
+}
 
 async function idsFor(file) {
   if (!idCache.has(file)) {
@@ -385,6 +396,18 @@ for (const htmlFile of htmlFiles) {
   }
   if ((html.match(/<h1\b/g) || []).length !== 1) {
     errors.push(`${publicPath} must contain exactly one level-one heading`);
+  }
+  if ((html.match(/data-analytics-consent-settings/g) || []).length !== 1) {
+    errors.push(`${publicPath} must contain one analytics settings control`);
+  }
+  if ((html.match(/data-analytics-consent-banner/g) || []).length !== 1) {
+    errors.push(`${publicPath} must contain one analytics consent banner`);
+  }
+  if ((html.match(/data-analytics-consent-accept/g) || []).length !== 1 || (html.match(/data-analytics-consent-decline/g) || []).length !== 1) {
+    errors.push(`${publicPath} must contain one accept and one decline analytics control`);
+  }
+  if (html.includes("googletagmanager.com/gtag/js")) {
+    errors.push(`${publicPath} preloads Google Analytics before consent`);
   }
   if (!/<title>[^<]+<\/title>/.test(html)) {
     errors.push(`${publicPath} is missing a page title`);

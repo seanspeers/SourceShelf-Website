@@ -25,8 +25,8 @@
   <title>Base de conocimientos MCP para Mac | SourceShelf</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
-  <link rel="stylesheet" href="/styles.css?v=20260822-1">
-  <script src="/locale.js?v=20260822-1"></script>
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
   <script>
     window.SourceShelfLocale.bootstrap("es-419");
     (function () {
@@ -278,6 +278,7 @@
           <a href="/es-419/privacy.html">Privacidad</a>
           <a href="/es-419/docs/">Documentación</a>
           <a href="/es-419/support.html">Soporte</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Configuración de analítica</button>
           <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
         </div>
       </div>
@@ -287,6 +288,18 @@
       </nav>
     </div>
   </footer>
-  <script src="/script.js?v=20260822-1"></script>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Analítica del sitio web</p>
+      <h2 id="analytics-consent-title">Ayúdanos a mejorar SourceShelf</h2>
+      <p id="analytics-consent-description">Con tu permiso, este sitio usa Google Analytics para conocer las páginas visitadas y las interacciones con enlaces. Google Analytics permanece desactivado hasta que lo permitas.</p>
+      <a href="/es-419/privacy.html">Leer los detalles de privacidad del sitio</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Rechazar analítica</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Permitir analítica</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
 </body>
 </html>
