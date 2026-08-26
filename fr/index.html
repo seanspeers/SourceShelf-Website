@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Transformez votre Mac en base de connaissances privée pour l’IA. Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA, en local.">
+  <meta name="description" content="Convertissez PDF et numérisations en Markdown, capturez des pages Safari, organisez vos recherches en Packs et interrogez vos sources sur les appareils compatibles.">
   <meta name="theme-color" content="#08244d">
   <link rel="canonical" href="https://sourceshelf.app/fr/">
   <link rel="alternate" hreflang="en" href="https://sourceshelf.app/">
@@ -13,15 +13,20 @@
   <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/">
   <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Fournissez à l’IA les bonnes sources au bon moment">
-  <meta property="og:description" content="Créez une bibliothèque de connaissances privée sur votre Mac, puis reliez les sources sélectionnées aux assistants IA compatibles sans perdre le contrôle de vos fichiers.">
+  <meta property="og:site_name" content="SourceShelf">
+  <meta property="og:title" content="Transformez PDF et pages Web en Markdown utile">
+  <meta property="og:description" content="Convertissez des documents localement, capturez vos recherches dans Safari, organisez les sources utiles et interrogez-les sur l’appareil, lorsque celui-ci est compatible.">
   <meta property="og:url" content="https://sourceshelf.app/fr/">
-  <meta property="og:image" content="https://sourceshelf.app/assets/home/fr/01-private-ai-source-packs-social.jpg">
+  <meta property="og:image" content="https://sourceshelf.app/assets/home/fr/10-pdf-to-markdown-social.jpg">
+  <meta property="og:image:alt" content="SourceShelf convertissant des PDF et des numérisations en Markdown par extraction locale et OCR.">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:image:alt" content="SourceShelf convertissant des PDF et des numérisations en Markdown par extraction locale et OCR.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Fournissez à l’IA les bonnes sources au bon moment">
-  <meta name="twitter:description" content="Créez une bibliothèque de connaissances privée sur votre Mac, puis reliez les sources sélectionnées aux assistants IA compatibles sans perdre le contrôle de vos fichiers.">
-  <meta name="twitter:image" content="https://sourceshelf.app/assets/home/fr/01-private-ai-source-packs-social.jpg">
-  <title>SourceShelf — Base de connaissances privée pour l’IA sur Mac</title>
+  <meta name="twitter:title" content="Transformez PDF et pages Web en Markdown utile">
+  <meta name="twitter:description" content="Convertissez des documents localement, capturez vos recherches dans Safari, organisez les sources utiles et interrogez-les sur l’appareil, lorsque celui-ci est compatible.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/home/fr/10-pdf-to-markdown-social.jpg">
+  <title>SourceShelf — PDF en Markdown, OCR et recherche sur appareils Apple</title>
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
   <link rel="stylesheet" href="/styles.css?v=20260825-1">
@@ -37,6 +42,7 @@
       } catch (error) {}
     })();
   </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"SourceShelf","applicationCategory":"ProductivityApplication","operatingSystem":"macOS, iOS, iPadOS","softwareVersion":"1.0.3","description":"Convertissez PDF et numérisations en Markdown, capturez des pages Safari, organisez vos recherches en Packs et interrogez vos sources sur les appareils compatibles.","url":"https://sourceshelf.app/fr/","downloadUrl":"https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729","image":"https://sourceshelf.app/assets/home/fr/10-pdf-to-markdown-social.jpg","inLanguage":"fr","featureList":["Convertissez PDF et numérisations en local","Interrogez les recherches enregistrées","Enregistrez les pages Web en Markdown","Créez un Pack ciblé","Exportez un contexte de recherche portable"],"offers":{"@type":"Offer","price":12.99,"priceCurrency":"CAD","url":"https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Aller au contenu</a>
@@ -52,7 +58,7 @@
         <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
         <a class="nav-link" href="/fr/docs/">Documentation</a>
         <a class="nav-link" href="/fr/support.html">Assistance</a>
-        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12" aria-label="Télécharger SourceShelf dans le Mac App Store">Télécharger</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729" aria-label="Télécharger SourceShelf dans l’App Store">Télécharger</a>
         <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
         <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -65,20 +71,20 @@
     <section class="section hero home-hero" aria-labelledby="hero-title">
       <div class="hero-copy">
         <img class="hero-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="96" height="96">
-        <p class="eyebrow">Base de connaissances privée pour l’IA sur Mac</p>
-        <h1 id="hero-title">Fournissez à l’IA les bonnes sources au bon moment.</h1>
-        <p class="home-hero-tagline">Transformez votre Mac en base de connaissances privée pour l’IA.</p>
-        <p class="subheading">Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA grâce à des flux de travail locaux.</p>
+        <p class="eyebrow">Outils de recherche privés pour Mac, iPhone et iPad</p>
+        <h1 id="hero-title">Transformez PDF et pages Web en Markdown utile.</h1>
+
+        <p class="subheading">Convertissez des documents localement, capturez vos recherches dans Safari, organisez les sources utiles et, sur les appareils compatibles, interrogez-les avec l’IA sur l’appareil.</p>
         <div class="actions">
-          <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">Télécharger dans le Mac App Store</a>
+          <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729">Télécharger dans l’App Store</a>
           <a class="button button-secondary" href="#how-it-works">Voir comment ça fonctionne</a>
         </div>
-        <ul class="home-proof-list" aria-label="Base de connaissances privée pour l’IA sur Mac"><li>Traitement local</li><li>Accès IA en lecture seule</li><li>Aucun nuage SourceShelf</li><li>Aucune télémétrie</li></ul>
+        <ul class="home-proof-list" aria-label="Outils de recherche privés pour Mac, iPhone et iPad"><li>PDF et OCR en local</li><li>Safari vers Markdown</li><li>Ask This Pack sur l’appareil</li><li>Aucun nuage SourceShelf</li></ul>
       </div>
       <div class="hero-visual home-hero-visual">
         <div class="home-screenshot-frame home-hero-frame">
-          <a class="home-screenshot-trigger" href="/assets/home/fr/01-private-ai-source-packs-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Créateur de packs SourceShelf montrant un ensemble ordonné de fichiers de recherche sélectionnés pour une utilisation par un assistant IA." data-lightbox-caption="Fournissez à l’IA les bonnes sources au bon moment." aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Fournissez à l’IA les bonnes sources au bon moment.">
-    <img class="homepage-screenshot" src="/assets/home/fr/01-private-ai-source-packs-1440.webp" srcset="/assets/home/fr/01-private-ai-source-packs-960.webp 960w, /assets/home/fr/01-private-ai-source-packs-1440.webp 1440w" sizes="(max-width: 920px) calc(100vw - 24px), 680px" alt="Créateur de packs SourceShelf montrant un ensemble ordonné de fichiers de recherche sélectionnés pour une utilisation par un assistant IA." width="1440" height="900" loading="eager" fetchpriority="high" decoding="async">
+          <a class="home-screenshot-trigger" href="/assets/home/fr/10-pdf-to-markdown-2880.webp" data-home-screenshot-trigger data-lightbox-alt="SourceShelf convertissant un PDF et des pages numérisées en Markdown consultable par extraction locale et OCR." data-lightbox-caption="Transformez PDF et pages Web en Markdown utile." aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Transformez PDF et pages Web en Markdown utile.">
+    <img class="homepage-screenshot" src="/assets/home/fr/10-pdf-to-markdown-1440.webp" srcset="/assets/home/fr/10-pdf-to-markdown-960.webp 960w, /assets/home/fr/10-pdf-to-markdown-1440.webp 1440w" sizes="(max-width: 920px) calc(100vw - 24px), 680px" alt="SourceShelf convertissant un PDF et des pages numérisées en Markdown consultable par extraction locale et OCR." width="1440" height="900" loading="eager" fetchpriority="high" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
         </div>
@@ -87,45 +93,48 @@
 
     <section id="how-it-works" class="section home-story-section" aria-labelledby="capture-title">
       <div class="section-heading home-section-heading">
-        <p class="eyebrow">Créez votre bibliothèque de connaissances</p>
-        <h2 id="capture-title">Rassemblez vos recherches dispersées.</h2>
-        <p>Capturez des pages Web, des fichiers et des collections existantes, puis organisez le tout dans une bibliothèque locale consultable.</p>
+        <p class="eyebrow">Convertir → Interroger → Capturer</p>
+        <h2 id="capture-title">Convertissez vos documents en Markdown utile.</h2>
+        <p>Commencez avec un PDF, une numérisation, une image ou une page Web, puis conservez le résultat dans une bibliothèque de recherche locale et consultable.</p>
       </div>
       <div class="home-feature-grid home-feature-grid-three">
         <article class="home-feature-card">
     <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/04-convert-files-for-ai-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Écran de conversion SourceShelf prêt à transformer des documents et des dossiers en formats adaptés à l’IA." data-lightbox-caption="Préparez vos fichiers pour l’IA" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Préparez vos fichiers pour l’IA">
-    <img class="homepage-screenshot" src="/assets/home/fr/04-convert-files-for-ai-1440.webp" srcset="/assets/home/fr/04-convert-files-for-ai-960.webp 960w, /assets/home/fr/04-convert-files-for-ai-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Écran de conversion SourceShelf prêt à transformer des documents et des dossiers en formats adaptés à l’IA." width="1440" height="900" loading="lazy" decoding="async">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/04-convert-files-for-ai-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Écran SourceShelf prêt à convertir des PDF, des numérisations et des documents pris en charge en Markdown." data-lightbox-caption="Convertissez PDF et numérisations en local" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Convertissez PDF et numérisations en local">
+    <img class="homepage-screenshot" src="/assets/home/fr/04-convert-files-for-ai-1440.webp" srcset="/assets/home/fr/04-convert-files-for-ai-960.webp 960w, /assets/home/fr/04-convert-files-for-ai-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Écran SourceShelf prêt à convertir des PDF, des numérisations et des documents pris en charge en Markdown." width="1440" height="900" loading="lazy" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
     </div>
     <div class="home-feature-copy">
-      <h3>Préparez vos fichiers pour l’IA</h3>
-      <p>Convertissez PDF, fichiers Office, scans, sites Web, Markdown, texte et plus encore, localement sur votre Mac.</p>
+      <h3>Convertissez PDF et numérisations en local</h3>
+      <p>Convertissez un PDF en Markdown par extraction locale, ou utilisez l’OCR Apple pour les PDF numérisés et les images. Le Markdown normal peut être inspecté, modifié, archivé, recherché ou ajouté à un Pack.</p>
+      <a class="text-link" href="/fr/pdf-to-markdown-mac/">Explorer la conversion PDF vers Markdown <span aria-hidden="true">→</span></a>
+    </div>
+  </article>
+<article class="home-feature-card" id="ask-this-pack">
+    <div class="home-screenshot-frame">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/11-ask-this-pack-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Ask This Pack dans SourceShelf répondant à une question à partir des sources choisies et affichant les références." data-lightbox-caption="Interrogez les recherches enregistrées" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Interrogez les recherches enregistrées">
+    <img class="homepage-screenshot" src="/assets/home/fr/11-ask-this-pack-1440.webp" srcset="/assets/home/fr/11-ask-this-pack-960.webp 960w, /assets/home/fr/11-ask-this-pack-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Ask This Pack dans SourceShelf répondant à une question à partir des sources choisies et affichant les références." width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
+  </a>
+    </div>
+    <div class="home-feature-copy">
+      <h3>Interrogez les recherches enregistrées</h3>
+      <p>Ajoutez les sources utiles à un Pack, puis posez des questions directement dans SourceShelf. Sur les appareils compatibles avec Apple Intelligence, les réponses sont générées sur l’appareil à partir du Pack sélectionné.</p>
+
     </div>
   </article>
 <article class="home-feature-card">
     <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/05-capture-from-safari-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Extension Safari SourceShelf proposant la capture de page, de contenu principal, de sélection et de zone." data-lightbox-caption="Capturez depuis Safari" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Capturez depuis Safari">
-    <img class="homepage-screenshot" src="/assets/home/fr/05-capture-from-safari-1440.webp" srcset="/assets/home/fr/05-capture-from-safari-960.webp 960w, /assets/home/fr/05-capture-from-safari-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Extension Safari SourceShelf proposant la capture de page, de contenu principal, de sélection et de zone." width="1440" height="900" loading="lazy" decoding="async">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/05-capture-from-safari-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Extension Safari SourceShelf proposant la capture d’une page, de l’article principal, d’une sélection, de la zone visible et d’extraits de recherche." data-lightbox-caption="Enregistrez les pages Web en Markdown" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Enregistrez les pages Web en Markdown">
+    <img class="homepage-screenshot" src="/assets/home/fr/05-capture-from-safari-1440.webp" srcset="/assets/home/fr/05-capture-from-safari-960.webp 960w, /assets/home/fr/05-capture-from-safari-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Extension Safari SourceShelf proposant la capture d’une page, de l’article principal, d’une sélection, de la zone visible et d’extraits de recherche." width="1440" height="900" loading="lazy" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
     </div>
     <div class="home-feature-copy">
-      <h3>Capturez depuis Safari</h3>
-      <p>Capturez des pages entières, le contenu principal, des sélections et des zones directement dans Safari.</p>
-    </div>
-  </article>
-<article class="home-feature-card">
-    <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/06-organize-research-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Bibliothèque SourceShelf consultable contenant des sources de recherche organisées." data-lightbox-caption="Organisez vos recherches" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Organisez vos recherches">
-    <img class="homepage-screenshot" src="/assets/home/fr/06-organize-research-1440.webp" srcset="/assets/home/fr/06-organize-research-960.webp 960w, /assets/home/fr/06-organize-research-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Bibliothèque SourceShelf consultable contenant des sources de recherche organisées." width="1440" height="900" loading="lazy" decoding="async">
-    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
-  </a>
-    </div>
-    <div class="home-feature-copy">
-      <h3>Organisez vos recherches</h3>
-      <p>Créez des packs ordonnés à sauvegarder et à réutiliser, avec aperçus, filtres et suivi des sources.</p>
+      <h3>Enregistrez les pages Web en Markdown</h3>
+      <p>Capturez une page entière, l’article principal, une sélection, la zone visible ou des extraits de recherche dans Safari, puis conservez le résultat en Markdown local avec sa provenance.</p>
+      <a class="text-link" href="/fr/save-webpages-as-markdown-safari/">Explorer la capture Safari vers Markdown <span aria-hidden="true">→</span></a>
     </div>
   </article>
       </div>
@@ -133,68 +142,48 @@
 
     <section class="section home-story-section home-story-section-tinted" aria-labelledby="review-title">
       <div class="section-heading home-section-heading">
-        <p class="eyebrow">Gardez des connaissances fiables</p>
-        <h2 id="review-title">Voyez ce qui a changé. Vérifiez ce que vous partagez.</h2>
-        <p>Un contexte ciblé est plus utile lorsqu’il est actuel et intentionnel. SourceShelf vous aide à inspecter un pack avant qu’il atteigne votre assistant.</p>
+        <p class="eyebrow">Organisez ce qui compte</p>
+        <h2 id="review-title">Réunissez les recherches connexes.</h2>
+        <p>Combinez documents convertis, pages Web enregistrées, notes et autres sources dans des Packs ciblés que vous pouvez rechercher, réutiliser, interroger, exporter ou déplacer entre appareils.</p>
       </div>
-      <div class="home-feature-grid home-feature-grid-two">
+      <div class="home-feature-grid home-feature-grid-three">
         <article class="home-feature-card">
     <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/03-review-before-sharing-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Vérification Confiance et sécurité de SourceShelf montrant l’état de préparation d’un pack de connaissances." data-lightbox-caption="Vérifiez avant de partager" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Vérifiez avant de partager">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/06-organize-research-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Bibliothèque de recherche SourceShelf contenant des sources organisées et des Packs réutilisables." data-lightbox-caption="Créez un Pack ciblé" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Créez un Pack ciblé">
+    <img class="homepage-screenshot" src="/assets/home/fr/06-organize-research-1440.webp" srcset="/assets/home/fr/06-organize-research-960.webp 960w, /assets/home/fr/06-organize-research-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Bibliothèque de recherche SourceShelf contenant des sources organisées et des Packs réutilisables." width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
+  </a>
+    </div>
+    <div class="home-feature-copy">
+      <h3>Créez un Pack ciblé</h3>
+      <p>Regroupez les sources d’un projet dans un Pack consultable, utile pour la lecture, les questions, l’exportation et la réutilisation.</p>
+
+    </div>
+  </article>
+<article class="home-feature-card">
+    <div class="home-screenshot-frame">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/03-review-before-sharing-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Vérification Confiance et sécurité de SourceShelf montrant l’état de préparation d’un pack de connaissances." data-lightbox-caption="Vérifiez l’état du Pack avant le partage" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Vérifiez l’état du Pack avant le partage">
     <img class="homepage-screenshot" src="/assets/home/fr/03-review-before-sharing-1440.webp" srcset="/assets/home/fr/03-review-before-sharing-960.webp 960w, /assets/home/fr/03-review-before-sharing-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Vérification Confiance et sécurité de SourceShelf montrant l’état de préparation d’un pack de connaissances." width="1440" height="900" loading="lazy" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
     </div>
     <div class="home-feature-copy">
-      <h3>Vérifiez avant de partager</h3>
-      <p>Repérez les fichiers manquants, les pages périmées et les instructions risquées avant le partage.</p>
+      <h3>Vérifiez l’état du Pack avant le partage</h3>
+      <p>Sur Mac, repérez les fichiers manquants, les pages périmées et les instructions risquées avant de partager ou d’exporter un Pack.</p>
+
     </div>
   </article>
 <article class="home-feature-card">
     <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/07-refresh-and-compare-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Rapport Actualiser et comparer de SourceShelf classant les sources modifiées et manquantes." data-lightbox-caption="Voyez ce qui a changé" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Voyez ce qui a changé">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/07-refresh-and-compare-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Rapport Actualiser et comparer de SourceShelf classant les sources modifiées et manquantes." data-lightbox-caption="Vérifiez les changements avant de réutiliser" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Vérifiez les changements avant de réutiliser">
     <img class="homepage-screenshot" src="/assets/home/fr/07-refresh-and-compare-1440.webp" srcset="/assets/home/fr/07-refresh-and-compare-960.webp 960w, /assets/home/fr/07-refresh-and-compare-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Rapport Actualiser et comparer de SourceShelf classant les sources modifiées et manquantes." width="1440" height="900" loading="lazy" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
     </div>
     <div class="home-feature-copy">
-      <h3>Voyez ce qui a changé</h3>
-      <p>Repérez les sources nouvelles, modifiées, manquantes et inchangées avant d’actualiser le contexte de votre IA.</p>
-    </div>
-  </article>
-      </div>
-    </section>
+      <h3>Vérifiez les changements avant de réutiliser</h3>
+      <p>Sur Mac, Actualiser et comparer repère les sources nouvelles, modifiées, manquantes et inchangées avant la mise à jour d’un Pack.</p>
 
-    <section class="section home-story-section" aria-labelledby="connect-title">
-      <div class="section-heading home-section-heading">
-        <p class="eyebrow">Connectez votre IA</p>
-        <h2 id="connect-title">Fournissez un contexte ciblé et réutilisable aux assistants compatibles.</h2>
-        <p>Utilisez un instantané contrôlé et en lecture seule avec le Model Context Protocol, ou exportez un pack portable pour un autre flux de travail. Vos fichiers originaux restent privés.</p>
-        <a class="text-link" href="/fr/docs/mcp/local-ai-access/">Voir les guides de configuration de l’accès local à l’IA <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="home-feature-grid home-feature-grid-two">
-        <article class="home-feature-card">
-    <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/02-local-ai-access-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de pack en lecture seule." data-lightbox-caption="Votre pack dans votre app d’IA" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Votre pack dans votre app d’IA">
-    <img class="homepage-screenshot" src="/assets/home/fr/02-local-ai-access-1440.webp" srcset="/assets/home/fr/02-local-ai-access-960.webp 960w, /assets/home/fr/02-local-ai-access-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de pack en lecture seule." width="1440" height="900" loading="lazy" decoding="async">
-    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
-  </a>
-    </div>
-    <div class="home-feature-copy">
-      <h3>Votre pack dans votre app d’IA</h3>
-      <p>Connectez des apps compatibles sans téléverser le même ZIP chaque fois.</p>
-    </div>
-  </article>
-<article class="home-feature-card">
-    <div class="home-screenshot-frame">
-      <a class="home-screenshot-trigger" href="/assets/home/fr/08-export-workflows-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail." data-lightbox-caption="Exportez à votre façon" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Exportez à votre façon">
-    <img class="homepage-screenshot" src="/assets/home/fr/08-export-workflows-1440.webp" srcset="/assets/home/fr/08-export-workflows-960.webp 960w, /assets/home/fr/08-export-workflows-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail." width="1440" height="900" loading="lazy" decoding="async">
-    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
-  </a>
-    </div>
-    <div class="home-feature-copy">
-      <h3>Exportez à votre façon</h3>
-      <p>Créez un bundle IA, un fichier Markdown, une collection llms.txt portable ou un pack compatible avec OKF.</p>
     </div>
   </article>
       </div>
@@ -204,32 +193,70 @@
       <div class="home-privacy-copy">
         <p class="eyebrow">Vos connaissances restent les vôtres</p>
         <h2 id="privacy-title">Confidentialité dès la conception.</h2>
-        <p>SourceShelf effectue les conversions localement, utilise la technologie OCR intégrée d’Apple, ne téléverse jamais vos documents et n’exige aucun compte infonuagique.</p>
-        <strong>Traitement local. Aucun nuage SourceShelf. Aucune télémétrie.</strong>
+        <p>L’extraction PDF, l’OCR local, la capture Safari, la Bibliothèque et Ask This Pack fonctionnent sur votre appareil. Ask This Pack utilise le modèle Apple sur l’appareil compatible avec Apple Intelligence.</p>
+        <p>SourceShelf ne téléverse pas vos documents, n’exige aucun compte infonuagique SourceShelf et n’envoie aucune télémétrie ni suivi depuis l’app. Un client IA tiers relié par MCP suit ses propres politiques de modèle et de confidentialité.</p>
+        <strong>Extraction et OCR en local. Aucun nuage SourceShelf. Aucune télémétrie dans l’app.</strong>
         <a class="text-link" href="/fr/privacy.html">Lire les détails sur la confidentialité <span aria-hidden="true">→</span></a>
       </div>
       <div class="home-screenshot-frame">
-        <a class="home-screenshot-trigger" href="/assets/home/fr/09-private-by-design-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Réglages de confidentialité SourceShelf expliquant le partage IA local en lecture seule et le traitement privé." data-lightbox-caption="Traitement local. Aucun nuage SourceShelf. Aucune télémétrie." aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Traitement local. Aucun nuage SourceShelf. Aucune télémétrie.">
-    <img class="homepage-screenshot" src="/assets/home/fr/09-private-by-design-1440.webp" srcset="/assets/home/fr/09-private-by-design-960.webp 960w, /assets/home/fr/09-private-by-design-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Réglages de confidentialité SourceShelf expliquant le partage IA local en lecture seule et le traitement privé." width="1440" height="900" loading="lazy" decoding="async">
+        <a class="home-screenshot-trigger" href="/assets/home/fr/09-private-by-design-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Réglages de confidentialité SourceShelf expliquant le traitement local, l’absence de nuage et de compte SourceShelf, ainsi que l’absence de télémétrie dans l’app." data-lightbox-caption="Extraction et OCR en local. Aucun nuage SourceShelf. Aucune télémétrie dans l’app." aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Extraction et OCR en local. Aucun nuage SourceShelf. Aucune télémétrie dans l’app.">
+    <img class="homepage-screenshot" src="/assets/home/fr/09-private-by-design-1440.webp" srcset="/assets/home/fr/09-private-by-design-960.webp 960w, /assets/home/fr/09-private-by-design-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Réglages de confidentialité SourceShelf expliquant le traitement local, l’absence de nuage et de compte SourceShelf, ainsi que l’absence de télémétrie dans l’app." width="1440" height="900" loading="lazy" decoding="async">
     <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
   </a>
       </div>
     </section>
 
+    <section class="section home-story-section home-story-section-tinted" aria-labelledby="connect-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">Contexte portable et accès contrôlé</p>
+        <h2 id="connect-title">Utilisez vos recherches là où vous en avez besoin.</h2>
+        <p>Interrogez un Pack dans SourceShelf, exportez-le comme contexte portable fondé sur Markdown ou accordez un accès contrôlé et en lecture seule à un client IA compatible.</p>
+        <a class="text-link" href="/fr/docs/mcp/local-ai-access/">Voir les guides d’accès local à l’IA en lecture seule <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-feature-grid home-feature-grid-two">
+        <article class="home-feature-card">
+    <div class="home-screenshot-frame">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/08-export-workflows-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail." data-lightbox-caption="Exportez un contexte de recherche portable" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Exportez un contexte de recherche portable">
+    <img class="homepage-screenshot" src="/assets/home/fr/08-export-workflows-1440.webp" srcset="/assets/home/fr/08-export-workflows-960.webp 960w, /assets/home/fr/08-export-workflows-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail." width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
+  </a>
+    </div>
+    <div class="home-feature-copy">
+      <h3>Exportez un contexte de recherche portable</h3>
+      <p>Créez un Pack de référence IA, un Pack de contexte Markdown, un fichier Markdown unique, une collection llms.txt portable ou un Pack compatible avec OKF.</p>
+
+    </div>
+  </article>
+<article class="home-feature-card">
+    <div class="home-screenshot-frame">
+      <a class="home-screenshot-trigger" href="/assets/home/fr/02-local-ai-access-2880.webp" data-home-screenshot-trigger data-lightbox-alt="Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de Pack contrôlé et en lecture seule par MCP." data-lightbox-caption="Connectez un client IA compatible par MCP en lecture seule" aria-haspopup="dialog" aria-controls="homepage-lightbox" aria-label="Afficher l’image en plein écran: Connectez un client IA compatible par MCP en lecture seule">
+    <img class="homepage-screenshot" src="/assets/home/fr/02-local-ai-access-1440.webp" srcset="/assets/home/fr/02-local-ai-access-960.webp 960w, /assets/home/fr/02-local-ai-access-1440.webp 1440w" sizes="(max-width: 700px) calc(100vw - 60px), (max-width: 1100px) calc(50vw - 48px), 560px" alt="Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de Pack contrôlé et en lecture seule par MCP." width="1440" height="900" loading="lazy" decoding="async">
+    <span class="home-screenshot-expand" aria-hidden="true">Agrandir</span>
+  </a>
+    </div>
+    <div class="home-feature-copy">
+      <h3>Connectez un client IA compatible par MCP en lecture seule</h3>
+      <p>Sur Mac, publiez un instantané contrôlé d’un seul Pack afin qu’un client IA compatible puisse le rechercher sans parcourir toute votre Bibliothèque.</p>
+
+    </div>
+  </article>
+      </div>
+    </section>
+
     <section class="section home-overview-section" aria-labelledby="overview-title">
       <div class="section-heading home-section-heading">
-        <p class="eyebrow">Conçu pour le travail intellectuel</p>
-        <h2 id="overview-title">Vos sources, préparées pour votre façon d’utiliser l’IA.</h2>
+        <p class="eyebrow">Conçu pour les appareils Apple</p>
+        <h2 id="overview-title">Vos recherches restent utiles, de la capture à la question.</h2>
       </div>
       <div class="home-overview-grid">
         <article class="home-overview-card">
-          <h3>Utilisez les formats que vous connaissez déjà.</h3>
-          <p>Pages Web, PDF et scans, Word, PowerPoint, Excel, HTML, Markdown, texte et collections llms.txt existantes.</p>
+          <h3>Commencez avec vos formats habituels.</h3>
+          <p>La conversion de PDF en Markdown, de PDF numérisé en Markdown avec OCR local et de page Web en Markdown depuis Safari fonctionne sur les appareils Apple compatibles. Sur Mac, SourceShelf convertit aussi Word, PowerPoint, Excel, RTF, HTML, Markdown et le texte.</p>
           <a class="text-link" href="/fr/docs/reference/supported-formats/">Voir les formats pris en charge <span aria-hidden="true">→</span></a>
         </article>
         <article class="home-overview-card">
-          <h3>Utile partout où les connaissances comptent.</h3>
-          <p>Pour les chercheurs, les développeurs, les étudiants et universitaires, les professionnels soucieux de la confidentialité et toute personne qui crée sa base de connaissances pour l’IA.</p>
+          <h3>Déplacez des recherches ciblées entre vos appareils.</h3>
+          <p>Utilisez la Bibliothèque locale, les Packs, l’importation et l’exportation portables, la lecture hors ligne et Ask This Pack sur Mac, iPhone et iPad. Le Mac ajoute l’état du Pack, Actualiser et comparer et les flux MCP avancés.</p>
           <a class="text-link" href="/fr/docs/">Explorer la documentation <span aria-hidden="true">→</span></a>
         </article>
       </div>
@@ -237,49 +264,49 @@
 
     <section id="ways-to-use" class="section home-use-cases-section" aria-labelledby="ways-to-use-title">
     <div class="section-heading home-section-heading">
-      <p class="eyebrow">Cas d&#39;utilisation de SourceShelf</p>
-      <h2 id="ways-to-use-title">Manières d&#39;utiliser SourceShelf</h2>
-      <p>Commencez par le flux de travail qui correspond aux connaissances que vous souhaitez capturer, organiser ou connecter.</p>
+      <p class="eyebrow">Cas d’utilisation de SourceShelf</p>
+      <h2 id="ways-to-use-title">Façons d’utiliser SourceShelf</h2>
+      <p>Commencez par le flux concret qui correspond aux recherches à convertir, capturer, organiser ou interroger.</p>
     </div>
     <div class="home-use-cases-grid"><article class="home-use-case-card">
-    <p class="eyebrow">Base de connaissances privée sur l&#39;IA pour Mac</p>
-    <h3><a href="/fr/private-ai-knowledge-base-mac/">Transforme ton Mac en une base de connaissances privée d&#39;IA.</a></h3>
-    <p>Capturez, convertissez, organisez et connectez les connaissances sélectionnées avec un traitement local et un accès AI en lecture seule.</p>
+    <p class="eyebrow">Conversion PDF locale</p>
+    <h3><a href="/fr/pdf-to-markdown-mac/">Convertissez PDF et numérisations en Markdown localement</a></h3>
+    <p>Extrayez le texte ou utilisez l’OCR Apple local, puis inspectez, modifiez, archivez, recherchez ou ajoutez le Markdown à un Pack.</p>
   </article>
 <article class="home-use-case-card">
-    <p class="eyebrow">Conversion locale de PDF</p>
-    <h3><a href="/fr/pdf-to-markdown-mac/">Convertissez les PDF en Markdown utiles - entièrement sur votre Mac.</a></h3>
-    <p>Extrayez le texte ou utilisez l&#39;OCR local d&#39;Apple, puis inspectez, éditez, archivez ou ajoutez le Markdown à un pack ciblé.</p>
+    <p class="eyebrow">Capture Web dans Safari</p>
+    <h3><a href="/fr/save-webpages-as-markdown-safari/">Enregistrez pages Web et recherches en Markdown</a></h3>
+    <p>Capturez pages entières, articles, sélections, zones visibles ou extraits ordonnés dans Safari avec leur provenance.</p>
   </article>
 <article class="home-use-case-card">
-    <p class="eyebrow">Capture web Safari</p>
-    <h3><a href="/fr/save-webpages-as-markdown-safari/">Enregistrez la partie d&#39;une page Web dont vous avez réellement besoin.</a></h3>
-    <p>Capturez des pages complètes, des articles, des sélections, des zones ou des points forts triés de Safari et conservez-les sous forme locale Markdown.</p>
+    <p class="eyebrow">Interrogez vos recherches</p>
+    <h3><a href="#ask-this-pack">Posez des questions à un Pack ciblé</a></h3>
+    <p>Utilisez les sources choisies comme contexte pour des réponses sur l’appareil compatible avec Apple Intelligence.</p>
   </article>
 <article class="home-use-case-card">
-    <p class="eyebrow">Contexte axé sur l&#39;IA</p>
-    <h3><a href="/fr/local-ai-reference-packs/">Donnez à l&#39;IA un pack de référence ciblé, pas un dossier non structuré.</a></h3>
-    <p>Sélectionnez et organisez les sources qui comptent, puis exportez le contexte portable ou partagez le paquet sauvegardé en lecture seule.</p>
+    <p class="eyebrow">Archive de recherche locale</p>
+    <h3><a href="/fr/research-archive-mac/">Créez une archive de recherche durable et consultable</a></h3>
+    <p>Conservez documents convertis, pages capturées, notes, provenance et Packs dans une Bibliothèque locale.</p>
   </article>
 <article class="home-use-case-card">
-    <p class="eyebrow">Archives de recherche locale</p>
-    <h3><a href="/fr/research-archive-mac/">Créez un archive de recherche que vous pourrez encore utiliser dans des années.</a></h3>
-    <p>Capturez la recherche web, convertissez des documents, préservez la provenance et conservez les résultats sous forme de Markdown portable et de packs enregistrés.</p>
+    <p class="eyebrow">Base de connaissances privée pour l’IA</p>
+    <h3><a href="/fr/private-ai-knowledge-base-mac/">Réunissez les sources choisies pour le travail assisté par l’IA</a></h3>
+    <p>Créez un contexte ciblé et réutilisable sans exposer les sources sans rapport de la Bibliothèque.</p>
   </article>
 <article class="home-use-case-card">
-    <p class="eyebrow">Accès en lecture seule aux connaissances de MCP</p>
-    <h3><a href="/fr/mcp-knowledge-base-mac/">Laissez les applications d&#39;IA compatibles rechercher un pack - pas tout votre Mac.</a></h3>
-    <p>Autorisez un paquet enregistré comme une capture instantanée locale, en lecture seule, que un client d&#39;IA compatible peut rechercher et lire.</p>
+    <p class="eyebrow">Accès aux connaissances par MCP en lecture seule</p>
+    <h3><a href="/fr/mcp-knowledge-base-mac/">Laissez les apps IA compatibles rechercher un Pack, pas tout votre Mac</a></h3>
+    <p>Autorisez un Pack enregistré comme instantané contrôlé et en lecture seule pour un client IA compatible.</p>
   </article></div>
   </section>
 
     <section class="section home-closing-section" aria-labelledby="closing-title">
       <div>
-        <h2 id="closing-title">Créez la base de connaissances qui manquait à votre IA.</h2>
-        <p>Choisissez les bonnes sources, gardez le contrôle des originaux et réutilisez un contexte ciblé avec les assistants compatibles.</p>
+        <h2 id="closing-title">Transformez les recherches que vous avez déjà en quelque chose d’utile.</h2>
+        <p>Convertissez des documents, capturez des pages Web, créez des Packs ciblés et interrogez vos sources, tout en gardant le contrôle de vos recherches.</p>
       </div>
       <div class="actions">
-        <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12">Télécharger dans le Mac App Store</a>
+        <a class="button button-primary" href="https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729">Télécharger dans l’App Store</a>
         <a class="button button-secondary" href="/fr/docs/">Explorer la documentation SourceShelf</a>
       </div>
     </section>

@@ -23,7 +23,7 @@ private let sharedStrings = [
     "Documentation",
     "Support",
     "Download",
-    "Download SourceShelf on the Mac App Store",
+    "Download SourceShelf on the App Store",
     "Toggle dark mode",
     "Switch to light mode",
     "Switch to dark mode",

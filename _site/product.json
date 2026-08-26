@@ -39,7 +39,7 @@
     }
   },
   "appStore": {
-    "default": "https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12",
+    "default": "https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729",
     "campaigns": {
       "privateAIKnowledgeBase": null,
       "pdfToMarkdown": null,
@@ -58,7 +58,7 @@
   },
   "software": {
     "name": "SourceShelf",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "operatingSystem": "macOS 14.0 or later",
     "applicationCategory": "ProductivityApplication",
     "offer": {

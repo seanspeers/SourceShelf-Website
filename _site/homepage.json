@@ -1,10 +1,12 @@
 {
   "en": {
     "meta": {
-      "title": "SourceShelf — Private AI Knowledge Base for Mac",
-      "description": "Turn your Mac into a private AI knowledge base. Capture research, organize sources, and connect selected knowledge to compatible AI assistants with local-first workflows.",
-      "socialTitle": "Give your AI the right sources at the right time",
-      "socialDescription": "Build a private knowledge library on your Mac, then connect selected sources to compatible AI assistants without giving up control of your files."
+      "title": "SourceShelf — PDF to Markdown, OCR & Research for Apple Devices",
+      "description": "Convert PDFs and scans to Markdown, capture webpages from Safari, organize research into Packs, and ask your sources on supported devices with on-device AI.",
+      "socialTitle": "Turn PDFs and webpages into useful Markdown",
+      "socialDescription": "Convert documents locally, capture research from Safari, organize the sources that matter, and ask questions across them on supported devices with on-device AI.",
+      "socialImage": "10-pdf-to-markdown-social.jpg",
+      "socialImageAlt": "SourceShelf converting PDFs and scans to Markdown with local extraction and OCR."
     },
     "lightbox": {
       "open": "View larger",
@@ -16,110 +18,168 @@
       "dialogLabel": "Screenshot viewer"
     },
     "hero": {
-      "eyebrow": "Private AI knowledge base for Mac",
-      "title": "Give your AI the right sources at the right time.",
-      "tagline": "Turn your Mac into a private AI knowledge base.",
-      "description": "Capture research, organize sources, and connect your documents directly to AI assistants with local-first workflows.",
-      "download": "Download on the Mac App Store",
+      "eyebrow": "Private research tools for Mac, iPhone & iPad",
+      "title": "Turn PDFs and webpages into useful Markdown.",
+      "tagline": "",
+      "description": "Convert documents locally, capture research from Safari, organize the sources that matter, and, on supported devices, ask questions across them with on-device AI.",
+      "download": "Download on the App Store",
       "seeHow": "See how it works",
-      "alt": "SourceShelf pack builder showing an ordered set of research files selected for use by an AI assistant."
+      "image": "10-pdf-to-markdown",
+      "alt": "SourceShelf converting a PDF and scanned pages into searchable Markdown using local extraction and OCR."
     },
-    "proof": ["Local processing", "Read-only AI access", "No SourceShelf cloud", "No telemetry"],
+    "proof": ["Local PDF & OCR", "Safari to Markdown", "On-device Ask This Pack", "No SourceShelf cloud"],
     "capture": {
-      "eyebrow": "Build your knowledge library",
-      "title": "Bring scattered research together.",
-      "intro": "Capture webpages, files, and existing knowledge collections, then organize everything in a searchable local library.",
+      "eyebrow": "Convert → Ask → Capture",
+      "title": "Convert documents into useful Markdown.",
+      "intro": "Start with a PDF, scan, image, or webpage, then keep the result in a searchable local research library.",
       "items": [
         {
           "image": "04-convert-files-for-ai",
-          "title": "Make files ready for AI",
-          "description": "Convert PDFs, Office files, scans, websites, Markdown, text, and more — locally on your Mac.",
-          "alt": "SourceShelf conversion screen ready to process documents and folders into AI-friendly formats."
+          "title": "Convert PDFs & scans locally",
+          "description": "Convert PDF to Markdown with local text extraction, or use Apple OCR for scanned PDFs and images. SourceShelf creates normal Markdown you can inspect, edit, archive, search, or add to a Pack.",
+          "alt": "SourceShelf conversion screen ready to turn PDFs, scans, and supported documents into Markdown.",
+          "link": "/pdf-to-markdown-mac/",
+          "linkLabel": "Explore PDF to Markdown"
+        },
+        {
+          "id": "ask-this-pack",
+          "image": "11-ask-this-pack",
+          "title": "Ask the research you saved",
+          "description": "Add the sources that matter to a Pack, then ask questions across them directly in SourceShelf. On supported Apple Intelligence devices, answers are generated on-device using the selected Pack as context.",
+          "alt": "Ask This Pack in SourceShelf answering a question from selected research sources and showing citations."
         },
         {
           "image": "05-capture-from-safari",
-          "title": "Save research from Safari",
-          "description": "Capture full pages, main content, selections, and page areas directly from Safari.",
-          "alt": "SourceShelf Safari extension offering page, main-content, selection, and area capture modes."
-        },
-        {
-          "image": "06-organize-research",
-          "title": "Keep research organized",
-          "description": "Build ordered packs you can save and reuse, with previews, filters, and source tracking.",
-          "alt": "SourceShelf searchable library containing organized research sources."
+          "title": "Save webpages as Markdown",
+          "description": "Capture a full page, main article, selection, visible area, or research highlights from Safari and keep the result as local Markdown with source provenance.",
+          "alt": "SourceShelf Safari extension offering full-page, main-article, selection, visible-area, and research-highlight capture modes.",
+          "link": "/save-webpages-as-markdown-safari/",
+          "linkLabel": "Explore Safari to Markdown capture"
         }
       ]
     },
     "review": {
-      "eyebrow": "Keep knowledge trustworthy",
-      "title": "Know what changed. Review what you share.",
-      "intro": "Focused context works best when it is current and intentional. SourceShelf helps you inspect a pack before it reaches your assistant.",
+      "eyebrow": "Organize what matters",
+      "title": "Bring related research together.",
+      "intro": "Combine converted documents, saved webpages, notes, and other sources into focused Packs you can search, reuse, ask, export, or move between devices.",
       "items": [
         {
+          "image": "06-organize-research",
+          "title": "Build a focused Pack",
+          "description": "Keep the sources for a project together in a searchable Pack that stays useful across reading, asking, exporting, and reuse.",
+          "alt": "SourceShelf searchable research Library containing organized sources and reusable Packs."
+        },
+        {
           "image": "03-review-before-sharing",
-          "title": "Review before you share",
-          "description": "Spot missing files, stale pages, and risky instructions before sharing a pack.",
+          "title": "Check Pack Health before you share",
+          "description": "On Mac, spot missing files, stale pages, and risky instructions before sharing or exporting a Pack.",
           "alt": "SourceShelf Trust and Safety review showing the readiness of a selected knowledge pack."
         },
         {
           "image": "07-refresh-and-compare",
-          "title": "See exactly what changed",
-          "description": "Find new, changed, missing, and unchanged sources before refreshing your AI context.",
+          "title": "Review changes before you reuse them",
+          "description": "On Mac, Refresh & Compare finds new, changed, missing, and unchanged sources before you update a Pack.",
           "alt": "SourceShelf Refresh and Compare report classifying changed and missing sources."
         }
       ]
     },
     "connect": {
-      "eyebrow": "Connect your AI",
-      "title": "Give compatible assistants focused, reusable context.",
-      "intro": "Use a controlled, read-only snapshot through Model Context Protocol, or export a portable pack for another workflow. Your original files stay private.",
-      "guide": "See Local AI Access setup guides",
+      "eyebrow": "Portable context and controlled access",
+      "title": "Use your research wherever you need it.",
+      "intro": "Ask a Pack directly in SourceShelf, export it as portable Markdown-based context, or give a compatible AI client controlled read-only access.",
+      "guide": "See read-only Local AI Access setup guides",
       "items": [
         {
-          "image": "02-local-ai-access",
-          "title": "Use your pack in your AI app",
-          "description": "Connect to compatible AI apps without repeatedly uploading the same ZIP.",
-          "alt": "SourceShelf Local AI Access window publishing a read-only knowledge-pack snapshot."
+          "image": "08-export-workflows",
+          "title": "Export portable research context",
+          "description": "Create an AI Reference Pack, a Markdown Context Pack, one Markdown file, a portable llms.txt collection, or an OKF-compatible pack.",
+          "alt": "SourceShelf export options for AI bundles, Markdown, llms.txt, and other workflows."
         },
         {
-          "image": "08-export-workflows",
-          "title": "Export for any workflow",
-          "description": "Create an AI bundle, one Markdown file, a portable llms.txt collection, or an OKF-compatible pack.",
-          "alt": "SourceShelf export options for AI bundles, Markdown, llms.txt, and other workflows."
+          "image": "02-local-ai-access",
+          "title": "Connect a compatible AI client with read-only MCP",
+          "description": "On Mac, publish a controlled snapshot of one Pack so a compatible AI client can search it without browsing your whole Library.",
+          "alt": "SourceShelf Local AI Access window publishing a controlled read-only Pack snapshot through MCP."
         }
       ]
     },
     "privacy": {
       "eyebrow": "Your knowledge remains yours",
       "title": "Private by design.",
-      "description": "SourceShelf performs conversions locally, uses Apple’s built-in OCR technology, never uploads your documents, and requires no cloud account.",
-      "imageTitle": "Local processing. No SourceShelf cloud. No telemetry.",
+      "description": "PDF extraction, local OCR, Safari capture, Library work, and Ask This Pack all run on your device. Ask This Pack uses Apple’s on-device model on supported Apple Intelligence devices.",
+      "detail": "SourceShelf does not upload your documents, requires no SourceShelf cloud account, and sends no app telemetry or tracking. A third-party AI client connected through MCP follows its own model and privacy policies.",
+      "imageTitle": "Local extraction and OCR. No SourceShelf cloud. No app telemetry.",
       "privacyLink": "Read the privacy details",
-      "alt": "SourceShelf privacy settings explaining local, read-only AI sharing and private processing."
+      "alt": "SourceShelf privacy settings explaining local processing, no SourceShelf cloud, no account, and no app telemetry."
     },
     "overview": {
-      "eyebrow": "Made for knowledge work",
-      "title": "Your sources, prepared for the way you use AI.",
-      "formatsTitle": "Bring the formats you already use.",
-      "formatsDescription": "Webpages, PDFs and scans, Word, PowerPoint, Excel, HTML, Markdown, text, and existing llms.txt collections.",
+      "eyebrow": "Built for Apple devices",
+      "title": "Research stays useful from capture to question.",
+      "formatsTitle": "Start with the formats you already use.",
+      "formatsDescription": "PDF to Markdown, scanned PDF to Markdown with local OCR, and webpage to Markdown from Safari work across supported Apple devices. On Mac, SourceShelf also converts Word, PowerPoint, Excel, RTF, HTML, Markdown, and text.",
       "formatsLink": "See supported formats",
-      "audienceTitle": "Useful wherever knowledge matters.",
-      "audienceDescription": "For researchers, developers, students and academics, privacy-conscious professionals, and anyone building a personal AI knowledge base.",
+      "audienceTitle": "Carry focused research between devices.",
+      "audienceDescription": "Use the local Library, Packs, portable import and export, offline reading, and Ask This Pack on Mac, iPhone, and iPad. Mac adds advanced Pack Health, Refresh & Compare, and MCP workflows.",
       "docsLink": "Explore the documentation"
     },
+    "useCases": {
+      "eyebrow": "SourceShelf use cases",
+      "title": "Ways to use SourceShelf",
+      "intro": "Start with the concrete workflow that matches the research you need to convert, capture, organize, or ask.",
+      "items": [
+        {
+          "eyebrow": "Local PDF conversion",
+          "title": "Convert PDFs and scans to Markdown locally",
+          "description": "Extract text or use local Apple OCR, then inspect, edit, archive, search, or add the Markdown to a Pack.",
+          "href": "/pdf-to-markdown-mac/"
+        },
+        {
+          "eyebrow": "Safari web capture",
+          "title": "Save webpages and research as Markdown",
+          "description": "Capture full pages, articles, selections, visible areas, or ordered highlights from Safari with source provenance.",
+          "href": "/save-webpages-as-markdown-safari/"
+        },
+        {
+          "eyebrow": "Ask your research",
+          "title": "Ask questions across a focused Pack",
+          "description": "Use your selected sources as context for on-device answers on supported Apple Intelligence devices.",
+          "href": "#ask-this-pack"
+        },
+        {
+          "eyebrow": "Local research archive",
+          "title": "Build a durable, searchable research archive",
+          "description": "Keep converted documents, captured webpages, notes, provenance, and Packs in a local Library.",
+          "href": "/research-archive-mac/"
+        },
+        {
+          "eyebrow": "Private AI knowledge base",
+          "title": "Bring selected sources together for AI-assisted work",
+          "description": "Create focused, reusable context without exposing unrelated Library sources.",
+          "href": "/private-ai-knowledge-base-mac/"
+        },
+        {
+          "eyebrow": "Read-only MCP knowledge access",
+          "title": "Let compatible AI apps search a Pack—not your whole Mac",
+          "description": "Authorize one saved Pack as a controlled, read-only snapshot for a compatible AI client.",
+          "href": "/mcp-knowledge-base-mac/"
+        }
+      ]
+    },
     "closing": {
-      "title": "Build the knowledge base your AI has been missing.",
-      "description": "Choose the right sources, keep control of the originals, and reuse focused context across compatible assistants.",
-      "download": "Download on the Mac App Store",
+      "title": "Turn the research you already have into something you can use.",
+      "description": "Convert documents, capture webpages, build focused Packs, and ask your sources — while keeping your research under your control.",
+      "download": "Download on the App Store",
       "learn": "Explore SourceShelf documentation"
     }
   },
   "fr": {
     "meta": {
-      "title": "SourceShelf — Base de connaissances privée pour l’IA sur Mac",
-      "description": "Transformez votre Mac en base de connaissances privée pour l’IA. Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA, en local.",
-      "socialTitle": "Fournissez à l’IA les bonnes sources au bon moment",
-      "socialDescription": "Créez une bibliothèque de connaissances privée sur votre Mac, puis reliez les sources sélectionnées aux assistants IA compatibles sans perdre le contrôle de vos fichiers."
+      "title": "SourceShelf — PDF en Markdown, OCR et recherche sur appareils Apple",
+      "description": "Convertissez PDF et numérisations en Markdown, capturez des pages Safari, organisez vos recherches en Packs et interrogez vos sources sur les appareils compatibles.",
+      "socialTitle": "Transformez PDF et pages Web en Markdown utile",
+      "socialDescription": "Convertissez des documents localement, capturez vos recherches dans Safari, organisez les sources utiles et interrogez-les sur l’appareil, lorsque celui-ci est compatible.",
+      "socialImage": "10-pdf-to-markdown-social.jpg",
+      "socialImageAlt": "SourceShelf convertissant des PDF et des numérisations en Markdown par extraction locale et OCR."
     },
     "lightbox": {
       "open": "Agrandir",
@@ -131,110 +191,138 @@
       "dialogLabel": "Visionneuse de capture d’écran"
     },
     "hero": {
-      "eyebrow": "Base de connaissances privée pour l’IA sur Mac",
-      "title": "Fournissez à l’IA les bonnes sources au bon moment.",
-      "tagline": "Transformez votre Mac en base de connaissances privée pour l’IA.",
-      "description": "Capturez vos recherches, organisez vos sources et reliez vos documents aux assistants IA grâce à des flux de travail locaux.",
-      "download": "Télécharger dans le Mac App Store",
+      "eyebrow": "Outils de recherche privés pour Mac, iPhone et iPad",
+      "title": "Transformez PDF et pages Web en Markdown utile.",
+      "tagline": "",
+      "description": "Convertissez des documents localement, capturez vos recherches dans Safari, organisez les sources utiles et, sur les appareils compatibles, interrogez-les avec l’IA sur l’appareil.",
+      "download": "Télécharger dans l’App Store",
       "seeHow": "Voir comment ça fonctionne",
-      "alt": "Créateur de packs SourceShelf montrant un ensemble ordonné de fichiers de recherche sélectionnés pour une utilisation par un assistant IA."
+      "image": "10-pdf-to-markdown",
+      "alt": "SourceShelf convertissant un PDF et des pages numérisées en Markdown consultable par extraction locale et OCR."
     },
-    "proof": ["Traitement local", "Accès IA en lecture seule", "Aucun nuage SourceShelf", "Aucune télémétrie"],
+    "proof": ["PDF et OCR en local", "Safari vers Markdown", "Ask This Pack sur l’appareil", "Aucun nuage SourceShelf"],
     "capture": {
-      "eyebrow": "Créez votre bibliothèque de connaissances",
-      "title": "Rassemblez vos recherches dispersées.",
-      "intro": "Capturez des pages Web, des fichiers et des collections existantes, puis organisez le tout dans une bibliothèque locale consultable.",
+      "eyebrow": "Convertir → Interroger → Capturer",
+      "title": "Convertissez vos documents en Markdown utile.",
+      "intro": "Commencez avec un PDF, une numérisation, une image ou une page Web, puis conservez le résultat dans une bibliothèque de recherche locale et consultable.",
       "items": [
         {
           "image": "04-convert-files-for-ai",
-          "title": "Préparez vos fichiers pour l’IA",
-          "description": "Convertissez PDF, fichiers Office, scans, sites Web, Markdown, texte et plus encore, localement sur votre Mac.",
-          "alt": "Écran de conversion SourceShelf prêt à transformer des documents et des dossiers en formats adaptés à l’IA."
+          "title": "Convertissez PDF et numérisations en local",
+          "description": "Convertissez un PDF en Markdown par extraction locale, ou utilisez l’OCR Apple pour les PDF numérisés et les images. Le Markdown normal peut être inspecté, modifié, archivé, recherché ou ajouté à un Pack.",
+          "alt": "Écran SourceShelf prêt à convertir des PDF, des numérisations et des documents pris en charge en Markdown.",
+          "link": "/pdf-to-markdown-mac/",
+          "linkLabel": "Explorer la conversion PDF vers Markdown"
+        },
+        {
+          "id": "ask-this-pack",
+          "image": "11-ask-this-pack",
+          "title": "Interrogez les recherches enregistrées",
+          "description": "Ajoutez les sources utiles à un Pack, puis posez des questions directement dans SourceShelf. Sur les appareils compatibles avec Apple Intelligence, les réponses sont générées sur l’appareil à partir du Pack sélectionné.",
+          "alt": "Ask This Pack dans SourceShelf répondant à une question à partir des sources choisies et affichant les références."
         },
         {
           "image": "05-capture-from-safari",
-          "title": "Capturez depuis Safari",
-          "description": "Capturez des pages entières, le contenu principal, des sélections et des zones directement dans Safari.",
-          "alt": "Extension Safari SourceShelf proposant la capture de page, de contenu principal, de sélection et de zone."
-        },
-        {
-          "image": "06-organize-research",
-          "title": "Organisez vos recherches",
-          "description": "Créez des packs ordonnés à sauvegarder et à réutiliser, avec aperçus, filtres et suivi des sources.",
-          "alt": "Bibliothèque SourceShelf consultable contenant des sources de recherche organisées."
+          "title": "Enregistrez les pages Web en Markdown",
+          "description": "Capturez une page entière, l’article principal, une sélection, la zone visible ou des extraits de recherche dans Safari, puis conservez le résultat en Markdown local avec sa provenance.",
+          "alt": "Extension Safari SourceShelf proposant la capture d’une page, de l’article principal, d’une sélection, de la zone visible et d’extraits de recherche.",
+          "link": "/save-webpages-as-markdown-safari/",
+          "linkLabel": "Explorer la capture Safari vers Markdown"
         }
       ]
     },
     "review": {
-      "eyebrow": "Gardez des connaissances fiables",
-      "title": "Voyez ce qui a changé. Vérifiez ce que vous partagez.",
-      "intro": "Un contexte ciblé est plus utile lorsqu’il est actuel et intentionnel. SourceShelf vous aide à inspecter un pack avant qu’il atteigne votre assistant.",
+      "eyebrow": "Organisez ce qui compte",
+      "title": "Réunissez les recherches connexes.",
+      "intro": "Combinez documents convertis, pages Web enregistrées, notes et autres sources dans des Packs ciblés que vous pouvez rechercher, réutiliser, interroger, exporter ou déplacer entre appareils.",
       "items": [
         {
+          "image": "06-organize-research",
+          "title": "Créez un Pack ciblé",
+          "description": "Regroupez les sources d’un projet dans un Pack consultable, utile pour la lecture, les questions, l’exportation et la réutilisation.",
+          "alt": "Bibliothèque de recherche SourceShelf contenant des sources organisées et des Packs réutilisables."
+        },
+        {
           "image": "03-review-before-sharing",
-          "title": "Vérifiez avant de partager",
-          "description": "Repérez les fichiers manquants, les pages périmées et les instructions risquées avant le partage.",
+          "title": "Vérifiez l’état du Pack avant le partage",
+          "description": "Sur Mac, repérez les fichiers manquants, les pages périmées et les instructions risquées avant de partager ou d’exporter un Pack.",
           "alt": "Vérification Confiance et sécurité de SourceShelf montrant l’état de préparation d’un pack de connaissances."
         },
         {
           "image": "07-refresh-and-compare",
-          "title": "Voyez ce qui a changé",
-          "description": "Repérez les sources nouvelles, modifiées, manquantes et inchangées avant d’actualiser le contexte de votre IA.",
+          "title": "Vérifiez les changements avant de réutiliser",
+          "description": "Sur Mac, Actualiser et comparer repère les sources nouvelles, modifiées, manquantes et inchangées avant la mise à jour d’un Pack.",
           "alt": "Rapport Actualiser et comparer de SourceShelf classant les sources modifiées et manquantes."
         }
       ]
     },
     "connect": {
-      "eyebrow": "Connectez votre IA",
-      "title": "Fournissez un contexte ciblé et réutilisable aux assistants compatibles.",
-      "intro": "Utilisez un instantané contrôlé et en lecture seule avec le Model Context Protocol, ou exportez un pack portable pour un autre flux de travail. Vos fichiers originaux restent privés.",
-      "guide": "Voir les guides de configuration de l’accès local à l’IA",
+      "eyebrow": "Contexte portable et accès contrôlé",
+      "title": "Utilisez vos recherches là où vous en avez besoin.",
+      "intro": "Interrogez un Pack dans SourceShelf, exportez-le comme contexte portable fondé sur Markdown ou accordez un accès contrôlé et en lecture seule à un client IA compatible.",
+      "guide": "Voir les guides d’accès local à l’IA en lecture seule",
       "items": [
         {
-          "image": "02-local-ai-access",
-          "title": "Votre pack dans votre app d’IA",
-          "description": "Connectez des apps compatibles sans téléverser le même ZIP chaque fois.",
-          "alt": "Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de pack en lecture seule."
+          "image": "08-export-workflows",
+          "title": "Exportez un contexte de recherche portable",
+          "description": "Créez un Pack de référence IA, un Pack de contexte Markdown, un fichier Markdown unique, une collection llms.txt portable ou un Pack compatible avec OKF.",
+          "alt": "Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail."
         },
         {
-          "image": "08-export-workflows",
-          "title": "Exportez à votre façon",
-          "description": "Créez un bundle IA, un fichier Markdown, une collection llms.txt portable ou un pack compatible avec OKF.",
-          "alt": "Options d’exportation SourceShelf pour les bundles IA, Markdown, llms.txt et d’autres flux de travail."
+          "image": "02-local-ai-access",
+          "title": "Connectez un client IA compatible par MCP en lecture seule",
+          "description": "Sur Mac, publiez un instantané contrôlé d’un seul Pack afin qu’un client IA compatible puisse le rechercher sans parcourir toute votre Bibliothèque.",
+          "alt": "Fenêtre Accès local à l’IA de SourceShelf publiant un instantané de Pack contrôlé et en lecture seule par MCP."
         }
       ]
     },
     "privacy": {
       "eyebrow": "Vos connaissances restent les vôtres",
       "title": "Confidentialité dès la conception.",
-      "description": "SourceShelf effectue les conversions localement, utilise la technologie OCR intégrée d’Apple, ne téléverse jamais vos documents et n’exige aucun compte infonuagique.",
-      "imageTitle": "Traitement local. Aucun nuage SourceShelf. Aucune télémétrie.",
+      "description": "L’extraction PDF, l’OCR local, la capture Safari, la Bibliothèque et Ask This Pack fonctionnent sur votre appareil. Ask This Pack utilise le modèle Apple sur l’appareil compatible avec Apple Intelligence.",
+      "detail": "SourceShelf ne téléverse pas vos documents, n’exige aucun compte infonuagique SourceShelf et n’envoie aucune télémétrie ni suivi depuis l’app. Un client IA tiers relié par MCP suit ses propres politiques de modèle et de confidentialité.",
+      "imageTitle": "Extraction et OCR en local. Aucun nuage SourceShelf. Aucune télémétrie dans l’app.",
       "privacyLink": "Lire les détails sur la confidentialité",
-      "alt": "Réglages de confidentialité SourceShelf expliquant le partage IA local en lecture seule et le traitement privé."
+      "alt": "Réglages de confidentialité SourceShelf expliquant le traitement local, l’absence de nuage et de compte SourceShelf, ainsi que l’absence de télémétrie dans l’app."
     },
     "overview": {
-      "eyebrow": "Conçu pour le travail intellectuel",
-      "title": "Vos sources, préparées pour votre façon d’utiliser l’IA.",
-      "formatsTitle": "Utilisez les formats que vous connaissez déjà.",
-      "formatsDescription": "Pages Web, PDF et scans, Word, PowerPoint, Excel, HTML, Markdown, texte et collections llms.txt existantes.",
+      "eyebrow": "Conçu pour les appareils Apple",
+      "title": "Vos recherches restent utiles, de la capture à la question.",
+      "formatsTitle": "Commencez avec vos formats habituels.",
+      "formatsDescription": "La conversion de PDF en Markdown, de PDF numérisé en Markdown avec OCR local et de page Web en Markdown depuis Safari fonctionne sur les appareils Apple compatibles. Sur Mac, SourceShelf convertit aussi Word, PowerPoint, Excel, RTF, HTML, Markdown et le texte.",
       "formatsLink": "Voir les formats pris en charge",
-      "audienceTitle": "Utile partout où les connaissances comptent.",
-      "audienceDescription": "Pour les chercheurs, les développeurs, les étudiants et universitaires, les professionnels soucieux de la confidentialité et toute personne qui crée sa base de connaissances pour l’IA.",
+      "audienceTitle": "Déplacez des recherches ciblées entre vos appareils.",
+      "audienceDescription": "Utilisez la Bibliothèque locale, les Packs, l’importation et l’exportation portables, la lecture hors ligne et Ask This Pack sur Mac, iPhone et iPad. Le Mac ajoute l’état du Pack, Actualiser et comparer et les flux MCP avancés.",
       "docsLink": "Explorer la documentation"
     },
+    "useCases": {
+      "eyebrow": "Cas d’utilisation de SourceShelf",
+      "title": "Façons d’utiliser SourceShelf",
+      "intro": "Commencez par le flux concret qui correspond aux recherches à convertir, capturer, organiser ou interroger.",
+      "items": [
+        {"eyebrow": "Conversion PDF locale", "title": "Convertissez PDF et numérisations en Markdown localement", "description": "Extrayez le texte ou utilisez l’OCR Apple local, puis inspectez, modifiez, archivez, recherchez ou ajoutez le Markdown à un Pack.", "href": "/pdf-to-markdown-mac/"},
+        {"eyebrow": "Capture Web dans Safari", "title": "Enregistrez pages Web et recherches en Markdown", "description": "Capturez pages entières, articles, sélections, zones visibles ou extraits ordonnés dans Safari avec leur provenance.", "href": "/save-webpages-as-markdown-safari/"},
+        {"eyebrow": "Interrogez vos recherches", "title": "Posez des questions à un Pack ciblé", "description": "Utilisez les sources choisies comme contexte pour des réponses sur l’appareil compatible avec Apple Intelligence.", "href": "#ask-this-pack"},
+        {"eyebrow": "Archive de recherche locale", "title": "Créez une archive de recherche durable et consultable", "description": "Conservez documents convertis, pages capturées, notes, provenance et Packs dans une Bibliothèque locale.", "href": "/research-archive-mac/"},
+        {"eyebrow": "Base de connaissances privée pour l’IA", "title": "Réunissez les sources choisies pour le travail assisté par l’IA", "description": "Créez un contexte ciblé et réutilisable sans exposer les sources sans rapport de la Bibliothèque.", "href": "/private-ai-knowledge-base-mac/"},
+        {"eyebrow": "Accès aux connaissances par MCP en lecture seule", "title": "Laissez les apps IA compatibles rechercher un Pack, pas tout votre Mac", "description": "Autorisez un Pack enregistré comme instantané contrôlé et en lecture seule pour un client IA compatible.", "href": "/mcp-knowledge-base-mac/"}
+      ]
+    },
     "closing": {
-      "title": "Créez la base de connaissances qui manquait à votre IA.",
-      "description": "Choisissez les bonnes sources, gardez le contrôle des originaux et réutilisez un contexte ciblé avec les assistants compatibles.",
-      "download": "Télécharger dans le Mac App Store",
+      "title": "Transformez les recherches que vous avez déjà en quelque chose d’utile.",
+      "description": "Convertissez des documents, capturez des pages Web, créez des Packs ciblés et interrogez vos sources, tout en gardant le contrôle de vos recherches.",
+      "download": "Télécharger dans l’App Store",
       "learn": "Explorer la documentation SourceShelf"
     }
   },
   "es-419": {
     "meta": {
-      "title": "SourceShelf — Base privada de conocimiento para IA en Mac",
-      "description": "Convierte tu Mac en una base privada de conocimiento para IA. Captura y organiza fuentes, y conecta tus documentos con asistentes de IA mediante flujos locales.",
-      "socialTitle": "Dale a la IA las fuentes adecuadas en el momento justo",
-      "socialDescription": "Crea una biblioteca privada de conocimiento en tu Mac y conecta las fuentes que elijas con asistentes de IA compatibles sin perder el control de tus archivos."
+      "title": "SourceShelf — PDF a Markdown, OCR e investigación en dispositivos Apple",
+      "description": "Convierte PDF y escaneos a Markdown, captura páginas de Safari, organiza la investigación en Packs y consulta tus fuentes en dispositivos compatibles.",
+      "socialTitle": "Convierte PDF y páginas web en Markdown útil",
+      "socialDescription": "Convierte documentos localmente, captura investigación desde Safari, organiza las fuentes importantes y consúltalas en el dispositivo cuando sea compatible.",
+      "socialImage": "10-pdf-to-markdown-social.jpg",
+      "socialImageAlt": "SourceShelf convierte PDF y escaneos a Markdown con extracción local y OCR."
     },
     "lightbox": {
       "open": "Ver más grande",
@@ -246,110 +334,138 @@
       "dialogLabel": "Visor de capturas de pantalla"
     },
     "hero": {
-      "eyebrow": "Base privada de conocimiento para IA en Mac",
-      "title": "Dale a la IA las fuentes adecuadas en el momento justo.",
-      "tagline": "Convierte tu Mac en una base privada de conocimiento para IA.",
-      "description": "Captura y organiza fuentes, y conecta tus documentos directamente con asistentes de IA mediante flujos locales.",
-      "download": "Descargar en la Mac App Store",
+      "eyebrow": "Herramientas privadas de investigación para Mac, iPhone y iPad",
+      "title": "Convierte PDF y páginas web en Markdown útil.",
+      "tagline": "",
+      "description": "Convierte documentos localmente, captura investigación desde Safari, organiza las fuentes importantes y, en dispositivos compatibles, hazles preguntas con IA en el dispositivo.",
+      "download": "Descargar en App Store",
       "seeHow": "Mira cómo funciona",
-      "alt": "Creador de paquetes de SourceShelf con un conjunto ordenado de archivos de investigación elegidos para un asistente de IA."
+      "image": "10-pdf-to-markdown",
+      "alt": "SourceShelf convierte un PDF y páginas escaneadas a Markdown consultable con extracción local y OCR."
     },
-    "proof": ["Procesamiento local", "Acceso de IA de solo lectura", "Sin nube SourceShelf", "Sin telemetría"],
+    "proof": ["PDF y OCR locales", "Safari a Markdown", "Ask This Pack en el dispositivo", "Sin nube de SourceShelf"],
     "capture": {
-      "eyebrow": "Crea tu biblioteca de conocimiento",
-      "title": "Reúne toda tu investigación.",
-      "intro": "Captura páginas web, archivos y colecciones existentes, y organiza todo en una biblioteca local que puedes buscar.",
+      "eyebrow": "Convertir → Consultar → Capturar",
+      "title": "Convierte documentos en Markdown útil.",
+      "intro": "Empieza con un PDF, escaneo, imagen o página web y guarda el resultado en una biblioteca de investigación local que puedas buscar.",
       "items": [
         {
           "image": "04-convert-files-for-ai",
-          "title": "Prepara archivos para la IA",
-          "description": "Convierte archivos PDF y Office, escaneos, sitios web, Markdown, texto y más, de forma local en tu Mac.",
-          "alt": "Pantalla de conversión de SourceShelf lista para transformar documentos y carpetas en formatos para IA."
+          "title": "Convierte PDF y escaneos localmente",
+          "description": "Convierte PDF a Markdown con extracción local o usa el OCR de Apple para PDF escaneados e imágenes. SourceShelf crea Markdown normal que puedes revisar, editar, archivar, buscar o agregar a un Pack.",
+          "alt": "Pantalla de SourceShelf lista para convertir PDF, escaneos y documentos compatibles a Markdown.",
+          "link": "/pdf-to-markdown-mac/",
+          "linkLabel": "Explorar la conversión de PDF a Markdown"
+        },
+        {
+          "id": "ask-this-pack",
+          "image": "11-ask-this-pack",
+          "title": "Consulta la investigación que guardaste",
+          "description": "Agrega las fuentes importantes a un Pack y haz preguntas directamente en SourceShelf. En dispositivos compatibles con Apple Intelligence, las respuestas se generan en el dispositivo usando el Pack seleccionado como contexto.",
+          "alt": "Ask This Pack de SourceShelf responde una pregunta a partir de fuentes seleccionadas y muestra citas."
         },
         {
           "image": "05-capture-from-safari",
-          "title": "Investiga desde Safari",
-          "description": "Captura páginas completas, contenido principal, selecciones y áreas directamente desde Safari.",
-          "alt": "Extensión de Safari de SourceShelf con opciones para capturar páginas, contenido principal, selecciones y áreas."
-        },
-        {
-          "image": "06-organize-research",
-          "title": "Organiza tu investigación",
-          "description": "Crea paquetes ordenados que puedes guardar y reutilizar, con vistas previas, filtros y seguimiento de fuentes.",
-          "alt": "Biblioteca de SourceShelf con fuentes de investigación organizadas y disponibles para búsqueda."
+          "title": "Guarda páginas web como Markdown",
+          "description": "Captura una página completa, el artículo principal, una selección, el área visible o fragmentos de investigación desde Safari y guarda el resultado como Markdown local con procedencia.",
+          "alt": "Extensión de Safari de SourceShelf con modos para capturar la página completa, el artículo principal, una selección, el área visible y fragmentos de investigación.",
+          "link": "/save-webpages-as-markdown-safari/",
+          "linkLabel": "Explorar captura de Safari a Markdown"
         }
       ]
     },
     "review": {
-      "eyebrow": "Mantén confiable tu conocimiento",
-      "title": "Mira qué cambió. Revisa lo que compartes.",
-      "intro": "El contexto específico funciona mejor cuando está actualizado y es intencional. SourceShelf te ayuda a revisar un paquete antes de que llegue a tu asistente.",
+      "eyebrow": "Organiza lo importante",
+      "title": "Reúne la investigación relacionada.",
+      "intro": "Combina documentos convertidos, páginas guardadas, notas y otras fuentes en Packs específicos que puedes buscar, reutilizar, consultar, exportar o mover entre dispositivos.",
       "items": [
         {
+          "image": "06-organize-research",
+          "title": "Crea un Pack específico",
+          "description": "Mantén las fuentes de un proyecto en un Pack que puedas buscar y reutilizar para leer, consultar y exportar.",
+          "alt": "Biblioteca de investigación de SourceShelf con fuentes organizadas y Packs reutilizables."
+        },
+        {
           "image": "03-review-before-sharing",
-          "title": "Revisa antes de compartir",
-          "description": "Detecta archivos faltantes, páginas desactualizadas e instrucciones riesgosas antes de compartir.",
+          "title": "Revisa la Salud del Pack antes de compartir",
+          "description": "En Mac, detecta archivos faltantes, páginas desactualizadas e instrucciones riesgosas antes de compartir o exportar un Pack.",
           "alt": "Revisión de confianza y seguridad de SourceShelf con el estado de un paquete de conocimiento."
         },
         {
           "image": "07-refresh-and-compare",
-          "title": "Mira qué cambió",
-          "description": "Encuentra fuentes nuevas, modificadas, faltantes y sin cambios antes de actualizar el contexto de tu IA.",
+          "title": "Revisa los cambios antes de reutilizar",
+          "description": "En Mac, Actualizar y comparar encuentra fuentes nuevas, modificadas, faltantes y sin cambios antes de actualizar un Pack.",
           "alt": "Informe Actualizar y comparar de SourceShelf que clasifica fuentes modificadas y faltantes."
         }
       ]
     },
     "connect": {
-      "eyebrow": "Conecta tu IA",
-      "title": "Dales a los asistentes compatibles un contexto específico y reutilizable.",
-      "intro": "Usa una instantánea controlada y de solo lectura mediante el Model Context Protocol, o exporta un paquete portátil para otro flujo de trabajo. Tus archivos originales permanecen privados.",
-      "guide": "Ver las guías de configuración de acceso local para IA",
+      "eyebrow": "Contexto portátil y acceso controlado",
+      "title": "Usa tu investigación donde la necesites.",
+      "intro": "Consulta un Pack directamente en SourceShelf, expórtalo como contexto portátil basado en Markdown o da acceso controlado y de solo lectura a un cliente de IA compatible.",
+      "guide": "Ver guías de acceso local para IA de solo lectura",
       "items": [
         {
-          "image": "02-local-ai-access",
-          "title": "Usa tu paquete en tu app de IA",
-          "description": "Conéctate a apps compatibles sin volver a cargar el mismo ZIP.",
-          "alt": "Ventana Acceso local para IA de SourceShelf que publica una instantánea de solo lectura."
+          "image": "08-export-workflows",
+          "title": "Exporta contexto de investigación portátil",
+          "description": "Crea un Pack de referencia para IA, un Pack de contexto Markdown, un archivo Markdown, una colección llms.txt portátil o un Pack compatible con OKF.",
+          "alt": "Opciones de exportación de SourceShelf para paquetes de IA, Markdown, llms.txt y otros flujos de trabajo."
         },
         {
-          "image": "08-export-workflows",
-          "title": "Exporta a tu manera",
-          "description": "Crea un paquete para IA, un archivo Markdown, una colección llms.txt portátil o un paquete compatible con OKF.",
-          "alt": "Opciones de exportación de SourceShelf para paquetes de IA, Markdown, llms.txt y otros flujos de trabajo."
+          "image": "02-local-ai-access",
+          "title": "Conecta un cliente de IA compatible con MCP de solo lectura",
+          "description": "En Mac, publica una instantánea controlada de un Pack para que un cliente de IA compatible pueda buscarla sin explorar toda tu Biblioteca.",
+          "alt": "Ventana Acceso local para IA de SourceShelf que publica una instantánea controlada y de solo lectura mediante MCP."
         }
       ]
     },
     "privacy": {
       "eyebrow": "Tu conocimiento sigue siendo tuyo",
       "title": "Privacidad desde el diseño.",
-      "description": "SourceShelf realiza las conversiones localmente, usa la tecnología OCR integrada de Apple, nunca carga tus documentos y no requiere cuentas en la nube.",
-      "imageTitle": "Procesamiento local. Sin nube SourceShelf. Sin telemetría.",
+      "description": "La extracción de PDF, el OCR local, la captura de Safari, la Biblioteca y Ask This Pack se ejecutan en tu dispositivo. Ask This Pack usa el modelo de Apple en dispositivos compatibles con Apple Intelligence.",
+      "detail": "SourceShelf no carga tus documentos, no requiere una cuenta en la nube de SourceShelf y no envía telemetría ni seguimiento desde la app. Un cliente de IA externo conectado mediante MCP sigue sus propias políticas de modelo y privacidad.",
+      "imageTitle": "Extracción y OCR locales. Sin nube de SourceShelf. Sin telemetría en la app.",
       "privacyLink": "Leer los detalles de privacidad",
-      "alt": "Configuración de privacidad de SourceShelf que explica el uso local y de solo lectura con IA."
+      "alt": "Configuración de privacidad de SourceShelf que explica el procesamiento local, la ausencia de nube y cuenta de SourceShelf y la ausencia de telemetría en la app."
     },
     "overview": {
-      "eyebrow": "Hecho para el trabajo con conocimiento",
-      "title": "Tus fuentes, preparadas para tu forma de usar la IA.",
-      "formatsTitle": "Usa los formatos que ya conoces.",
-      "formatsDescription": "Páginas web, archivos PDF y escaneos, Word, PowerPoint, Excel, HTML, Markdown, texto y colecciones llms.txt existentes.",
+      "eyebrow": "Creado para dispositivos Apple",
+      "title": "Tu investigación sigue siendo útil desde la captura hasta la pregunta.",
+      "formatsTitle": "Empieza con los formatos que ya usas.",
+      "formatsDescription": "PDF a Markdown, PDF escaneado a Markdown con OCR local y página web a Markdown desde Safari funcionan en dispositivos Apple compatibles. En Mac, SourceShelf también convierte Word, PowerPoint, Excel, RTF, HTML, Markdown y texto.",
       "formatsLink": "Ver formatos compatibles",
-      "audienceTitle": "Útil donde sea que importe el conocimiento.",
-      "audienceDescription": "Para investigadores, desarrolladores, estudiantes y académicos, profesionales que valoran la privacidad y cualquier persona que cree su propia base de conocimiento para IA.",
+      "audienceTitle": "Mueve investigación específica entre dispositivos.",
+      "audienceDescription": "Usa la Biblioteca local, Packs, importación y exportación portátil, lectura sin conexión y Ask This Pack en Mac, iPhone y iPad. Mac agrega Salud del Pack, Actualizar y comparar y flujos MCP avanzados.",
       "docsLink": "Explorar la documentación"
     },
+    "useCases": {
+      "eyebrow": "Casos de uso de SourceShelf",
+      "title": "Formas de usar SourceShelf",
+      "intro": "Empieza con el flujo concreto que coincide con la investigación que necesitas convertir, capturar, organizar o consultar.",
+      "items": [
+        {"eyebrow": "Conversión local de PDF", "title": "Convierte PDF y escaneos a Markdown localmente", "description": "Extrae texto o usa OCR local de Apple; luego revisa, edita, archiva, busca o agrega el Markdown a un Pack.", "href": "/pdf-to-markdown-mac/"},
+        {"eyebrow": "Captura web de Safari", "title": "Guarda páginas web e investigación como Markdown", "description": "Captura páginas completas, artículos, selecciones, áreas visibles o fragmentos ordenados desde Safari con procedencia.", "href": "/save-webpages-as-markdown-safari/"},
+        {"eyebrow": "Consulta tu investigación", "title": "Haz preguntas en un Pack específico", "description": "Usa las fuentes seleccionadas como contexto para respuestas en dispositivos compatibles con Apple Intelligence.", "href": "#ask-this-pack"},
+        {"eyebrow": "Archivo de investigación local", "title": "Crea un archivo de investigación duradero y consultable", "description": "Guarda documentos convertidos, páginas capturadas, notas, procedencia y Packs en una Biblioteca local.", "href": "/research-archive-mac/"},
+        {"eyebrow": "Base privada de conocimiento para IA", "title": "Reúne fuentes seleccionadas para trabajar con ayuda de IA", "description": "Crea contexto específico y reutilizable sin exponer fuentes no relacionadas de la Biblioteca.", "href": "/private-ai-knowledge-base-mac/"},
+        {"eyebrow": "Acceso de conocimiento MCP de solo lectura", "title": "Deja que apps de IA compatibles busquen un Pack, no toda tu Mac", "description": "Autoriza un Pack guardado como una instantánea controlada y de solo lectura para un cliente de IA compatible.", "href": "/mcp-knowledge-base-mac/"}
+      ]
+    },
     "closing": {
-      "title": "Crea la base de conocimiento que le faltaba a tu IA.",
-      "description": "Elige las fuentes adecuadas, conserva el control de los originales y reutiliza contexto específico con asistentes compatibles.",
-      "download": "Descargar en la Mac App Store",
+      "title": "Convierte la investigación que ya tienes en algo que puedas usar.",
+      "description": "Convierte documentos, captura páginas web, crea Packs específicos y consulta tus fuentes mientras mantienes tu investigación bajo control.",
+      "download": "Descargar en App Store",
       "learn": "Explorar la documentación de SourceShelf"
     }
   },
   "pt-BR": {
     "meta": {
-      "title": "SourceShelf — Base de conhecimento privada para IA no Mac",
-      "description": "Transforme seu Mac em uma base de conhecimento privada para IA. Capture pesquisas, organize fontes e conecte seus documentos a assistentes de IA com fluxos locais.",
-      "socialTitle": "Forneça à IA as fontes certas no momento certo",
-      "socialDescription": "Crie uma biblioteca de conhecimento privada no Mac e conecte as fontes selecionadas a assistentes de IA compatíveis sem perder o controle dos seus arquivos."
+      "title": "SourceShelf — PDF para Markdown, OCR e pesquisa em aparelhos Apple",
+      "description": "Converta PDFs e digitalizações em Markdown, capture páginas do Safari, organize pesquisas em Packs e consulte suas fontes em aparelhos compatíveis.",
+      "socialTitle": "Transforme PDFs e páginas da web em Markdown útil",
+      "socialDescription": "Converta documentos localmente, capture pesquisas pelo Safari, organize as fontes importantes e consulte-as no aparelho quando houver compatibilidade.",
+      "socialImage": "10-pdf-to-markdown-social.jpg",
+      "socialImageAlt": "O SourceShelf converte PDFs e digitalizações em Markdown com extração local e OCR."
     },
     "lightbox": {
       "open": "Ampliar",
@@ -361,110 +477,138 @@
       "dialogLabel": "Visualizador de capturas de tela"
     },
     "hero": {
-      "eyebrow": "Base de conhecimento privada para IA no Mac",
-      "title": "Forneça à IA as fontes certas no momento certo.",
-      "tagline": "Transforme seu Mac em uma base de conhecimento privada para IA.",
-      "description": "Capture pesquisas, organize fontes e conecte seus documentos diretamente a assistentes de IA com fluxos locais.",
-      "download": "Baixar na Mac App Store",
+      "eyebrow": "Ferramentas privadas de pesquisa para Mac, iPhone e iPad",
+      "title": "Transforme PDFs e páginas da web em Markdown útil.",
+      "tagline": "",
+      "description": "Converta documentos localmente, capture pesquisas pelo Safari, organize as fontes importantes e, em aparelhos compatíveis, faça perguntas com IA no dispositivo.",
+      "download": "Baixar na App Store",
       "seeHow": "Veja como funciona",
-      "alt": "Criador de pacotes do SourceShelf com um conjunto ordenado de arquivos de pesquisa selecionados para um assistente de IA."
+      "image": "10-pdf-to-markdown",
+      "alt": "O SourceShelf converte um PDF e páginas digitalizadas em Markdown pesquisável com extração local e OCR."
     },
-    "proof": ["Processamento local", "Acesso de IA somente leitura", "Sem nuvem SourceShelf", "Sem telemetria"],
+    "proof": ["PDF e OCR locais", "Safari para Markdown", "Ask This Pack no aparelho", "Sem nuvem do SourceShelf"],
     "capture": {
-      "eyebrow": "Crie sua biblioteca de conhecimento",
-      "title": "Reúna pesquisas que estavam dispersas.",
-      "intro": "Capture páginas da web, arquivos e coleções existentes e organize tudo em uma biblioteca local pesquisável.",
+      "eyebrow": "Converter → Consultar → Capturar",
+      "title": "Converta documentos em Markdown útil.",
+      "intro": "Comece com um PDF, digitalização, imagem ou página da web e guarde o resultado em uma biblioteca de pesquisa local e pesquisável.",
       "items": [
         {
           "image": "04-convert-files-for-ai",
-          "title": "Prepare os arquivos para IA",
-          "description": "Converta PDFs, arquivos Office, digitalizações, sites, Markdown, texto e muito mais, localmente no Mac.",
-          "alt": "Tela de conversão do SourceShelf pronta para transformar documentos e pastas em formatos para IA."
+          "title": "Converta PDFs e digitalizações localmente",
+          "description": "Converta PDF para Markdown com extração local ou use o OCR da Apple em PDFs digitalizados e imagens. O SourceShelf cria Markdown normal que você pode revisar, editar, arquivar, pesquisar ou adicionar a um Pack.",
+          "alt": "Tela do SourceShelf pronta para converter PDFs, digitalizações e documentos compatíveis em Markdown.",
+          "link": "/pdf-to-markdown-mac/",
+          "linkLabel": "Explorar PDF para Markdown"
+        },
+        {
+          "id": "ask-this-pack",
+          "image": "11-ask-this-pack",
+          "title": "Consulte a pesquisa que você salvou",
+          "description": "Adicione as fontes importantes a um Pack e faça perguntas diretamente no SourceShelf. Em aparelhos compatíveis com Apple Intelligence, as respostas são geradas no dispositivo usando o Pack escolhido como contexto.",
+          "alt": "Ask This Pack no SourceShelf respondendo a uma pergunta a partir das fontes escolhidas e mostrando citações."
         },
         {
           "image": "05-capture-from-safari",
-          "title": "Salve pesquisas do Safari",
-          "description": "Capture páginas inteiras, conteúdo principal, seleções e áreas diretamente no Safari.",
-          "alt": "Extensão do Safari do SourceShelf com modos para capturar página, conteúdo principal, seleção e área."
-        },
-        {
-          "image": "06-organize-research",
-          "title": "Mantenha a pesquisa organizada",
-          "description": "Crie pacotes ordenados que você pode salvar e reutilizar, com visualizações, filtros e rastreamento de fontes.",
-          "alt": "Biblioteca pesquisável do SourceShelf contendo fontes de pesquisa organizadas."
+          "title": "Salve páginas da web como Markdown",
+          "description": "Capture a página inteira, o artigo principal, uma seleção, a área visível ou destaques de pesquisa pelo Safari e mantenha o resultado como Markdown local com a origem.",
+          "alt": "Extensão do Safari do SourceShelf com modos para capturar página inteira, artigo principal, seleção, área visível e destaques de pesquisa.",
+          "link": "/save-webpages-as-markdown-safari/",
+          "linkLabel": "Explorar captura do Safari para Markdown"
         }
       ]
     },
     "review": {
-      "eyebrow": "Mantenha o conhecimento confiável",
-      "title": "Veja o que mudou. Revise o que você compartilha.",
-      "intro": "O contexto específico funciona melhor quando está atualizado e é intencional. O SourceShelf ajuda você a inspecionar um pacote antes que ele chegue ao seu assistente.",
+      "eyebrow": "Organize o que importa",
+      "title": "Reúna pesquisas relacionadas.",
+      "intro": "Combine documentos convertidos, páginas salvas, notas e outras fontes em Packs específicos que você pode pesquisar, reutilizar, consultar, exportar ou mover entre aparelhos.",
       "items": [
         {
+          "image": "06-organize-research",
+          "title": "Crie um Pack específico",
+          "description": "Mantenha as fontes de um projeto em um Pack pesquisável e útil para leitura, perguntas, exportação e reutilização.",
+          "alt": "Biblioteca de pesquisa do SourceShelf com fontes organizadas e Packs reutilizáveis."
+        },
+        {
           "image": "03-review-before-sharing",
-          "title": "Revise antes de compartilhar",
-          "description": "Identifique arquivos ausentes, páginas desatualizadas e instruções arriscadas antes de compartilhar.",
+          "title": "Verifique a Saúde do Pack antes de compartilhar",
+          "description": "No Mac, identifique arquivos ausentes, páginas desatualizadas e instruções arriscadas antes de compartilhar ou exportar um Pack.",
           "alt": "Revisão de confiança e segurança do SourceShelf mostrando o estado de um pacote de conhecimento."
         },
         {
           "image": "07-refresh-and-compare",
-          "title": "Veja exatamente o que mudou",
-          "description": "Encontre fontes novas, alteradas, ausentes e inalteradas antes de atualizar o contexto da sua IA.",
+          "title": "Revise as mudanças antes de reutilizar",
+          "description": "No Mac, Atualizar e comparar encontra fontes novas, alteradas, ausentes e inalteradas antes de atualizar um Pack.",
           "alt": "Relatório Atualizar e comparar do SourceShelf classificando fontes alteradas e ausentes."
         }
       ]
     },
     "connect": {
-      "eyebrow": "Conecte sua IA",
-      "title": "Forneça contexto específico e reutilizável a assistentes compatíveis.",
-      "intro": "Use um instantâneo controlado e somente leitura pelo Model Context Protocol ou exporte um pacote portátil para outro fluxo de trabalho. Seus arquivos originais permanecem privados.",
-      "guide": "Ver guias de configuração do acesso local de IA",
+      "eyebrow": "Contexto portátil e acesso controlado",
+      "title": "Use sua pesquisa onde precisar.",
+      "intro": "Consulte um Pack diretamente no SourceShelf, exporte-o como contexto portátil baseado em Markdown ou dê acesso controlado e somente leitura a um cliente de IA compatível.",
+      "guide": "Ver guias de acesso local à IA somente leitura",
       "items": [
         {
-          "image": "02-local-ai-access",
-          "title": "Use seu pacote com IA",
-          "description": "Conecte-se a apps compatíveis sem reenviar o mesmo ZIP.",
-          "alt": "Janela Acesso local de IA do SourceShelf publicando um instantâneo de pacote somente leitura."
+          "image": "08-export-workflows",
+          "title": "Exporte contexto de pesquisa portátil",
+          "description": "Crie um Pack de referência para IA, um Pack de contexto Markdown, um arquivo Markdown, uma coleção llms.txt portátil ou um Pack compatível com OKF.",
+          "alt": "Opções de exportação do SourceShelf para pacotes de IA, Markdown, llms.txt e outros fluxos de trabalho."
         },
         {
-          "image": "08-export-workflows",
-          "title": "Exporte do seu jeito",
-          "description": "Crie um pacote para IA, um arquivo Markdown, uma coleção llms.txt portátil ou um pacote compatível com OKF.",
-          "alt": "Opções de exportação do SourceShelf para pacotes de IA, Markdown, llms.txt e outros fluxos de trabalho."
+          "image": "02-local-ai-access",
+          "title": "Conecte um cliente de IA compatível com MCP somente leitura",
+          "description": "No Mac, publique um instantâneo controlado de um Pack para que um cliente de IA compatível possa pesquisá-lo sem explorar toda a Biblioteca.",
+          "alt": "Janela Acesso local à IA do SourceShelf publicando um instantâneo de Pack controlado e somente leitura pelo MCP."
         }
       ]
     },
     "privacy": {
       "eyebrow": "Seu conhecimento continua sendo seu",
       "title": "Privacidade desde o início.",
-      "description": "O SourceShelf faz as conversões localmente, usa a tecnologia OCR integrada da Apple, nunca envia seus documentos e não exige contas na nuvem.",
-      "imageTitle": "Processamento local. Sem nuvem SourceShelf. Sem telemetria.",
+      "description": "A extração de PDF, o OCR local, a captura do Safari, a Biblioteca e o Ask This Pack são executados no aparelho. O Ask This Pack usa o modelo da Apple em aparelhos compatíveis com Apple Intelligence.",
+      "detail": "O SourceShelf não envia seus documentos, não exige conta na nuvem do SourceShelf e não manda telemetria nem rastreamento do app. Um cliente de IA externo conectado pelo MCP segue as próprias políticas de modelo e privacidade.",
+      "imageTitle": "Extração e OCR locais. Sem nuvem do SourceShelf. Sem telemetria no app.",
       "privacyLink": "Ler os detalhes de privacidade",
-      "alt": "Configurações de privacidade do SourceShelf explicando o compartilhamento local e somente leitura com IA."
+      "alt": "Configurações de privacidade do SourceShelf explicando processamento local, ausência de nuvem e conta do SourceShelf e ausência de telemetria no app."
     },
     "overview": {
-      "eyebrow": "Feito para o trabalho com conhecimento",
-      "title": "Suas fontes, preparadas para a maneira como você usa IA.",
-      "formatsTitle": "Use os formatos que você já conhece.",
-      "formatsDescription": "Páginas da web, PDFs e digitalizações, Word, PowerPoint, Excel, HTML, Markdown, texto e coleções llms.txt existentes.",
+      "eyebrow": "Feito para aparelhos Apple",
+      "title": "Sua pesquisa continua útil da captura à pergunta.",
+      "formatsTitle": "Comece com os formatos que você já usa.",
+      "formatsDescription": "PDF para Markdown, PDF digitalizado para Markdown com OCR local e página da web para Markdown pelo Safari funcionam em aparelhos Apple compatíveis. No Mac, o SourceShelf também converte Word, PowerPoint, Excel, RTF, HTML, Markdown e texto.",
       "formatsLink": "Ver formatos compatíveis",
-      "audienceTitle": "Útil sempre que o conhecimento importa.",
-      "audienceDescription": "Para pesquisadores, desenvolvedores, estudantes e acadêmicos, profissionais que valorizam a privacidade e qualquer pessoa que crie sua própria base de conhecimento para IA.",
+      "audienceTitle": "Mova pesquisas específicas entre aparelhos.",
+      "audienceDescription": "Use a Biblioteca local, Packs, importação e exportação portáteis, leitura offline e Ask This Pack no Mac, iPhone e iPad. O Mac acrescenta Saúde do Pack, Atualizar e comparar e fluxos MCP avançados.",
       "docsLink": "Explorar a documentação"
     },
+    "useCases": {
+      "eyebrow": "Casos de uso do SourceShelf",
+      "title": "Maneiras de usar o SourceShelf",
+      "intro": "Comece pelo fluxo concreto que combina com a pesquisa que você precisa converter, capturar, organizar ou consultar.",
+      "items": [
+        {"eyebrow": "Conversão local de PDF", "title": "Converta PDFs e digitalizações em Markdown localmente", "description": "Extraia texto ou use OCR local da Apple; depois revise, edite, arquive, pesquise ou adicione o Markdown a um Pack.", "href": "/pdf-to-markdown-mac/"},
+        {"eyebrow": "Captura da web no Safari", "title": "Salve páginas da web e pesquisas como Markdown", "description": "Capture páginas inteiras, artigos, seleções, áreas visíveis ou destaques ordenados pelo Safari com a origem.", "href": "/save-webpages-as-markdown-safari/"},
+        {"eyebrow": "Consulte sua pesquisa", "title": "Faça perguntas em um Pack específico", "description": "Use as fontes escolhidas como contexto para respostas no aparelho compatível com Apple Intelligence.", "href": "#ask-this-pack"},
+        {"eyebrow": "Arquivo de pesquisa local", "title": "Crie um arquivo de pesquisa durável e pesquisável", "description": "Mantenha documentos convertidos, páginas capturadas, notas, origem e Packs em uma Biblioteca local.", "href": "/research-archive-mac/"},
+        {"eyebrow": "Base de conhecimento privada para IA", "title": "Reúna fontes selecionadas para trabalhar com ajuda da IA", "description": "Crie contexto específico e reutilizável sem expor fontes não relacionadas da Biblioteca.", "href": "/private-ai-knowledge-base-mac/"},
+        {"eyebrow": "Acesso de conhecimento MCP somente leitura", "title": "Deixe apps de IA compatíveis pesquisarem um Pack, não todo o Mac", "description": "Autorize um Pack salvo como instantâneo controlado e somente leitura para um cliente de IA compatível.", "href": "/mcp-knowledge-base-mac/"}
+      ]
+    },
     "closing": {
-      "title": "Crie a base de conhecimento que faltava para sua IA.",
-      "description": "Escolha as fontes certas, mantenha o controle dos originais e reutilize contexto específico com assistentes compatíveis.",
-      "download": "Baixar na Mac App Store",
+      "title": "Transforme a pesquisa que você já tem em algo que possa usar.",
+      "description": "Converta documentos, capture páginas da web, crie Packs específicos e consulte suas fontes mantendo a pesquisa sob seu controle.",
+      "download": "Baixar na App Store",
       "learn": "Explorar a documentação do SourceShelf"
     }
   },
   "ja": {
     "meta": {
-      "title": "SourceShelf — MacのプライベートAIナレッジベース",
-      "description": "MacをプライベートなAIナレッジベースに。調査資料を収集・整理し、ローカル優先のワークフローで書類をAIアシスタントへ直接接続できます。",
-      "socialTitle": "AIへ、必要な知識を",
-      "socialDescription": "Mac上にプライベートな知識ライブラリを作成し、ファイルの管理権を保ったまま選択した資料を対応AIアシスタントへ接続できます。"
+      "title": "SourceShelf — PDFをMarkdownに変換、OCR、Appleデバイス向けリサーチ",
+      "description": "PDFやスキャンをMarkdownに変換し、SafariからWebページを取り込み、リサーチをPackに整理して、対応デバイス上でソースに質問できます。",
+      "socialTitle": "PDFやWebページを使いやすいMarkdownに",
+      "socialDescription": "文書をローカルで変換し、Safariからリサーチを取り込み、必要なソースを整理して、対応デバイス上のAIで質問できます。",
+      "socialImage": "10-pdf-to-markdown-social.jpg",
+      "socialImageAlt": "SourceShelfがローカル抽出とOCRでPDFやスキャンをMarkdownに変換する画面。"
     },
     "lightbox": {
       "open": "拡大表示",
@@ -476,102 +620,127 @@
       "dialogLabel": "スクリーンショットビューア"
     },
     "hero": {
-      "eyebrow": "MacのプライベートAIナレッジベース",
-      "title": "AIへ、必要な知識を。",
-      "titleLines": ["AIへ、", "必要な知識を。"],
-      "tagline": "MacをプライベートなAIナレッジベースに。",
-      "description": "調査資料を収集・整理し、ローカル優先のワークフローで書類をAIアシスタントへ直接接続できます。",
-      "download": "Mac App Storeからダウンロード",
+      "eyebrow": "Mac、iPhone、iPadのプライベートリサーチツール",
+      "title": "PDFやWebページを使いやすいMarkdownに。",
+      "tagline": "",
+      "description": "文書をローカルで変換し、Safariからリサーチを取り込み、必要なソースを整理して、対応デバイスではオンデバイスAIで質問できます。",
+      "download": "App Storeからダウンロード",
       "seeHow": "使い方を見る",
-      "alt": "AIアシスタントで使用する調査ファイルを順番に選択したSourceShelfのパック作成画面。"
+      "image": "10-pdf-to-markdown",
+      "alt": "SourceShelfがローカル抽出とOCRでPDFやスキャンページを検索可能なMarkdownに変換する画面。"
     },
-    "proof": ["ローカル処理", "読み取り専用AIアクセス", "SourceShelfクラウドなし", "テレメトリなし"],
+    "proof": ["PDFとOCRをローカル処理", "SafariからMarkdownへ", "オンデバイスのAsk This Pack", "SourceShelfクラウドなし"],
     "capture": {
-      "eyebrow": "自分だけの知識ライブラリを作成",
-      "title": "散らばった調査資料をひとつに。",
-      "intro": "Webページ、ファイル、既存の知識コレクションを収集し、検索可能なローカルライブラリですべてを整理できます。",
+      "eyebrow": "変換 → 質問 → 取り込み",
+      "title": "文書を使いやすいMarkdownに変換。",
+      "intro": "PDF、スキャン、画像、Webページから始めて、結果を検索可能なローカルリサーチライブラリに保存できます。",
       "items": [
         {
           "image": "04-convert-files-for-ai",
-          "title": "ファイルをAI向けに変換",
-          "description": "PDF、Office、スキャン、Webサイト、Markdown、テキストなどをMac上でローカルに変換します。",
-          "alt": "書類やフォルダをAI向けの形式に変換するSourceShelfの変換画面。"
+          "title": "PDFやスキャンをローカルで変換",
+          "description": "PDFをローカルで抽出してMarkdownに変換し、スキャンPDFや画像にはAppleのOCRを使用します。生成される通常のMarkdownは、確認、編集、保存、検索、Packへの追加が可能です。",
+          "alt": "PDF、スキャン、対応文書をMarkdownに変換するSourceShelfの画面。",
+          "link": "/pdf-to-markdown-mac/",
+          "linkLabel": "PDFからMarkdownへの変換を見る"
+        },
+        {
+          "id": "ask-this-pack",
+          "image": "11-ask-this-pack",
+          "title": "保存したリサーチに質問",
+          "description": "必要なソースをPackに追加し、SourceShelf内でまとめて質問できます。Apple Intelligence対応デバイスでは、選択したPackをコンテキストに、回答をデバイス上で生成します。",
+          "alt": "SourceShelfのAsk This Packが選択したリサーチソースから質問に回答し、引用元を表示する画面。"
         },
         {
           "image": "05-capture-from-safari",
-          "title": "Safariからリサーチを保存",
-          "description": "ページ全体、メインコンテンツ、選択テキスト、指定範囲をSafariから直接キャプチャできます。",
-          "alt": "ページ、メインコンテンツ、選択テキスト、指定範囲のキャプチャ方法を選べるSourceShelfのSafari拡張機能。"
-        },
-        {
-          "image": "06-organize-research",
-          "title": "リサーチをわかりやすく整理",
-          "description": "プレビュー、フィルタ、ソース追跡を備えた、保存・再利用できる順序付きパックを作成します。",
-          "alt": "整理された調査資料を表示するSourceShelfの検索可能なライブラリ。"
+          "title": "WebページをMarkdownで保存",
+          "description": "Safariからページ全体、メイン記事、選択範囲、表示領域、リサーチハイライトを取り込み、出典情報付きのローカルMarkdownとして保存します。",
+          "alt": "ページ全体、メイン記事、選択範囲、表示領域、リサーチハイライトを選べるSourceShelfのSafari拡張機能。",
+          "link": "/save-webpages-as-markdown-safari/",
+          "linkLabel": "SafariからMarkdownへの取り込みを見る"
         }
       ]
     },
     "review": {
-      "eyebrow": "知識を信頼できる状態に",
-      "title": "変更点を確認し、共有内容を見直せます。",
-      "intro": "絞り込まれたコンテキストは、最新かつ意図的なときに最も役立ちます。SourceShelfなら、アシスタントへ渡す前にパックを確認できます。",
+      "eyebrow": "必要な資料を整理",
+      "title": "関連するリサーチをひとつに。",
+      "intro": "変換した文書、保存したWebページ、メモなどを目的別のPackにまとめ、検索、再利用、質問、書き出し、デバイス間の移動に使えます。",
       "items": [
         {
+          "image": "06-organize-research",
+          "title": "目的別のPackを作成",
+          "description": "プロジェクトのソースを検索可能なPackにまとめ、閲覧、質問、書き出し、再利用に役立てられます。",
+          "alt": "整理されたソースと再利用可能なPackを表示するSourceShelfの検索可能なリサーチライブラリ。"
+        },
+        {
           "image": "03-review-before-sharing",
-          "title": "共有前にしっかり確認",
-          "description": "ファイルの欠落、古いページ、危険な指示を共有前に検出します。",
+          "title": "共有前にPack Healthを確認",
+          "description": "Macでは、Packの共有や書き出し前に、ファイルの欠落、古いページ、危険な指示を確認できます。",
           "alt": "選択したナレッジパックの準備状況を示すSourceShelfの信頼性と安全性レビュー。"
         },
         {
           "image": "07-refresh-and-compare",
-          "title": "変更点を一目で確認",
-          "description": "AIコンテキストを更新する前に、新規、変更、欠落、変更なしの資料を分類します。",
+          "title": "再利用前に変更を確認",
+          "description": "Macの更新・比較では、Packを更新する前に、新規、変更、欠落、変更なしのソースを確認できます。",
           "alt": "変更または欠落したソースを分類するSourceShelfの更新と比較レポート。"
         }
       ]
     },
     "connect": {
-      "eyebrow": "AIを接続",
-      "title": "対応アシスタントへ、的確で再利用できるコンテキストを。",
-      "intro": "Model Context Protocolによる管理された読み取り専用スナップショットを使うか、別のワークフロー向けに持ち運べるパックを書き出せます。元のファイルは非公開のままです。",
-      "guide": "ローカルAIアクセスの設定ガイドを見る",
+      "eyebrow": "ポータブルなコンテキストと制御されたアクセス",
+      "title": "必要な場所でリサーチを活用。",
+      "intro": "SourceShelf内でPackに質問するほか、Markdownベースのポータブルなコンテキストとして書き出したり、対応AIクライアントへ制御された読み取り専用アクセスを提供したりできます。",
+      "guide": "読み取り専用のローカルAIアクセス設定を見る",
       "items": [
         {
-          "image": "02-local-ai-access",
-          "title": "AIアプリでパックを活用",
-          "description": "同じZIPを繰り返し送らず、対応AIアプリに接続できます。",
-          "alt": "読み取り専用のナレッジパックスナップショットを公開するSourceShelfのローカルAIアクセス画面。"
+          "image": "08-export-workflows",
+          "title": "ポータブルなリサーチコンテキストを書き出す",
+          "description": "AIリファレンスPack、MarkdownコンテキストPack、単一のMarkdown、ポータブルなllms.txtコレクション、OKF互換Packを作成できます。",
+          "alt": "AIバンドル、Markdown、llms.txtなどを作成するSourceShelfの書き出しオプション。"
         },
         {
-          "image": "08-export-workflows",
-          "title": "自在にエクスポート",
-          "description": "AIバンドル、1つのMarkdown、持ち運べるllms.txtコレクション、OKF互換パックを作成できます。",
-          "alt": "AIバンドル、Markdown、llms.txtなどを作成するSourceShelfの書き出しオプション。"
+          "image": "02-local-ai-access",
+          "title": "対応AIクライアントを読み取り専用MCPで接続",
+          "description": "Macでは、ひとつのPackの制御されたスナップショットを公開し、対応AIクライアントがライブラリ全体ではなく、そのPackだけを検索できます。",
+          "alt": "制御された読み取り専用PackスナップショットをMCPで公開するSourceShelfのローカルAIアクセス画面。"
         }
       ]
     },
     "privacy": {
       "eyebrow": "知識の所有権はあなたに",
       "title": "プライバシーを重視した設計。",
-      "description": "SourceShelfは変換をローカルで実行し、Apple内蔵のOCR技術を使用します。書類をアップロードせず、クラウドアカウントも必要ありません。",
-      "imageTitle": "ローカル処理。SourceShelfクラウドもテレメトリもなし。",
+      "description": "PDF抽出、ローカルOCR、Safari取り込み、ライブラリ、Ask This Packはすべてデバイス上で動作します。Ask This PackはApple Intelligence対応デバイスでAppleのオンデバイスモデルを使用します。",
+      "detail": "SourceShelfは文書をアップロードせず、SourceShelfクラウドのアカウントも不要で、アプリのテレメトリや追跡も送信しません。MCPで接続する外部AIクライアントには、そのクライアント独自のモデルとプライバシーポリシーが適用されます。",
+      "imageTitle": "ローカル抽出とOCR。SourceShelfクラウドなし。アプリのテレメトリなし。",
       "privacyLink": "プライバシーの詳細を読む",
-      "alt": "ローカルで読み取り専用のAI共有とプライベート処理を説明するSourceShelfのプライバシー設定。"
+      "alt": "ローカル処理、SourceShelfクラウドとアカウントなし、アプリのテレメトリなしを説明するSourceShelfのプライバシー設定。"
     },
     "overview": {
-      "eyebrow": "知識を扱うすべての人へ",
-      "title": "あなたのAI活用に合わせて、ソースを準備。",
-      "formatsTitle": "いつものファイル形式をそのまま使えます。",
-      "formatsDescription": "Webページ、PDFとスキャン、Word、PowerPoint、Excel、HTML、Markdown、テキスト、既存のllms.txtコレクションに対応します。",
+      "eyebrow": "Appleデバイス向け",
+      "title": "取り込みから質問まで、リサーチを使いやすく。",
+      "formatsTitle": "いつもの形式から始められます。",
+      "formatsDescription": "対応Appleデバイスでは、PDFからMarkdown、ローカルOCRによるスキャンPDFからMarkdown、SafariのWebページからMarkdownを利用できます。MacではWord、PowerPoint、Excel、RTF、HTML、Markdown、テキストにも対応します。",
       "formatsLink": "対応形式を見る",
-      "audienceTitle": "知識が重要なあらゆる場面で役立ちます。",
-      "audienceDescription": "個人アーカイブを作る研究者、ローカルAIを扱う開発者、学生や研究者、プライバシーを重視する専門家、自分専用のAIナレッジベースを作りたい方に最適です。",
+      "audienceTitle": "必要なリサーチをデバイス間で持ち運べます。",
+      "audienceDescription": "Mac、iPhone、iPadでローカルライブラリ、Pack、ポータブルな読み込みと書き出し、オフライン閲覧、Ask This Packを利用できます。MacにはPack Health、更新・比較、MCPの高度な機能もあります。",
       "docsLink": "ドキュメントを見る"
     },
+    "useCases": {
+      "eyebrow": "SourceShelfのユースケース",
+      "title": "SourceShelfの活用方法",
+      "intro": "変換、取り込み、整理、質問したいリサーチに合う具体的なワークフローから始められます。",
+      "items": [
+        {"eyebrow": "ローカルPDF変換", "title": "PDFやスキャンをローカルでMarkdownに変換", "description": "テキスト抽出またはAppleのローカルOCRを使い、Markdownを確認、編集、保存、検索、Packへの追加に利用できます。", "href": "/pdf-to-markdown-mac/"},
+        {"eyebrow": "Safari Web取り込み", "title": "WebページやリサーチをMarkdownで保存", "description": "Safariからページ全体、記事、選択範囲、表示領域、順序付きハイライトを出典情報とともに保存します。", "href": "/save-webpages-as-markdown-safari/"},
+        {"eyebrow": "リサーチに質問", "title": "目的別のPack全体に質問", "description": "Apple Intelligence対応デバイスで、選択したソースをオンデバイス回答のコンテキストとして使用します。", "href": "#ask-this-pack"},
+        {"eyebrow": "ローカルリサーチアーカイブ", "title": "長く使える検索可能なリサーチアーカイブを作成", "description": "変換した文書、取り込んだWebページ、メモ、出典情報、Packをローカルライブラリに保存します。", "href": "/research-archive-mac/"},
+        {"eyebrow": "プライベートAIナレッジベース", "title": "選択したソースをAI支援の作業にまとめる", "description": "無関係なライブラリソースを公開せず、目的別の再利用可能なコンテキストを作成します。", "href": "/private-ai-knowledge-base-mac/"},
+        {"eyebrow": "読み取り専用MCPナレッジアクセス", "title": "対応AIアプリにはMac全体ではなくPackだけを検索させる", "description": "保存したPackを制御された読み取り専用スナップショットとして対応AIクライアントに許可します。", "href": "/mcp-knowledge-base-mac/"}
+      ]
+    },
     "closing": {
-      "title": "AIに必要だったナレッジベースを作りましょう。",
-      "description": "適切なソースを選び、元のファイルの管理権を保ち、対応アシスタントで的確なコンテキストを再利用できます。",
-      "download": "Mac App Storeからダウンロード",
+      "title": "手元のリサーチを、実際に使える形へ。",
+      "description": "文書を変換し、Webページを取り込み、目的別のPackを作ってソースに質問。リサーチの管理権はあなたのままです。",
+      "download": "App Storeからダウンロード",
       "learn": "SourceShelfのドキュメントを見る"
     }
   }

@@ -261,6 +261,10 @@
           "id" : "ai-context",
           "links" : [
             {
+              "href" : "/#how-it-works",
+              "label" : "Ver el flujo completo del producto SourceShelf"
+            },
+            {
               "label" : "Ver el flujo de trabajo completo de la base de conocimientos privada",
               "page" : "private-ai-knowledge-base"
             },
@@ -270,7 +274,7 @@
             }
           ],
           "paragraphs" : [
-            "Agrega informes, documentos, manuales y escaneos convertidos a un paquete SourceShelf enfocado. Luego puedes exportar el paquete como contexto de IA portátil o permitir que un cliente de IA compatible lo busque a través de un acceso MCP de solo lectura."
+            "Agrega informes, documentos, manuales y escaneos convertidos a un Pack específico de SourceShelf. En dispositivos compatibles con Apple Intelligence, Ask This Pack puede responder preguntas usando ese Pack como contexto. También puedes exportarlo como contexto portátil para IA o permitir que un cliente de IA compatible lo busque mediante acceso MCP de solo lectura."
           ]
         }
       ],

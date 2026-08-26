@@ -12,7 +12,7 @@ SourceShelf processes imported content locally and keeps research in portable fo
 - [Features](https://sourceshelf.app/#how-it-works)
   Explore capture, conversion, research packs, AI access, and export workflows.
 
-- [Download SourceShelf](https://apps.apple.com/ca/app/sourceshelf/id6785887729?mt=12)
+- [Download SourceShelf](https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729)
   Download SourceShelf from the App Store.
 
 ## Guides

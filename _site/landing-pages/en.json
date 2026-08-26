@@ -215,9 +215,10 @@
           "id": "ai-context",
           "heading": "From document to AI context",
           "paragraphs": [
-            "Add converted reports, papers, manuals, and scans to a focused SourceShelf pack. You can then export the pack as portable AI context or allow a compatible AI client to search it through read-only MCP access."
+            "Add converted reports, papers, manuals, and scans to a focused SourceShelf Pack. On supported Apple Intelligence devices, Ask This Pack can answer questions using that selected Pack as context. You can also export the Pack as portable AI context or allow a compatible AI client to search it through read-only MCP access."
           ],
           "links": [
+            {"href": "/#how-it-works", "label": "See the complete SourceShelf product flow"},
             {"page": "private-ai-knowledge-base", "label": "See the complete private knowledge-base workflow"},
             {"page": "local-ai-packs", "label": "Turn selected documents into an AI reference pack"}
           ]

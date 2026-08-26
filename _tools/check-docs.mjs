@@ -22,7 +22,7 @@ const blogRoutes = blogManifest.posts.map((post) => post.route);
 const examplesContent = JSON.parse(await readFile(path.join(siteSourceRoot, "examples.json"), "utf8"));
 const exampleRoutes = examplesContent.pages.map((page) => page.logicalRoute);
 const sharedScript = await readFile(path.join(siteRoot, "script.js"), "utf8");
-const homepageScreenshotNames = [
+const homepageAssetNames = [
   "01-private-ai-source-packs",
   "02-local-ai-access",
   "03-review-before-sharing",
@@ -31,8 +31,20 @@ const homepageScreenshotNames = [
   "06-organize-research",
   "07-refresh-and-compare",
   "08-export-workflows",
-  "09-private-by-design"
+  "09-private-by-design",
+  "10-pdf-to-markdown",
+  "11-ask-this-pack"
 ];
+
+function homepageScreenshotNames(homepage) {
+  return [
+    homepage.hero.image || "01-private-ai-source-packs",
+    ...homepage.capture.items.map((item) => item.image),
+    ...homepage.review.items.map((item) => item.image),
+    ...homepage.connect.items.map((item) => item.image),
+    "09-private-by-design"
+  ];
+}
 
 function prefixFor(locale) {
   return locale === "en" ? "" : `/${locale}`;
@@ -480,13 +492,14 @@ for (const htmlFile of htmlFiles) {
     if (!homepage) {
       errors.push(`${publicPath} is missing localized homepage content`);
     }
+    const expectedHomepageScreenshots = homepage ? homepageScreenshotNames(homepage) : [];
     const homepageImages = [...html.matchAll(/<img\b[^>]*\bclass="homepage-screenshot"[^>]*>/g)].map((match) => match[0]);
-    if (homepageImages.length !== homepageScreenshotNames.length) {
-      errors.push(`${publicPath} must contain exactly nine homepage screenshots`);
+    if (homepageImages.length !== expectedHomepageScreenshots.length) {
+      errors.push(`${publicPath} must contain exactly ${expectedHomepageScreenshots.length} homepage screenshots`);
     }
     const homepageTriggers = [...html.matchAll(/<a\b[^>]*\bclass="home-screenshot-trigger"[^>]*>/g)].map((match) => match[0]);
-    if (homepageTriggers.length !== homepageScreenshotNames.length) {
-      errors.push(`${publicPath} must contain exactly nine homepage screenshot viewer triggers`);
+    if (homepageTriggers.length !== expectedHomepageScreenshots.length) {
+      errors.push(`${publicPath} must contain exactly ${expectedHomepageScreenshots.length} homepage screenshot viewer triggers`);
     }
     for (const trigger of homepageTriggers) {
       const href = trigger.match(/\bhref="([^"]+)"/)?.[1] || "";
@@ -522,7 +535,7 @@ for (const htmlFile of htmlFiles) {
         errors.push(`${publicPath} eagerly exposes a full-resolution screenshot in responsive image markup`);
       }
     }
-    for (const screenshotName of homepageScreenshotNames) {
+    for (const screenshotName of expectedHomepageScreenshots) {
       if (!usedScreenshotNames.has(screenshotName)) {
         errors.push(`${publicPath} is missing homepage screenshot ${screenshotName}`);
       }
@@ -530,8 +543,8 @@ for (const htmlFile of htmlFiles) {
     if ((html.match(/loading="eager"/g) || []).length !== 1 || (html.match(/fetchpriority="high"/g) || []).length !== 1) {
       errors.push(`${publicPath} must eagerly prioritize only the hero screenshot`);
     }
-    if ((html.match(/class="homepage-screenshot"[^>]*loading="lazy"/g) || []).length !== 8) {
-      errors.push(`${publicPath} must lazy-load the eight non-hero screenshots`);
+    if ((html.match(/class="homepage-screenshot"[^>]*loading="lazy"/g) || []).length !== Math.max(0, expectedHomepageScreenshots.length - 1)) {
+      errors.push(`${publicPath} must lazy-load every non-hero homepage screenshot`);
     }
     if (!html.includes('href="#how-it-works"') || !html.includes('id="how-it-works"')) {
       errors.push(`${publicPath} is missing the how-it-works anchor contract`);
@@ -549,14 +562,39 @@ for (const htmlFile of htmlFiles) {
     if (/\bsrc=/.test(lightboxImage)) {
       errors.push(`${publicPath} preloads the full-resolution screenshot before the viewer opens`);
     }
-    const expectedSocialImage = `${canonicalOrigin}/assets/home/${locale}/01-private-ai-source-packs-social.jpg`;
+    const expectedSocialImage = `${canonicalOrigin}/assets/home/${locale}/${homepage?.meta.socialImage}`;
     if (!html.includes(`property="og:image" content="${expectedSocialImage}"`) || !html.includes(`name="twitter:image" content="${expectedSocialImage}"`)) {
       errors.push(`${publicPath} has incorrect localized social imagery`);
     }
+    if (
+      homepage &&
+      (!html.includes(`property="og:image:alt" content="${homepage.meta.socialImageAlt}"`) ||
+       !html.includes(`name="twitter:image:alt" content="${homepage.meta.socialImageAlt}"`) ||
+       !html.includes('property="og:image:width" content="1200"') ||
+       !html.includes('property="og:image:height" content="630"'))
+    ) {
+      errors.push(`${publicPath} is missing localized social-image semantics`);
+    }
     try {
-      await access(path.join(siteRoot, `assets/home/${locale}/01-private-ai-source-packs-social.jpg`));
+      await access(path.join(siteRoot, `assets/home/${locale}/${homepage.meta.socialImage}`));
     } catch {
       errors.push(`${publicPath} references a missing localized social image`);
+    }
+    const homepageJsonLD = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => {
+      try {
+        return JSON.parse(match[1]);
+      } catch {
+        return null;
+      }
+    }).filter(Boolean);
+    const homepageSoftware = homepageJsonLD.filter((value) => value["@type"] === "SoftwareApplication");
+    if (
+      homepageSoftware.length !== 1 ||
+      homepageSoftware[0]?.operatingSystem !== "macOS, iOS, iPadOS" ||
+      homepageSoftware[0]?.softwareVersion !== productConfig.software.version ||
+      homepageSoftware[0]?.description !== homepage?.meta.description
+    ) {
+      errors.push(`${publicPath} has incorrect cross-platform SoftwareApplication metadata`);
     }
   }
 
@@ -1093,14 +1131,14 @@ for (const locale of localeCodes) {
     errors.push(`Homepage content is missing for ${locale}`);
     continue;
   }
-  if (homepage.proof.length !== 4 || homepage.capture.items.length !== 3 || homepage.review.items.length !== 2 || homepage.connect.items.length !== 2) {
+  if (homepage.proof.length !== 4 || homepage.capture.items.length !== 3 || homepage.review.items.length !== 3 || homepage.connect.items.length !== 2 || homepage.useCases.items.length !== 6) {
     errors.push(`${locale} homepage content does not match the shared section structure`);
   }
   const lightboxKeys = ["open", "openLabel", "close", "closeLabel", "zoom", "fit", "dialogLabel"];
   if (lightboxKeys.some((key) => !homepage.lightbox?.[key]?.trim())) {
     errors.push(`${locale} homepage content is missing localized screenshot viewer labels`);
   }
-  for (const screenshotName of homepageScreenshotNames) {
+  for (const screenshotName of homepageAssetNames) {
     for (const width of [960, 1440, 2880]) {
       try {
         await access(path.join(siteRoot, `assets/home/${locale}/${screenshotName}-${width}.webp`));
@@ -1112,8 +1150,9 @@ for (const locale of localeCodes) {
 }
 
 const homepageAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "home")));
-if (homepageAssets.length !== 140) {
-  errors.push(`Expected 140 localized homepage assets, found ${homepageAssets.length}`);
+const expectedHomepageAssetCount = homepageAssetNames.length * localeCodes.length * 3 + localeCodes.length * 2;
+if (homepageAssets.length !== expectedHomepageAssetCount) {
+  errors.push(`Expected ${expectedHomepageAssetCount} localized homepage assets, found ${homepageAssets.length}`);
 }
 
 const blogAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "blog")));
@@ -1208,7 +1247,7 @@ if (errors.length) {
   console.error(errors.join("\n"));
   process.exitCode = 1;
 } else {
-  console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, 140 localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
+  console.log(`Checked ${htmlFiles.length} HTML files, ${landingRoutes.length * localeCodes.length} localized landing pages, ${blogRoutes.length * localeCodes.length} localized blog articles, ${checkedReferences} local references, ${checkedImages} accessible images, ${expectedHomepageAssetCount} localized homepage assets, and ${navigation.pages.length * (localeCodes.length - 1)} localized guide sources.`);
   console.log(`Canonical URL audit passed: ${htmlFiles.length} self-referencing canonicals, ${sitemapUrls.length} canonical HTTPS sitemap URLs, and 0 internal index.html links.`);
   console.log(`YouTube privacy audit passed: ${(landingRoutes.length + blogVideoIds.length + exampleVideoIds.length) * localeCodes.length} localized click-to-load players, ${allYouTubeIds.length} unique mapped videos, and 0 preloaded YouTube iframes.`);
 }

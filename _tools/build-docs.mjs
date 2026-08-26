@@ -1116,7 +1116,7 @@ function renderHeader(locale, currentSection) {
         ${link("privacy", "/privacy.html", "Privacy")}
         ${link("docs", "/docs/", "Documentation")}
         ${link("support", "/support.html", "Support")}
-        <a class="nav-download" href="${appStoreUrl}" aria-label="${escapeHtml(translate(locale, "Download SourceShelf on the Mac App Store"))}">${escapeHtml(translate(locale, "Download"))}</a>
+        <a class="nav-download" href="${appStoreUrl}" aria-label="${escapeHtml(translate(locale, "Download SourceShelf on the App Store"))}">${escapeHtml(translate(locale, "Download"))}</a>
         ${renderLanguageSelector(locale)}
         <button class="theme-toggle" type="button" data-theme-toggle data-light-label="${escapeHtml(translate(locale, "Switch to light mode"))}" data-dark-label="${escapeHtml(translate(locale, "Switch to dark mode"))}" aria-label="${escapeHtml(translate(locale, "Toggle dark mode"))}" aria-pressed="false">
           <span class="theme-toggle-icon" aria-hidden="true"></span>
@@ -1183,29 +1183,39 @@ function renderHomepageImage(locale, item, lightbox, { hero = false } = {}) {
 }
 
 function renderHomepageFeatureCard(locale, item, lightbox) {
-  return `<article class="home-feature-card">
-    <div class="home-screenshot-frame">
+  const cardId = item.id ? ` id="${escapeHtml(item.id)}"` : "";
+  const screenshot = item.image
+    ? `<div class="home-screenshot-frame">
       ${renderHomepageImage(locale, item, lightbox)}
-    </div>
+    </div>`
+    : "";
+  const link = item.link && item.linkLabel
+    ? `<a class="text-link" href="${localizedRoute(locale, item.link)}">${escapeHtml(item.linkLabel)} <span aria-hidden="true">→</span></a>`
+    : "";
+  return `<article class="home-feature-card"${cardId}>
+    ${screenshot}
     <div class="home-feature-copy">
       <h3>${escapeHtml(item.title)}</h3>
       <p>${escapeHtml(item.description)}</p>
+      ${link}
     </div>
   </article>`;
 }
 
-function renderHomepageUseCases(locale) {
-  const landing = landingContent.get(locale.code);
-  const cards = landing.pages.map((page) => `<article class="home-use-case-card">
-    <p class="eyebrow">${escapeHtml(page.hero.eyebrow)}</p>
-    <h3><a href="${localizedRoute(locale, page.route)}">${escapeHtml(page.hero.title)}</a></h3>
-    <p>${escapeHtml(page.meta.socialDescription)}</p>
-  </article>`).join("\n");
+function renderHomepageUseCases(locale, content) {
+  const cards = content.useCases.items.map((item) => {
+    const href = item.href.startsWith("#") ? item.href : localizedRoute(locale, item.href);
+    return `<article class="home-use-case-card">
+    <p class="eyebrow">${escapeHtml(item.eyebrow)}</p>
+    <h3><a href="${href}">${escapeHtml(item.title)}</a></h3>
+    <p>${escapeHtml(item.description)}</p>
+  </article>`;
+  }).join("\n");
   return `<section id="ways-to-use" class="section home-use-cases-section" aria-labelledby="ways-to-use-title">
     <div class="section-heading home-section-heading">
-      <p class="eyebrow">${escapeHtml(landing.shared.sourceShelfUseCases)}</p>
-      <h2 id="ways-to-use-title">${escapeHtml(landing.shared.waysToUse)}</h2>
-      <p>${escapeHtml(landing.shared.waysToUseIntro)}</p>
+      <p class="eyebrow">${escapeHtml(content.useCases.eyebrow)}</p>
+      <h2 id="ways-to-use-title">${escapeHtml(content.useCases.title)}</h2>
+      <p>${escapeHtml(content.useCases.intro)}</p>
     </div>
     <div class="home-use-cases-grid">${cards}</div>
   </section>`;
@@ -1217,7 +1227,7 @@ function renderHomepageMain(locale, content) {
     ? content.hero.titleLines.map((line) => `<span class="home-title-line">${escapeHtml(line)}</span>`).join("")
     : escapeHtml(content.hero.title);
   const heroImage = {
-    image: "01-private-ai-source-packs",
+    image: content.hero.image || "01-private-ai-source-packs",
     alt: content.hero.alt,
     title: content.hero.title
   };
@@ -1232,7 +1242,7 @@ function renderHomepageMain(locale, content) {
         <img class="hero-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="96" height="96">
         <p class="eyebrow">${escapeHtml(content.hero.eyebrow)}</p>
         <h1 id="hero-title">${heroTitle}</h1>
-        <p class="home-hero-tagline">${escapeHtml(content.hero.tagline)}</p>
+        ${content.hero.tagline ? `<p class="home-hero-tagline">${escapeHtml(content.hero.tagline)}</p>` : ""}
         <p class="subheading">${escapeHtml(content.hero.description)}</p>
         <div class="actions">
           <a class="button button-primary" href="${appStoreUrl}">${escapeHtml(content.hero.download)}</a>
@@ -1264,20 +1274,8 @@ function renderHomepageMain(locale, content) {
         <h2 id="review-title">${escapeHtml(content.review.title)}</h2>
         <p>${escapeHtml(content.review.intro)}</p>
       </div>
-      <div class="home-feature-grid home-feature-grid-two">
+      <div class="home-feature-grid ${content.review.items.length === 3 ? "home-feature-grid-three" : "home-feature-grid-two"}">
         ${reviewCards}
-      </div>
-    </section>
-
-    <section class="section home-story-section" aria-labelledby="connect-title">
-      <div class="section-heading home-section-heading">
-        <p class="eyebrow">${escapeHtml(content.connect.eyebrow)}</p>
-        <h2 id="connect-title">${escapeHtml(content.connect.title)}</h2>
-        <p>${escapeHtml(content.connect.intro)}</p>
-        <a class="text-link" href="${localized("/docs/mcp/local-ai-access/")}">${escapeHtml(content.connect.guide)} <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="home-feature-grid home-feature-grid-two">
-        ${connectCards}
       </div>
     </section>
 
@@ -1286,6 +1284,7 @@ function renderHomepageMain(locale, content) {
         <p class="eyebrow">${escapeHtml(content.privacy.eyebrow)}</p>
         <h2 id="privacy-title">${escapeHtml(content.privacy.title)}</h2>
         <p>${escapeHtml(content.privacy.description)}</p>
+        ${content.privacy.detail ? `<p>${escapeHtml(content.privacy.detail)}</p>` : ""}
         <strong>${escapeHtml(content.privacy.imageTitle)}</strong>
         <a class="text-link" href="${localized("/privacy.html")}">${escapeHtml(content.privacy.privacyLink)} <span aria-hidden="true">→</span></a>
       </div>
@@ -1295,6 +1294,18 @@ function renderHomepageMain(locale, content) {
           alt: content.privacy.alt,
           title: content.privacy.imageTitle
         }, content.lightbox)}
+      </div>
+    </section>
+
+    <section class="section home-story-section home-story-section-tinted" aria-labelledby="connect-title">
+      <div class="section-heading home-section-heading">
+        <p class="eyebrow">${escapeHtml(content.connect.eyebrow)}</p>
+        <h2 id="connect-title">${escapeHtml(content.connect.title)}</h2>
+        <p>${escapeHtml(content.connect.intro)}</p>
+        <a class="text-link" href="${localized("/docs/mcp/local-ai-access/")}">${escapeHtml(content.connect.guide)} <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="home-feature-grid home-feature-grid-two">
+        ${connectCards}
       </div>
     </section>
 
@@ -1317,7 +1328,7 @@ function renderHomepageMain(locale, content) {
       </div>
     </section>
 
-    ${renderHomepageUseCases(locale)}
+    ${renderHomepageUseCases(locale, content)}
 
     <section class="section home-closing-section" aria-labelledby="closing-title">
       <div>
@@ -1345,6 +1356,34 @@ function renderHomepageMain(locale, content) {
       </div>
     </div>
   </dialog>`;
+}
+
+function structuredDataForHomepage(locale, content) {
+  const software = productConfig.software;
+  return {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: software.name,
+    applicationCategory: software.applicationCategory,
+    operatingSystem: "macOS, iOS, iPadOS",
+    softwareVersion: software.version,
+    description: content.meta.description,
+    url: canonicalUrlForRoute(localizedRoute(locale, "/")),
+    downloadUrl: appStoreUrl,
+    image: `${canonicalOrigin}/assets/home/${locale.code}/${content.meta.socialImage}`,
+    inLanguage: locale.code,
+    featureList: [
+      ...content.capture.items.map((item) => item.title),
+      content.review.items[0].title,
+      content.connect.items[0].title
+    ],
+    offers: {
+      "@type": "Offer",
+      price: software.offer.price,
+      priceCurrency: software.offer.priceCurrency,
+      url: appStoreUrl
+    }
+  };
 }
 
 function appStoreURLFor(page) {
@@ -1449,9 +1488,15 @@ function renderLandingSection(locale, section, pagesById) {
   const paragraphs = (section.paragraphs || []).map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
   const links = (section.links || []).length
     ? `<ul class="landing-inline-links">${section.links.map((link) => {
-      const target = pagesById.get(link.page);
-      if (!target) throw new Error(`Landing-page link target is missing: ${link.page}`);
-      return `<li><a href="${target.route}">${escapeHtml(link.label)} <span aria-hidden="true">→</span></a></li>`;
+      let href;
+      if (link.href) {
+        href = link.href.startsWith("#") ? link.href : localizedRoute(locale, link.href);
+      } else {
+        const target = pagesById.get(link.page);
+        if (!target) throw new Error(`Landing-page link target is missing: ${link.page}`);
+        href = target.route;
+      }
+      return `<li><a href="${href}">${escapeHtml(link.label)} <span aria-hidden="true">→</span></a></li>`;
     }).join("")}</ul>`
     : "";
   if (section.kind === "details") {
@@ -2337,8 +2382,14 @@ function renderGeneralPage(definition, locale, template) {
   const localizedSocialTitle = homepage ? socialTitle : translate(locale, socialTitle);
   const localizedSocialDescription = homepage ? socialDescription : translate(locale, socialDescription);
   const socialImage = homepage
-    ? `${canonicalOrigin}/assets/home/${locale.code}/01-private-ai-source-packs-social.jpg`
+    ? `${canonicalOrigin}/assets/home/${locale.code}/${homepage.meta.socialImage}`
     : `${canonicalOrigin}/assets/icons/SourceShelf-Icon-lightmode.png`;
+  const socialImageMetadata = homepage
+    ? `\n  <meta property="og:image:alt" content="${escapeHtml(homepage.meta.socialImageAlt)}">\n  <meta property="og:image:width" content="1200">\n  <meta property="og:image:height" content="630">\n  <meta name="twitter:image:alt" content="${escapeHtml(homepage.meta.socialImageAlt)}">`
+    : "";
+  const structuredData = homepage
+    ? `\n  <script type="application/ld+json">${JSON.stringify(structuredDataForHomepage(locale, homepage)).replaceAll("<", "\\u003c")}</script>`
+    : "";
   const renderedMain = homepage ? renderHomepageMain(locale, homepage) : localizeMainHtml(locale, main);
 
   const html = `<!DOCTYPE html>
@@ -2351,10 +2402,11 @@ function renderGeneralPage(definition, locale, template) {
   <link rel="canonical" href="${canonicalUrl}">
 ${renderAlternateLinks(definition.logicalRoute)}
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="SourceShelf">
   <meta property="og:title" content="${escapeHtml(localizedSocialTitle)}">
   <meta property="og:description" content="${escapeHtml(localizedSocialDescription)}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:image" content="${socialImage}">
+  <meta property="og:image" content="${socialImage}">${socialImageMetadata}
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${escapeHtml(localizedSocialTitle)}">
   <meta name="twitter:description" content="${escapeHtml(localizedSocialDescription)}">
@@ -2363,7 +2415,7 @@ ${renderAlternateLinks(definition.logicalRoute)}
   <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
   <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
   <link rel="stylesheet" href="/styles.css?v=${assetVersion}">
-  ${headBootstrap(locale)}
+  ${headBootstrap(locale)}${structuredData}
 </head>
 <body>
   <a class="skip-link" href="#main">${escapeHtml(translate(locale, "Skip to content"))}</a>
