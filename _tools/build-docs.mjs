@@ -3,6 +3,7 @@ import { access, copyFile, readFile, readdir, rm, mkdir, writeFile } from "node:
 import path from "node:path";
 import { TextDecoder } from "node:util";
 import { fileURLToPath } from "node:url";
+import { renderSiriKnowledgeSvg } from "./blog-siri-graphics.mjs";
 
 const toolsDirectory = path.dirname(fileURLToPath(import.meta.url));
 const siteRoot = path.resolve(toolsDirectory, "..");
@@ -968,6 +969,7 @@ function renderLlmsV2GraphicSvg(page, assetId, mobile = false) {
 }
 
 function renderBlogGraphicSvg(page, assetId, mobile = false) {
+  if (page.visualKind === "siri-ai") return renderSiriKnowledgeSvg(page, mobile);
   if (page.visualKind === "llms-txt") return renderLlmsGraphicSvg(page, assetId);
   if (page.visualKind === "llms-txt-v2") return renderLlmsV2GraphicSvg(page, assetId, mobile);
   return renderOkfBlogHeroSvg(page);
@@ -987,14 +989,18 @@ async function buildBlogAssets() {
     await mkdir(directory, { recursive: true });
     const svgFile = path.join(directory, `${page.heroAsset}.svg`);
     const pngFile = path.join(directory, `${page.heroAsset}.png`);
-    await writeFile(svgFile, renderBlogGraphicSvg(page, page.heroAsset));
+    if (page.heroSourceFile) {
+      await copyFile(path.join(blogSourceRoot, page.heroSourceFile), pngFile);
+    } else {
+      await writeFile(svgFile, renderBlogGraphicSvg(page, page.heroAsset));
+      execFileSync("sips", ["-s", "format", "png", svgFile, "--out", pngFile], { stdio: "pipe" });
+    }
     if (page.heroMobile) {
       await writeFile(
         path.join(directory, `${page.heroAsset}-mobile.svg`),
         renderBlogGraphicSvg(page, page.heroAsset, true)
       );
     }
-    execFileSync("sips", ["-s", "format", "png", svgFile, "--out", pngFile], { stdio: "pipe" });
     if (page.heroFormat === "webp") {
       execFileSync("cwebp", ["-quiet", "-q", "92", "-m", "6", "-metadata", "none", pngFile, "-o", path.join(directory, `${page.heroAsset}.webp`)], { stdio: "pipe" });
       execFileSync("cwebp", ["-quiet", "-q", "90", "-m", "6", "-metadata", "none", "-resize", "800", "420", pngFile, "-o", path.join(directory, `${page.heroAsset}-800.webp`)], { stdio: "pipe" });

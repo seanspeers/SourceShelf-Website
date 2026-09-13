@@ -1157,7 +1157,7 @@ if (homepageAssets.length !== expectedHomepageAssetCount) {
 
 const blogAssets = allFiles.filter((file) => file.startsWith(path.join(siteRoot, "assets", "blog")));
 const expectedBlogAssetsPerLocale = blogManifest.posts.reduce((count, post) => {
-  const heroAssets = 2 + (post.heroMobile ? 1 : 0) + (post.heroFormat === "webp" ? 2 : 0);
+  const heroAssets = (post.heroSourceFile ? 1 : 2) + (post.heroMobile ? 1 : 0) + (post.heroFormat === "webp" ? 2 : 0);
   const graphicAssets = (post.articleGraphics || []).reduce((total, asset) => (
     total + (asset.format === "svg" ? (asset.mobileWidth ? 2 : 1) : 3)
   ), 0);
@@ -1172,9 +1172,9 @@ for (const post of blogManifest.posts) {
     const svgFile = path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.svg`);
     const pngFile = path.join(siteRoot, "assets", "blog", locale, `${post.heroAsset}.png`);
     try {
-      const svg = await readFile(svgFile, "utf8");
+      const svg = post.heroSourceFile ? null : await readFile(svgFile, "utf8");
       const png = await readFile(pngFile);
-      if (!svg.includes('width="1200"') || !svg.includes('height="630"') || !svg.includes(post.locales[locale].heroAlt.replaceAll("&", "&amp;").replaceAll("'", "&#39;"))) {
+      if (svg !== null && (!svg.includes('width="1200"') || !svg.includes('height="630"') || !svg.includes(post.locales[locale].heroAlt.replaceAll("&", "&amp;").replaceAll("'", "&#39;")))) {
         errors.push(`${locale}/${post.heroAsset}.svg is missing localized intrinsic or accessible content`);
       }
       if (png.subarray(0, 8).toString("hex") !== "89504e470d0a1a0a" || png.readUInt32BE(16) !== 1200 || png.readUInt32BE(20) !== 630) {

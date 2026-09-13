@@ -543,6 +543,245 @@
           }
         }
       }
+    },
+    {
+      "id": "siri-ai-sourceshelf-ios-27-macos-27",
+      "source": "siri-ai-sourceshelf-ios-27-macos-27.md",
+      "route": "/blog/siri-ai-sourceshelf-ios-27-macos-27/",
+      "published": "2026-09-13",
+      "modified": "2026-09-13",
+      "author": "SourceShelf",
+      "heroAsset": "siri-ai-local-research",
+      "heroSourceFile": "assets/shared/siri-ai-local-research.png",
+      "heroFormat": "webp",
+      "visualKind": "siri-ai",
+      "mediaOptional": true,
+      "articleGraphics": [
+        {
+          "id": "siri-ai-knowledge-paths",
+          "format": "svg",
+          "width": 1200,
+          "height": 780,
+          "mobileWidth": 720,
+          "mobileHeight": 1360
+        }
+      ],
+      "requiredExternalLinks": [
+        "https://developer.apple.com/documentation/updates/foundationmodels",
+        "https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/",
+        "https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai",
+        "https://developer.apple.com/documentation/appintents/making-app-entities-available-in-spotlight",
+        "https://developer.apple.com/videos/play/wwdc2026/246/",
+        "https://developer.apple.com/wwdc26/guides/ios/",
+        "https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/"
+      ],
+      "requiredLogicalLinks": [
+        "/blog/what-is-open-knowledge-format-okf/",
+        "/examples/japan-trip-ai-planner/"
+      ],
+      "locales": {
+        "en": {
+          "seoTitle": "Siri AI + SourceShelf on iOS 27 and macOS 27",
+          "metaDescription": "See how macOS 27 improves SourceShelf’s private Ask This Pack AI and how Siri AI could discover structured research through Spotlight on iOS 27 and macOS 27.",
+          "excerpt": "A stronger Apple Foundation Model improves Ask This Pack in our macOS testing, while Siri AI and Spotlight create a system-level path to organized SourceShelf knowledge.",
+          "articleLabel": "Apple Intelligence and local research",
+          "heroAlt": "Research pages flow into a local SourceShelf Pack, then branch to a cited conversation, an open document bundle, and semantic discovery.",
+          "ctaTitle": "Keep your research useful as AI improves",
+          "ctaDescription": "Collect sources, ask focused questions, and export portable knowledge with SourceShelf.",
+          "diagram": {
+            "title": "One Pack. Three paths.",
+            "subtitle": "The collection stays yours. Each path serves a different purpose.",
+            "sources": "PDFs · webpages · notes · Office files",
+            "pack": "SourceShelf Pack",
+            "packDetail": "Local, structured research",
+            "cards": [
+              [
+                "Ask This Pack",
+                "Selected evidence",
+                "On-device model",
+                "Answers with citations"
+              ],
+              [
+                "OKF bundle",
+                "Markdown + metadata",
+                "Portable export",
+                "Use with compatible tools"
+              ],
+              [
+                "Siri AI",
+                "App Entities → Spotlight",
+                "Systemwide discovery",
+                "Requires app integration"
+              ]
+            ],
+            "note": "Conceptual Siri path. An OKF export does not automatically enter Siri’s index."
+          },
+          "publishedLabel": "Published",
+          "byLabel": "By",
+          "ctaButton": "View SourceShelf on the Mac App Store"
+        },
+        "fr": {
+          "seoTitle": "Siri AI + SourceShelf sur iOS 27 et macOS 27",
+          "metaDescription": "Découvrez les progrès d’Ask This Pack sous macOS 27 et comment Siri AI pourrait retrouver vos recherches SourceShelf grâce à Spotlight.",
+          "excerpt": "Un modèle Apple plus performant améliore Ask This Pack dans nos tests sur Mac. Siri AI et Spotlight ouvrent une voie vers les connaissances organisées dans SourceShelf.",
+          "articleLabel": "Apple Intelligence et recherche locale",
+          "heroAlt": "Des sources rejoignent un pack SourceShelf local, puis une conversation avec citations, un bundle ouvert et la recherche sémantique.",
+          "ctaTitle": "Des recherches utiles à mesure que l’IA progresse",
+          "ctaDescription": "Rassemblez des sources, posez des questions ciblées et exportez vos connaissances avec SourceShelf.",
+          "diagram": {
+            "title": "Un pack. Trois voies.",
+            "subtitle": "Votre collection, plusieurs façons de l’utiliser.",
+            "sources": "PDF · pages web · notes · fichiers Office",
+            "pack": "Pack SourceShelf",
+            "packDetail": "Recherche locale structurée",
+            "cards": [
+              [
+                "Ask This Pack",
+                "Sources sélectionnées",
+                "Modèle sur l’appareil",
+                "Réponses avec citations"
+              ],
+              [
+                "Bundle OKF",
+                "Markdown + métadonnées",
+                "Export portable",
+                "Pour les outils compatibles"
+              ],
+              [
+                "Siri AI",
+                "App Entities → Spotlight",
+                "Découverte dans le système",
+                "Intégration de l’app requise"
+              ]
+            ],
+            "note": "Parcours Siri conceptuel. Un export OKF n’entre pas automatiquement dans son index."
+          },
+          "publishedLabel": "Publié le",
+          "byLabel": "Par",
+          "ctaButton": "Voir SourceShelf sur le Mac App Store"
+        },
+        "es-419": {
+          "seoTitle": "Siri AI + SourceShelf en iOS 27 y macOS 27",
+          "metaDescription": "Conoce las mejoras de Ask This Pack en macOS 27 y cómo Siri AI podría encontrar investigaciones de SourceShelf mediante Spotlight.",
+          "excerpt": "Un modelo de Apple más potente mejora Ask This Pack en nuestras pruebas en Mac. Siri AI y Spotlight abren una vía al conocimiento organizado en SourceShelf.",
+          "articleLabel": "Apple Intelligence e investigación local",
+          "heroAlt": "Las fuentes llegan a un paquete local de SourceShelf y se conectan con respuestas citadas, un paquete abierto y la búsqueda semántica.",
+          "ctaTitle": "Investigaciones útiles mientras la IA mejora",
+          "ctaDescription": "Reúne fuentes, haz preguntas específicas y exporta conocimiento portátil con SourceShelf.",
+          "diagram": {
+            "title": "Un paquete. Tres caminos.",
+            "subtitle": "Tu colección sigue siendo tuya, con distintas formas de usarla.",
+            "sources": "PDF · páginas web · notas · archivos Office",
+            "pack": "Paquete de SourceShelf",
+            "packDetail": "Investigación local estructurada",
+            "cards": [
+              [
+                "Ask This Pack",
+                "Evidencia seleccionada",
+                "Modelo en el dispositivo",
+                "Respuestas con citas"
+              ],
+              [
+                "Paquete OKF",
+                "Markdown + metadatos",
+                "Exportación portátil",
+                "Para herramientas compatibles"
+              ],
+              [
+                "Siri AI",
+                "App Entities → Spotlight",
+                "Búsqueda en todo el sistema",
+                "Requiere integración de la app"
+              ]
+            ],
+            "note": "Ruta conceptual de Siri. Exportar un OKF no lo añade automáticamente a su índice."
+          },
+          "publishedLabel": "Publicado el",
+          "byLabel": "Por",
+          "ctaButton": "Ver SourceShelf en el Mac App Store"
+        },
+        "pt-BR": {
+          "seoTitle": "Siri AI + SourceShelf no iOS 27 e macOS 27",
+          "metaDescription": "Veja as melhorias do Ask This Pack no macOS 27 e como a Siri AI poderia encontrar pesquisas do SourceShelf pelo Spotlight.",
+          "excerpt": "Um modelo da Apple mais capaz melhora o Ask This Pack nos nossos testes no Mac. Siri AI e Spotlight abrem um caminho para o conhecimento organizado no SourceShelf.",
+          "articleLabel": "Apple Intelligence e pesquisa local",
+          "heroAlt": "Fontes entram em um pacote local do SourceShelf e se conectam a respostas com citações, um pacote aberto e à busca semântica.",
+          "ctaTitle": "Pesquisas úteis enquanto a IA evolui",
+          "ctaDescription": "Reúna fontes, faça perguntas específicas e exporte conhecimento portátil com o SourceShelf.",
+          "diagram": {
+            "title": "Um pacote. Três caminhos.",
+            "subtitle": "Sua coleção continua sendo sua, com diferentes formas de uso.",
+            "sources": "PDFs · páginas web · notas · arquivos Office",
+            "pack": "Pacote do SourceShelf",
+            "packDetail": "Pesquisa local estruturada",
+            "cards": [
+              [
+                "Ask This Pack",
+                "Evidências selecionadas",
+                "Modelo no dispositivo",
+                "Respostas com citações"
+              ],
+              [
+                "Pacote OKF",
+                "Markdown + metadados",
+                "Exportação portátil",
+                "Para ferramentas compatíveis"
+              ],
+              [
+                "Siri AI",
+                "App Entities → Spotlight",
+                "Busca em todo o sistema",
+                "Requer integração do app"
+              ]
+            ],
+            "note": "Caminho conceitual da Siri. Exportar um OKF não o adiciona automaticamente ao índice."
+          },
+          "publishedLabel": "Publicado em",
+          "byLabel": "Por",
+          "ctaButton": "Ver o SourceShelf na Mac App Store"
+        },
+        "ja": {
+          "seoTitle": "iOS 27・macOS 27のSiri AIとSourceShelf",
+          "metaDescription": "macOS 27で向上するSourceShelfのAsk This Packと、Spotlightを通じてリサーチを探すSiri AIの連携の可能性を紹介します。",
+          "excerpt": "Macでのテストでは、強化されたAppleのモデルがAsk This Packの回答を改善。Siri AIとSpotlightは、SourceShelfで整理した知識をシステムから見つける道を開きます。",
+          "articleLabel": "Apple Intelligenceとローカルリサーチ",
+          "heroAlt": "資料がローカルのSourceShelfパックに集まり、引用付きの会話、オープンな文書バンドル、意味検索へと分岐する図。",
+          "ctaTitle": "AIが進化しても、リサーチを活用",
+          "ctaDescription": "SourceShelfで資料を集め、目的に沿った質問をし、知識を持ち運べる形式で書き出しましょう。",
+          "diagram": {
+            "title": "1つのパック、3つの活用方法",
+            "subtitle": "コレクションを自分で管理し、目的に合わせて活用。",
+            "sources": "PDF・Webページ・メモ・Officeファイル",
+            "pack": "SourceShelfパック",
+            "packDetail": "ローカルで構造化したリサーチ",
+            "cards": [
+              [
+                "Ask This Pack",
+                "選択した根拠",
+                "オンデバイスモデル",
+                "引用付きの回答"
+              ],
+              [
+                "OKFバンドル",
+                "Markdownとメタデータ",
+                "持ち運べるエクスポート",
+                "対応ツールで活用"
+              ],
+              [
+                "Siri AI",
+                "App Entities → Spotlight",
+                "システム全体から発見",
+                "アプリ側の連携が必要"
+              ]
+            ],
+            "note": "Siri連携の概念図。OKFの書き出しだけではSiriの索引に登録されません。"
+          },
+          "publishedLabel": "公開日",
+          "byLabel": "著者",
+          "ctaButton": "Mac App StoreでSourceShelfを見る"
+        }
+      },
+      "publishMarkdown": true
     }
   ]
 }

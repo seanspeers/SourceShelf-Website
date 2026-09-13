@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780" role="img" aria-labelledby="title description">
+  <title id="title">Un paquete. Tres caminos.</title><desc id="description">PDF · páginas web · notas · archivos Office. Paquete de SourceShelf. Ask This Pack: Evidencia seleccionada: Modelo en el dispositivo: Respuestas con citas. Paquete OKF: Markdown + metadatos: Exportación portátil: Para herramientas compatibles. Siri AI: App Entities → Spotlight: Búsqueda en todo el sistema: Requiere integración de la app. Ruta conceptual de Siri. Exportar un OKF no lo añade automáticamente a su índice.</desc>
+  <defs><radialGradient id="background"><stop stop-color="#133653"/><stop offset="1" stop-color="#07182d"/></radialGradient></defs>
+  <rect width="1200" height="780" rx="30" fill="url(#background)"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <text x="600" y="73" text-anchor="middle" fill="#f5fbff" font-size="44" font-weight="650">Un paquete. Tres caminos.</text>
+  <text x="600" y="115" text-anchor="middle" fill="#9dbad0" font-size="22" font-weight="400">Tu colección sigue siendo tuya, con distintas formas de usarla.</text>
+  <text x="600" y="156" text-anchor="middle" fill="#bfd6e5" font-size="22" font-weight="400">PDF · páginas web · notas · archivos Office</text>
+  <path d="M600 170v35" stroke="#68e3e3" stroke-width="3"/>
+  <rect x="400" y="205" width="400" height="110" rx="22" fill="#123c57" stroke="#68e3e3"/>
+  <text x="600" y="251" text-anchor="middle" fill="#f5fbff" font-size="29.752066115702473" font-weight="650">Paquete de SourceShelf</text>
+  <text x="600" y="285" text-anchor="middle" fill="#b1e7eb" font-size="20.454545454545446" font-weight="400">Investigación local estructurada</text>
+  <g fill="none" stroke="#6da6ba" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M600 315v48M224 410v-47h752v47M600 363v47"/></g>
+  <g><rect x="48" y="410" width="352" height="250" rx="24" fill="#0c2944" stroke="#68e3e3" stroke-opacity=".55"/>
+      <g transform="translate(224,452)" fill="none" stroke="#68e3e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-19-14h38v25h-20l-12 9v-9h-6zM-10-4h20M-10 4h13"/></g>
+      <text x="224" y="504" text-anchor="middle" fill="#f5fbff" font-size="29" font-weight="650">Ask This Pack</text>
+      <text x="224" y="547" text-anchor="middle" fill="#bbd0e1" font-size="22" font-weight="400">Evidencia seleccionada</text>
+      <text x="224" y="584" text-anchor="middle" fill="#bbd0e1" font-size="22" font-weight="400">Modelo en el dispositivo</text>
+      <text x="224" y="624" text-anchor="middle" fill="#68e3e3" font-size="21" font-weight="600">Respuestas con citas</text></g><g><rect x="424" y="410" width="352" height="250" rx="24" fill="#0c2944" stroke="#92bfff" stroke-opacity=".55"/>
+      <g transform="translate(600,452)" fill="none" stroke="#92bfff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M-16-19h22l10 10v29h-32zM6-19v11h10M-8 1h16M-8 10h16"/></g>
+      <text x="600" y="504" text-anchor="middle" fill="#f5fbff" font-size="29" font-weight="650">Paquete OKF</text>
+      <text x="600" y="547" text-anchor="middle" fill="#bbd0e1" font-size="22" font-weight="400">Markdown + metadatos</text>
+      <text x="600" y="584" text-anchor="middle" fill="#bbd0e1" font-size="22" font-weight="400">Exportación portátil</text>
+      <text x="600" y="624" text-anchor="middle" fill="#92bfff" font-size="19.81191222570532" font-weight="600">Para herramientas compatibles</text></g><g><rect x="800" y="410" width="352" height="250" rx="24" fill="#0c2944" stroke="#b8a2ff" stroke-opacity=".55"/>
+      <g transform="translate(976,452)" fill="none" stroke="#b8a2ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="-3" cy="-3" r="14"/><path d="M8 8l13 13"/></g>
+      <text x="976" y="504" text-anchor="middle" fill="#f5fbff" font-size="29" font-weight="650">Siri AI</text>
+      <text x="976" y="547" text-anchor="middle" fill="#bbd0e1" font-size="22" font-weight="400">App Entities → Spotlight</text>
+      <text x="976" y="584" text-anchor="middle" fill="#bbd0e1" font-size="20.74074074074073" font-weight="400">Búsqueda en todo el sistema</text>
+      <text x="976" y="624" text-anchor="middle" fill="#b8a2ff" font-size="19.15151515151514" font-weight="600">Requiere integración de la app</text></g>
+  <text x="600" y="720" text-anchor="middle" fill="#aac0d0" font-size="21" font-weight="400">Ruta conceptual de Siri. Exportar un OKF no lo añade automáticamente a su índice.</text>
+  </g></svg>

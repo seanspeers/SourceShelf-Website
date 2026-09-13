@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Découvrez les progrès d’Ask This Pack sous macOS 27 et comment Siri AI pourrait retrouver vos recherches SourceShelf grâce à Spotlight.">
+  <meta name="theme-color" content="#08244d">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="describedby" href="/llms.txt">
+  <link rel="alternate" type="text/markdown" href="/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/index.md">
+  <link rel="alternate" hreflang="en" href="https://sourceshelf.app/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="alternate" hreflang="fr" href="https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="alternate" hreflang="es-419" href="https://sourceshelf.app/es-419/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sourceshelf.app/pt-BR/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="alternate" hreflang="ja" href="https://sourceshelf.app/ja/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <link rel="alternate" hreflang="x-default" href="https://sourceshelf.app/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Siri AI + SourceShelf sur iOS 27 et macOS 27">
+  <meta property="og:description" content="Découvrez les progrès d’Ask This Pack sous macOS 27 et comment Siri AI pourrait retrouver vos recherches SourceShelf grâce à Spotlight.">
+  <meta property="og:url" content="https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/">
+  <meta property="og:image" content="https://sourceshelf.app/assets/blog/fr/siri-ai-local-research.png">
+  <meta property="article:published_time" content="2026-09-13">
+  <meta property="article:modified_time" content="2026-09-13">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Siri AI + SourceShelf sur iOS 27 et macOS 27">
+  <meta name="twitter:description" content="Découvrez les progrès d’Ask This Pack sous macOS 27 et comment Siri AI pourrait retrouver vos recherches SourceShelf grâce à Spotlight.">
+  <meta name="twitter:image" content="https://sourceshelf.app/assets/blog/fr/siri-ai-local-research.png">
+  <title>Siri AI + SourceShelf sur iOS 27 et macOS 27</title>
+  <link rel="icon" href="/assets/icons/SourceShelf-Icon-lightmode.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/SourceShelf-Icon-lightmode.png">
+  <link rel="stylesheet" href="/styles.css?v=20260825-1">
+  <script src="/locale.js?v=20260825-1"></script>
+  <script>
+    window.SourceShelfLocale.bootstrap("fr");
+    (function () {
+      try {
+        var theme = localStorage.getItem("sourceshelf-theme");
+        if (theme === "light" || theme === "dark") {
+          document.documentElement.setAttribute("data-theme", theme);
+        }
+      } catch (error) {}
+    })();
+  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Siri AI rencontre SourceShelf dans iOS 27 et macOS 27","description":"Découvrez les progrès d’Ask This Pack sous macOS 27 et comment Siri AI pourrait retrouver vos recherches SourceShelf grâce à Spotlight.","image":"https://sourceshelf.app/assets/blog/fr/siri-ai-local-research.png","mainEntityOfPage":"https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/","url":"https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/","datePublished":"2026-09-13","dateModified":"2026-09-13","inLanguage":"fr","articleSection":"Apple Intelligence et recherche locale","author":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/"},"publisher":{"@type":"Organization","name":"SourceShelf","url":"https://sourceshelf.app/","logo":{"@type":"ImageObject","url":"https://sourceshelf.app/assets/icons/SourceShelf-Icon-lightmode.png"}}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://sourceshelf.app/fr/"},{"@type":"ListItem","position":2,"name":"Blog SourceShelf","item":"https://sourceshelf.app/fr/blog/"},{"@type":"ListItem","position":3,"name":"Siri AI rencontre SourceShelf dans iOS 27 et macOS 27","item":"https://sourceshelf.app/fr/blog/siri-ai-sourceshelf-ios-27-macos-27/"}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Aller au contenu</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Navigation principale">
+      <a class="brand" href="/fr/">
+        <img class="brand-icon" src="/assets/icons/SourceShelf-Icon-lightmode.png" alt="" width="36" height="36">
+        <span>SourceShelf</span>
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="/fr/">Accueil</a>
+        <a class="nav-link" href="/fr/blog/" aria-current="page">Blog</a>
+        <a class="nav-link" href="/fr/privacy.html">Confidentialité</a>
+        <a class="nav-link" href="/fr/docs/">Documentation</a>
+        <a class="nav-link" href="/fr/support.html">Assistance</a>
+        <a class="nav-download" href="https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729" aria-label="Télécharger SourceShelf dans l’App Store">Télécharger</a>
+        <label class="locale-picker"><span class="visually-hidden">Langue</span><select data-locale-select aria-label="Choisir la langue"><option value="en" lang="en">English</option><option value="fr" lang="fr" selected>Français</option><option value="es-419" lang="es-419">Español (Latinoamérica)</option><option value="pt-BR" lang="pt-BR">Português (Brasil)</option><option value="ja" lang="ja">日本語</option></select></label>
+        <button class="theme-toggle" type="button" data-theme-toggle data-light-label="Passer au mode clair" data-dark-label="Passer au mode sombre" aria-label="Activer ou désactiver le mode sombre" aria-pressed="false">
+          <span class="theme-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+  <main id="main" class="main blog-main">
+    <div class="blog-page blog-article-page">
+      <nav class="breadcrumbs blog-breadcrumbs" aria-label="Fil d’Ariane"><ol><li><a href="/fr/">Accueil</a></li><li><a href="/fr/blog/">Blog SourceShelf</a></li><li aria-current="page">Siri AI rencontre SourceShelf dans iOS 27 et macOS 27</li></ol></nav>
+      <article class="blog-article">
+        <header class="blog-article-header">
+          <p class="eyebrow">Apple Intelligence et recherche locale</p>
+          <h1 id="siri-ai-rencontre-sourceshelf-dans-ios-27-et-macos-27">Siri AI rencontre SourceShelf dans iOS 27 et macOS 27</h1>
+          <p class="blog-article-excerpt">Un modèle Apple plus performant améliore Ask This Pack dans nos tests sur Mac. Siri AI et Spotlight ouvrent une voie vers les connaissances organisées dans SourceShelf.</p>
+          <div class="blog-article-meta">
+            <span>Publié le <time datetime="2026-09-13">13 septembre 2026</time></span>
+            <span>Par SourceShelf</span>
+
+          </div>
+          <figure class="blog-hero-figure">
+    <picture>
+      <img src="/assets/blog/fr/siri-ai-local-research.webp" srcset="/assets/blog/fr/siri-ai-local-research-800.webp 800w, /assets/blog/fr/siri-ai-local-research.webp 1200w" sizes="(max-width: 900px) calc(100vw - 40px), 960px" alt="Des sources rejoignent un pack SourceShelf local, puis une conversation avec citations, un bundle ouvert et la recherche sémantique." width="1200" height="630" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </figure>
+        </header>
+        <details class="docs-toc-mobile blog-toc-mobile"><summary>Sur cette page</summary><nav class="docs-toc-list" aria-label="Table des matières mobile"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#ask-this-pack-bénéficie-dun-meilleur-modèle">Ask This Pack bénéficie d’un meilleur modèle</a></li><li class="toc-level-2"><a href="#la-même-version-sourceshelf-de-meilleures-réponses">La même version SourceShelf, de meilleures réponses</a></li><li class="toc-level-3"><a href="#performances-sur-macos-27">Performances sur macOS 27</a></li><li class="toc-level-2"><a href="#la-recherche-hybride-reste-importante">La recherche hybride reste importante</a></li><li class="toc-level-2"><a href="#siri-ai-change-ce-que-signifie-spotlight">Siri AI change ce que signifie Spotlight</a></li><li class="toc-level-2"><a href="#du-paquet-au-contexte-personnel-de-siri">Du paquet au contexte personnel de Siri</a></li><li class="toc-level-2"><a href="#des-réponses-ciblées-et-une-découverte-à-léchelle-du-système">Des réponses ciblées et une découverte à l&#39;échelle du système</a></li><li class="toc-level-2"><a href="#dabord-local-avec-des-limites-de-confidentialité-précises">D&#39;abord local, avec des limites de confidentialité précises</a></li><li class="toc-level-2"><a href="#pourquoi-la-connaissance-ouverte-devient-plus-précieuse">Pourquoi la connaissance ouverte devient plus précieuse</a></li><li class="toc-level-2"><a href="#disponibilité-et-ce-à-quoi-sattendre">Disponibilité et ce à quoi s&#39;attendre</a></li><li class="toc-level-2"><a href="#un-paquet-plusieurs-façons-de-lutiliser">Un paquet, plusieurs façons de l&#39;utiliser</a></li><li class="toc-level-2"><a href="#sources-officielles">Sources officielles</a></li></ol></nav></details>
+        <div class="blog-article-layout">
+          <div class="docs-article blog-copy">
+            <div class="docs-article-body">
+              <p>iOS 27 et macOS 27 apportent deux changements importants pour les utilisateurs de SourceShelf : un modèle plus performant dans <strong>Ask This Pack</strong>, et une architecture système plus riche pour retrouver des recherches grâce à <strong>Siri AI</strong>.</p>
+<p>Dans nos tests macOS 27, Ask This Pack a produit des réponses plus complètes, suivi les instructions plus attentivement et géré les citations plus efficacement avec le même code de récupération SourceShelf et les mêmes invites.</p>
+<p>Au niveau du système, la nouvelle architecture Siri AI d’Apple permet aux applications de rendre leur contenu accessible via Spotlight et App Intents. Pour SourceShelf, cela ouvre une voie entre les recherches que vous organisez et leur découverte à l’échelle du système.</p>
+<p>Ce sont des capacités complémentaires. <strong>Ask This Pack se concentre sur un Pack que vous choisissez. Siri AI peut découvrir le contenu des applications mis à disposition dans l&#39;index système d&#39;Apple.</strong> Le flux de travail Siri décrit ici est une opportunité d&#39;intégration, plutôt qu&#39;une affirmation selon laquelle chaque SourceShelf Pack est déjà disponible pour Siri.</p>
+              <h2 id="ask-this-pack-bénéficie-dun-meilleur-modèle">Ask This Pack bénéficie d’un meilleur modèle <a class="heading-anchor" href="#ask-this-pack-bénéficie-dun-meilleur-modèle" aria-label="Lien vers la section: Ask This Pack bénéficie d’un meilleur modèle"><span aria-hidden="true">#</span></a></h2>
+<p>La fonctionnalité Ask This Pack de SourceShelf sépare la récupération de la génération.</p>
+<p>Lorsque vous posez une question, SourceShelf recherche des sources dans le pack sélectionné, constitue un ensemble limité d’éléments pertinents et demande au modèle Foundation d’Apple, exécuté sur l’appareil, de répondre à partir de ces éléments. Le modèle n’a pas besoin de connaître vos recherches à l’avance : SourceShelf lui fournit les sources nécessaires.</p>
+<p>Cette architecture permet à SourceShelf de bénéficier des améliorations du modèle système d’Apple sans remplacer son moteur de recherche ni transférer vos recherches vers un autre service d’IA.</p>
+<p>Les <a href="https://developer.apple.com/documentation/updates/foundationmodels">mises à jour de Foundation Models</a> confirment qu’iOS 27, iPadOS 27, macOS 27 et visionOS 27 intègrent un <code>SystemLanguageModel</code> sur l’appareil plus performant pour suivre les instructions et traiter les situations complexes. Apple conseille aux développeurs de retester leurs prompts après la mise à niveau du système, car le modèle sous-jacent change.</p>
+<p>Nous l&#39;avons fait.</p>
+<h2 id="la-même-version-sourceshelf-de-meilleures-réponses">La même version SourceShelf, de meilleures réponses <a class="heading-anchor" href="#la-même-version-sourceshelf-de-meilleures-réponses" aria-label="Lien vers la section: La même version SourceShelf, de meilleures réponses"><span aria-hidden="true">#</span></a></h2>
+<p>Nous avons relancé notre test de référence <strong>Japan Adventure</strong> Ask This Pack à dix questions sur macOS 27. Le code d&#39;application SourceShelf, le paquet, les questions, l&#39;architecture de récupération et les invites n&#39;ont pas été modifiés. La mise à niveau du système d&#39;exploitation a apporté le modèle Foundation mis à jour d&#39;Apple, ainsi que d&#39;autres modifications du système.</p>
+<p>L’exécution a satisfait <strong>les 10 contrôles de recherche, d’appui sur les sources et de citations</strong>. Ce taux de réussite concerne ce test précis ; il ne signifie pas que chaque réponse était exhaustive ou sans erreur.</p>
+<p>Les neuf questions auxquelles le pack permettait de répondre ont donné des réponses accompagnées de citations valides. Pour la question sur Hokkaido, volontairement sans réponse dans les sources, SourceShelf s’est correctement abstenu dès la recherche, sans appeler le modèle d’Apple.</p>
+<p>Plusieurs réponses auparavant difficiles se sont nettement améliorées :</p>
+<ul><li>L’itinéraire comprenait les dix jours.</li><li>La réponse sur Hakone conservait toutes les étapes du trajet et les deux options prévues selon la météo.</li><li>Les recommandations de temples précisaient les priorités et les moments de visite.</li><li>Les réponses sur l’hébergement, le train, le budget, les repas et les sources contradictoires étaient exactes et utiles.</li></ul>
+<p>Il y avait encore des omissions. Une liste de vérification exhaustive des réservations a omis un élément de mesure des bagages et a répété un élément de note diététique. Une réponse alimentaire a négligé une recommandation facultative du jour 6. Les citations et l&#39;examen des sources restent utiles même lorsque la réponse globale est bonne.</p>
+<h3 id="performances-sur-macos-27">Performances sur macOS 27 <a class="heading-anchor" href="#performances-sur-macos-27" aria-label="Lien vers la section: Performances sur macOS 27"><span aria-hidden="true">#</span></a></h3>
+<section class="table-wrap" tabindex="0" aria-label="Tableau défilant"><table><thead><tr><th scope="col">Métrique</th><th scope="col">Résultat macOS 27</th></tr></thead><tbody><tr><td>Récupération moyenne</td><td>0,506 s</td></tr>
+<tr><td>Délai moyen avant le premier texte</td><td>1,127 s</td></tr>
+<tr><td>Durée médiane de génération</td><td>5,541 s</td></tr>
+<tr><td>Durée moyenne de génération</td><td>7,565 s</td></tr></tbody></table></section>
+<p>Les réponses aux deux questions les plus exhaustives, sur l’itinéraire complet et la liste des réservations, ont chacune demandé environ 15 secondes de génération. Ce temps supplémentaire a produit des réponses nettement plus complètes.</p>
+<p>Il s&#39;agit des résultats de test internes de SourceShelf. Il ne s&#39;agit pas d&#39;une comparaison contrôlée entre macOS 26 et macOS 27 : nous ne pouvons plus redémarrer le système d&#39;exploitation précédent sur la même machine, et une mise à niveau du système d&#39;exploitation peut modifier plus que le modèle. Les résultats sont cohérents avec les améliorations de modèle documentées par Apple, mais ne distinguent pas leur contribution de chaque autre changement de système.</p>
+<p>L&#39;observation pratique reste utile : <strong>le même pipeline de preuves SourceShelf a produit des réponses nettement meilleures sur macOS 27.</strong> Vous pouvez voir le flux de travail de recherche sous-jacent dans notre <a href="/fr/examples/japan-trip-ai-planner/">Exemple de planification d&#39;un voyage au Japon</a>.</p>
+<h2 id="la-recherche-hybride-reste-importante">La recherche hybride reste importante <a class="heading-anchor" href="#la-recherche-hybride-reste-importante" aria-label="Lien vers la section: La recherche hybride reste importante"><span aria-hidden="true">#</span></a></h2>
+<p>L&#39;un des résultats met en évidence pourquoi SourceShelf combine la recherche sémantique et lexicale.</p>
+<p>Pour une question concernant des informations contradictoires, Core Spotlight a rejeté la branche de recherche sémantique comme peu sûre. Le chemin lexical de SourceShelf a néanmoins trouvé les preuves correctes, et la réponse finale est restée exacte.</p>
+<p>La recherche sémantique trouve des idées connexes même lorsque le libellé diffère. La recherche lexicale aide avec les noms exacts, les dates, les expressions et les identifiants, et fournit une autre voie lorsque la recherche sémantique échoue. Dans cette exécution, le maintien des deux chemins a empêché une recherche rejetée de devenir une réponse infructueuse.</p>
+<p>La session WWDC26 d&#39;Apple, <a href="https://developer.apple.com/videos/play/wwdc2026/246/">Recherche de LLM en utilisant Core Spotlight</a>, démontre la connexion de contenu indexé au framework Foundation Models par appel d&#39;outils. Elle explique également comment les métadonnées et la conception de la récupération affectent la qualité des réponses ancrées.</p>
+<p>Un modèle plus fort aide à obtenir la réponse finale. La récupération détermine toujours les preuves qu&#39;il reçoit.</p>
+<h2 id="siri-ai-change-ce-que-signifie-spotlight">Siri AI change ce que signifie Spotlight <a class="heading-anchor" href="#siri-ai-change-ce-que-signifie-spotlight" aria-label="Lien vers la section: Siri AI change ce que signifie Spotlight"><span aria-hidden="true">#</span></a></h2>
+<p>Le deuxième changement se produit en dehors d’Ask This Pack.</p>
+<p>La <a href="https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/">présentation de Siri AI</a> d’Apple décrit un assistant repensé qui combine des modèles de langage, le contexte personnel, la compréhension du contenu à l’écran et des fonctions système comme Spotlight et App Toolbox. Le contexte personnel peut inclure les applications tierces lorsque leurs développeurs les intègrent à Spotlight.</p>
+<p>Les applications peuvent représenter leur contenu sous la forme d&#39;<strong>Entités d&#39;application</strong> et l’ajouter à l&#39;index sémantique de Spotlight. Apple Intelligence peut ensuite trouver ce contenu lorsque quelqu&#39;un décrit ce dont il a besoin, même lorsque le libellé ne correspond pas exactement au titre. Apple documente cela dans <a href="https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai">Apple Intelligence et Siri AI</a> et <a href="https://developer.apple.com/documentation/appintents/making-app-entities-available-in-spotlight">Mettre les entités d&#39;application à disposition dans Spotlight</a>.</p>
+<p>Cela crée un lien naturel avec les collections de recherche structurées de SourceShelf.</p>
+<h2 id="du-paquet-au-contexte-personnel-de-siri">Du paquet au contexte personnel de Siri <a class="heading-anchor" href="#du-paquet-au-contexte-personnel-de-siri" aria-label="Lien vers la section: Du paquet au contexte personnel de Siri"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf transforme les PDF, pages web, documents numérisés, notes, présentations, feuilles de calcul et autres recherches en packs ciblés. Un pack peut aussi être exporté en <strong>bundle Open Knowledge Format (OKF) v0.2</strong>, avec des documents Markdown lisibles et des informations structurées sur les sources.</p>
+<p>Notre <a href="/fr/blog/what-is-open-knowledge-format-okf/">guide d’Open Knowledge Format</a> explique comment Markdown, les métadonnées, la provenance et un index rendent ces connaissances portables. La <a href="https://github.com/GoogleCloudPlatform/knowledge-catalog/blob/main/okf/SPEC.md">spécification OKF</a> décrit le format lui-même.</p>
+<p>L&#39;architecture d&#39;Apple offre une autre utilisation possible de ces mêmes connaissances organisées.</p>
+<figure class="docs-figure blog-article-figure blog-diagram-figure">
+  <a href="/assets/blog/fr/siri-ai-knowledge-paths.svg">
+  <picture class="blog-responsive-art" style="--mobile-aspect: 720 / 1360">
+    <source media="(max-width: 600px)" srcset="/assets/blog/fr/siri-ai-knowledge-paths-mobile.svg">
+    <img src="/assets/blog/fr/siri-ai-knowledge-paths.svg" alt="Un ensemble SourceShelf se décline en Ask This Pack pour obtenir des réponses locales, un ensemble OKF pour l&#39;exportation portable et une intégration potentielle de l&#39;IA Siri via les entités d&#39;application et Spotlight. La branche Siri nécessite une intégration d&#39;application." width="1200" height="780" loading="lazy" decoding="async">
+  </picture>
+  </a>
+</figure>
+<p>Le diagramme montre un chemin d&#39;intégration conceptuelle. <strong>Siri n&#39;a pas besoin de devenir un parseur OKF, et l&#39;exportation d&#39;un ZIP ne l&#39;ajoute pas automatiquement au contexte personnel de Siri.</strong></p>
+<p>Au lieu de cela, SourceShelf peut utiliser sa connaissance du Pack et de sa structure compatible avec OKF pour représenter du contenu utile sous forme d&#39;Entités d&#39;application. Grâce à l&#39;intégration appropriée de Spotlight et d’App Intents, ces entités peuvent devenir découvrables par le système. Une exportation de OKF et un index Spotlight sont des sorties distinctes de la collection sous-jacente ; exporter un fichier OKF n&#39;est pas une condition préalable à l&#39;indexation du contenu d&#39;application.</p>
+<p>Le <a href="https://developer.apple.com/wwdc26/guides/ios/">Guide iOS WWDC26</a> d&#39;Apple explique que les schémas d’entités ajoutent le contenu de l’application à l&#39;index sémantique, où Siri peut le présenter avec une attribution à l&#39;application d&#39;origine.</p>
+<p><strong>Les connaissances restent portables. L&#39;index est une autre façon de les utiliser.</strong></p>
+<h2 id="des-réponses-ciblées-et-une-découverte-à-léchelle-du-système">Des réponses ciblées et une découverte à l&#39;échelle du système <a class="heading-anchor" href="#des-réponses-ciblées-et-une-découverte-à-léchelle-du-système" aria-label="Lien vers la section: Des réponses ciblées et une découverte à l&#39;échelle du système"><span aria-hidden="true">#</span></a></h2>
+<p>Ask This Pack et Siri AI répondent à des besoins différents.</p>
+<p>Avec <strong>Ask This Pack</strong>, vous choisissez la collection. SourceShelf récupère des preuves de cette collection et renvoie des réponses fondées avec des citations. Lorsque la collection ne dispose pas de preuves suffisantes, SourceShelf peut s&#39;abstenir plutôt que d&#39;élargir la recherche à des informations non liées.</p>
+<p>Par exemple :</p>
+<blockquote><p>Que dit mon Pack Japon sur ce que je dois réserver avant d&#39;arriver à Hakone ?</p></blockquote>
+<p>Avec <strong>Siri AI</strong>, le contenu SourceShelf correctement indexé pourrait être trouvé à partir d&#39;une demande au niveau du système, sans ouvrir au préalable un Pack ou se souvenir du titre exact du document.</p>
+<p>La distinction est entre le raisonnement ciblé et la découverte à l&#39;échelle du système. Un Pack reste la collection que vous organisez ; Siri offre une possibilité de trouver le contenu mis à sa disposition.</p>
+<h2 id="dabord-local-avec-des-limites-de-confidentialité-précises">D&#39;abord local, avec des limites de confidentialité précises <a class="heading-anchor" href="#dabord-local-avec-des-limites-de-confidentialité-précises" aria-label="Lien vers la section: D&#39;abord local, avec des limites de confidentialité précises"><span aria-hidden="true">#</span></a></h2>
+<p>Ask This Pack utilise le modèle de base sur appareil d’Apple sur les appareils pris en charge. SourceShelf récupère les preuves localement et n’envoie pas de Pack à un serveur SourceShelf.</p>
+<p>Spotlight est également une fonction système exécutée sur l’appareil. Apple décrit l&#39;orchestrateur système de Siri AI utilisant Spotlight et l&#39;App Toolbox localement, tandis que le traitement du modèle linguistique de Siri peut s&#39;exécuter sur l&#39;appareil ou via Private Cloud Compute. Ces limites d&#39;exécution diffèrent du fonctionnement sur l’appareil d’Ask This Pack. Consultez l’<a href="https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/">annonce de l&#39;architecture Siri AI</a> d&#39;Apple pour cette distinction.</p>
+<p>Rendre le contenu accessible pour Siri ne devrait donc pas être décrit comme une garantie que chaque demande Siri reste sur l&#39;appareil. Cela ne nécessite pas non plus de transformer SourceShelf en un service de connaissances cloud : la Bibliothèque, le Markdown converti, la structure du paquet, les exportations et le pipeline de récupération de SourceShelf restent sous le contrôle de l&#39;utilisateur.</p>
+<h2 id="pourquoi-la-connaissance-ouverte-devient-plus-précieuse">Pourquoi la connaissance ouverte devient plus précieuse <a class="heading-anchor" href="#pourquoi-la-connaissance-ouverte-devient-plus-précieuse" aria-label="Lien vers la section: Pourquoi la connaissance ouverte devient plus précieuse"><span aria-hidden="true">#</span></a></h2>
+<p>L&#39;IA dans les systèmes d&#39;exploitation évolue rapidement. Cela rend les connaissances portables plus utiles.</p>
+<p>Un pack SourceShelf compatible avec OKF conserve des documents Markdown lisibles, les métadonnées, la provenance, les relations entre sources et un index de la collection. SourceShelf peut l’utiliser avec Ask This Pack, l’exporter vers un autre outil compatible ou s’appuyer sur son contenu structuré pour une intégration système.</p>
+<p>La partie durable est la recherche que vous avez collectée et organisée. Un nouveau modèle devrait améliorer la façon dont vous utilisez ces connaissances sans vous obliger à les reconstruire.</p>
+<p>Le modèle de base d&#39;Apple peut changer. Siri peut changer. Votre recherche n&#39;a pas besoin de changer.</p>
+<h2 id="disponibilité-et-ce-à-quoi-sattendre">Disponibilité et ce à quoi s&#39;attendre <a class="heading-anchor" href="#disponibilité-et-ce-à-quoi-sattendre" aria-label="Lien vers la section: Disponibilité et ce à quoi s&#39;attendre"><span aria-hidden="true">#</span></a></h2>
+<p>L’<a href="https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/">annonce de septembre</a> d&#39;Apple indique que Siri AI commence à être déployé avec iOS 27 <strong>en version bêta le 14 septembre 2026</strong>, pour les appareils compatibles configurés en anglais. Pour les fonctionnalités et la compatibilité de macOS 27, consultez l’<a href="https://www.apple.com/os/macos/">aperçu de macOS</a> d&#39;Apple.</p>
+<p>Apple Intelligence nécessite du matériel compatible, y compris les Mac Apple silicon et les iPhones éligibles tels que les modèles iPhone 15 Pro et les modèles ultérieurs compatibles. La disponibilité des fonctionnalités varie selon l&#39;appareil, la langue et la région ; consultez les <a href="https://www.apple.com/apple-intelligence/">informations sur la disponibilité d’Apple Intelligence</a> d&#39;Apple pour votre appareil.</p>
+<p>Pour Ask This Pack, la mise à niveau d&#39;un appareil compatible avec Apple Intelligence activé donne accès au modèle de système mis à jour sur l&#39;appareil. Nos résultats de référence ici proviennent de macOS 27 ; il ne s&#39;agit pas de mesures iPhone distinctes ni d&#39;une garantie de performances identiques sur chaque appareil.</p>
+<p>Le chemin de découverte de Siri dépend également de SourceShelf qui expose du contenu approprié via les API d&#39;intégration d&#39;Apple. La mise à niveau du système d&#39;exploitation ne rend pas à elle seule chaque Pack disponible pour Siri.</p>
+<h2 id="un-paquet-plusieurs-façons-de-lutiliser">Un paquet, plusieurs façons de l&#39;utiliser <a class="heading-anchor" href="#un-paquet-plusieurs-façons-de-lutiliser" aria-label="Lien vers la section: Un paquet, plusieurs façons de l&#39;utiliser"><span aria-hidden="true">#</span></a></h2>
+<p>SourceShelf a commencé avec une idée simple : la recherche devrait rester utile après que vous l&#39;ayez sauvegardée.</p>
+<p>Vous pouvez lire un pack ciblé, l’interroger en privé avec Ask This Pack, l’exporter en bundle OKF ouvert ou le parcourir avec un autre outil compatible. L’architecture d’indexation sémantique de Siri AI ouvre une voie supplémentaire pour retrouver du contenu sélectionné dans les applications.</p>
+<p>La couche d&#39;IA peut continuer à s&#39;améliorer tandis que la collection sous-jacente reste ouverte, structurée, locale et réutilisable.</p>
+<h2 id="sources-officielles">Sources officielles <a class="heading-anchor" href="#sources-officielles" aria-label="Lien vers la section: Sources officielles"><span aria-hidden="true">#</span></a></h2>
+<ul><li><a href="https://developer.apple.com/documentation/updates/foundationmodels">Mises à jour des modèles de fondation - Développeurs Apple</a>: le modèle sur l’appareil mis à jour et les conseils pour retester les prompts.</li><li><a href="https://www.apple.com/newsroom/2026/06/apple-introduces-siri-ai-a-profoundly-more-capable-and-personal-assistant/">Apple présente Siri AI - Apple Newsroom</a>: contexte personnel, architecture du système et limites de la vie privée.</li><li><a href="https://developer.apple.com/documentation/appintents/apple-intelligence-and-siri-ai">Apple Intelligence et Siri AI — Développeur Apple</a>: comment le contenu et les actions de l&#39;application se connectent à Apple Intelligence.</li><li><a href="https://developer.apple.com/documentation/appintents/making-app-entities-available-in-spotlight">Mise à disposition des entités d’application dans Spotlight — développeur Apple</a>: indexation des entités pour la découverte du système.</li><li><a href="https://developer.apple.com/videos/play/wwdc2026/246/">Recherche de LLM en utilisant Core Spotlight — WWDC26</a>: récupération, appel d&#39;outils et qualité des métadonnées.</li><li><a href="https://developer.apple.com/wwdc26/guides/ios/">Guide iOS WWDC26 - Développeur Apple</a>: schémas d&#39;entités et attribution à l&#39;application d&#39;origine.</li><li><a href="https://www.apple.com/newsroom/2026/09/apple-debuts-iphone-18-pro-and-iphone-18-pro-max/">Annonce de l&#39;iPhone de septembre - Apple Newsroom</a>: Lancement de la version bêta de Siri AI le 14 septembre.</li></ul>
+            </div>
+            <section class="blog-cta" aria-labelledby="blog-cta-siri-ai-sourceshelf-ios-27-macos-27">
+              <div>
+                <p class="eyebrow">SourceShelf</p>
+                <h2 id="blog-cta-siri-ai-sourceshelf-ios-27-macos-27">Des recherches utiles à mesure que l’IA progresse</h2>
+                <p>Rassemblez des sources, posez des questions ciblées et exportez vos connaissances avec SourceShelf.</p>
+              </div>
+              <a class="app-store-badge-link" href="https://apps.apple.com/ca/app/sourceshelf-pdf-to-markdown/id6785887729">
+    <img src="/assets/app-store-badges/fr.svg" alt="Voir SourceShelf sur le Mac App Store" width="156.10054" height="40">
+  </a>
+            </section>
+          </div>
+          <aside class="docs-toc blog-toc" aria-label="Contenu de la page"><nav class="docs-toc-list" aria-label="Table des matières"><h2>Sur cette page</h2><ol><li class="toc-level-2"><a href="#ask-this-pack-bénéficie-dun-meilleur-modèle">Ask This Pack bénéficie d’un meilleur modèle</a></li><li class="toc-level-2"><a href="#la-même-version-sourceshelf-de-meilleures-réponses">La même version SourceShelf, de meilleures réponses</a></li><li class="toc-level-3"><a href="#performances-sur-macos-27">Performances sur macOS 27</a></li><li class="toc-level-2"><a href="#la-recherche-hybride-reste-importante">La recherche hybride reste importante</a></li><li class="toc-level-2"><a href="#siri-ai-change-ce-que-signifie-spotlight">Siri AI change ce que signifie Spotlight</a></li><li class="toc-level-2"><a href="#du-paquet-au-contexte-personnel-de-siri">Du paquet au contexte personnel de Siri</a></li><li class="toc-level-2"><a href="#des-réponses-ciblées-et-une-découverte-à-léchelle-du-système">Des réponses ciblées et une découverte à l&#39;échelle du système</a></li><li class="toc-level-2"><a href="#dabord-local-avec-des-limites-de-confidentialité-précises">D&#39;abord local, avec des limites de confidentialité précises</a></li><li class="toc-level-2"><a href="#pourquoi-la-connaissance-ouverte-devient-plus-précieuse">Pourquoi la connaissance ouverte devient plus précieuse</a></li><li class="toc-level-2"><a href="#disponibilité-et-ce-à-quoi-sattendre">Disponibilité et ce à quoi s&#39;attendre</a></li><li class="toc-level-2"><a href="#un-paquet-plusieurs-façons-de-lutiliser">Un paquet, plusieurs façons de l&#39;utiliser</a></li><li class="toc-level-2"><a href="#sources-officielles">Sources officielles</a></li></ol></nav></aside>
+        </div>
+      </article>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-primary">
+        <span>&copy; <span data-current-year>2026</span> SourceShelf</span>
+        <div class="footer-links">
+          <a href="/fr/">Accueil</a>
+          <a href="/fr/examples/">Exemples</a>
+          <a href="/fr/blog/">Blog</a>
+          <a href="/fr/privacy.html">Confidentialité</a>
+          <a href="/fr/docs/">Documentation</a>
+          <a href="/fr/support.html">Assistance</a>
+          <button class="footer-consent-button" type="button" data-analytics-consent-settings>Paramètres d’analyse</button>
+          <a href="mailto:support@sourceshelf.app">support@sourceshelf.app</a>
+        </div>
+      </div>
+      <nav class="footer-use-cases" aria-label="Cas d&#39;utilisation de SourceShelf">
+        <h2>Manières d&#39;utiliser SourceShelf</h2>
+        <ul><li><a href="/fr/private-ai-knowledge-base-mac/">Base de connaissances privée sur l&#39;IA pour Mac</a></li><li><a href="/fr/pdf-to-markdown-mac/">Conversion locale de PDF</a></li><li><a href="/fr/save-webpages-as-markdown-safari/">Capture web Safari</a></li><li><a href="/fr/local-ai-reference-packs/">Contexte axé sur l&#39;IA</a></li><li><a href="/fr/research-archive-mac/">Archives de recherche locale</a></li><li><a href="/fr/mcp-knowledge-base-mac/">Accès en lecture seule aux connaissances de MCP</a></li></ul>
+      </nav>
+    </div>
+  </footer>
+  <section class="analytics-consent-banner" data-analytics-consent-banner hidden role="dialog" aria-labelledby="analytics-consent-title" aria-describedby="analytics-consent-description">
+    <div class="analytics-consent-copy">
+      <p class="eyebrow">Analyse du site Web</p>
+      <h2 id="analytics-consent-title">Aidez-nous à améliorer SourceShelf</h2>
+      <p id="analytics-consent-description">Avec votre autorisation, ce site utilise Google Analytics pour comprendre les pages consultées et les interactions avec les liens. Google Analytics reste désactivé tant que vous ne l’autorisez pas.</p>
+      <a href="/fr/privacy.html">Lire les détails sur la confidentialité du site</a>
+    </div>
+    <div class="analytics-consent-actions">
+      <button class="button button-secondary" type="button" data-analytics-consent-decline>Refuser l’analyse</button>
+      <button class="button button-primary" type="button" data-analytics-consent-accept>Autoriser l’analyse</button>
+    </div>
+  </section>
+  <script src="/script.js?v=20260825-1"></script>
+</body>
+</html>
